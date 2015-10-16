@@ -1,3 +1,9 @@
+#Nyttige linker#
+##Tidsskrifter og konferansepapers##
+https://dl.acm.org
+http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=buh
+http://http://ieeexplore.ieee.org
+
 #pj3100 - gruppe 30#
 legg til beskrivelse
 
@@ -19,7 +25,5 @@ legg til beskrivelse
 |             |  lg = large  |
 | img-responsive  |  Gjør bildet responsivt  |
 Full bredde er 12. Kan settes sammen av 1 + 9, 6 + 6, 2 + 2 + 2 + 6 osv.
-En kolonne, feks col-sm-6 kan igjen ha feks 3 kolonner inni seg. En kolonne tar opp gitt bredde an den boksen den ligge i. 
-Hvis en col-sm-6 ligger helt fritt, da vil den ta halve skjermen. Hvis den ligger inni en boks, vil den ta halve bredden til den boksen. 
-
-
+En kolonne, feks col-sm-6 kan igjen ha feks 3 kolonner inni seg. En kolonne tar opp gitt bredde an den boksen den ligge i.
+Hvis en col-sm-6 ligger helt fritt, da vil den ta halve skjermen. Hvis den ligger inni en boks, vil den ta halve bredden til den boksen.
