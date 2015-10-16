@@ -1,8 +1,10 @@
 #Nyttige linker#
 ##Tidsskrifter og konferansepapers##
 https://dl.acm.org
+
 http://search.ebscohost.com/login.aspx?authtype=ip,uid&profile=ehost&defaultdb=buh
-http://http://ieeexplore.ieee.org
+
+http://ieeexplore.ieee.org
 
 #pj3100 - gruppe 30#
 legg til beskrivelse
