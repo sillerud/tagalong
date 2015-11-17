@@ -1,0 +1,16 @@
+{
+  "name": "westbook-frontend",
+  "description": "Front end for the westbook webpage",
+  "version": "0.0.0",
+  "homepage": "",
+  "license": "All rights reserved",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-resource": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "angular-loader": "~1.4.0",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  }
+}
