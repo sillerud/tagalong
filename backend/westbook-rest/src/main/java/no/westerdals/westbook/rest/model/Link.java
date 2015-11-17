@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 @RequiredArgsConstructor
 @Getter
@@ -12,7 +12,8 @@ import org.bson.types.ObjectId;
 @ToString
 public class Link
 {
-    private final ObjectId _id;
+    @Id
+    private final String id;
     private final String description;
     private final String url;
 }

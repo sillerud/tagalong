@@ -4,24 +4,25 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
 @RequiredArgsConstructor
+@ToString
 @Getter
 @Setter
-@ToString
 public class User
 {
-    private final ObjectId userId;
+    @Id
+    private final String id;
     private final String email;
     private final Date born;
-    private final ObjectId studyField;
+    private final String studyFieldId;
     private final String city;
     private final String interests;
     private final String gender;
     private final String firstname;
     private final String surname;
-    private final ObjectId profilePicture;
+    private final String profilePictureId;
 }

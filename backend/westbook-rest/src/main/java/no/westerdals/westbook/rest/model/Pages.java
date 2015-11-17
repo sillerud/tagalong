@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 @RequiredArgsConstructor
 @Getter
@@ -12,8 +12,9 @@ import org.bson.types.ObjectId;
 @ToString
 public class Pages
 {
-    private final ObjectId _id;
-    private final ObjectId userId;
+    @Id
+    private final String id;
+    private final String userId;
     private final String contactInfo;
     private final Link[] links;
 }

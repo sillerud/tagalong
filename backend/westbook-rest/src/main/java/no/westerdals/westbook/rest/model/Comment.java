@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
@@ -14,9 +14,10 @@ import java.util.Date;
 @ToString
 public class Comment
 {
-    private final ObjectId _id;
-    private final ObjectId userId;
-    private final ObjectId parentId;
+    @Id
+    private final String id;
+    private final String userId;
+    private final String parentId;
     private final String title;
     private final String content;
     private final Date timestamp;
