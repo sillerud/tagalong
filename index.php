@@ -1,24 +1,29 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href=".css">
 
-    <title>Test page</title>
-</head>
-<body>
+<?php include 'header.php'; ?>
+
+<div class="container">
+    <div class="col-sm-6">
+
+        <div class="col-sm-2">1</div>
+        <div class="col-sm-10">2</div>
+
+        <div class="col-sm-6">
+            <img class="img-responsive" src="gard.jpg" alt="">
+        </div>
+
+    </div>
+
+    <div class="col-sm-6">
+        hei
+        <img class="img-responsive" src="gard.jpg" alt="">
+    </div>
+
+    hei
+
+</div>
 
 
-
-
-<h2>Test git</h2>
-
-<!-- jQuery library -->
-<script src="jquery-1.11.1.js"></script>
-<script src=".js"></script>
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
