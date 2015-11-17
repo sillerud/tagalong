@@ -1,4 +1,4 @@
-package no.westerdals.westbook.rest.model;
+package no.westerdals.westbook.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -10,11 +10,9 @@ import org.springframework.data.annotation.Id;
 @Getter
 @Setter
 @ToString
-public class Pages
+public class Image
 {
     @Id
     private final String id;
-    private final String userId;
-    private final String contactInfo;
-    private final Link[] links;
+    private final String url;
 }

@@ -1,4 +1,4 @@
-package no.westerdals.westbook.rest.model;
+package no.westerdals.westbook.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
