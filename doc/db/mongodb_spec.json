@@ -1,0 +1,64 @@
+
+{"description": "User"},
+{
+    "_id": ObjectId,
+    "email": String,
+    "born": Date,
+    "studyField": ObjectId,
+    "city": String,
+    "interests": String,
+    "gender": String,
+    "firstname": String,
+    "surname": String,
+    "profilePicture": ObjectId
+}
+
+{"description": "Post"}
+{
+    "_id": ObjectId,
+    "pageId": ObjectId,
+    "userId": ObjectId,
+    "title": String,
+    "content": String,
+    "time": timestamp
+}
+
+{"description": "Comment"}
+{
+    "_id": ObjectId,
+    "userId": ObjectId,
+    "parentId": ObjectId,
+    "title": String,
+    "content": String,
+    "time": timestamp
+}
+
+{"description": "Feed"}
+{
+    "_id": ObjectId,
+    "userId": ObjectId,
+    "index": int,
+    "tags": String[],
+    "pages": ObjectId[]
+}
+
+{"description": "Pages"}
+{
+    "_id": ObjectId,
+    "userId": ObjectId,
+    "title": String,
+    "contactInfo": String,
+    "links":
+    [
+        {
+            "description": String,
+            "link": String
+        }
+    ]
+}
+
+{"description": "Image"}
+{
+    "_id": ObjectId,
+    "url": String
+}
