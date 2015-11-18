@@ -35,4 +35,4 @@
 | tags    | A array of tags in the post                 |
 | date    | Unix timestamp from when it was posted      |
 
-[Information about the mongodb implementation](../mongodb_spec.md)
+[Information about the mongodb implementation](../db/mongodb_spec.md)
