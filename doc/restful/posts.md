@@ -1,12 +1,14 @@
 
 #Post API functions#
-|  rest method                      |  short description            | Example                                           | Returns |
-| --------------------------------- | ----------------------------- | ------------------------------------------------- | ------ |
-| /rest/v1/posts/{postid}           | get a post by postid          | /rest/v1/posts/by-postid/564c4fc72fa53e0388a940ae | Post   |
-| /rest/v1/posts?limit={limit}      | get all post limited by param | /rest/v1/posts?limit=20                           | Post[] |
-| /rest/v1/posts/by-tags/{tags}     | get a list of posts by tags   | /rest/v1/posts/by-tag/#social.fubar,#dev.java     | Post[] |
-| /rest/v1/posts/by-userid/{userid} | get a list of posts by userid | /rest/v1/posts/by-userid/564c4faf2fa53e0388a940ad | Post[] |
-| /rest/v1/posts/by-page/{pageid}   | get a list of posts by pageid | /rest/v1/posts/by-pageid/564c505b2fa53e0388a940af | Post[] |
+|  REST method                      |  Short description                       | http | Example                                           | Returns |
+| --------------------------------- | ---------------------------------------- | ------------------------------------------------- | ------ | ---- |
+| /rest/v1/posts/{postid}           | get a post by postid                     | GET  | /rest/v1/posts/by-postid/564c4fc72fa53e0388a940ae | Post   |
+| /rest/v1/posts?limit={limit}      | get all post limited by param            | GET  | /rest/v1/posts?limit=20                           | Post[] |
+| /rest/v1/posts/by-tags/{tags}     | get a list of posts by tags              | GET  | /rest/v1/posts/by-tag/#social.fubar,#dev.java     | Post[] |
+| /rest/v1/posts/by-userid/{userid} | get a list of posts by userid            | GET  | /rest/v1/posts/by-userid/564c4faf2fa53e0388a940ad | Post[] |
+| /rest/v1/posts/by-page/{pageid}   | get a list of posts by pageid            | GET  | /rest/v1/posts/by-pageid/564c505b2fa53e0388a940af | Post[] |
+| /rest/v1/posts                    | write a new post                         | POST | /rest/v1/posts                                    | TBD    |
+| /rest/v1/posts                    | edit title and content                   | PUT  | /rest/v1/posts                                    | TBT    |
 
 #JSON format#
 ```json
@@ -28,6 +30,9 @@
 | ------- | ------------------------------------------- |
 | id      | UUID/ObjectId for the post                  |
 | pageId  | UUID/ObjectId for the page it was posted on |
-|
+| userId  | UUID/ObjectId for the user that posted it   |
+| content | The content of this post                    |
+| tags    | A array of tags in the post                 |
+| date    | Unix timestamp from when it was posted      |
 
 [Information about the mongodb implementation](../mongodb_spec.md)
