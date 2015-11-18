@@ -1,4 +1,4 @@
-#User#
+#User
 ```json
 {
     "_id": ObjectId,
@@ -14,7 +14,7 @@
 }
 ```
 
-#Post#
+#Post
 ```json
 {
     "_id": ObjectId,
@@ -26,7 +26,7 @@
 }
 ```
 
-#Comment#
+#Comment
 ```json
 {
     "_id": ObjectId,
@@ -38,7 +38,7 @@
 }
 ```
 
-#Feed#
+#Feed
 ```json
 {
     "_id": ObjectId,
@@ -49,7 +49,7 @@
 }
 ```
 
-#Page#
+#Page
 ```json
 {
     "_id": ObjectId,
@@ -66,7 +66,7 @@
 }
 ```
 
-#Image#
+#Image
 ```json
 {
     "_id": ObjectId,

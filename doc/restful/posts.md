@@ -1,5 +1,5 @@
 
-#Post API functions#
+#Post API functions
 |  REST method                      |  Short description                       | http | Example                                           | Returns |
 | --------------------------------- | ---------------------------------------- | ------------------------------------------------- | ------ | ---- |
 | /rest/v1/posts/{postid}           | get a post by postid                     | GET  | /rest/v1/posts/by-postid/564c4fc72fa53e0388a940ae | Post   |
@@ -10,7 +10,7 @@
 | /rest/v1/posts                    | write a new post                         | POST | /rest/v1/posts                                    | TBD    |
 | /rest/v1/posts                    | edit title and content                   | PUT  | /rest/v1/posts                                    | TBT    |
 
-#JSON format#
+#JSON format
 ```json
 {
     "id": "564c4fc72fa53e0388a940ae",
