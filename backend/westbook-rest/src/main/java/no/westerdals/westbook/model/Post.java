@@ -19,5 +19,6 @@ public class Post
     private final String pageId;
     private final String userId;
     private final String content;
+    private final String[] tags;
     private final Date time;
 }

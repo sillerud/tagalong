@@ -1,5 +1,5 @@
-
-{"description": "User"},
+#User#
+```json
 {
     "_id": ObjectId,
     "email": String,
@@ -12,8 +12,10 @@
     "surname": String,
     "profilePicture": ObjectId
 }
+```
 
-{"description": "Post"}
+#Post#
+```json
 {
     "_id": ObjectId,
     "pageId": ObjectId,
@@ -22,8 +24,10 @@
     "content": String,
     "time": timestamp
 }
+```
 
-{"description": "Comment"}
+#Comment#
+```json
 {
     "_id": ObjectId,
     "userId": ObjectId,
@@ -32,8 +36,10 @@
     "content": String,
     "time": timestamp
 }
+```
 
-{"description": "Feed"}
+#Feed#
+```json
 {
     "_id": ObjectId,
     "userId": ObjectId,
@@ -41,8 +47,10 @@
     "tags": String[],
     "pages": ObjectId[]
 }
+```
 
-{"description": "Page"}
+#Page#
+```json
 {
     "_id": ObjectId,
     "userId": ObjectId,
@@ -56,9 +64,12 @@
         }
     ]
 }
+```
 
-{"description": "Image"}
+#Image#
+```json
 {
     "_id": ObjectId,
     "url": String
 }
+```
