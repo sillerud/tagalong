@@ -1,24 +1,30 @@
 package no.westerdals.westbook.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
-@RequiredArgsConstructor
 @Getter
 @Setter
 @ToString
 public class Post
 {
+    public Post(String pageId, String userId, String title, String content, String[] tags, Date time)
+    {
+        this.pageId = pageId;
+        this.userId = userId;
+        this.title = title;
+        this.content = content;
+        this.tags = tags;
+        this.time = time;
+    }
     @Id
-    private final String id;
-    private final String pageId;
-    private final String userId;
-    private final String content;
-    private final String[] tags;
-    private final Date time;
+    private String id;
+    private String pageId;
+    private String userId;
+    private String title;
+    private String content;
+    private String[] tags;
+    private Date time;
 }

@@ -9,6 +9,6 @@ public interface UserRepository extends MongoRepository<User, String>
 {
     List<User> getByFirstname(String name);
     List<User> getBySurname(String surname);
-    User getByFullName(String firstname, String surname);
+    //User getByFullName(String firstname, String surname);
     User getByEmail(String email);
 }
