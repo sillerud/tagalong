@@ -1,22 +1,27 @@
 package no.westerdals.westbook.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @ToString
 public class Feed
 {
+    public Feed(String userId, int index, String[] tags, String[] pageIds)
+    {
+        this.userId = userId;
+        this.index = index;
+        this.tags = tags;
+        this.pageIds = pageIds;
+    }
+
     @Id
-    private final String id;
-    private final String userId;
-    private final int index;
-    private final String[] tags;
+    private String id;
+    private String userId;
+    private int index;
+    private String[] tags;
     // Id to pages
-    private final String[] pageIds;
+    private String[] pageIds;
 }

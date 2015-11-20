@@ -1,28 +1,39 @@
 package no.westerdals.westbook.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 
-@RequiredArgsConstructor
+@NoArgsConstructor
 @ToString
 @Getter
 @Setter
 public class User
 {
+    public User(String email, Date born, String studyFieldId, String city, String interests,
+                String gender, String firstname, String surname, String profilePictureId)
+    {
+        this.email = email;
+        this.born = born;
+        this.studyFieldId = studyFieldId;
+        this.city = city;
+        this.interests = interests;
+        this.gender = gender;
+        this.firstname = firstname;
+        this.surname = surname;
+        this.profilePictureId = profilePictureId;
+    }
+
     @Id
-    private final String id;
-    private final String email;
-    private final Date born;
-    private final String studyFieldId;
-    private final String city;
-    private final String interests;
-    private final String gender;
-    private final String firstname;
-    private final String surname;
-    private final String profilePictureId;
+    private String id;
+    private String email;
+    private Date born;
+    private String studyFieldId;
+    private String city;
+    private String interests;
+    private String gender;
+    private String firstname;
+    private String surname;
+    private String profilePictureId;
 }

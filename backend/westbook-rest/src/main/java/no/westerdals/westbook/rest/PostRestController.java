@@ -1,11 +1,13 @@
 package no.westerdals.westbook.rest;
 
+import no.westerdals.westbook.Util;
 import no.westerdals.westbook.model.Post;
+import no.westerdals.westbook.model.RequestResponse;
 import no.westerdals.westbook.mongodb.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -13,26 +15,27 @@ import java.util.List;
 public class PostRestController
 {
     @Autowired
-    private PostRepository postRepository;
+    private PostRepository postRepo;
 
     @RequestMapping(value = "/rest/v1/posts", method = RequestMethod.GET)
-    public List<Post> getPosts(@RequestParam(value = "maxPosts", defaultValue = "20")String maxPosts)
+    public List<Post> getPosts(@RequestParam(value = "maxPosts", defaultValue = "20")String maxPosts, @RequestParam(value = "pageIndex", defaultValue = "0")String pageIndex)
     {
-        return postRepository.findAll();
+        if (!Util.isPositiveInteger(maxPosts, pageIndex))
+            return null;
+        return postRepo.findAll(new PageRequest(Integer.parseInt(pageIndex), Integer.parseInt(maxPosts))).getContent();
     }
 
     @RequestMapping(value = "/rest/v1/posts/{postId}", method = RequestMethod.GET)
     public Post getPost(@PathVariable String postId)
     {
-        return postRepository.findOne(postId);
+        return postRepo.findOne(postId);
     }
 
     @RequestMapping(value = "/rest/v1/posts", method = RequestMethod.POST)
-    public String writePost(@RequestBody Post post)
+    public RequestResponse writePost(@RequestBody Post post)
     {
-        if (post.getTime() == null)
-            post.setTime(new Date());
-        postRepository.insert(post);
-        return "OK\n";
+        post.setTime(new Date());
+        postRepo.insert(post);
+        return Util.OK_RESPONSE;
     }
 }

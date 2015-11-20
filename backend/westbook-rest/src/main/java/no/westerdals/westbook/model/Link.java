@@ -1,19 +1,21 @@
 package no.westerdals.westbook.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @ToString
 public class Link
 {
+    public Link(String description, String url)
+    {
+        this.description = description;
+        this.url = url;
+    }
     @Id
-    private final String id;
-    private final String description;
-    private final String url;
+    private String id;
+    private String description;
+    private String url;
 }

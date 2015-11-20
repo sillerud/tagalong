@@ -1,21 +1,26 @@
 package no.westerdals.westbook.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @ToString
 public class Page
 {
+    public Page(String name, String userId, String contactInfo, Link[] links)
+    {
+        this.name = name;
+        this.userId = userId;
+        this.contactInfo = contactInfo;
+        this.links = links;
+    }
+
     @Id
-    private final String id;
-    private final String name;
-    private final String userId;
-    private final String contactInfo;
-    private final Link[] links;
+    private String id;
+    private String name;
+    private String userId;
+    private String contactInfo;
+    private Link[] links;
 }
