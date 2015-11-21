@@ -18,11 +18,11 @@ public class PostRestController
     private PostRepository postRepo;
 
     @RequestMapping(value = "/rest/v1/posts", method = RequestMethod.GET)
-    public List<Post> getPosts(@RequestParam(value = "maxPosts", defaultValue = "20")String maxPosts, @RequestParam(value = "pageIndex", defaultValue = "0")String pageIndex)
+    public List<Post> getPosts(@RequestParam(defaultValue = "20")int maxPosts, @RequestParam(defaultValue = "0")int pageIndex)
     {
-        if (!Util.isPositiveInteger(maxPosts, pageIndex))
+        if (maxPosts < 0 || pageIndex < 0)
             return null;
-        return postRepo.findAll(new PageRequest(Integer.parseInt(pageIndex), Integer.parseInt(maxPosts))).getContent();
+        return postRepo.findAll(new PageRequest(pageIndex, maxPosts)).getContent();
     }
 
     @RequestMapping(value = "/rest/v1/posts/{postId}", method = RequestMethod.GET)
