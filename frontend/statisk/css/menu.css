@@ -1,13 +1,91 @@
+#one, #two, #three, #four, #five{
+  width: 20%;
+  height: 8px;
+  float: left;
+  position: relative;
+}
+#one{
+  background-color: #1eb6ec;
+}
+#two{
+  background-color: #fd7265;
+}
+#two:before{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+    border-left: -8px solid transparent;
+    border-right: 8px solid #fd7265;
+  margin-left: -8px;
+}
+#three{
+  background-color: #63caa6;
+}
+#three:before{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+    border-left: -8px solid transparent;
+    border-right: 8px solid #63caa6;
+  margin-left: -8px;
+}
+#four{
+  background-color: #835581;
+}
+#four:before{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+    border-left: -8px solid transparent;
+    border-right: 8px solid #835581;
+  margin-left: -8px;
+}
+#five{
+  background-color: #fed575;
+}
+#five:before{
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+    border-left: -8px solid transparent;
+    border-right: 8px solid #fed575;
+  margin-left: -8px;
+}
+
 /* Menu */
 .top-header{
-    background-color: gray;
+    background-color: #333;
     padding: 10px 0;
+    position: relative;
 }
-.top-header h3{
+.top-header img{
     display: inline;
     margin-right: 30px;
     position: relative;
     bottom: 0;
+    color: white;
+    height: 50px;
+}
+.top-header input[type=button]{
+    background-color: transparent;
+    border: 2px solid #63caa6;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 5px 15px 3px 15px;
+    position: relative;
+    margin-bottom: -10px;
+}
+.top-header input[type=button]:hover{
+    background-color: #63caa6;
 }
 .top-left{
     float: left;
@@ -24,43 +102,58 @@
 }
 .fast-search input[type=search]{
     border: none;
-    padding: 3px 5px 1px 15px;
-    background-color: transparent;
+    padding: 3px 5px 1px 10px;
+    background-color: rgba(255, 255, 255, .0);
     border-bottom: 1px solid #FFF;
-    width: 50px;
+    width: 48px;
 }
 .fast-search input[type=search]:focus{
     outline: none;
     color: white;
     width: 150px;
 }
-.fast-search button{
-    background-color: transparent;
+.fast-search button{ /* Søkeikon */
+    background-color: rgba(255, 255, 255, .0);
     border: none;
-    margin-left: -5px;
+    margin-left: -4px;
     padding: 3px 3px 1px 3px;
     border-bottom: 1px solid #FFF;
     color: #FFF;
+}
+.fast-search input[type=search]:focus, .fast-search input[type=search]:focus ~ button{
+    border-color: #63caa6;
+    transition: all 200ms linear;
 }
 .logged-in-person{
     display: inline-block;
     float: right;
     margin-left: 20px;
-    padding: 6px 0 2px 5px;
+    padding: 3px 5px 1px 5px;
     color: #FFF;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+}
+.logged-in-person:hover, .logged-in-person:hover i{
+    color: #63caa6;
+    border-color: #63caa6;
 }
 .logged-in-person i{
     margin-left: 10px;
 }
 .menu-wrap{
     width: 100%;
-    background-color: rgb(238, 99, 82); /* Dus rød */
+    background-color: #63caa6;
+    height: 38px;
     overflow: auto;
+
     margin-bottom: 50px;
 }
 #inner-menu{
     overflow: hidden;
     margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
 .container{
     max-width: 900px;
@@ -76,20 +169,29 @@
 }
 .menu ul{
     margin: 0 auto;
-    padding: 15px 0;
+    padding: 0px 0;
     display: block;
     width: 100%;
     text-align: center;
     float: none;
 }
 .menu ul li{
-    display: inline;
-    margin: 4px 10px;
+    display: inline-block;
+    margin: 0px 10px;
 }
 .menu ul li a{
+    display: inline-block;
     color: #FFF;
-    padding: 5px;
+    padding: 8px 5px 9px 5px;
     text-transform: uppercase;
+    text-decoration: none;
+}
+.menu ul li a:hover{
+    color: #333;
+}
+.menu ul li a.active{
+    color: #FFF;
+    font-weight: bold;
 }
 @media screen and (min-width: 767px){
     .menu{ display: block !important;}
@@ -97,16 +199,16 @@
 @media screen and (max-width: 767px){
     #inner-menu{
         margin-left: -15px !important;
-        top: 0;
+        top: 6px;
         margin-right: 0;
-        position: absolute;
+        position: relative;
     }
     .menu{
         display: none;
         clear: both;
         width: 100%;
         height: 100%;
-        background-color: rgba(238, 99, 82, 1);
+        background-color: #63caa6;
         overflow: hidden;
         position: fixed;
         z-index: 8000;
@@ -114,13 +216,13 @@
         vertical-align: middle;
     }
     .menu ul{
-        margin-top: 10px;
+        margin-top: 40px;
         width: 100%;
         overflow: hidden;
         /* Vertikalt center */
-        position: relative;
+        /* position: relative;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-50%); */
     }
     .menu ul li{
       display: block;
@@ -138,7 +240,7 @@
         display: block !important;
     }
     .burger-wrap{
-        margin-left: 40px;
+        margin-left: 8px;
         position: relative;
         width: 30px;
         height: 25px;
