@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends MongoRepository<User, String>
+public interface UserRepository extends MongoRepository<User, String>, UserRepositoryCustom
 {
     List<User> getByFirstname(String name);
     List<User> getByFirstname(String name, Pageable pageable);

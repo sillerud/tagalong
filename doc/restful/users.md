@@ -42,4 +42,4 @@
 | surname               | The users surname                            |
 | profilePictureUrl     | The url to this users profile picture        |
 
-[Information about the mongodb implementation](../db/mongodb_spec.md#post)
+[Information about the mongodb implementation](../db/mongodb_spec.md#user)

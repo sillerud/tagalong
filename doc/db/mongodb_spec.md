@@ -52,7 +52,11 @@
     "_id": ObjectId,
     "userId": ObjectId,
     "index": int,
-    "tags": String[],
+    "tags":
+    [
+        {"tag":String,"isDisplayed":bool},
+        {"tag":String,"isDisplayed":bool}
+    ],
     "pages": ObjectId[]
 }
 ```
@@ -79,5 +83,14 @@
 {
     "_id": ObjectId,
     "url": String
+}
+```
+
+#StudyField
+```json
+{
+    "_id": ObjectId,
+    "name": String,
+    "description": String
 }
 ```

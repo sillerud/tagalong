@@ -1,6 +1,7 @@
 package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.model.User;
+import no.westerdals.westbook.mongodb.StudyFieldRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
 import no.westerdals.westbook.responses.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class UserRestController
 {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private StudyFieldRepository studyFieldRepository;
 
     @RequestMapping(value="/rest/v1/users/{userId}", method=RequestMethod.GET)
     public UserResponse getById(@PathVariable String userId)
@@ -41,10 +45,20 @@ public class UserRestController
         return found;
     }
 
+    @RequestMapping(value="/rest/v1/users", method=RequestMethod.PATCH)
+    public UserResponse updateUserInfo(@RequestBody User user)
+    {
+        // This needs some checks if its sane
+        if (user.getId() == null)
+            return null;
+        userRepository.updateStudyField(user.getId(), user.getStudyFieldId());
+        return resolve(userRepository.findOne(user.getId()));
+    }
+
     @RequestMapping(value="/rest/v1/users/by-studyfield/{studyField}", method=RequestMethod.GET)
     public List<UserResponse> getByStudyField(@PathVariable String studyField)
     {
-        return userRepository.getByStudyFieldId(resolveStudyfield(studyField)).stream()
+        return userRepository.getByStudyFieldId(resolveStudyField(studyField)).stream()
                 .map(this::resolve)
                 .collect(Collectors.toList());
     }
@@ -63,6 +77,7 @@ public class UserRestController
         {
             return "COULD NOT FIND USER\n";
         }
+        userRepository.delete(userId);
         return "OK\n";
     }
 
@@ -70,6 +85,7 @@ public class UserRestController
     public String createUser(@RequestBody User user)
     {
         user.setId(null);
+        userRepository.save(user);
         User inserted = userRepository.save(user);
         return inserted.getId() + "-OK\n";
     }
@@ -112,7 +128,7 @@ public class UserRestController
 
     public UserResponse resolve(User user)
     {
-        if (user == null)
+        if (user == null || user.getId() == null)
             return null;
         UserResponse userResponse = new UserResponse(user);
         userResponse.setStudyFieldDisplayName(null); // TODO
@@ -120,9 +136,9 @@ public class UserRestController
         return userResponse;
     }
 
-    private String resolveStudyfield(String studyField)
+    private String resolveStudyField(String studyField)
     {
-        return studyField;
+        return studyFieldRepository.getByName(studyField).getId();
     }
 
     private String join(String[] strs, int startIndex, int endIndex)
