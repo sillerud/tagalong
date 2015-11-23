@@ -11,6 +11,7 @@
     "angular-route": "~1.4.0",
     "angular-loader": "~1.4.0",
     "jquery": "~2.1.4",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "components-font-awesome": "~4.4.0"
   }
 }
