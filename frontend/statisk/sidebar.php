@@ -13,7 +13,7 @@
                 <h5>Fubar</h5>    
             </div>
              <div class="col-sidebar-cards">
-            Academic interests    
+            <h5>Academic interests</h5>    
             </div>
             
         </div><!-- END - inner-sidebar -->
