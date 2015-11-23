@@ -26,6 +26,7 @@ public class Post
     private String userId;
     private String title;
     private String content;
+    private String shortDescription;
     private String[] tags;
     private Date time;
 }

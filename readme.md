@@ -13,10 +13,10 @@ legg til beskrivelse
 |  kommando     |  beskrivelse      |
 | ------------- | ----------------- |
 |  git add -A  | legg til alle filer i prosjekt mappen  |
-|  git commit  | Vil prompte etter en commit melding  |
-|  git commit -m "melding"  |  Hvis du vil skrive kommentaren rett i terminalen/cmd  |
-|  git push  |  Sender alle commits til github  |
 |  git pull  |  Henter endringer fra github  |
+|  git commit -m "melding"  |  Hvis du vil skrive kommentaren rett i terminalen/cmd  |
+|  git commit  | Vil prompte etter en commit melding  |
+|  git push  |  Sender alle commits til github  |
 
 #Bootstrap klasser#
 | klasse |  options |

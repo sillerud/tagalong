@@ -27,7 +27,9 @@ public class User
 
     @Id
     private String id;
+    private String pageId;
     private String email;
+    private boolean showEmail;
     private Date born;
     private String studyFieldId;
     private String city;
