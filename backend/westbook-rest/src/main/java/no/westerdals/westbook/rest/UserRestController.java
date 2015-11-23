@@ -131,7 +131,7 @@ public class UserRestController
         if (user == null || user.getId() == null)
             return null;
         UserResponse userResponse = new UserResponse(user);
-        userResponse.setStudyFieldDisplayName(null); // TODO
+        userResponse.setStudyFieldDisplayName(studyFieldRepository.findOne(user.getStudyFieldId()).getDescription());
         userResponse.setProfilePicture(null); //TODO
         return userResponse;
     }
