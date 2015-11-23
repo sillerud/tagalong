@@ -1,7 +1,17 @@
 /* STATISK KODING */
+/*
+Westerdalsfarger
+Blå: #1eb6ec
+Rød: #fd7265
+Grønn: #63caa6
+Lilla: #835581
+Gul: #fed575
 
+*/
 /* Globale elementer */
-
+body{
+    background-color: #e0ece5;
+}
 /* END - Globale elementer */
 
 /* Menu */
@@ -173,3 +183,10 @@
     }
 }
 /* END - Menu */
+/* Cards */
+.card-wrap{ /* Wrap rundt et card */
+    width: 100%;
+    border: 1px solid black;
+    background-color: white;
+}
+/* END - Cards */
