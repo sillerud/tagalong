@@ -6,6 +6,8 @@
 | /rest/v1/users/by-name/{nameString} | Get a list of possible users by name | GET | /rest/v1/users/by-name/Kevin%20Sillerud | User[] |
 | /rest/v1/users/by-studyfield/{studyField} | Get a list of users by study field | GET | /rest/v1/users/by-studyfield/programming-woact | User[] |
 | /rest/v1/users/by-email/{email}  | Get a list of users by email(admin-only) | GET | /rest/v1/users/by-email/silkev14@student.westerdals.no | User[] |
+| /rest/v1/users | Create a new user | POST | /rest/v1/users | TBD |
+| /rest/v1/users/{userId} | Delete a user(admin-only!!!) | DELETE | /rest/v1/users/564c4fc72fa53e0388a940ae | TBD |
 
 #JSON format
 ```json
