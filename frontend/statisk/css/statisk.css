@@ -187,9 +187,10 @@ body{
 .card-wrap{ /* Wrap rundt et card */
     width: 100%;
     background-color: white;
-    padding: 15px;
+    padding: 15px 15px 10px 15px;
     position: relative;
     box-sizing: border-box;
+    border-bottom: 5px solid #1eb6ec;
 }
 .card-wrap-inner{
     min-height: 150px;
@@ -197,6 +198,7 @@ body{
 }
 .card-wrap h3{ /* Tittel på card */
     margin-top: 0;
+    font-weight: bold;
 }
 .card-wrap .card-tag-wrap{
     position: absolute;
@@ -245,8 +247,6 @@ border: 2px solid black;
 }
 
 
-}
-
 .blue h4{
     border-bottom: 2px solid #1eb6ec;
     padding-bottom: 2px;
@@ -276,15 +276,15 @@ $background: #9b59b6;
 $tabs-base-color: #8e44ad;
 * {
   margin: 0;
-  padding: 0; 
+  padding: 0;
   @include box-sizing(border-box);
 }
 body {
   padding: 20px;
   text-align: left;
   font-family: Lato;
-  color: #fff; 
-  background: $background;  
+  color: #fff;
+  background: $background;
 }
 h1 {
   font-weight: normal;
@@ -292,15 +292,15 @@ h1 {
   font-weight: normal;
   text-transform: uppercase;
   float: left;
-  margin: 20px 0 100px 10px; 
-  span { 
+  margin: 20px 0 100px 10px;
+  span {
     font-size: 13px;
     display: block;
     padding-left: 4px;
   }
 }
 .tabs {
-  width: 650px;  
+  width: 650px;
   float: none;
   list-style: none;
   position: relative;
@@ -325,7 +325,7 @@ h1 {
     background: $tabs-base-color;
     cursor: pointer;
     position: relative;
-    top: 4px; 
+    top: 4px;
     @include transition(all 0.2s ease-in-out);
     &:hover {
       background: darken($tabs-base-color, 10);
@@ -333,22 +333,22 @@ h1 {
   }
   .tab-content{
     z-index: 2;
-    display: none; 
+    display: none;
     overflow: hidden;
     width: 100%;
     font-size: 17px;
     line-height: 25px;
-    padding: 25px;  
+    padding: 25px;
     position: absolute;
     top: 53px;
-    left: 0; 
+    left: 0;
     background: darken($tabs-base-color, 15);
   }
   //The Magic
-  [id^="tab"]:checked + label { 
+  [id^="tab"]:checked + label {
     top: 0;
-    padding-top: 17px; 
-    background: darken($tabs-base-color, 15); 
+    padding-top: 17px;
+    background: darken($tabs-base-color, 15);
   }
   [id^="tab"]:checked ~ [id^="tab-content"] {
     display: block;
@@ -370,7 +370,7 @@ p.link {
       background-color: darken($tabs-base-color, 20);
     }
   }
-} 
+}
 
 
 /* END - search-tabs */

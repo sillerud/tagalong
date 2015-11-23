@@ -6,7 +6,9 @@
         <div class="card-wrap">
             <div class="card-wrap-inner">
                 <h3>Tittel på Card</h3>
+                <p>Dette kortet er sosialt og om webutvikling</p>
 
+                <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                 <div class="card-tag-wrap">
                     <ul class="card-tag-list">
                         <li>#Utvikling
