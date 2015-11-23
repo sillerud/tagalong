@@ -190,3 +190,16 @@ body{
     background-color: white;
 }
 /* END - Cards */
+/* Sidebar */
+.inner-sidebar{
+    border-left: 3px solid #000;
+    width: 100%;
+    padding-left: 15px;
+}
+ .col-sidebar-cards{
+        width: 100%;
+        height: 150px;
+        background-color: white;
+        clear: both;
+        margin-bottom: 15px;
+ }
