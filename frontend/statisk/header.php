@@ -7,6 +7,10 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/statisk.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/forside.css">
+    <link rel="stylesheet" type="text/css" href="css/search.css">
+    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css"><!-- Font Awesome ikoner -->
 
     <title>Test page</title>
