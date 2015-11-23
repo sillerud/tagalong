@@ -4,18 +4,18 @@
     <!-- Kode her -->
     <!-- Kilde til tab-koden fra: http://codepen.io/wallaceerick/pen/ojtal -->
     <h1> Search </h1>
-        
-             
+
+
 
 <ul class="tabs">
     <li>
         <input type="radio" name="tabs" id="tab1" checked />
         <label for="tab1">#tags</label>
         <div id="tab-content1" class="tab-content">
-          <p>"Lorem ipsum dolor ."</p>
+            <?php include "search_people.php"; ?>
         </div>
     </li>
-  
+
     <li>
         <input type="radio" name="tabs" id="tab2" />
         <label for="tab2">Events</label>
@@ -23,7 +23,7 @@
           <p>"Sed ut" </p>
         </div>
     </li>
-    
+
      <li>
         <input type="radio" name="tabs" id="tab3" />
         <label for="tab2">Pages</label>
@@ -31,7 +31,7 @@
           <p>"Sed ut" </p>
         </div>
     </li>
-    
+
      <li>
         <input type="radio" name="tabs" id="tab4" />
         <label for="tab2">Groups</label>
@@ -39,7 +39,7 @@
           <p>"Sed ut" </p>
         </div>
     </li>
-    
+
      <li>
         <input type="radio" name="tabs" id="tab5" />
         <label for="tab2">People</label>
@@ -51,10 +51,6 @@
 
 <br style="clear: both;" />
 
-
-    </div>
-    
-    <?php include "search_people.php"; ?>
 </div>
 
 <?php include 'footer.php'; ?>
