@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/statisk.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"><!-- Font Awesome ikoner -->
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css"><!-- Font Awesome ikoner -->
 
     <title>Test page</title>
 </head>
