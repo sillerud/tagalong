@@ -30,8 +30,8 @@
             <div class="boks">
                 <div class="col-sirkel"></div>
                 <div class="col-feed-box"></div>
+                
             </div>
-            
                     <div class="boks">
                 <div class="col-sirkel"></div>
                 <div class="col-feed-box"></div>
