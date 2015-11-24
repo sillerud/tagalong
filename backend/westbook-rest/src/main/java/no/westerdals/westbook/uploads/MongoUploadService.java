@@ -3,6 +3,7 @@ package no.westerdals.westbook.uploads;
 import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSFile;
+import lombok.*;
 import no.westerdals.westbook.model.FileMeta;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -37,28 +38,40 @@ public class MongoUploadService implements UploadService
     @Override
     public FileMeta uploadFile(FileMeta meta, InputStream in) throws IOException
     {
-        String name = meta.getName();
-        meta.setName(null);
-        meta.setUploadTime(null);
-        GridFSFile file = fsTemplate.store(in, name, meta);
+        MongoFileMeta mongoFileMeta = new MongoFileMeta(meta);
+        GridFSFile file = fsTemplate.store(in, meta.getName(), mongoFileMeta);
         return deserialize(file);
     }
 
     @Override
     public FileMeta getFileMeta(String id)
     {
-        return mappingConverter.read(FileMeta.class, fsTemplate.findOne(Query.query(Criteria.where("_id").is(id))));
+        GridFSFile file = fsTemplate.findOne(Query.query(Criteria.where("_id").is(id)));
+        return deserialize(file);
     }
 
     private FileMeta deserialize(GridFSFile file)
     {
-        DBObject meta = file.getMetaData();
-        FileMeta fileMeta = new FileMeta(
-                (String)meta.get("ownerId"),
-                file.getFilename(),
-                (boolean)meta.get("attachment"),
-                file.getUploadDate());
+        MongoFileMeta mongoFileMeta = mappingConverter.read(MongoFileMeta.class, file.getMetaData());
+        FileMeta fileMeta = new FileMeta(mongoFileMeta.getOwnerId(), file.getFilename(),
+                mongoFileMeta.isAttachment(),  file.getUploadDate());
         fileMeta.setId(file.getId().toString());
         return fileMeta;
+    }
+
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    @ToString
+    private static class MongoFileMeta
+    {
+        public MongoFileMeta(FileMeta original)
+        {
+            this.ownerId = original.getOwnerId();
+            this.attachment = original.isAttachment();
+        }
+
+        private String ownerId;
+        private boolean attachment;
     }
 }
