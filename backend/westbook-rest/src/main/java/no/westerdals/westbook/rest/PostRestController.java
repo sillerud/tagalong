@@ -1,12 +1,13 @@
 package no.westerdals.westbook.rest;
 
-import no.westerdals.westbook.Util;
+import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.Post;
-import no.westerdals.westbook.model.RequestResponse;
 import no.westerdals.westbook.mongodb.PostRepository;
+import no.westerdals.westbook.responses.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
+import static no.westerdals.westbook.responses.ResultResponse.*;
 
 import java.util.Date;
 import java.util.List;
@@ -32,10 +33,10 @@ public class PostRestController
     }
 
     @RequestMapping(value = "/rest/v1/posts", method = RequestMethod.POST)
-    public RequestResponse writePost(@RequestBody Post post)
+    public ResultResponse writePost(@RequestBody Post post)
     {
         post.setTime(new Date());
-        postRepo.insert(post);
-        return Util.OK_RESPONSE;
+        Post result = postRepo.insert(post);
+        return newOkResult(MessageConstant.POST_CREATED, result);
     }
 }

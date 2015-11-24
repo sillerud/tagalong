@@ -1,9 +1,12 @@
 package no.westerdals.westbook.rest;
 
+import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.User;
 import no.westerdals.westbook.mongodb.StudyFieldRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
+import no.westerdals.westbook.responses.ResultResponse;
 import no.westerdals.westbook.responses.UserResponse;
+import static no.westerdals.westbook.responses.ResultResponse.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
@@ -71,23 +74,23 @@ public class UserRestController
 
     //!!!!!!!!!!NEED TO CHECK ACCESS LEVEL!!!!!!!!!!!!
     @RequestMapping(value="/rest/v1/users/{userId}", method=RequestMethod.DELETE)
-    public String deleteUser(@PathVariable String userId)
+    public ResultResponse deleteUser(@PathVariable String userId)
     {
         if (userRepository.findOne(userId) == null)
         {
-            return "COULD NOT FIND USER\n";
+            return newErrorResult(MessageConstant.USER_NOT_FOUND);
         }
         userRepository.delete(userId);
-        return "OK\n";
+        return newOkResult(MessageConstant.USER_DELETED);
     }
 
     @RequestMapping(value="/rest/v1/users", method=RequestMethod.POST)
-    public String createUser(@RequestBody User user)
+    public ResultResponse createUser(@RequestBody User user)
     {
         user.setId(null);
         userRepository.save(user);
         User inserted = userRepository.save(user);
-        return inserted.getId() + "-OK\n";
+        return newOkResult(MessageConstant.USER_CREATED, inserted);
     }
 
     @RequestMapping(value="/rest/v1/users", method=RequestMethod.GET)
