@@ -5,6 +5,7 @@
 * [Users](restful/users.md)
 * [Comment](restful/comments.md)
 * [Static](restful/comments.md)
+* [Uploads](restful/uploads.md)
 
 **MongoDB**
 * [MongoDB database structure](db/mongodb_spec.md)

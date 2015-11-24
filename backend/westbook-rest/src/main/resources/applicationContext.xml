@@ -5,5 +5,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
     <mongo:mongo host="127.0.0.1" port="27017" />
     <mongo:db-factory dbname="development" />
-
+    <bean class="no.westerdals.westbook.uploads.MongoUploadService">
+        <constructor-arg index="0" ref="gridFsTemplate" />
+        <constructor-arg index="1" ref="mappingMongoConverter" />
+    </bean>
+    <!--<bean class="no.westerdals.westbook.uploads.FileUploadService">
+        <property name="path" value="/tmp/uploads" />
+    </bean>-->
 </beans>

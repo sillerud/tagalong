@@ -9,4 +9,12 @@ public enum MessageConstant
 
     // Post
     POST_CREATED,
+    POST_NOT_FOUND,
+
+    // Comment
+    COMMENT_CREATED,
+
+    // File
+    FILE_UPLOADED,
+    FILE_NOT_FOUND,
 }
