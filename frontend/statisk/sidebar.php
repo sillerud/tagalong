@@ -20,8 +20,24 @@
         
 
     </div><!-- END sidebar -->
+    
     <div class="col-sm-8">
-        FEED
+        <h2>Feed</h2>
+        
+        <div class="inner-feedbar">
+            
+            <div class="col-feedbar-box">   
+            </div>
+            
+            <div class="col-feed-box">
+            </div>
+            
+            <div class="col-feed-box">
+            </div>
+            
+            <div class="col-feed-box">
+            </div>
+        <!--- end feed-->
     </div>
 </div><!-- END container -->
 
