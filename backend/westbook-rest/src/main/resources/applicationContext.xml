@@ -2,9 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mongo="http://www.springframework.org/schema/data/mongo"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <mongo:mongo host="127.0.0.1" port="27017" />
     <mongo:db-factory dbname="development" />
+    <bean class="no.westerdals.westbook.aop.ExceptionHandler" id="exceptionHandler" />
+    <!--<bean class="no.westerdals.westbook.aop.PerformanceTester" id="performanceTester" />-->
+
     <bean class="no.westerdals.westbook.uploads.MongoUploadService">
         <constructor-arg index="0" ref="gridFsTemplate" />
         <constructor-arg index="1" ref="mappingMongoConverter" />
@@ -12,4 +16,11 @@
     <!--<bean class="no.westerdals.westbook.uploads.FileUploadService">
         <property name="path" value="/tmp/uploads" />
     </bean>-->
+
+    <!--<aop:config>
+        <aop:pointcut id="restControllers" expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)" />
+        <aop:aspect id="exceptions" ref="exceptionHandler">
+            <aop:around method="runUnsafe" pointcut-ref="restControllers" />
+        </aop:aspect>
+    </aop:config>-->
 </beans>

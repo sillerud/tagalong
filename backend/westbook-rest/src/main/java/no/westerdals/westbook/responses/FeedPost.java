@@ -27,6 +27,7 @@ public class FeedPost
             this.summary = post.getContent();
         }
         this.user = user;
+        this.time = post.getTime();
     }
     private User user;
     private String title;

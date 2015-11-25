@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import static no.westerdals.westbook.responses.ResultResponse.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 

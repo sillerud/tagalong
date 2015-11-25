@@ -21,4 +21,7 @@ public enum MessageConstant
     // Feed,
     FEED_DELETED,
     FEED_CREATED,
+
+    // Unmapped error,
+    UNMAPPED_ERROR,
 }

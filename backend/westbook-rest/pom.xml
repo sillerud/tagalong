@@ -71,6 +71,13 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- AOP -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>westbook-restful-service</finalName>

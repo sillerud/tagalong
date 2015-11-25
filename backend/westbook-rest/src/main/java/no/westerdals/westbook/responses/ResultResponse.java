@@ -31,4 +31,9 @@ public class ResultResponse
     {
         return new ResultResponse(ERROR_STATUS, message.name(), null);
     }
+
+    public static ResultResponse newErrorResult(MessageConstant message, String errorId)
+    {
+        return new ResultResponse(ERROR_STATUS, message.name(), errorId);
+    }
 }

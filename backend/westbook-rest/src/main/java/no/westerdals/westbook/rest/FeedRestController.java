@@ -56,8 +56,10 @@ public class FeedRestController
     }
 
     @RequestMapping(value="/rest/v1/feeds/{feedId}", method=RequestMethod.GET)
-    public FeedResult getFeedPosts(@PathVariable String feedId, @RequestParam(defaultValue = "1") int page)
+    public FeedResult getFeedPosts(@PathVariable String feedId, @RequestParam(defaultValue = "1") int page) throws Exception
     {
+        if (true)
+            throw new Exception("Test");
         return resolve(feedRepository.findOne(feedId), page);
     }
 
@@ -87,7 +89,6 @@ public class FeedRestController
         for (Tag tag : feed.getTags())
         {
             List<Post> dbPosts = postRepository.getByTagsName(tag.getName(), new PageRequest(page, 10, DATE_SORT));
-            dbPosts.forEach(System.out::println);
             posts.addAll(dbPosts.stream().map(this::resolve).collect(Collectors.toList()));
         }
 
@@ -103,7 +104,6 @@ public class FeedRestController
 
     private FeedPost resolve(Post post)
     {
-        System.out.println(post);
         User user = userRepository.findOne(post.getUserId());
         user.setEmail(null);
         return new FeedPost(post, user);
