@@ -346,4 +346,11 @@
 
 .breadcrumbs{
   margin-bottom: 30px;
+  font-size: 12px;
+}
+.breadcrumbs a{
+  color: #000;
+}
+.breadcrumbs a:hover{
+  color: #63caa6;
 }

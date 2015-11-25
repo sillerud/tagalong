@@ -100,5 +100,8 @@
 </div><!-- END menu-wrap -->
 
 <div class="container">
-    <div class="breadcrumbs">Breadcrumbs...</div>
+    <div class="breadcrumbs">
+        <a href="index.php">Home</a> >
+        <a href="#">This place</a>
+    </div>
 </div>
