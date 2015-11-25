@@ -22,7 +22,7 @@
 <div class="top-header">
     <div class="container">
         <div class="top-left">
-            <img src="images/mowhawk3.png">
+            <img class="logo" src="images/mowhawk3.png">
             <input type="button" value="New Post" />
         </div>
 
@@ -33,12 +33,32 @@
                 <i class="fa fa-bell-o"></i>
 
                 <div class="varsel-panel">
-                    <!-- Varselkode her -->
-                </div>
-            </div>
+                   
+                    <div class="header-varsel-panel">
+                       
+                        <div class="bell-varsel">
+                            <i class="fa fa-bell"></i>
+                        </div><!--end bell-varsel-->
+                        <h3 class="varsel-title">Notifications</h3>
+                        
+                    </div><!--end header-varsel-panel-->
+                    
+                <div class="varsel-innhold">
+                   
+                    <img src="images/fubar_logo.jpg" class="profilbilde-varsel">
+                    <p class="tekst-varsel">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                    </p>
+                    
+                </div><!--end varsel-innhold-->
+                
+                </div><!--end varsel-panel-->
+                
+            </div><!--end varlse-panel-->
 
             <div class="logged-in-person">
-                Ola Nordmann<i class="fa fa-user"></i>
+                Ola Nordmann
+                <i class="fa fa-user"></i>
             </div>
 
             <div class="fast-search">
