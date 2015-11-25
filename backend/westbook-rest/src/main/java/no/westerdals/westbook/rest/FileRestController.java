@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class FileRestController
@@ -35,6 +36,12 @@ public class FileRestController
         // TODO: Get user ID from session
         FileMeta fileMeta = uploadService.uploadFile(new FileMeta("todo:userid", name, attachment, new Date()), file.getInputStream());
         return newOkResult(MessageConstant.FILE_UPLOADED, fileMeta);
+    }
+
+    @RequestMapping(value="/rest/v1/uploads", method=RequestMethod.GET)
+    public List<FileMeta> getAllFileMeta()
+    {
+        return uploadService.getAllFileInfo();
     }
 
     @RequestMapping(value="/rest/v1/uploads/{fileId}", method=RequestMethod.GET)

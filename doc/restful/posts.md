@@ -18,7 +18,7 @@
     "userId": "564c4faf2fa53e0388a940ad",
     "title": "Quiz",
     "content": "Java quiz i fubar! Ta med PC og mat",
-    "shortDescription": "Java quiz i fubar!",
+    "summary": "Java quiz i fubar!",
     "tags":
     [
         "#social.fubar",
@@ -35,7 +35,7 @@
 | userId           | UUID/ObjectId for the user that posted it   |
 | title            | The title for this post                     |
 | content          | The content of this post                    |
-| shortDescription | A short summary of the post for the cards   |
+| summary          | A short summary of the post for the cards   |
 | tags             | A array of tags in the post                 |
 | date             | Unix timestamp from when it was posted      |
 

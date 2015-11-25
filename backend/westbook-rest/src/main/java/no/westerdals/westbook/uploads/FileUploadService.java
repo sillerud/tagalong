@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.List;
 
 public class FileUploadService implements UploadService
 {
@@ -60,6 +61,12 @@ public class FileUploadService implements UploadService
     public FileMeta getFileMeta(String id)
     {
         return metaRepository.findOne(id);
+    }
+
+    @Override
+    public List<FileMeta> getAllFileInfo()
+    {
+        return metaRepository.findAll();
     }
 
     private Path resolve(FileMeta meta)

@@ -54,8 +54,8 @@
     "index": int,
     "tags":
     [
-        {"tag":String,"isDisplayed":bool},
-        {"tag":String,"isDisplayed":bool}
+        {"tag":String,"displayed":bool},
+        {"tag":String,"displayed":bool}
     ],
     "pages": ObjectId[]
 }

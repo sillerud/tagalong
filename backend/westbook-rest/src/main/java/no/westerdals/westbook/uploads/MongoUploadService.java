@@ -1,6 +1,5 @@
 package no.westerdals.westbook.uploads;
 
-import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSFile;
 import lombok.*;
@@ -13,6 +12,8 @@ import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class MongoUploadService implements UploadService
@@ -48,6 +49,12 @@ public class MongoUploadService implements UploadService
     {
         GridFSFile file = fsTemplate.findOne(Query.query(Criteria.where("_id").is(id)));
         return deserialize(file);
+    }
+
+    @Override
+    public List<FileMeta> getAllFileInfo()
+    {
+        return fsTemplate.find(new Query()).stream().map(this::deserialize).collect(Collectors.toList());
     }
 
     private FileMeta deserialize(GridFSFile file)
