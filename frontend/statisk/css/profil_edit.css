@@ -1,5 +1,72 @@
 /* Edit profil */
-.edit-profile-wrap .edit-profile{
-    width: 100%;
+.edit-profile-wrap{
 }
+.edit-profile-profile-pic{
+    text-align: center;
+    width: 200px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    position: relative;
+}
+.edit-profile-profile-pic .pic-overlay{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .6);
+    transition: opacity 300ms linear;
+}
+.edit-profile-profile-pic:hover .pic-overlay{
+    opacity: 1;
+    transition: opacity 300ms linear;
+}
+.pic-overlay b{
+    margin: auto;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin-top: -10px;
+    color: #FFF;
+}
+
+.edit-profile-wrap .edit-field1, .edit-profile-wrap .edit-field2{
+    width: 100%;
+    margin-bottom: 30px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #63caa6; /* Change */
+}
+.edit-profile-wrap .edit-field1:focus, .edit-profile-wrap .edit-field2:focus{
+    outline: none;
+}
+.edit-profile-wrap label{
+    color: #63caa6; /* Change */
+}
+.edit-profile-wrap .edit-field1{
+    padding: 10px;
+}
+.edit-profile-wrap .edit-field2{
+    padding: 7px;
+    font-size: 1.2em;
+}
+/* Placeholder tekst */
+    .edit-profile-wrap ::-webkit-input-placeholder {
+       color: #333;
+    }
+    .edit-profile-wrap :-moz-placeholder { /* Firefox 18- */
+       color: #333;
+    }
+    .edit-profile-wrap ::-moz-placeholder {  /* Firefox 19+ */
+       color: #333;
+    }
+    .edit-profile-wrap :-ms-input-placeholder {
+       color: #333;
+    }
+/* PEND - laceholder tekst */
+
 /* END - Edit profil */
