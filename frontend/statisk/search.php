@@ -43,7 +43,7 @@
            <label for="events">Events</label>
 
            <div class="tab-content">
-               Events
+               <?php include 'search_event.php' ?>
            </div>
        </div>
 

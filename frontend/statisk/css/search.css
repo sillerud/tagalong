@@ -10,7 +10,6 @@
     float: left;
     display: block;
     padding-right: 20px;
-    clear: bottom;
   }
   .search-result-title{
       display: inline-block;
@@ -44,6 +43,14 @@
       padding-bottom: 2px;
   }
 /* END - search people */
+
+/* Search event */
+  .when-where{
+      font-weight: bold;
+      overflow: hidden;
+      margin-bottom: 15px;
+  }
+/* END - search event */
 
 /* Search on search page*/
   #search-page-form{
