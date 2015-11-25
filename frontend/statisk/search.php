@@ -1,55 +1,53 @@
 <?php include 'header.php'; ?>
 
-<div class="container testboks">
+<div class="container">
     <!-- Kode her -->
-    <!-- Kilde til tab-koden fra: http://codepen.io/wallaceerick/pen/ojtal -->
-    <h1> Search </h1>
-
-
-
-<ul class="tabs">
-    <li>
-        <input type="radio" name="tabs" id="tab1" checked />
-        <label for="tab1">#tags</label>
-        <div id="tab-content1" class="tab-content">
-            <?php include "search_people.php"; ?>
+    <form id="search-page-form">
+        <div class="search-page-wrap">
+            <button><i class="fa fa-search"></i></button>
+            <input type="search" placeholder="Search for Tags, Pages, People or Events">
         </div>
-    </li>
+    </form>
 
-    <li>
-        <input type="radio" name="tabs" id="tab2" />
-        <label for="tab2">Events</label>
-        <div id="tab-content2" class="tab-content">
-          <p>"Sed ut" </p>
-        </div>
-    </li>
+    <div class="search-tabs">
 
-     <li>
-        <input type="radio" name="tabs" id="tab3" />
-        <label for="tab2">Pages</label>
-        <div id="tab-content2" class="tab-content">
-          <p>"Sed ut" </p>
-        </div>
-    </li>
+       <div class="tab-tab">
+           <input type="radio" id="tags" name="tab-group" checked>
+           <label for="tags">Tags</label>
 
-     <li>
-        <input type="radio" name="tabs" id="tab4" />
-        <label for="tab2">Groups</label>
-        <div id="tab-content2" class="tab-content">
-          <p>"Sed ut" </p>
-        </div>
-    </li>
+           <div class="tab-content">
+               Tags
+           </div>
+       </div>
 
-     <li>
-        <input type="radio" name="tabs" id="tab5" />
-        <label for="tab2">People</label>
-        <div id="tab-content2" class="tab-content">
-          <p>"Sed ut" </p>
-        </div>
-    </li>
-</ul>
+       <div class="tab-tab">
+           <input type="radio" id="pages" name="tab-group">
+           <label for="pages">Pages</label>
 
-<br style="clear: both;" />
+           <div class="tab-content">
+               Pages
+           </div>
+       </div>
+
+        <div class="tab-tab">
+           <input type="radio" id="people" name="tab-group">
+           <label for="people">People</label>
+
+           <div class="tab-content">
+               <?php include 'search_people.php'; ?>
+           </div>
+       </div>
+
+       <div class="tab-tab">
+           <input type="radio" id="events" name="tab-group">
+           <label for="events">Events</label>
+
+           <div class="tab-content">
+               Events
+           </div>
+       </div>
+
+    </div>
 
 </div>
 
