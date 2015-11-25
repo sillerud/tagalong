@@ -1,28 +1,53 @@
-/* Page Eks: fubar */
-.col-12{
-    width: 100%;
-    height: 100%;
-}
-
-h2{
-    margin: 10px;
+.page-header{
+    padding-bottom: 5px;
     border-bottom: 3px solid #000;
 }
-
-.upcoming-events-boks{
-    width: 300px;
-    height: 500px;
-    float: left;
-    margin: 10px;
-    border-right: 3px solid #000;
-
+    
+.page-under-menu{
+    width: 100%;
 }
 
-.recent-posts-boks{
-    width: 300px;
-    height: 500px;
-    float: left;
-    margin: 10px;
-
+.location-header{
+    font-weight: bold;
+    margin-right: 50px;
 }
-/* END - Page Eks: fubar */
+
+.facebook-header{
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+h3{
+    margin-left: 10px;
+    padding-bottom: 5px;
+}
+
+.upcoming-events-box{
+    margin-right: 30px;
+    float: left;  
+}
+
+ .recent-posts-box{
+    float: left;  
+}
+
+.upcoming-events-feed{
+    margin: 10px;
+    border-top: 3px solid #000;
+    width: 400px;
+    height: 500px;
+    background-color: lightgray;
+}
+
+.recent-posts-feed{
+    margin: 10px;
+    border-top: 3px solid #000;
+    width: 400px;
+    height: 500px;
+    background-color: lightgray;
+}
+    
+
+
+
+    

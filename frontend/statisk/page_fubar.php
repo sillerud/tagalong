@@ -1,27 +1,26 @@
 <?php include 'header.php'; ?>
 
 <div class="container">
-
-    <div class="col-12">
+        
          <div a href="#" class="logo"></div>
 
-         <h2>Page: fuBar</h2>
+         <h2 class="page-header">Page: fuBar</h2>
 
-        <h4>Location:</h4>
+    <div class="page-under-menu">
+        <p class="location-header">Location:</h4>
 
-        <h4 href="#">Facebook</h4>
-
-        <div class="strek"></div>
-        <div class="strek"></div>
-
-        <div class="upcoming-events-boks">
-           <h3>Upcoming events</h3>
-        </div>
-
-        <div class="recent-posts-boks">
-           <h3>Recent posts</h3>
-        </div>
+        <p href="#" class="facebook-header">Facebook</h4>
     </div>
+       
+        <div class="upcoming-events-box">
+           <h3 class="feed-box-title">Upcoming events</h3>
+            <div class="upcoming-events-feed"></div>
+        </div>
+
+        <div class="recent-posts-box">
+            <h3 class="feed-box-title">Recent posts</h3>
+            <div class="recent-posts-feed"></div>
+        </div>
 </div>
 
 <?php include 'footer.php'; ?>
