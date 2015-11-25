@@ -10,19 +10,31 @@
 
 .info-holder{
     margin-left: 200px;
-}
-.name{
+
 }
 .age{
-font-style: bold;
+
+}
+.age{
+    float:left;
+}
+.age{
 }
 .gender{
+    float:left;
+}
+.gender-c{
+
 }
 .city{
+    float:left;
 }
-.field_of_study{
+.field-of-study{
+    float:left;
 }
-.contact_info{
+.contact-info{
+    float:left;
 }
 .interests{
+    float:left;
 }

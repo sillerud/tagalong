@@ -9,18 +9,32 @@
     <div class="col-profile-box">
         <div class="info-holder">
             <h2 class="name">Lise Nordmann</h2>
-            <p></p>
+
             <div class="age-holder">
                 <p class="age"><b>Age:</b></p>
-                <p class="age-nr">23</p>
-
+                <p class="age-c">23</p>
             </div>
 
-            <p class="gender"><b>Gender:</b> Female</p>
-            <p class="city"><b>City of residence:</b> Oslo</p>
-            <p class="field_of_study"><b>Field of study:</b> 3D Design</p>
-            <p class="contact_info"><b>Contact info:</b> norlis14@student.westerdals.no</p>
-            <p class="interests"><b>Interests:</b> 3ds Max</p>
+            <div class="gender-holder">
+                <p class="gender"><b>Gender: </b></p>
+                <p class="gender-c">Female</p>
+            </div>
+            <div class="city-holder">
+                <p class="city"><b>City of residence: </b></p>
+                <p class="city-c">Oslo</p>
+            </div>
+            <div class="field-of-study-holder">
+                <p class="field-of-study"><b>Field of study: </b></p>
+                <p class="field-of-study-c">3D Design</p>
+            </div>
+            <div class="contact-info-holder">
+                <p class="contact-info"><b>Contact info: </b></p>
+                <p class="contact-info-c">norlis14@student.westerdals.no</p>
+            </div>
+            <div class="interests-holder">
+                <p class="interests"><b>Interests: </b></p>
+                <p class="interests-c"> 3ds Max</p>
+            </div>
         </div>
     </div>
 
