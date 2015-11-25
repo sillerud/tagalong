@@ -1,198 +1,192 @@
-#one, #two, #three, #four, #five{
-  width: 20%;
-  height: 8px;
-  float: left;
-  position: relative;
-}
-#one{
-  background-color: #1eb6ec;
-}
-#two{
-  background-color: #fd7265;
-}
-#two:before{
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
+/* Westerdals fem farger */
+  #one, #two, #three, #four, #five{
+    width: 20%;
+    height: 8px;
+    float: left;
+    position: relative;
+  }
+  #one{ background-color: #1eb6ec; }
+  #two{ background-color: #fd7265; }
+  #two:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
     border-left: -8px solid transparent;
     border-right: 8px solid #fd7265;
-  margin-left: -8px;
-}
-#three{
-  background-color: #63caa6;
-}
-#three:before{
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
+    margin-left: -8px;
+  }
+  #three{ background-color: #63caa6; }
+  #three:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
     border-left: -8px solid transparent;
     border-right: 8px solid #63caa6;
-  margin-left: -8px;
-}
-#four{
-  background-color: #835581;
-}
-#four:before{
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
+    margin-left: -8px;
+  }
+  #four{ background-color: #835581; }
+  #four:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
     border-left: -8px solid transparent;
     border-right: 8px solid #835581;
-  margin-left: -8px;
-}
-#five{
-  background-color: #fed575;
-}
-#five:before{
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
+    margin-left: -8px;
+  }
+  #five{ background-color: #fed575; }
+  #five:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
     border-left: -8px solid transparent;
     border-right: 8px solid #fed575;
-  margin-left: -8px;
-}
+    margin-left: -8px;
+  }
+/* END - Westerdals fem farger */
 
 /* Menu */
-.top-header{
-    background-color: #333;
-    padding: 10px 0;
-    position: relative;
-}
-.top-header img{
-    display: inline;
-    margin-right: 30px;
-    position: relative;
-    bottom: 0;
-    color: white;
-    height: 50px;
-}
-.top-header input[type=button]{
-    background-color: transparent;
-    border: 2px solid #63caa6;
-    color: #FFF;
-    text-transform: uppercase;
-    font-size: 12px;
-    padding: 5px 15px 3px 15px;
-    position: relative;
-    margin-bottom: -10px;
-}
-.top-header input[type=button]:hover{
-    background-color: #63caa6;
-}
-.top-left{
-    float: left;
-}
-.top-right{
-    float: right;
-}
-.fast-search{
-    display: inline-block;
-    float: right;
-    margin: 0 20px;
-    position: relative;
-    top: 0;
-}
-.fast-search input[type=search]{
-    border: none;
-    padding: 3px 5px 1px 10px;
-    background-color: rgba(255, 255, 255, .0);
-    border-bottom: 1px solid #FFF;
-    width: 48px;
-}
-.fast-search input[type=search]:focus{
-    outline: none;
-    color: white;
-    width: 150px;
-}
-.fast-search button{ /* Søkeikon */
-    background-color: rgba(255, 255, 255, .0);
-    border: none;
-    margin-left: -4px;
-    padding: 3px 3px 1px 3px;
-    border-bottom: 1px solid #FFF;
-    color: #FFF;
-}
-.fast-search input[type=search]:focus, .fast-search input[type=search]:focus ~ button{
-    border-color: #63caa6;
-    transition: all 200ms linear;
-}
-.logged-in-person{
-    display: inline-block;
-    float: right;
-    margin-left: 20px;
-    padding: 3px 5px 1px 5px;
-    color: #FFF;
-    cursor: pointer;
-    border-bottom: 1px solid white;
-}
-.logged-in-person:hover, .logged-in-person:hover i{
-    color: #63caa6;
-    border-color: #63caa6;
-}
-.logged-in-person i{
-    margin-left: 10px;
-}
-.menu-wrap{
-    width: 100%;
-    background-color: #63caa6;
-    height: 38px;
-    overflow: auto;
+  /* Top header */
+    .top-header{ /* Øverste del av menyen */
+        background-color: #333;
+        padding: 10px 0;
+        position: relative;
+    }
+    .top-header img{
+        display: inline;
+        margin-right: 30px;
+        position: relative;
+        bottom: 0;
+        color: white;
+        height: 50px;
+    }
+    .top-header input[type=button]{
+        background-color: transparent;
+        border: 2px solid #63caa6;
+        color: #FFF;
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: 5px 15px 3px 15px;
+        position: relative;
+        margin-bottom: -10px;
+    }
+    .top-header input[type=button]:hover{
+        background-color: #63caa6;
+    }
+    .top-left{
+        float: left;
+    }
+    .top-right{
+        float: right;
+    }
+    .fast-search{
+        display: inline-block;
+        float: right;
+        margin: 0 20px;
+        position: relative;
+        top: 0;
+    }
+    .fast-search input[type=search]{
+        border: none;
+        padding: 3px 5px 1px 10px;
+        background-color: rgba(255, 255, 255, .0);
+        border-bottom: 1px solid #FFF;
+        width: 48px;
+    }
+    .fast-search input[type=search]:focus{
+        outline: none;
+        color: white;
+        width: 150px;
+    }
+    .fast-search button{ /* Søkeikon */
+        background-color: rgba(255, 255, 255, .0);
+        border: none;
+        margin-left: -4px;
+        padding: 3px 3px 1px 3px;
+        border-bottom: 1px solid #FFF;
+        color: #FFF;
+    }
+    .fast-search input[type=search]:focus, .fast-search input[type=search]:focus ~ button{
+        border-color: #63caa6;
+        transition: all 200ms linear;
+    }
+    .logged-in-person{
+        display: inline-block;
+        float: right;
+        margin-left: 20px;
+        padding: 3px 5px 1px 5px;
+        color: #FFF;
+        cursor: pointer;
+        border-bottom: 1px solid white;
+    }
+    .logged-in-person:hover, .logged-in-person:hover i{
+        color: #63caa6;
+        border-color: #63caa6;
+    }
+    .logged-in-person i{
+        margin-left: 10px;
+    }
+  /* END - Top header */
 
-    margin-bottom: 50px;
-}
-#inner-menu{
-    overflow: hidden;
-    margin: 0 auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-}
-.container{
-    max-width: 900px;
-    width: 100%;
-}
-.menu{
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    display: inline-block;
-    float: none;
-    margin: auto;
-}
-.menu ul{
-    margin: 0 auto;
-    padding: 0px 0;
-    display: block;
-    width: 100%;
-    text-align: center;
-    float: none;
-}
-.menu ul li{
-    display: inline-block;
-    margin: 0px 10px;
-}
-.menu ul li a{
-    display: inline-block;
-    color: #FFF;
-    padding: 8px 5px 9px 5px;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-.menu ul li a:hover{
-    color: #333;
-}
-.menu ul li a.active{
-    color: #FFF;
-    font-weight: bold;
-}
+  .menu-wrap{ /* Wrap rundt menydelen - nedre del av header */
+      width: 100%;
+      background-color: #63caa6;
+      height: 38px;
+      overflow: auto;
+      margin-bottom: 50px;
+  }
+  #inner-menu{ /* Indre kjerne av menyen */
+      overflow: hidden;
+      margin: 0 auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+  }
+  .container{
+      max-width: 900px;
+      width: 100%;
+  }
+  .menu{ /* Selve menyen utenfor ul */
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      display: inline-block;
+      float: none;
+      margin: auto;
+  }
+  .menu ul{
+      margin: 0 auto;
+      padding: 0px 0;
+      display: block;
+      width: 100%;
+      text-align: center;
+      float: none;
+  }
+  .menu ul li{
+      display: inline-block;
+      margin: 0px 10px;
+  }
+  .menu ul li a{
+      display: inline-block;
+      color: #FFF;
+      padding: 8px 5px 9px 5px;
+      text-transform: uppercase;
+      text-decoration: none;
+  }
+  .menu ul li a:hover{
+      color: #333;
+  }
+  .menu ul li a.active{ /* Siden personen er på */
+      color: #FFF;
+      font-weight: bold;
+  }
 @media screen and (min-width: 767px){
     .menu{ display: block !important;}
 }
@@ -255,17 +249,11 @@
         position: absolute;
         background-color: white;
     }
-    .bar1{
-      top: 0;
-    }
-    .bar2{
-      top: 20px;
-    }
-    .bar3{
-      top: 10px;
-    }
-    .bar1, .bar2{
-      -webkit-transition: all 300ms linear;
-    }
+    /* Burger-strekene */
+    .bar1{ top: 0; }
+    .bar2{ top: 20px; }
+    .bar3{ top: 10px; }
+    .bar1, .bar2{ -webkit-transition: all 300ms linear; }
+    /* END burger-strekene */
 }
 /* END - Menu */
