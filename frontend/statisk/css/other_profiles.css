@@ -35,19 +35,12 @@
 .info-holder{
     margin-left: 200px;
 }
-.age{
 
-}
 .age{
     float:left;
-}
-.age{
 }
 .gender{
     float:left;
-}
-.gender-c{
-
 }
 .city{
     float:left;
@@ -58,6 +51,10 @@
 .contact-info{
     float:left;
 }
-.interests{
-    float:left;
+.interests {
+    float: left;
+}
+.profile-posts{
+    font-style: bold;
+    font-size: 18px;
 }

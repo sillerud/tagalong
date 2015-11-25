@@ -46,8 +46,9 @@
             </div>
         </div>
     </div>
+    <div class="profile-posts">Lise's posts</div>
     <div class="profile-post-box"
-        
+
     </div>
 </div>
 
