@@ -51,8 +51,13 @@
     </div>
     <div class="profile-posts">Lise's posts</div>
     <div class="profile-post-box"
-        <div class="profile-post">
-
+        <div class="col-feedbar-box" class="inner-feedbar">
+            <div class="boks">
+            <img src="images/olaNordmann.jpeg" class="col-sirkel">
+                <h3 class="feed-boks-tittel">Tittel</h3>
+                <h6 class="ekstra-info">Dato: 25.11.2015 - Ola Nordmann</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            </div>
         </div>
 
 

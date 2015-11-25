@@ -23,7 +23,7 @@
         <div class="col-sm-8">
             <h2>Feed</h2>
 
-            <div class="inner-feedbar">    
+            <div class="inner-feedbar">
                 
                 <div class="col-feedbar-box"> 
                     
