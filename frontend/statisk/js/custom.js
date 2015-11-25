@@ -1,6 +1,13 @@
 $(document).ready(function () {
 
+    // Legger inn årstall i edit profile
+    var select = $("#years");
+    var year = (new Date).getFullYear() - 14;
 
+    for (i = year; i >= 1900; i--){
+        select.append($('<option>h</option>').val(i).html(i))
+    }
+    // END årstall adder
 
     // Kjører hver gang vinduet endrer størrelse
     $(window).resize(function() {
