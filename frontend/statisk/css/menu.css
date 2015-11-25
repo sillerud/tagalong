@@ -89,7 +89,7 @@
     .fast-search{
         display: inline-block;
         float: right;
-        margin: 0 20px;
+        margin-left: 20px;
         position: relative;
         top: 0;
     }
@@ -133,6 +133,35 @@
     .logged-in-person i{
         margin-left: 10px;
     }
+    .varsel{
+      float: right;
+      margin-left: 20px;
+      position: relative;
+    }
+    .varsel i{
+      color: white;
+      padding: 5px 5px 5px 5px;
+      border-bottom: 1px solid #FFF;
+    }
+    .varsel .fa-bell{
+      display: block;
+    }
+    .varsel .fa-bell-o{
+      display: none;
+    }
+    .varsel:hover .varsel-panel, .varsel:focus .varsel-panel{
+      display: block;
+    }
+    .varsel-panel{
+      display: none;
+      position: absolute;
+      z-index: 90000; /* Over alt annet innhold */
+      right: 0;
+
+      width: 40px;
+      height: 100px;
+      background-color: red;
+    }
   /* END - Top header */
 
   .menu-wrap{ /* Wrap rundt menydelen - nedre del av header */
@@ -156,7 +185,7 @@
   .menu{ /* Selve menyen utenfor ul */
       height: 100%;
       width: 100%;
-      overflow: auto;
+      overflow: hidden;
       display: inline-block;
       float: none;
       margin: auto;

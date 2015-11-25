@@ -25,7 +25,7 @@
            <label for="pages">Pages</label>
 
            <div class="tab-content">
-               Pages
+               <?php include 'search_page.php'; ?>
            </div>
        </div>
 

@@ -1,21 +1,48 @@
-/* Search people */
-.blue h4{
-    border-bottom: 2px solid #1eb6ec;
-    padding-bottom: 2px;
-}
-.search-people h4{
-    display: inline-block;
+/* Search result */
+  .search-result{
+    width: 100%;
     clear: both;
-}
-.search-profilbilde{
-width: 100px;
-float: left;
-}
-
-.search-people-wrap{
-margin-left: 20px;
+    overflow: auto;
+    margin-bottom: 30px;
+  }
+  .search-result .search-result-profilbilde{ /* klasse i IMG taggen */
+    width: 90px;
     float: left;
-}
+    display: block;
+    padding-right: 20px;
+    clear: bottom;
+  }
+  .search-result-title{
+      display: inline-block;
+      clear: both;
+      font-weight: bold;
+  }
+  .search-result-wrap p{
+    overflow: hidden;
+  }
+  .search-result-wrap{
+    display: block;
+    width: auto;
+    box-sizing: border-box;
+  }
+  @media screen and (max-width: 500px){
+    .search-result-profilbilde{ /* klasse i IMG taggen */
+      width: 50px;
+    }
+  }
+/* END - Search result */
+
+/* Search people */
+  .search-page .search-result-title{
+      font-size: 2em;
+  }
+/* END - search people */
+
+/* Search people */
+  .search-people .search-result-title{
+      border-bottom: 2px solid #1eb6ec;
+      padding-bottom: 2px;
+  }
 /* END - search people */
 
 /* Search on search page*/
@@ -83,12 +110,16 @@ margin-left: 20px;
   }
   .tab-content {
     position: absolute;
+    height: auto;
+    width: 100%;
     top: 40px;
     left: 0;
     background: white;
     right: 0;
     bottom: 0;
     padding: 20px;
+    display: none;
+    overflow: auto;
   }
   .tab-tab [type=radio]:checked ~ label {
     background: white;
@@ -97,6 +128,7 @@ margin-left: 20px;
   }
   .tab-tab [type=radio]:checked ~ label ~ .tab-content {
     z-index: 1;
+    display: table;
   }
 
 /* END - search-tabs */

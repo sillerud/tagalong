@@ -27,6 +27,15 @@
 
         <div class="top-right">
 
+            <div class="varsel">
+                <i class="fa fa-bell"></i>
+                <i class="fa fa-bell-o"></i>
+
+                <div class="varsel-panel">
+                    <!-- Varselkode her -->
+                </div>
+            </div>
+
             <div class="logged-in-person">
                 Ola Nordmann<i class="fa fa-user"></i>
             </div>
