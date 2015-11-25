@@ -17,4 +17,8 @@ public enum MessageConstant
     // File
     FILE_UPLOADED,
     FILE_NOT_FOUND,
+
+    // Feed,
+    FEED_DELETED,
+    FEED_CREATED,
 }

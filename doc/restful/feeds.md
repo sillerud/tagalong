@@ -2,6 +2,7 @@
 |  REST method |  Short description | http | Example | Returns |
 | ------------ | ------------------ | ---- | ------- | ------- |
 | /rest/v1/feeds | Get a list of feed objects | GET | /rest/v1/feeds | FeedResult[] |
+| /rest/v1/feeds | Create a new feed | POST | /rest/v1/feeds | ResultResponse<FeedObject> |
 | /rest/v1/feeds/{feedId} | Delete a feed | DELETE | /rest/v1/feeds/56558a8830b630c21c2fa51f | TBD |
 | /rest/v1/feeds/{feedId} | Get a feed object | GET | /rest/v1/feeds/56558a8830b630c21c2fa51f | FeedObject |
 
@@ -33,7 +34,7 @@
     "_id": "564c4fc72fa53e0388a940ae",
     "title": "Quiz",
     "summary": "Java quiz i fubar!",
-    "date": 1448447521000,
+    "time": 1448447521000,
     "commentCount": 21
 }
 ```

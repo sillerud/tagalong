@@ -11,7 +11,7 @@ import java.util.Date;
 @ToString
 public class Post
 {
-    public Post(String pageId, String userId, String title, String content, String[] tags, Date time)
+    public Post(String pageId, String userId, String title, String content, Tag[] tags, Date time)
     {
         this.pageId = pageId;
         this.userId = userId;
@@ -27,6 +27,6 @@ public class Post
     private String title;
     private String content;
     private String shortDescription;
-    private String[] tags;
+    private Tag[] tags;
     private Date time;
 }

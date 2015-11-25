@@ -9,6 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import static no.westerdals.westbook.responses.ResultResponse.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -30,6 +32,17 @@ public class PostRestController
     public Post getPost(@PathVariable String postId)
     {
         return postRepo.findOne(postId);
+    }
+
+    @RequestMapping(value="/rest/v1/posts/by-tags/{tags}", method=RequestMethod.GET)
+    public List<Post> getPostsByTag(@PathVariable String[] tags)
+    {
+        ArrayList<Post> result = new ArrayList<>();
+        for (String tag : tags)
+        {
+            result.addAll(postRepo.getByTagsName(tag));
+        }
+        return result;
     }
 
     @RequestMapping(value = "/rest/v1/posts", method = RequestMethod.POST)

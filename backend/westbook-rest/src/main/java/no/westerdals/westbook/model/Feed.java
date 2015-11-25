@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 @ToString
 public class Feed
 {
-    public Feed(String userId, int index, String[] tags, String[] pageIds)
+    public Feed(String userId, int index, Tag[] tags, String[] pageIds)
     {
         this.userId = userId;
         this.index = index;
@@ -21,7 +21,7 @@ public class Feed
     private String id;
     private String userId;
     private int index;
-    private String[] tags;
+    private Tag[] tags;
     // Id to pages
     private String[] pageIds;
 }
