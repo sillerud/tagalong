@@ -51,7 +51,7 @@
     border-radius: 30px;
     float: left;
 }
-p{
+.inner-feedbar p{
    padding: 15px;
    float: left;
    background-color: grey;
@@ -61,7 +61,7 @@ h6.ekstra-info{
     margin-top: 0px;
     color: #8e8e8e;
     display: inline-block;
-    
+
 }
 h3.feed-boks-tittel{
    margin-top: 0px;
