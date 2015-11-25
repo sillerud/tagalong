@@ -37,22 +37,17 @@
             </div>
             <div class="holder">
                 <p class="about-me"><b>About me:</b></p>
-                <div clas
+
+            </div>
+            <div class="about-me-box">
+                <p class="about-me-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
             </div>
         </div>
     </div>
-
-    <div class="profile-post-box">
-
-
-    </div>
-
-    <div class="a">
-
-    </div>
-
-    <div class="b">
-
+    <div class="profile-post-box"
+        
     </div>
 </div>
 
