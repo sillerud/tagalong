@@ -1,0 +1,40 @@
+.col-profile-box{
+    width: 100%;
+    height: 600px;
+    background-color: white;
+    clear: both;
+    margin-bottom: 15px;
+    border: 5px solid #000;
+    padding: 5px;
+}
+
+.info-holder{
+    margin-left: 200px;
+
+}
+.age{
+
+}
+.age{
+    float:left;
+}
+.age{
+}
+.gender{
+    float:left;
+}
+.gender-c{
+
+}
+.city{
+    float:left;
+}
+.field-of-study{
+    float:left;
+}
+.contact-info{
+    float:left;
+}
+.interests{
+    float:left;
+}

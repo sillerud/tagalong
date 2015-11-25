@@ -226,7 +226,7 @@
       background-color: #63caa6;
       height: 38px;
       overflow: auto;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
   }
   #inner-menu{ /* Indre kjerne av menyen */
       overflow: hidden;
@@ -343,3 +343,7 @@
     /* END burger-strekene */
 }
 /* END - Menu */
+
+.breadcrumbs{
+  margin-bottom: 30px;
+}
