@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 @ToString
 public class Page
 {
-    public Page(String name, String userId, String contactInfo, Link[] links)
+    public Page(String name, String userId, String contactInfo, PageLink[] links)
     {
         this.name = name;
         this.userId = userId;
@@ -22,5 +22,16 @@ public class Page
     private String name;
     private String userId;
     private String contactInfo;
-    private Link[] links;
+    private PageLink[] links;
+
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Getter
+    @Setter
+    @ToString
+    public static class PageLink
+    {
+        private String url;
+        private String description;
+    }
 }

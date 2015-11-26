@@ -16,7 +16,7 @@
 | field                 | description                                  |
 | --------------------- | -------------------------------------------- |
 | id                    | UUID/ObjectId for the url                    |
-| name                  | The url itself                               |
+| url                   | The url itself                               |
 | userId                | The user who posted this url                 |
 
 [Information about the mongodb implementation](../db/mongodb_spec.md#link)
