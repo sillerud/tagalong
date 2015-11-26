@@ -5,11 +5,13 @@
     <div a href="#" class="logo"></div>
 
     <h2 class="page-header">Lise Nordmann</h2>
-
+<!-- Profile first frame-->
     <div class="profile-box">
+        <!-- Profile picture div -->
          <div class="profile-pic">
             <img src="images/olaNordmann.jpeg" class="profile-pic-holder">
         </div>
+            <!-- Holds all the personal info -->
             <div class="info-holder">
                 <h2 class="name">Lise Nordmann</h2>
 
@@ -43,12 +45,15 @@
 
                 </div>
                 <div class="about-me-box">
-                    <p class="about-me-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <p class="about-me-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+                    ligula eget dolor.Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                    nascetur ridiculus mus.</p>
 
                 </div>
             </div>
     </div>
+    <!-- Profile first frame END -->
+    <!-- Profile post START -->
     <div class="profile-posts">Lise's posts</div>
     <div class="profile-post-box"
         <div class="col-feedbar-box" class="inner-feedbar">
@@ -56,12 +61,14 @@
             <img src="images/olaNordmann.jpeg" class="col-sirkel">
                 <h3 class="feed-boks-tittel">Tittel</h3>
                 <h6 class="ekstra-info">Dato: 25.11.2015 - Ola Nordmann</h6>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
             </div>
         </div>
 
 
     </div>
+    <!-- Profile post END -->
 </div>
 
 <?php include 'footer.php'; ?>
