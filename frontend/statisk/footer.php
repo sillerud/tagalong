@@ -6,7 +6,8 @@
         <a href="profil_edit.php">Rediger sin egen profil</a> -
         <a href="page_fubar.php">Page (fubar)</a> -
         <a href="search.php">Search</a> -
-        <a href="sidebar.php">Feed + sidebar</a>
+        <a href="sidebar.php">Feed + sidebar</a> -
+        <a href="new_event.php">New event</a>
     </div>
 
 </footer>
