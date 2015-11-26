@@ -172,4 +172,6 @@
 
 </div><!-- END - container -->
 
+<?php include 'edit_card.php'; ?>
+
 <?php include 'footer.php'; ?>

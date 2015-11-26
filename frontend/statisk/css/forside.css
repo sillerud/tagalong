@@ -100,3 +100,23 @@
         transition: opacity 300ms linear;
     }
 /* END - New Card */
+
+/* Edit new card pop-up */
+.edit-card-wrap{
+    display: none;
+    width: 500px;
+    height: auto;
+    background-color: #FFF;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 20px;
+    border: 2px solid #63caa6;
+    border-radius: 5px;
+}
+/* Edit new card pop-up */

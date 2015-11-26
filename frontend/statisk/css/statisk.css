@@ -12,6 +12,32 @@ Gul: #fed575
 body{
     background-color: #e0ece5;
 }
+.btn-no-fill{
+    background-color: transparent;
+    border: 2px solid #63caa6;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 5px 15px 3px 15px;
+    position: relative;
+    margin-bottom: -10px;
+}
+.btn-no-fill:hover{
+    background-color: #63caa6;
+}
+.btn-fill{
+    background-color: #63caa6;
+    color: #FFF;
+    border: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 6px 16px 4px 16px;
+    position: relative;
+    margin-bottom: -10px;
+}
+.btn-fill:hover{
+    background-color: #3aab83;
+}
 /* END - Globale elementer */
 
 /* menu.css */

@@ -1,11 +1,18 @@
 <?php include 'header.php'; ?>
 
-<div class="container edit-profile-wrap">
+<div class="container edit-profile-wrap edit-fields">
+    <form>
     <center><h1>Edit your profile details</h1></center>
 
     <div class="edit-profile-profile-pic">
         <img class="img-responsive" src="images/profilbilde_jap.jpg">
         <div class="pic-overlay"><b>Click to edit</b></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <input class="edit-field2" placeholder="Interests, seperated, by, comma">
+            <textarea rows="5" class="edit-field3" placeholder="About you"></textarea>
+        </div>
     </div>
 
     <div class="row">
@@ -60,6 +67,8 @@
             <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
         </div>
     </div>
-</div>
+    <center><input type="submit" class="btn-fill" value="Save profile"></center>
+    </form>
+</div><!-- END - container -->
 
 <?php include 'footer.php'; ?>
