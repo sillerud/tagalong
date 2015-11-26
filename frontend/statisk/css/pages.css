@@ -1,40 +1,43 @@
 .pages-header-text{
     padding-bottom: 10px;
-     border-bottom: 2px solid #303030; 
+     border-bottom: 3px solid #303030; 
 }
 
 .pages-main-content{
-    width: 100%; 
-    height: 100%;
+    width: auto; 
+    height: auto;
 }
 
-.pages-content-box{
-    margin: 20px;
-    width: auto;
-    box-sizing: border-box;
-    float: left;
+.most-popular-pages{
+    margin: 10px;
+    height: 500px;
+    border-right: 3px solid #303030; 
 }
 
-.pages-most-popular-wrap{
-    border-right: 2px solid #303030; 
-    background-color: red;
+.pages-all-pages{
+    height: 500px;
 }
 
 .pages-result-profilbilde{
-    padding-bottom: 60px;
     padding-right: 20px;
     width: 100px;
     float: left;
     display: block;
 }
 
-.pages-most-popular-header .pages-all-pages-header{
+.pages-most-popular-header { 
+    margin-bottom: 30px;
     font-size: 2em;
     padding-bottom: 2px;
-    border-bottom: 2px solid #303030;
 }
 
-page-result-description{
+.pages-all-pages-header{
+     margin-bottom: 30px;
+    font-size: 2em;
+    padding-bottom: 2px;
+}
+
+.page-result-description{
     overflow: hidden;
     width: auto;
 }
