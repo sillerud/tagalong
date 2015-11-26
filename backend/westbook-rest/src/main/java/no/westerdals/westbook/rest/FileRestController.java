@@ -17,18 +17,19 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping("/rest/v1/uploads")
 public class FileRestController
 {
     @Autowired
     UploadService uploadService;
 
-    @RequestMapping(value="/rest/v1/uploads/meta/{uploadId}")
+    @RequestMapping(value="/meta/{uploadId}")
     public FileMeta getFileMeta(@PathVariable String uploadId)
     {
         return uploadService.getFileMeta(uploadId);
     }
 
-    @RequestMapping(value="/rest/v1/uploads", method=RequestMethod.POST)
+    @RequestMapping(method=RequestMethod.POST)
     public ResultResponse handleUpload(@RequestParam("name") String name, // Ugly as fuck...
                                        @RequestParam(value="attachment", defaultValue="false") boolean attachment,
                                        @RequestParam("file") MultipartFile file) throws IOException
@@ -38,13 +39,13 @@ public class FileRestController
         return newOkResult(MessageConstant.FILE_UPLOADED, fileMeta);
     }
 
-    @RequestMapping(value="/rest/v1/uploads", method=RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.GET)
     public List<FileMeta> getAllFileMeta()
     {
         return uploadService.getAllFileInfo();
     }
 
-    @RequestMapping(value="/rest/v1/uploads/{fileId}", method=RequestMethod.GET)
+    @RequestMapping(value="/{fileId}", method=RequestMethod.GET)
     public void getUpload(@PathVariable String fileId, HttpServletResponse response) throws IOException
     {
         DownloadRequest downloadRequest = uploadService.downloadFile(fileId, response.getOutputStream());

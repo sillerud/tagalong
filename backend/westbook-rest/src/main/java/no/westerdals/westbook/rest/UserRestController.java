@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/rest/v1/users")
 public class UserRestController
 {
     @Autowired
@@ -24,13 +25,13 @@ public class UserRestController
     @Autowired
     private StudyFieldRepository studyFieldRepository;
 
-    @RequestMapping(value="/rest/v1/users/{userId}", method=RequestMethod.GET)
+    @RequestMapping(value="/{userId}", method=RequestMethod.GET)
     public UserResponse getById(@PathVariable String userId)
     {
         return resolve(userRepository.findOne(userId));
     }
 
-    @RequestMapping(value= "/rest/v1/users/by-name/{nameString}", method=RequestMethod.GET)
+    @RequestMapping(value="/by-name/{nameString}", method=RequestMethod.GET)
     public List<UserResponse> getByName(@PathVariable String nameString, @RequestParam(defaultValue = "20") int maxResults)
     {
         String[] nameParts = nameString.split(" ");
@@ -48,7 +49,7 @@ public class UserRestController
         return found;
     }
 
-    @RequestMapping(value="/rest/v1/users", method=RequestMethod.PATCH)
+    @RequestMapping(method=RequestMethod.PATCH)
     public UserResponse updateUserInfo(@RequestBody User user)
     {
         // This needs some checks if its sane
@@ -58,7 +59,7 @@ public class UserRestController
         return resolve(userRepository.findOne(user.getId()));
     }
 
-    @RequestMapping(value="/rest/v1/users/by-studyfield/{studyField}", method=RequestMethod.GET)
+    @RequestMapping(value="/by-studyfield/{studyField}", method=RequestMethod.GET)
     public List<UserResponse> getByStudyField(@PathVariable String studyField)
     {
         return userRepository.getByStudyFieldId(resolveStudyField(studyField)).stream()
@@ -66,14 +67,14 @@ public class UserRestController
                 .collect(Collectors.toList());
     }
 
-    @RequestMapping(value="/rest/v1/users/by-email/{emailAddress}", method=RequestMethod.GET)
+    @RequestMapping(value="/by-email/{emailAddress}", method=RequestMethod.GET)
     public UserResponse getByEmailAddress(@PathVariable String emailAddress)
     {
         return resolve(userRepository.getByEmail(emailAddress.replaceAll("_", ".")));
     }
 
     //!!!!!!!!!!NEED TO CHECK ACCESS LEVEL!!!!!!!!!!!!
-    @RequestMapping(value="/rest/v1/users/{userId}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{userId}", method=RequestMethod.DELETE)
     public ResultResponse deleteUser(@PathVariable String userId)
     {
         if (userRepository.findOne(userId) == null)
@@ -84,7 +85,7 @@ public class UserRestController
         return newOkResult(MessageConstant.USER_DELETED);
     }
 
-    @RequestMapping(value="/rest/v1/users", method=RequestMethod.POST)
+    @RequestMapping(method=RequestMethod.POST)
     public ResultResponse createUser(@RequestBody User user)
     {
         user.setId(null);
@@ -93,7 +94,7 @@ public class UserRestController
         return newOkResult(MessageConstant.USER_CREATED, inserted);
     }
 
-    @RequestMapping(value="/rest/v1/users", method=RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.GET)
     public List<UserResponse> getAllUsers()
     {
         return userRepository

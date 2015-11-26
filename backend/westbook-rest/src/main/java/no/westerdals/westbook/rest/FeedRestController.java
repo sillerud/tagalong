@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/rest/v1/feeds")
 public class FeedRestController
 {
     @Autowired
@@ -45,7 +46,7 @@ public class FeedRestController
             return 0;
     };
 
-    @RequestMapping(value="/rest/v1/feeds", method=RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.GET)
     public List<FeedResult> getFeedCards()
     {
         return feedRepository.findAll(new PageRequest(0, 10))
@@ -55,7 +56,7 @@ public class FeedRestController
                 .collect(Collectors.toList());
     }
 
-    @RequestMapping(value="/rest/v1/feeds/{feedId}", method=RequestMethod.GET)
+    @RequestMapping(value="/{feedId}", method=RequestMethod.GET)
     public FeedResult getFeedPosts(@PathVariable String feedId, @RequestParam(defaultValue = "1") int page) throws Exception
     {
         if (true)
@@ -63,14 +64,14 @@ public class FeedRestController
         return resolve(feedRepository.findOne(feedId), page);
     }
 
-    @RequestMapping(value="/rest/v1/feeds/{feedId}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{feedId}", method=RequestMethod.DELETE)
     public ResultResponse deleteFeed(@PathVariable String feedId)
     {
         feedRepository.delete(feedId);
         return newOkResult(MessageConstant.FEED_DELETED);
     }
 
-    @RequestMapping(value="/rest/v1/feeds", method=RequestMethod.POST)
+    @RequestMapping(method=RequestMethod.POST)
     public ResultResponse createFeed(@RequestBody Feed feed)
     {
         feed.setId(null);

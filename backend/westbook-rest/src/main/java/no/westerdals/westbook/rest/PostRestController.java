@@ -14,12 +14,13 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@RequestMapping("/rest/v1/posts")
 public class PostRestController
 {
     @Autowired
     private PostRepository postRepo;
 
-    @RequestMapping(value = "/rest/v1/posts", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<Post> getPosts(@RequestParam(defaultValue = "20")int maxPosts, @RequestParam(defaultValue = "0")int pageIndex)
     {
         if (maxPosts < 0 || pageIndex < 0)
@@ -27,13 +28,13 @@ public class PostRestController
         return postRepo.findAll(new PageRequest(pageIndex, maxPosts)).getContent();
     }
 
-    @RequestMapping(value = "/rest/v1/posts/{postId}", method = RequestMethod.GET)
+    @RequestMapping(value="/{postId}", method=RequestMethod.GET)
     public Post getPost(@PathVariable String postId)
     {
         return postRepo.findOne(postId);
     }
 
-    @RequestMapping(value="/rest/v1/posts/by-tags/{tags}", method=RequestMethod.GET)
+    @RequestMapping(value="/by-tags/{tags}", method=RequestMethod.GET)
     public List<Post> getPostsByTag(@PathVariable String[] tags)
     {
         ArrayList<Post> result = new ArrayList<>();
@@ -44,7 +45,7 @@ public class PostRestController
         return result;
     }
 
-    @RequestMapping(value = "/rest/v1/posts", method = RequestMethod.POST)
+    @RequestMapping(method=RequestMethod.POST)
     public ResultResponse writePost(@RequestBody Post post)
     {
         post.setTime(new Date());

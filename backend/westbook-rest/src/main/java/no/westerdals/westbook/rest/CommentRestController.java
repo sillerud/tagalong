@@ -13,6 +13,7 @@ import java.util.Date;
 import static no.westerdals.westbook.responses.ResultResponse.*;
 
 @RestController
+@RequestMapping("/rest/v1/comments")
 public class CommentRestController
 {
 
@@ -21,7 +22,7 @@ public class CommentRestController
     @Autowired
     private PostRepository postRepository;
 
-    @RequestMapping(value="/rest/v1/comments", method=RequestMethod.POST)
+    @RequestMapping(method=RequestMethod.POST)
     public ResultResponse createComment(@RequestBody Comment comment)
     {
         if (postRepository.findOne(comment.getParentId()) == null)
