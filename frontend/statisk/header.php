@@ -95,7 +95,6 @@
                 <li><a href="sidebar.php">Feed</a></li>
                 <li><a href="#">Events</a></li>
                 <li><a href="#">Pages</a></li>
-                <li><a href="#">Groups</a></li>
             </ul>
         </div><!-- END menu inner-->
     </div><!-- END container -->
