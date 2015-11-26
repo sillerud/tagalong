@@ -6,7 +6,8 @@
 
     <div class="edit-profile-profile-pic">
         <img class="img-responsive" src="images/profilbilde_jap.jpg">
-        <div class="pic-overlay"><b>Click to edit</b></div>
+        <input id="chooseProfilePic" type="file" style="visibility:hidden">
+        <div class="pic-overlay" onclick="$('#chooseProfilePic').click();"><b>Click to edit</b></div>
     </div>
     <div class="row">
         <div class="col-sm-12">

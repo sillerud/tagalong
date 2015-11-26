@@ -1,4 +1,7 @@
 /* Edit profil */
+#chooseProfilePic{
+    position: absolute;
+}
 .edit-profile-wrap{
 }
 .edit-profile-profile-pic{
@@ -18,6 +21,7 @@
     right: 0;
     background-color: rgba(0, 0, 0, .6);
     transition: opacity 300ms linear;
+    cursor: pointer;
 }
 .edit-profile-profile-pic:hover .pic-overlay{
     opacity: 1;
