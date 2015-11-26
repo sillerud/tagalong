@@ -26,7 +26,7 @@
 <div class="top-header">
     <div class="container">
         <div class="top-left">
-            <img class="logo" src="images/tagalong_logo.png">
+            <a href="index.php"><img class="logo" src="images/tagalong_logo.png"></a>
             <input type="button" value="New Post" />
         </div>
 
