@@ -4,10 +4,19 @@
     <!-- Kode her -->
     <div a href="#" class="logo"></div>
 
+
     <h2 class="page-header">Lise Nordmann</h2>
     <!--<a href="profil_edit.php" class="edit-profile-page">Edit your profile</a>
 <!-- Profile first frame-->
     <div class="profile-box">
+
+
+    <!--if(myprofile){-->
+        <!--hide-->
+    <!--}else{-->
+        <!--<a href="profil_edit.php" class="edit-profile-page">Edit</a>-->
+    <!--}-->
+
     <a href="profil_edit.php" class="edit-profile-page">Edit</a>
         <!-- Profile picture div -->
          <div class="profile-pic">
@@ -40,7 +49,7 @@
                 </div>
                 <div class="holder">
                     <p class="info-format" class="interests"><b>Interests: </b></p>
-                    <p class="interests-c"> 3ds Max</p>
+                    <p class="interests-c"> 3ds Max, java, innebandy og gamings</p>
                 </div>
                 <div class="holder">
                     <p class="about-me"><b>About me:</b></p>

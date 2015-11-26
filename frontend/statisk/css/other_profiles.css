@@ -32,7 +32,7 @@
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 0px;
-    border-radius: 50px;
+    border-radius: 80px;
     float: left;
 }
 .edit-profile-page{
@@ -52,25 +52,6 @@
     float: left;
     width: auto;
 }
-/*
-.age{
-    float:left;
-}
-.gender{
-    float:left;
-}
-.city{
-    float:left;
-}
-.field-of-study{
-    float:left;
-}
-.contact-info{
-    float:left;
-}
-.interests {
-    float: left;
-}*/
 .contact-info{
     font: auto;
 }
