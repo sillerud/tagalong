@@ -71,3 +71,32 @@
 
     }
 /* END - Cards */
+
+/* New Card */
+    .card-wrap-add{
+        width: 100%;
+        height: 190px;
+        background-color: transparent;
+        padding: 15px 15px 10px 15px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+        position: relative;
+        border: 2px dashed #333;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        opacity: 0.4;
+        transition: opacity 300ms linear;
+        cursor: pointer;
+    }
+    .card-add-inner{
+        align-self: center;
+    }
+    .card-add-inner .fa-plus{
+        font-size: 3em;
+    }
+    .card-wrap-add:hover{
+        opacity: 1;
+        transition: opacity 300ms linear;
+    }
+/* END - New Card */
