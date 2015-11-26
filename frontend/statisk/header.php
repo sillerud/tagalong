@@ -102,7 +102,25 @@
 
 <div class="container">
     <div class="breadcrumbs">
-        <a href="index.php">Home</a> >
-        <a href="#">This place</a>
+        <a href="index.php">Home</a>
+        <?php if(basename($_SERVER['SCRIPT_NAME']) == 'index.php'): ?>
+
+        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'sidebar.php'): ?>
+            - Feed
+        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'other_profiles.php'): ?>
+            - Profil
+        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'profil_edit.php'): ?>
+            - <a href="other_profiles.php">Profil</a> - Edit profile
+        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'page_fubar.php'): ?>
+            - Fubar
+        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'sidebar.php'): ?>
+            - Feed
+        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'search.php'): ?>
+            - Search
+        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'new_event.php'): ?>
+            - New Event
+        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'events.php'): ?>
+            - Events
+        <?php endif; ?>
     </div>
 </div>
