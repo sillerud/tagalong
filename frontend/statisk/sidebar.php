@@ -22,6 +22,82 @@
         </div><!-- END sidebar -->
         <div class="col-sm-8">
             <h2>Feed</h2>
+            
+            <div class="card-tag-wrap">
+                <ul class="card-tag-list">
+                    <li>#Render
+                        <ul class="tag-path">
+                            <li>#Film</li>
+                            <li>- #Film</li>
+                            <li>- - #Render</li>
+                        </ul>
+                    </li>
+                    <li>#TV
+                        <ul class="tag-path">
+                            <li>TV</li>
+                        </ul>
+                    </li>
+                    <li>#Sosialt
+                        <ul class="tag-path">
+                            <li>#Interaktivt design</li>
+                            <li>- #Web</li>
+                            <li>- - #Utviling</li>
+                        </ul>
+                    </li>
+                    <li>#Film
+                        <ul class="tag-path">
+                            <li>@Fubar</li>
+                            <li>#Scary-movie</li>
+                        </ul>
+                    </li>
+                    <li>#Fest
+                        <ul class="tag-path">
+                            <li>#Toga-party</li>
+                             <li>#Julebord</li>
+                             <li>#Halloween</li>
+                        </ul>
+                    </li>
+                     <li>#Events
+                        <ul class="tag-path">
+                            <li>#Workshop</li>
+                             <li>#Quiz</li>
+                             <li>#Floor-tournament</li>
+                        </ul>
+                    </li> 
+                     <li>#Sosialt
+                        <ul class="tag-path">
+                            <li>#Interaktivt design</li>
+                            <li>- #Web</li>
+                            <li>- - #Utviling</li>
+                        </ul>
+                    </li>
+                    <li>#TV
+                        <ul class="tag-path">
+                            <li>TV</li>
+                        </ul>
+                    </li>
+                    <li>#Render
+                        <ul class="tag-path">
+                            <li>#Film</li>
+                            <li>- #Film</li>
+                            <li>- - #Render</li>
+                        </ul>
+                    </li> 
+                     <li>#Fest
+                        <ul class="tag-path">
+                            <li>#Toga-party</li>
+                             <li>#Julebord</li>
+                             <li>#Halloween</li>
+                        </ul>
+                    </li>
+                     <li>#Film
+                        <ul class="tag-path">
+                            <li>@Fubar</li>
+                            <li>#Scary-movie</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- END - card-wrap -->
 
             <div class="inner-feedbar">
                 
