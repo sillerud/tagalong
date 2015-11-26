@@ -15,9 +15,19 @@ $(document).ready(function () {
         $('#darkOverlay').fadeIn();
     });
     $('#saveCard').on('click', function(){
+        closeCardPopUp();
+    });
+    $('#darkOverlay').on('click', function(){
+        closeCardPopUp();
+    });
+    $(document).keydown(function(e){
+        if(e.keyCode == 27) closeCardPopUp();
+    });
+
+    function closeCardPopUp(){
         $('.edit-card-wrap').fadeOut();
         $('#darkOverlay').fadeOut();
-    });
+    }
     // END Åpne og lukke edit/add new card
 
     // Kjører hver gang vinduet endrer størrelse
