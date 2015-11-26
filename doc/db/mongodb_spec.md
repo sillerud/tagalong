@@ -99,6 +99,7 @@
 ```json
 {
     "_id": ObjectId,
-    "url": String
+    "url": String,
+    "userId": ObjectId
 }
 ```

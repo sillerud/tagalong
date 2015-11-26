@@ -9,13 +9,13 @@ import org.springframework.data.annotation.Id;
 @ToString
 public class Link
 {
-    public Link(String description, String url)
+    public Link(String url, String userId)
     {
-        this.description = description;
         this.url = url;
+        this.userId = userId;
     }
     @Id
     private String id;
-    private String description;
     private String url;
+    private String userId;
 }

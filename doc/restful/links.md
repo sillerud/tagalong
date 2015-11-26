@@ -8,7 +8,8 @@
 ```json
 {
     "id": "5656df9d30b630c21c2fa522",
-    "url": "https://google.com/"
+    "url": "https://google.com/",
+    "userId": "564c4fc72fa53e0388a940ae"
 }
 ```
 
@@ -16,6 +17,6 @@
 | --------------------- | -------------------------------------------- |
 | id                    | UUID/ObjectId for the url                    |
 | name                  | The url itself                               |
-| description           | Full name for this study field               |
+| userId                | The user who posted this url                 |
 
 [Information about the mongodb implementation](../db/mongodb_spec.md#link)

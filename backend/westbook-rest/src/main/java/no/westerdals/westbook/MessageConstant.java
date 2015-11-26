@@ -24,4 +24,7 @@ public enum MessageConstant
 
     // Unmapped error,
     UNMAPPED_ERROR,
+
+    // Link
+    LINK_CREATED,
 }
