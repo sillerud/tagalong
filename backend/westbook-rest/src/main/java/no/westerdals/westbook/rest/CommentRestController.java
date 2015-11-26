@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 import static no.westerdals.westbook.responses.ResultResponse.*;
 
@@ -32,5 +33,23 @@ public class CommentRestController
         comment.setTimestamp(new Date());
         Comment result = commentRepository.insert(comment);
         return newOkResult(MessageConstant.COMMENT_CREATED, result);
+    }
+
+    @RequestMapping(value="/{commentId}", method=RequestMethod.GET)
+    public Comment getComment(@PathVariable String commentId)
+    {
+        return commentRepository.findOne(commentId);
+    }
+
+    @RequestMapping(value="/by-posts/{postId}", method=RequestMethod.GET)
+    public List<Comment> getCommentByPost(@PathVariable String postId)
+    {
+        return commentRepository.findByParentId(postId);
+    }
+
+    @RequestMapping(value="/by-user/{userId}", method=RequestMethod.GET)
+    public List<Comment> getCommentsByUser(@PathVariable String userId)
+    {
+        return commentRepository.findByUserId(userId);
     }
 }
