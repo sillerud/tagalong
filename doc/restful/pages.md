@@ -3,6 +3,7 @@
 | ------------ | ------------------ | ---- | ------- | ------- |
 | /rest/v1/pages/{pageId} | Get a page by id | GET | /rest/v1/pages/5656e7b630b630c21c2fa523 | Page |
 | /rest/v1/pages/by-user/{userId} | Get a list of pages owned by this user | GET | /rest/v1/pages/564c4fc72fa53e0388a940ae | Page[] |
+| /rest/v1/pages/by-name/{name} | Get a list of pages matching the name | GET | /rest/v1/pages/by-name/fubar | Page[] |
 | /rest/v1/pages | Create a new page | GET | /rest/v1/pages | ResultResponse<Page> |
 | /rest/v1/pages | Edit page information | PATCH | /rest/v1/pages | ResultResponse |
 

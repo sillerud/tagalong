@@ -27,4 +27,7 @@ public enum MessageConstant
 
     // Link
     LINK_CREATED,
+
+    // Post,
+    PAGE_CREATED,
 }
