@@ -8,7 +8,7 @@
     padding: 5px;
 }
 .about-me-box{
-    width: 85%;
+    width: auto;
     height: auto;
     background-color: white;
     clear: both;
@@ -32,7 +32,7 @@
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 0px;
-    border-radius:100px;
+    border-radius: 50px;
     float: left;
 }
 .edit-profile-page{
@@ -50,11 +50,12 @@
 }
 .info-format{
     float: left;
+    width: auto;
 }
-
+/*
 .age{
     float:left;
-}/*
+}
 .gender{
     float:left;
 }
@@ -70,6 +71,9 @@
 .interests {
     float: left;
 }*/
+.contact-info{
+    font: auto;
+}
 .profile-posts{
     font-size: 18px;
 }
@@ -79,4 +83,13 @@
 }
 .inner-feedbar{
     height:auto;
+}
+@media screen and (max-width: 500px){
+    .profile-pic-holder{
+        width:70px;
+        height: 70px;
+    }
+    .info-holder{
+        margin-left: 100px;
+    }
 }
