@@ -93,8 +93,8 @@
             <ul>
                 <li><a href="index.php" class="active">Home</a></li>
                 <li><a href="sidebar.php">Feed</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Pages</a></li>
+                <li><a href="events.php">Events</a></li>
+                <li><a href="pages.php">Pages</a></li>
             </ul>
         </div><!-- END menu inner-->
     </div><!-- END container -->
@@ -121,6 +121,8 @@
             - New Event
         <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'events.php'): ?>
             - Events
+        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'pages.php'): ?>
+            - Pages
         <?php endif; ?>
     </div>
 </div>
