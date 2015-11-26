@@ -1,4 +1,4 @@
-#User API functions
+#Comment API functions
 |  REST method |  Short description | http | Example | Returns |
 | ------------ | ------------------ | ---- | ------- | ------- |
 | /rest/v1/comments/{commentId} | Get comment by id | GET | /rest/v1/comments/565435775c5997185c1c5bd2 | Comment |

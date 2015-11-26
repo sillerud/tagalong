@@ -94,3 +94,11 @@
     "description": String
 }
 ```
+
+#Link
+```json
+{
+    "_id": ObjectId,
+    "url": String
+}
+```

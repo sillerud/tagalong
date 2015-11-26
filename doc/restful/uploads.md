@@ -1,4 +1,4 @@
-#User API functions
+#Upload API functions
 |  REST method |  Short description | http | Example | Returns |
 | ------------ | ------------------ | ---- | ------- | ------- |
 | /rest/v1/uploads/{uploadId} |  | GET | /rest/v1/comments/5654552f93f4c50095f4999c | A stream with the content |

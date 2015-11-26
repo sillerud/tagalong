@@ -1,4 +1,4 @@
-#User API functions
+#Feed API functions
 |  REST method |  Short description | http | Example | Returns |
 | ------------ | ------------------ | ---- | ------- | ------- |
 | /rest/v1/feeds | Get a list of feed objects | GET | /rest/v1/feeds | FeedResult[] |

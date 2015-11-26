@@ -1,4 +1,4 @@
-#User API functions
+#Static API functions
 |  REST method |  Short description | http | Example | Returns |
 | ------------ | ------------------ | ---- | ------- | ------- |
 | /rest/v1/static/studyfield/{studyfiedId} | Get study field info by id | GET | /rest/v1/static/studyfield/565313aa180cc331da4856d4 | StudyField |
