@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/search.css">
     <link rel="stylesheet" type="text/css" href="css/sidebar.css">
     <link rel="stylesheet" type="text/css" href="css/page_fubar.css">
+    <link rel="stylesheet" type="text/css" href="css/pages.css">
     <link rel="stylesheet" type="text/css" href="css/other_profiles.css">
     <link rel="stylesheet" type="text/css" href="css/profil_edit.css">
     <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.css"><!-- Font Awesome ikoner -->
