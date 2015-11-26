@@ -10,6 +10,6 @@
         <input class="edit-field2"  type="text" hidden><!-- Plassering av tags i form -->
         <input class="edit-field2" placeholder="Legg til tags" type="search">
 
-        <input type="submit" class="btn-fill" value="Save card">
+        <input id="saveCard" type="submit" class="btn-fill" value="Save card">
     </form>
 </div>

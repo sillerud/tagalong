@@ -9,6 +9,17 @@ $(document).ready(function () {
     }
     // END årstall adder
 
+    // Åpne og lukke edit/add new card
+    $('.card-wrap-add').on('click', function(){
+        $('.edit-card-wrap').fadeIn();
+        $('#darkOverlay').fadeIn();
+    });
+    $('#saveCard').on('click', function(){
+        $('.edit-card-wrap').fadeOut();
+        $('#darkOverlay').fadeOut();
+    });
+    // END Åpne og lukke edit/add new card
+
     // Kjører hver gang vinduet endrer størrelse
     $(window).resize(function() {
 
