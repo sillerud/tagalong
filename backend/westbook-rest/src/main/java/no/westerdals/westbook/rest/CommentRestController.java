@@ -41,7 +41,7 @@ public class CommentRestController
         return commentRepository.findOne(commentId);
     }
 
-    @RequestMapping(value="/by-posts/{postId}", method=RequestMethod.GET)
+    @RequestMapping(value="/by-post/{postId}", method=RequestMethod.GET)
     public List<Comment> getCommentByPost(@PathVariable String postId)
     {
         return commentRepository.findByParentId(postId);

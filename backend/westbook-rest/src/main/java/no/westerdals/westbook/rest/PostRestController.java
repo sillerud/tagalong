@@ -45,6 +45,12 @@ public class PostRestController
         return result;
     }
 
+    @RequestMapping(value="/by-user/{userId}", method=RequestMethod.GET)
+    public List<Post> getPostsByUser(@PathVariable String userId)
+    {
+        return postRepo.getByUserId(userId);
+    }
+
     @RequestMapping(method=RequestMethod.POST)
     public ResultResponse writePost(@RequestBody Post post)
     {

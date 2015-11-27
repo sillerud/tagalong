@@ -14,6 +14,7 @@ public class Comment
     public Comment(String userId, String parentId, String title,
                    String content, Date timestamp)
     {
+        this.title = title;
         this.userId = userId;
         this.parentId = parentId;
         this.content = content;
