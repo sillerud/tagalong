@@ -1,7 +1,50 @@
 .events-box{
-border-top: 3px solid #000;
-width: 100%;
-background-color: lightgray;
-padding: 15px;
+    border-top: 3px solid #000;
+    width: 100%;
+    background-color: lightgray;
+    padding: 15px;
 }
-    
+.an-event-wrap{ /* Wrap rundt et event, upcoming og my event */
+    overflow: auto;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #FFF;
+}
+.an-event-wrap .attending-or-not{
+    width: 100%;
+    margin: 5px 0;
+}
+.an-event-wrap .attending-btn, .an-event-wrap .not-attending-btn, .an-event-wrap .number-attending{
+    float: left;
+    padding: 2px 10px;
+    border: 2px solid transparent;
+}
+.an-event-wrap .attending-btn{ /* Attending knapp */
+    border: 2px solid #2f9a05; /* Green */
+    border-right: none;
+    cursor: pointer;
+    border-radius: 4px 0 0 4px;
+}
+.an-event-wrap .attending-btn:hover{
+    background-color: #2f9a05;
+}
+.an-event-wrap .not-attending-btn{ /* Not Attending knapp */
+    border: 2px solid #e42010; /* Red */
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.an-event-wrap .not-attending-btn:hover{
+    background-color: #e42010;
+}
+.an-event-date{ /* Dato til eventet */
+    border: 2px solid #FFF;
+    background-color: #FFF;
+    border-radius: 4px;
+    padding: 2px 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.attending-checked{ /* Når man har trykket attending */
+    background-color: #2f9a05;
+}
