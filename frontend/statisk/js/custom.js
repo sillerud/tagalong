@@ -32,7 +32,7 @@ $(document).ready(function () {
 
 
     $('#datetimepicker2').datetimepicker({
-        locale: 'ru'
+        locale: 'nb'
     });
 
     // Kjører hver gang vinduet endrer størrelse
