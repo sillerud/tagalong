@@ -21,6 +21,7 @@ body{
     padding: 5px 15px 3px 15px;
     position: relative;
     margin-bottom: -10px;
+    text-align: center;
 }
 .btn-no-fill:hover{
     background-color: #63caa6;
