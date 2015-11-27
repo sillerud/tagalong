@@ -17,13 +17,8 @@
     <link rel="stylesheet" type="text/css" href="css/other_profiles.css">
     <link rel="stylesheet" type="text/css" href="css/profil_edit.css">
     <link rel="stylesheet" type="text/css" href="css/events.css">
-<<<<<<< Updated upstream
-    <link rel="stylesheet" type="text/css" href="css/new-events.css">
-    <link rel="stylesheet" type="text/css" href="css/movie_night_page.css">
-=======
     <link rel="stylesheet" type="text/css" href="css/new_event.css">
-        <link rel="stylesheet" type="text/css" href="css/movie_night_page.css">
->>>>>>> Stashed changes
+    <link rel="stylesheet" type="text/css" href="css/movie_night_page.css">
     <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.css"><!-- Font Awesome ikoner -->
 
     <title>Tag along</title>
