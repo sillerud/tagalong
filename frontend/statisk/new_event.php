@@ -29,16 +29,17 @@
                 </div>
             </div>
         </div>
-</div><!--Row END-->
+    </div><!--Row END-->
 
-        <div class="col-sm-12 ">
+        <div class="describe-event">
             <textarea rows="5" class="edit-field3" placeholder="Describe your event"></textarea>
         </div>
 
-        <div class="col-sm-12 invite-container">      <!--invite section-->
+        <div class="invite-container">            <!--invite section-->
+
+            <h3 class="invite-text">Invite</h3>
              <div  class="invite-checkbox">
                 <form>
-                    <p>Invite</p>
                     <input type="checkbox" name="Invite all campus"> Invite all subjects
                     <br>
                     <input type="checkbox" name="Campus Galleriet"> Teknologi/IT
@@ -55,13 +56,18 @@
 
             <div class="invite-people">
                 <form>
-                    Invite individual people:
+                    Invite people:
+                    <br>
                     <input type="search" name="googlesearch">
                 </form>
             </div>
         </div> <!-- Invite section-->
+<div>
+    <input type="submit" value="Save event" class="btn-fill">
+</div>
 </div><!--Hovedkonteiner END-->
 
 
 
 <?php include 'footer.php'; ?>
+

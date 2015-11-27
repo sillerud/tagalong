@@ -4,7 +4,7 @@
     background-color: white;
     clear: both;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 10px
 }
 
 .edit-event-pic{
@@ -14,5 +14,19 @@
     background-color: transparent;
 }
 .invite-text{
-    color: #333;
+    border-bottom: 1px solid #63caa6;
+}
+.invite-container{
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+    overflow: auto;
+}
+.invite-people{
+
+    float: left;
+}
+.invite-checkbox{
+    float: left;
+    padding-right: 100px;
 }
