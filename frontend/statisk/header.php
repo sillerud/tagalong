@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <link rel="shortcut icon" type="image/png" href="images/faneikon.png"/>
+    <link rel="shortcut icon" type="image/png" href="images/faneikon_logo.png"/>
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/statisk.css">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="css/profil_edit.css">
     <link rel="stylesheet" type="text/css" href="css/events.css">
     <link rel="stylesheet" type="text/css" href="css/new-events.css">
-        <link rel="stylesheet" type="text/css" href="css/movie_night_page.css">
+    <link rel="stylesheet" type="text/css" href="css/movie_night_page.css">
     <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.css"><!-- Font Awesome ikoner -->
 
     <title>Tag along</title>
