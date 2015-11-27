@@ -12,6 +12,12 @@ Gul: #fed575
 body{
     background-color: #e0ece5;
 }
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
 .btn-no-fill{
     background-color: transparent;
     border: 2px solid #63caa6;
@@ -22,6 +28,7 @@ body{
     position: relative;
     margin-bottom: -10px;
     text-align: center;
+    display: inline-block;
 }
 .btn-no-fill:hover{
     background-color: #63caa6;
