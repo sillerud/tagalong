@@ -1,0 +1,15 @@
+.new-event.holder{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    clear: both;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.edit-event-pic{
+    margin-bottom: 10px;
+}
+.name-event{
+    background-color: transparent;
+}

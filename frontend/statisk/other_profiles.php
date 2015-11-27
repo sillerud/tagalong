@@ -19,7 +19,7 @@
 
     <a href="profil_edit.php" class="edit-profile-page">Edit</a>
         <!-- Profile picture div -->
-         <div class="profile-pic">
+    <div class="profile-pic">
             <img src="images/olaNordmann.jpeg" class="profile-pic-holder">
         </div>
             <!-- Holds all the personal info -->
