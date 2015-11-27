@@ -12,6 +12,7 @@
     "angular-loader": "~1.4.0",
     "jquery": "~2.1.4",
     "bootstrap": "~3.3.5",
-    "components-font-awesome": "~4.4.0"
+    "components-font-awesome": "~4.4.0",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37"
   }
 }

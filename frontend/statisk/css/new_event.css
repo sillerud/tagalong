@@ -8,8 +8,11 @@
 }
 
 .edit-event-pic{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .name-event{
     background-color: transparent;
+}
+.invite-text{
+    color: #333;
 }

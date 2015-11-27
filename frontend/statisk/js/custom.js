@@ -30,6 +30,11 @@ $(document).ready(function () {
     }
     // END Åpne og lukke edit/add new card
 
+
+    $('#datetimepicker2').datetimepicker({
+        locale: 'ru'
+    });
+
     // Kjører hver gang vinduet endrer størrelse
     $(window).resize(function() {
 
