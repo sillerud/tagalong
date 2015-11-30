@@ -8,6 +8,14 @@
         <a href="search.php">Search</a> -
         <a href="sidebar.php">Feed + sidebar</a> -
         <a href="new_event.php">New event</a>
+
+        <br>
+
+        <div id="blue">Blue</div>
+        <div id="red">Red</div>
+        <div id="yellow">Yellow</div>
+        <div id="purple">Purple</div>
+        <div id="green">Green</div>
     </div>
 
 </footer>

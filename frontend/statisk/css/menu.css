@@ -127,7 +127,6 @@
         border-bottom: 1px solid white;
     }
     .logged-in-person:hover, .logged-in-person:hover i{
-        color: #63caa6;
         border-color: #63caa6;
     }
     .logged-in-person i{

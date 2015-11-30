@@ -24,6 +24,8 @@
     <title>Tag along</title>
 </head>
 <body>
+<style id="customColor">
+</style>
 
 <div class="top-header">
     <div class="container">
@@ -63,13 +65,13 @@
             </div><!--end varlse-panel-->
 
             <a href="other_profiles.php">
-                <div class="logged-in-person">
+                <div class="logged-in-person ta-color-hover ta-border-color-hover">
                     Ola Nordmann
                     <i class="fa fa-user"></i>
                 </div>
             </a>
 
-            <div class="fast-search">
+            <div class="fast-search ta-border-color-hover">
                 <input type="search" placeholder="Søk her...">
                 <button><i class="fa fa-search"></i></button>
             </div>
