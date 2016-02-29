@@ -93,18 +93,6 @@
         position: relative;
         top: 0;
     }
-    .fast-search input[type=search]{
-        border: none;
-        padding: 3px 5px 1px 10px;
-        background-color: rgba(255, 255, 255, .0);
-        border-bottom: 1px solid #FFF;
-        width: 48px;
-    }
-    .fast-search input[type=search]:focus{
-        outline: none;
-        color: white;
-        width: 150px;
-    }
     .fast-search button{ /* Søkeikon */
         background-color: rgba(255, 255, 255, .0);
         border: none;
@@ -113,9 +101,33 @@
         border-bottom: 1px solid #FFF;
         color: #FFF;
     }
-    .fast-search input[type=search]:focus, .fast-search input[type=search]:focus ~ button{
-        border-color: #63caa6;
-        transition: all 200ms linear;
+    .search-overlay-wrap{
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #FFF;
+      z-index: 999;
+      display: none;
+    }
+    .search-overlay-wrap input[type="search"]{
+      border: none;
+      border-bottom: 2px solid #c4c4c4;
+      font-size: 3em;
+      width: 100%;
+      margin-top: 70px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .search-overlay-wrap input[type="search"]:focus{
+      outline: none;
+    }
+    .search-overlay-wrap .exit-search{
+      position: absolute;
+      right: 35px;
+      font-size: 2em;
+      top: 92px;
     }
     .logged-in-person{
         display: inline-block;
@@ -237,6 +249,7 @@
   .container{
       max-width: 900px;
       width: 100%;
+      position: relative;
   }
   .menu{ /* Selve menyen utenfor ul */
       height: 100%;

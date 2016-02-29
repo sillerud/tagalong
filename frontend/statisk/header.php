@@ -31,7 +31,6 @@
     <div class="container">
         <div class="top-left">
             <a href="index.php"><img class="logo" src="images/tagalong_logo.png"></a>
-            <input type="button" value="New Post" />
         </div>
 
         <div class="top-right">
@@ -71,10 +70,18 @@
                 </div>
             </a>
 
-            <div class="fast-search ta-border-color-hover">
-                <input type="search" placeholder="Søk her...">
+            <div class="fast-search">
                 <button><i class="fa fa-search"></i></button>
-            </div>
+
+                <div class="search-overlay-wrap">
+                    <div class="container">
+                        <input type="search" placeholder="Søk her..." autofocus>
+                        <i class="exit-search fa fa-times"></i>
+                        <div class="fast-search-result"></div>
+                    </div><!-- END search-overlay-inner -->
+                </div><!-- END search-overlay-wrap -->
+
+            </div><!-- END fast-search -->
         </div>
     </div>
 
