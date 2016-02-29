@@ -21,6 +21,9 @@
     <link rel="stylesheet" type="text/css" href="css/movie_night_page.css">
     <link rel="stylesheet" href="../bower_components/components-font-awesome/css/font-awesome.css"><!-- Font Awesome ikoner -->
 
+    <script src="https://use.typekit.net/dtg0waj.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
     <title>Tag along</title>
 </head>
 <body>
@@ -30,7 +33,7 @@
 <div class="top-header">
     <div class="container">
         <div class="top-left">
-            <a href="index.php"><img class="logo" src="images/tagalong_logo.png"></a>
+            <a href="index.php"><img class="logo" src="images/logonettsideferdig.png"></a>
         </div>
 
         <div class="top-right">

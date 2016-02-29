@@ -16,7 +16,6 @@
 }
 .an-event-wrap{ /* Wrap rundt et event, upcoming og my event */
     overflow: auto;
-    padding: 15px;
     margin: 20px 0;
     background-color: #FFF;
     border-bottom: 4px solid #000;
@@ -58,4 +57,23 @@
 }
 .attending-checked{ /* Når man har trykket attending */
     background-color: #bcbcbc;
+}
+.event-image-wrap{
+    width: 150px;
+    height: 100px;
+    float: left;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 10px;
+}
+.events-attending{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #1EB6EC;
+    padding: 0px 10px 2px;
+
+}
+.events-about{
+    float: left;
 }

@@ -1,0 +1,58 @@
+body{
+    background-color: #333;
+}
+#loginWrap{
+    padding: 20px 10px;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 50%;
+    color: #FFF;
+    transform: translateY(-50%);
+}
+#loginWrap input{
+    width: 100%;
+    font-size: 1.2em;
+    padding: 15px;
+    padding-left: 50px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    box-sizing: border-box;
+}
+#loginWrap input[type="submit"]{
+    max-width: 200px;
+    width: 100%;
+    margin-top: 30px;
+    cursor: pointer;
+    padding: 15px !important;
+}
+#loginWrap input:focus{
+    outline: none;
+}
+#loginInner{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 70px;
+}
+#logo{
+    max-width: 350px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+#username{
+    background-image: url('../images/user-icon.png');
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 12px 15px;
+}
+#password{
+    background-image: url('../images/password-icon.png');
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: 15px 15px;
+}
