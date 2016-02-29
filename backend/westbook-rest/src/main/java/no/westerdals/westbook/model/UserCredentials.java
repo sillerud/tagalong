@@ -1,6 +1,7 @@
 package no.westerdals.westbook.model;
 
 import lombok.Data;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserCredentials implements UserDetails {
+    @Getter
     private final User user;
     private final Credential credential;
     private final List<GrantedAuthority> grantedAuthorities;

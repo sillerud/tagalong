@@ -3,6 +3,7 @@ package no.westerdals.westbook.rest;
 import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.Credential;
 import no.westerdals.westbook.model.User;
+import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.mongodb.CredentialRepository;
 import no.westerdals.westbook.mongodb.StudyFieldRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
@@ -13,9 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.encoding.BasePasswordEncoder;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,6 +38,12 @@ public class UserRestController
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @RequestMapping(value="/me", method=RequestMethod.GET)
+    public UserResponse getMe(Principal user) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)user).getPrincipal();
+        return resolve(userCredentials.getUser());
+    }
 
     @RequestMapping(value="/{userId}", method=RequestMethod.GET)
     public UserResponse getById(@PathVariable String userId)
