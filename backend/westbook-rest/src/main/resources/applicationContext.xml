@@ -13,6 +13,9 @@
         <constructor-arg index="0" ref="gridFsTemplate" />
         <constructor-arg index="1" ref="mappingMongoConverter" />
     </bean>
+
+    <!--<bean class="no.westerdals.westbook.MongodbUserDetailService" id="userDetailService" />-->
+    <bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" id="passwordEncoder" />
     <!--<bean class="no.westerdals.westbook.uploads.FileUploadService">
         <property name="path" value="/tmp/uploads" />
     </bean>-->

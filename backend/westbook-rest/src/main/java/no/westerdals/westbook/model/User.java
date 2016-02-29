@@ -27,6 +27,7 @@ public class User
 
     @Id
     private String id;
+    private boolean enabled;
     private String pageId;
     private String email;
     private boolean showEmail;
@@ -38,4 +39,5 @@ public class User
     private String firstname;
     private String surname;
     private String profilePictureId;
+    private Date accountExpires;
 }

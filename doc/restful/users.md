@@ -1,6 +1,7 @@
 #User API functions
 |  REST method |  Short description | http | Example | Returns |
 | ------------ | ------------------ | ---- | ------- | ------- |
+| /rest/v1/users/me | Get the current logged in user | GET | /rest/v1/users/me | User |
 | /rest/v1/users/{userId} | get a post by userId | GET | /rest/v1/users/564c4fc72fa53e0388a940ae | User |
 | /rest/v1/users | Get all users (should only be admin-only) | GET | /rest/v1/users | User[] |
 | /rest/v1/users/by-name/{nameString} | Get a list of possible users by name | GET | /rest/v1/users/by-name/Kevin%20Sillerud | User[] |
