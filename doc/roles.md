@@ -1,5 +1,6 @@
 #List over required roles
 | rest method                               | HTTP   | role            |
+| ----------------------------------------- | ------ | --------------- |
 | /rest/v1/comments/{commentId}             | GET    | READ_COMMENT    |
 | /rest/v1/comments                         | POST   | NEW_COMMENT     |
 | /rest/v1/comments/by-post/{postId}        | GET    | READ_COMMENT    |
