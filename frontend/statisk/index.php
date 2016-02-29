@@ -20,25 +20,9 @@
                     <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                     <div class="card-tag-wrap">
                         <ul class="card-tag-list">
-                            <li>#Utvikling
-                                <ul class="tag-path">
-                                    <li>#Interaktivt design</li>
-                                    <li>- #Web</li>
-                                    <li>- - #Utviling</li>
-                                </ul>
-                            </li>
-                            <li>@Fubar
-                                <ul class="tag-path">
-                                    <li>@Fubar</li>
-                                </ul>
-                            </li>
-                            <li>#Sosialt
-                                <ul class="tag-path">
-                                    <li>#Interaktivt design</li>
-                                    <li>- #Web</li>
-                                    <li>- - #Utviling</li>
-                                </ul>
-                            </li>
+                            <li>#Utvikling</li>
+                            <li>@Fubar</li>
+                            <li>#Sosialt</li>
                         </ul>
                     </div>
                 </div>
@@ -61,18 +45,8 @@
                     <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                     <div class="card-tag-wrap">
                         <ul class="card-tag-list">
-                            <li>@Fubar
-                                <ul class="tag-path">
-                                    <li>@Fubar</li>
-                                </ul>
-                            </li>
-                            <li>#Sosialt
-                                <ul class="tag-path">
-                                    <li>#Interaktivt design</li>
-                                    <li>- #Web</li>
-                                    <li>- - #Utviling</li>
-                                </ul>
-                            </li>
+                            <li>@Fubar</li>
+                            <li>#Sosialt</li>
                         </ul>
                     </div>
                 </div>
@@ -95,25 +69,9 @@
                     <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                     <div class="card-tag-wrap">
                         <ul class="card-tag-list">
-                            <li>#Utvikling
-                                <ul class="tag-path">
-                                    <li>#Interaktivt design</li>
-                                    <li>- #Web</li>
-                                    <li>- - #Utviling</li>
-                                </ul>
-                            </li>
-                            <li>@Fubar
-                                <ul class="tag-path">
-                                    <li>@Fubar</li>
-                                </ul>
-                            </li>
-                            <li>#Sosialt
-                                <ul class="tag-path">
-                                    <li>#Interaktivt design</li>
-                                    <li>- #Web</li>
-                                    <li>- - #Utviling</li>
-                                </ul>
-                            </li>
+                            <li>#Utvikling</li>
+                            <li>@Fubar</li>
+                            <li>#Sosialt</li>
                         </ul>
                     </div>
                 </div>
@@ -136,25 +94,9 @@
                     <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                     <div class="card-tag-wrap">
                         <ul class="card-tag-list">
-                            <li>#Render
-                                <ul class="tag-path">
-                                    <li>#Film&TV</li>
-                                    <li>- #Film</li>
-                                    <li>- - #Render</li>
-                                </ul>
-                            </li>
-                            <li>#TV
-                                <ul class="tag-path">
-                                    <li>TV</li>
-                                </ul>
-                            </li>
-                            <li>#Sosialt
-                                <ul class="tag-path">
-                                    <li>#Interaktivt design</li>
-                                    <li>- #Web</li>
-                                    <li>- - #Utviling</li>
-                                </ul>
-                            </li>
+                            <li>#Render</li>
+                            <li>#TV</li>
+                            <li>#Sosialt</li>
                         </ul>
                     </div>
                 </div>
