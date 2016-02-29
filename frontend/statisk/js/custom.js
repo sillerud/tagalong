@@ -27,8 +27,28 @@ $(document).ready(function () {
         $('#searchBtn').on('click', function(){ // Åpne
             $('.search-overlay-wrap').fadeIn();
         });
+        $('#newSearchBtn').on('click', function(){ // Åpne
+            $('.search-overlay-wrap').fadeIn();
+        });
         $('.exit-search').on('click', function(){ // Lukke
             closeOverlay('.search-overlay-wrap');
+        });
+        var addNewOpen = false;
+        $('#addNew').on('click', function(){
+
+            if( !addNewOpen ){
+                $('#newPostBtn').animate({'bottom': '60px', 'opacity': '1'}, 300);
+                $('#newPageBtn').delay(100).animate({'bottom': '110px', 'opacity': '1'}, 300);
+                $('#newEventBtn').delay(200).animate({'bottom': '160px', 'opacity': '1'}, 300);
+                $('#newSearchBtn').delay(300).animate({'bottom': '210px', 'opacity': '1'}, 300);
+                addNewOpen = true;
+            }else{
+                $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300);
+                $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300);
+                $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300);
+                $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300);
+                addNewOpen = false;
+            }
         });
 
         $(document).keydown(function(e){
@@ -60,6 +80,7 @@ $(document).ready(function () {
 var menuOpen = false;
 $('.burger-wrap').on("click", function(){
   if(menuOpen == false){
+    $('body').css('overflow', 'hidden');
     $('.menu').fadeIn();
     $('.bar1').css({ transform: 'rotate(' + 45 + 'deg)' });
     $('.bar1').css('top', '10px');
@@ -68,6 +89,7 @@ $('.burger-wrap').on("click", function(){
     $('.bar3').fadeOut();
     menuOpen = true;
   }else if(menuOpen == true){
+    $('body').css('overflow', 'auto');
     $('.menu').fadeOut();
     $('.bar1').css({ transform: 'rotate(' + 0 + 'deg)' });
     $('.bar1').css('top', '0px');

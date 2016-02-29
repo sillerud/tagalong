@@ -290,6 +290,9 @@
     .menu{ display: block !important;}
 }
 @media screen and (max-width: 767px){
+    .add-new-btn-wrap{
+      bottom: 20px !important;
+    }
     #inner-menu{
         margin-left: -15px !important;
         top: 6px;
@@ -367,3 +370,85 @@
 .breadcrumbs a:hover{
   color: #63caa6;
 }
+
+/* Add new buttons */
+.add-new-btn-wrap{
+  position: fixed;
+  width: 50px;
+  height: auto;
+  right: 30px;
+  bottom: 40px;
+  z-index: 800;
+}
+.add-new-btn{
+  border-radius: 50%;
+  border: 2px solid #1EB6EC;
+  background-color: #FFF;
+  width: 40px;
+  height: 40px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-box-shadow: 3px 3px 5px #848484;
+}
+.add-new-btn .fa{
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  top: 10px;
+  left: 0;
+  right: 0;
+  color: #333;
+}
+#addNew{
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+  background-color: #1EB6EC;
+  opacity: 1;
+}
+#addNew .fa{
+  top: 15px;
+  font-size: 1.3em;
+  color: #FFF;
+}
+#newPostBtn{
+  bottom: 50px;
+}
+#newPostBtn:before{
+  content: 'Add new post';
+  position: absolute;
+  left: -95px;
+  top: 5px;
+}
+#newPageBtn{
+  bottom: 100px;
+}
+#newPageBtn:before{
+  content: 'Add new page';
+  position: absolute;
+  left: -100px;
+  top: 5px;
+}
+#newEventBtn{
+  bottom: 150px;
+}
+#newEventBtn:before{
+  content: 'Add new event';
+  position: absolute;
+  left: -105px;
+  top: 5px;
+}
+#newSearchBtn{
+  bottom: 200px;
+}
+#newSearchBtn:before{
+  content: 'Search';
+  position: absolute;
+  left: -55px;
+  top: 5px;
+}
+/* END add new buttons */

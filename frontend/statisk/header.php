@@ -137,3 +137,11 @@
         <?php endif; ?>
     </div>
 </div>
+
+<div class="add-new-btn-wrap">
+    <div id="addNew" class="add-new-btn"><i class="fa fa-plus"></i></div>
+    <div id="newPostBtn" class="add-new-btn"><i class="fa fa-bullhorn"></i></div>
+    <div id="newPageBtn" class="add-new-btn"><i class="fa fa-hand-peace-o"></i></div>
+    <div id="newEventBtn" class="add-new-btn"><i class="fa fa-calendar-plus-o"></i></div>
+    <div id="newSearchBtn" class="add-new-btn"><i class="fa fa-search"></i></div>
+</div>
