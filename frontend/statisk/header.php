@@ -71,7 +71,7 @@
             </a>
 
             <div class="fast-search">
-                <button><i class="fa fa-search"></i></button>
+                <button id="searchBtn"><i class="fa fa-search"></i></button>
 
                 <div class="search-overlay-wrap">
                     <div class="container">

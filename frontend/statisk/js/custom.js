@@ -9,26 +9,41 @@ $(document).ready(function () {
     }
     // END årstall adder
 
-    // Åpne og lukke edit/add new card
-    $('.card-wrap-add').on('click', function(){
-        $('.edit-card-wrap').fadeIn();
-        $('#darkOverlay').fadeIn();
-    });
-    $('#saveCard').on('click', function(){
-        closeCardPopUp();
-    });
-    $('#darkOverlay').on('click', function(){
-        closeCardPopUp();
-    });
-    $(document).keydown(function(e){
-        if(e.keyCode == 27) closeCardPopUp();
-    });
+    var openCloseOverlays = function(){
 
-    function closeCardPopUp(){
-        $('.edit-card-wrap').fadeOut();
-        $('#darkOverlay').fadeOut();
-    }
-    // END Åpne og lukke edit/add new card
+        // Åpne og lukke edit/add new card
+        $('.card-wrap-add').on('click', function(){ // Åpne
+            $('.edit-card-wrap').fadeIn();
+            $('#darkOverlay').fadeIn();
+        });
+        $('#saveCard').on('click', function(){ // Lukke
+            closeOverlay('.edit-card-wrap');
+            closeOverlay('#darkOverlay');
+        });
+        $('#darkOverlay').on('click', function(){ // Lukke
+            closeOverlay('.edit-card-wrap');
+            closeOverlay('#darkOverlay');
+        });
+        $('#searchBtn').on('click', function(){ // Åpne
+            $('.search-overlay-wrap').fadeIn();
+        });
+        $('.exit-search').on('click', function(){ // Lukke
+            closeOverlay('.search-overlay-wrap');
+        });
+
+        $(document).keydown(function(e){
+            if(e.keyCode == 27){
+                closeOverlay('.edit-card-wrap');
+                closeOverlay('#darkOverlay');
+                closeOverlay('.search-overlay-wrap');
+            }
+        });
+
+        function closeOverlay(thatClass){
+            $(thatClass).fadeOut();
+        };
+
+    }(); // END open close overlays
 
 
     $('#datetimepicker2').datetimepicker({

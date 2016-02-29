@@ -128,6 +128,7 @@
       right: 35px;
       font-size: 2em;
       top: 92px;
+      cursor: pointer;
     }
     .logged-in-person{
         display: inline-block;
