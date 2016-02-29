@@ -104,7 +104,8 @@
 /* Edit new card pop-up */
 .edit-card-wrap{
     display: none;
-    width: 500px;
+    max-width: 500px;
+    width: calc(100% - 20px);
     height: auto;
     background-color: #FFF;
     margin: auto;
