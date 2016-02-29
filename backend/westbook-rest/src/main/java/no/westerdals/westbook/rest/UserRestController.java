@@ -1,7 +1,9 @@
 package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.MessageConstant;
+import no.westerdals.westbook.model.Credential;
 import no.westerdals.westbook.model.User;
+import no.westerdals.westbook.mongodb.CredentialRepository;
 import no.westerdals.westbook.mongodb.StudyFieldRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
 import no.westerdals.westbook.responses.ResultResponse;
@@ -9,6 +11,9 @@ import no.westerdals.westbook.responses.UserResponse;
 import static no.westerdals.westbook.responses.ResultResponse.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.encoding.BasePasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -23,7 +28,13 @@ public class UserRestController
     private UserRepository userRepository;
 
     @Autowired
+    private CredentialRepository credentialRepository;
+
+    @Autowired
     private StudyFieldRepository studyFieldRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @RequestMapping(value="/{userId}", method=RequestMethod.GET)
     public UserResponse getById(@PathVariable String userId)
@@ -92,6 +103,28 @@ public class UserRestController
         userRepository.save(user);
         User inserted = userRepository.save(user);
         return newOkResult(MessageConstant.USER_CREATED, inserted);
+    }
+
+    @RequestMapping(value="/me/password", method=RequestMethod.POST)
+    public ResultResponse updatePassword(@RequestBody Credential credential) {
+        credential.setId(null); // TODO: set to client's id
+        credential.setAuthorities(null);
+        credential.setAccountLocked(false);
+        credentialRepository.save(credential);
+        return newOkResult(MessageConstant.PASSWORD_CHANGED);
+    }
+
+    @PreAuthorize("hasRole('SET_PASSWORD')")
+    @RequestMapping(value="/password", method=RequestMethod.POST)
+    public ResultResponse setPassword(@RequestBody Credential credential) {
+        if (credential.getId() == null)
+            return newErrorResult(MessageConstant.USER_NOT_FOUND);
+
+        credential.setPasswordHash(passwordEncoder.encode(credential.getPasswordHash()));
+
+        credentialRepository.save(credential);
+
+        return newOkResult(MessageConstant.PASSWORD_CHANGED);
     }
 
     @RequestMapping(method=RequestMethod.GET)

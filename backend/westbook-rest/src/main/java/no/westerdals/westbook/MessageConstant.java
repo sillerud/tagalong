@@ -30,4 +30,7 @@ public enum MessageConstant
 
     // Post,
     PAGE_CREATED,
+
+    // Password
+    PASSWORD_CHANGED,
 }
