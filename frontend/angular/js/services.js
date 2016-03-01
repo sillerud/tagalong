@@ -29,7 +29,7 @@ loginServices.factory('Event', ['$resource', function($resource) {
 }]);
 
 userServices.factory('User', ['$resource', function($resource) {
-    return $resource(url("/user"), {}, {
+    return $resource(url("/users"), {}, {
         create: {
             method: 'POST',
             isArray: false
