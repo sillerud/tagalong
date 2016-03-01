@@ -4,10 +4,18 @@
 
     <div class="card-shortcut-wrap">
 
-        <div class="card-shortcut">
+        <div class="card-shortcut" id="cs0">
             <div class="cs-icon">M</div>
-            <div class="card-name">My social card</div>
-        </div>
+            <div class="card-name">My social card is very long</div>
+        </div><br>
+        <div class="card-shortcut" id="cs1">
+            <div class="cs-icon">S</div>
+            <div class="card-name">Skolerelatert</div>
+        </div><br>
+        <div class="card-shortcut" id="cs2">
+            <div class="cs-icon">K</div>
+            <div class="card-name">Katta med slips</div>
+        </div><br>
 
     </div><!-- END card-shortcut-wrap -->
 

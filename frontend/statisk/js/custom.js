@@ -19,6 +19,36 @@ $(document).ready(function () {
         }; // END makeFixed
     }();
 
+    var fixedPageCards = function(){
+        var leftOffset = $('.container').offset().left;
+        //ar nameLength = $('.card-shortcut').width() + 20;
+        var cardShortcuts = $('.card-shortcut').length;
+        var csLength = [];
+
+        $('.card-shortcut').each(function(index){
+            var thatId = $(this).attr('id');
+            var thatIdLength = $('#' + thatId).width() + 10;
+            csLength.push(thatIdLength);
+        });
+
+        $('.card-shortcut-wrap').css('left', (leftOffset - 50) + 'px' );
+        $('.card-shortcut').stop().animate({'width': '40px'}, 200);
+        $('.card-name').stop().fadeOut(200);
+
+        var hoverEffect = function(){
+            $('.card-shortcut').hover(function(){
+                var thatId = $(this).attr('id');
+                var idNum = thatId.substr(thatId.length - 1);
+                $(this).stop().animate({'width': csLength[idNum] + 'px'}, 200);
+                $(this).find('.card-name').stop().fadeIn(200);
+            }, function(){
+                $(this).stop().animate({'width': '40px'}, 200);
+                $(this).find('.card-name').stop().fadeOut(200);
+            });
+        }();
+
+    }();
+
     // Legger inn årstall i edit profile
     var select = $("#years");
     var year = (new Date).getFullYear() - 14;
