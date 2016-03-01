@@ -1,4 +1,4 @@
-var baseUrl = "http://localhost:8080";
+var baseUrl = "http://localhost";
 var restUrl = baseUrl + "/rest/v1";
 
 var loginService = angular.module('loginServices', ['ngResource']);
