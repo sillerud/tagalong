@@ -38,6 +38,7 @@
                         <li>#Film</li>
                     </ul>
                 </div><!-- END - card-wrap -->
+                <br>
 
                 <?php include 'person_feed.php' ?>
 

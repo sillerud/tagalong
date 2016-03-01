@@ -54,6 +54,26 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quae dignissimos fuga aliquam, ad recusandae, veniam inventore beatae aspernatur voluptates perspiciatis neque laborum assumenda harum illo error, praesentium magni itaque.</p>
     </div><!-- END feed-content -->
 
+    <div class="card-tag-wrap">
+        <ul class="card-tag-list">
+            <li>#Render</li>
+            <li>#TV</li>
+            <li>#TV</li>
+            <li>#Sosialt</li>
+        </ul>
+    </div><!-- END - card-wrap -->
+
+    <div class="bottom-bar">
+        <div class="feed-feedback"><span>2</span> personer synes du var flink</div>
+    </div>
+    <div class="feed-comment-wrap">
+        <input type="text" class="comment-input" placeholder="Add a comment...">
+        <div class="comment-button-wrap">
+            <input type="submit" class="add-comment-btn" value="Add comment" disabled>
+            <div class="comment-overlay"></div>
+        </div>
+    </div>
+
 </div><!-- END person-feed-boks -->
 
 <div class="person-feed-boks">
@@ -72,5 +92,25 @@
     <div class="feed-content">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quae dignissimos fuga aliquam, ad recusandae, veniam inventore beatae aspernatur voluptates perspiciatis neque laborum assumenda harum illo error, praesentium magni itaque.</p>
     </div><!-- END feed-content -->
+
+    <div class="card-tag-wrap">
+        <ul class="card-tag-list">
+            <li>#Render</li>
+            <li>#TV</li>
+            <li>#TV</li>
+            <li>#Sosialt</li>
+        </ul>
+    </div><!-- END - card-wrap -->
+
+    <div class="bottom-bar">
+        <div class="feed-feedback"><span>10</span> personer synes du var flink</div>
+    </div>
+    <div class="feed-comment-wrap">
+        <input type="text" class="comment-input" placeholder="Add a comment...">
+        <div class="comment-button-wrap">
+            <input type="submit" class="add-comment-btn" value="Add comment" disabled>
+            <div class="comment-overlay"></div>
+        </div>
+    </div>
 
 </div><!-- END person-feed-boks -->
