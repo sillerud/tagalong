@@ -30,7 +30,8 @@ public class UserResponse
         this.pageId = user.getPageId();
         if (user.isShowEmail())
             this.email = user.getEmail();
-        this.born = user.getBorn().getTime();
+        if (user.getBorn() != null)
+            this.born = user.getBorn().getTime();
         this.studyField = user.getStudyFieldId();
         this.city = user.getCity();
         this.gender = user.getGender();
