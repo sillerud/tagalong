@@ -18,15 +18,23 @@
 
                 <div class="an-event-wrap">
                     <div class="event-image-wrap" style="background-image: url(images/event_pic.jpg);">
-                        <div class="events-attending">78 attending</div>
+                        <div id="eventImageOverlay"></div>
+                        <div id="eventAttendingBtn"><i class="fa fa-check"></i></div>
+                        <h4 id="eventTitle">X-mas</h4>
                     </div>
                     <div class="events-about">
-                        <h4><strong>X-mas</strong></h4>
-                        <div class="an-event-date">24.12.2015</div>
-                        <div class="attending-or-not-wrap">
-                            <div class="attending-btn attending-checked"><i class="fa fa-check"></i></div>
-                            <div class="not-attending-btn"><i class="fa fa-times"></i></div>
-                            <div class="number-attending">50 Attending</div>
+                        <div class="event-location">Location</div>
+                        <div class="an-event-date">24.12.2015 - Kl. 20.00 - 21.00</div>
+                        <div class="events-attending">78 attending</div>
+                        <div class="card-tag-wrap">
+                            <ul class="card-tag-list">
+                                <li>#Utvikling</li>
+                                <li>@Fubar</li>
+                                <li>#Sosialt</li>
+                            </ul>
+                        </div>
+                        <div id="eventInfo">
+                            <i class="fa fa-info"></i>
                         </div>
                     </div><!-- END events about -->
 
