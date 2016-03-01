@@ -28,7 +28,7 @@
     height: 150px;
     margin-top: 20px;
     margin-left: 20px;
-    margin-right: 0px;
+    margin-right: 0;
     border-radius: 80px;
     float: left;
 }
@@ -37,7 +37,7 @@
 }
 
 .holder{
-    margin-top: 0px;
+    margin-top: 0;
 }
 .info-holder b{
     margin-right: 5px;
@@ -50,7 +50,7 @@
     width: auto;
 }
 .contact-info{
-    font: auto;
+    <!--font: auto;-->
 }
 .profile-posts{
     font-size: 18px;
