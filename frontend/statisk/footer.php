@@ -71,7 +71,7 @@
 
         </div><!-- END shortcut-menu -->
 
-        <center id="copy">$copy All rights reserved Tag Along</center>
+        <center id="copy">&copy All rights reserved Tag Along</center>
         </div>
     </div><!-- END container -->
 
