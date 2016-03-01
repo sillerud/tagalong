@@ -56,16 +56,16 @@ $(document).ready(function () {
         $('#addNew').on('click', function(){
 
             if( !addNewOpen ){
-                $('#newPostBtn').animate({'bottom': '60px', 'opacity': '1'}, 300);
-                $('#newPageBtn').delay(100).stop().animate({'bottom': '110px', 'opacity': '1'}, 300);
-                $('#newEventBtn').delay(200).stop().animate({'bottom': '160px', 'opacity': '1'}, 300);
-                $('#newSearchBtn').delay(300).stop().animate({'bottom': '210px', 'opacity': '1'}, 300);
+                $('#newPostBtn').stop().animate({'bottom': '60px', 'opacity': '1'}, 300);
+                $('#newPageBtn').delay(100).animate({'bottom': '110px', 'opacity': '1'}, 300);
+                $('#newEventBtn').delay(200).animate({'bottom': '160px', 'opacity': '1'}, 300);
+                $('#newSearchBtn').delay(300).animate({'bottom': '210px', 'opacity': '1'}, 300);
                 addNewOpen = true;
             }else{
                 $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300);
-                $('#newEventBtn').delay(100).stop().animate({'bottom': '150px', 'opacity': '0'}, 300);
-                $('#newPageBtn').delay(200).stop().animate({'bottom': '100px', 'opacity': '0'}, 300);
-                $('#newPostBtn').delay(300).stop().animate({'bottom': '50px', 'opacity': '0'}, 300);
+                $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300);
+                $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300);
+                $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300);
                 addNewOpen = false;
             }
         });

@@ -1,0 +1,78 @@
+#breads{
+    display: none;
+}
+.header-image-wrap{
+    position: relative;
+    top: -20px;
+}
+.event-background-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+100&0+79,0.74+100 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 1%, rgba(0,0,0,0) 79%, rgba(0,0,0,0.74) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 1%,rgba(0,0,0,0) 79%,rgba(0,0,0,0.74) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 1%,rgba(0,0,0,0) 79%,rgba(0,0,0,0.74) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bd000000',GradientType=0 ); /* IE6-9 */
+
+}
+.page-profile-image{
+    width: 140px;
+    height: 140px;
+    background-position: top;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    border: 4px solid #333;
+    border-radius: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 0 0 10px #333;
+}
+.page-name{ /* Navnet på pagen */
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    color: #FFF;
+}
+
+/* Card shortcuts */
+.card-shortcut-wrap{
+    position: fixed;
+    left: 0;
+    top: 70px;
+}
+.card-shortcut{ /* Knapp for å delta */
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #333;
+    margin: auto;
+    opacity: 1;
+    color: #FFF;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 400;
+    transition: background-color 200ms linear;
+}
+.card-name{ /* Tekst inne i knappen */
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    display: none;
+}
+.card-shortcut .cs-icon{ /* Ikonet i knappen */
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 11px;
+    text-align: center;
+    margin: auto;
+    color: #FFF;
+}
