@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="../statisk/css/login.css">
+
+    <title></title>
+</head>
+<body ng-app="tagalong">
+
+<div ng-controller="LoginCtrl">
+<div id="loginWrap">
+    <div id="loginInner">
+        <img id="logo" src="../statisk/images/tagalong_logo.png" alt="">
+        <form role="form" ng-submit="login()">
+            <h3>Finish this form to login</h3>
+            <input ng-model="credentials.username" type="text" placeholder="Username">
+            <input ng-model="credentials.password" type="password" placeholder="Password">
+            <input type="submit" value="Login">
+        </form>
+
+    </div>
+</div>
+</div>
+
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-resource/angular-resource.js"></script>
+<script src="../bower_components/angular-route/angular-route.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+</body>
+</html>
