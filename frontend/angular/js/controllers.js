@@ -5,7 +5,8 @@ loginController.controller('LoginCtrl', ['$scope', '$http', 'Login', function($s
     $scope.login = function() {
         Login.login($scope.credentials,
             function(data) {
-                alert("Logged in!");
+                window.location = "index.html";
+                console.log(data);
             },
             function(error) {
                 alert("Failed to log in. " + error);

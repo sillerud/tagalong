@@ -9,8 +9,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
@@ -51,7 +53,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/rest/login")
                 .successHandler((httpServletRequest, httpServletResponse, authentication) -> {
                     httpServletResponse.setStatus(200);
-                    httpServletResponse.getWriter().print("OK");
+                    httpServletResponse.getWriter().print("{\"status\":\"ok\"}");
+                })
+                .failureHandler((httpServletRequest, httpServletResponse, e) -> {
+                    httpServletResponse.setStatus(403);
+                    httpServletResponse.getWriter().print("{\"status\":\"failed\"}");
                 })
                 .permitAll()
                 .and()
