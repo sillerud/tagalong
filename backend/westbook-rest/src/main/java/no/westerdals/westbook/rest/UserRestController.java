@@ -180,7 +180,8 @@ public class UserRestController
         if (user == null || user.getId() == null)
             return null;
         UserResponse userResponse = new UserResponse(user);
-        userResponse.setStudyFieldDisplayName(studyFieldRepository.findOne(user.getStudyFieldId()).getDescription());
+        if (user.getStudyFieldId() != null)
+            userResponse.setStudyFieldDisplayName(studyFieldRepository.findOne(user.getStudyFieldId()).getDescription());
         userResponse.setProfilePicture(null); //TODO
         return userResponse;
     }
