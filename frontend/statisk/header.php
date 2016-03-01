@@ -113,7 +113,7 @@
             <ul>
                 <li><a href="index.php" class="active">Home</a></li>
                 <li><a href="sidebar.php">Feed</a></li>
-                <li><a href="events.php">Events</a></li>
+                <li><a href="../angular/#/events">Events</a></li>
                 <li><a href="pages.php">Pages</a></li>
             </ul>
         </div><!-- END menu inner-->

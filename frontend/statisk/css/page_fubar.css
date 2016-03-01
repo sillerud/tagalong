@@ -82,3 +82,14 @@
     margin: auto;
     color: #FFF;
 }
+/* Add to card btn */
+
+.add-page-to-card-btn{
+    width: auto;
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    padding: 10px 20px;
+    background-color: #1EB6EC;
+    border-radius: 20px;
+}

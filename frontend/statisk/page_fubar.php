@@ -26,6 +26,13 @@
         </div>
 
         <div class="page-name"><h1>@Fubar</h1></div>
+
+        <div class="add-page-to-card-btn">
+            <div class="add-page-to-card-text">
+                Add to card
+                <i class="fa fa-plus"></i>
+            </div>
+        </div>
     </div><!-- END header-image-wrap -->
 
 </div><!--end container-->
