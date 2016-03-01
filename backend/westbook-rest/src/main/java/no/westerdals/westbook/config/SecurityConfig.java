@@ -1,7 +1,9 @@
 package no.westerdals.westbook.config;
 
+import lombok.Setter;
 import no.westerdals.westbook.filter.CsrfHeaderFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -20,8 +22,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
+    private Environment environment;
+
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        //auth.inMemoryAuthentication().withUser("admin").password("password").roles("SET_PASSWORD");
+        String superUsername = environment.getProperty("SUPERUSER_NAME");
+        String superPassword = environment.getProperty("SUPERUSER_PASS");
+        if (superUsername != null && superPassword != null) {
+            auth.inMemoryAuthentication().withUser(superUsername).password(superPassword).roles("NEW_USER");
+        }
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder);
     }
