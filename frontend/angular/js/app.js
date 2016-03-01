@@ -4,7 +4,9 @@ angular.module('tagalong', [
     'loginControllers',
     'loginServices',
     'eventControllers',
-    'eventServices'
+    'eventServices',
+    'userControllers',
+    'userServices'
 ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {

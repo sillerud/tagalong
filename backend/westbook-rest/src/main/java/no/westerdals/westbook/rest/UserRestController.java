@@ -106,11 +106,14 @@ public class UserRestController
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public ResultResponse createUser(@RequestBody User user)
+    public ResultResponse createUser(@RequestBody UserCredentials userCredentials)
     {
+        User user = userCredentials.getUser();
         user.setId(null);
         userRepository.save(user);
         User inserted = userRepository.save(user);
+        Credential credential = userCredentials.getCredential();
+        credential.setId(inserted.getId());
         return newOkResult(MessageConstant.USER_CREATED, inserted);
     }
 
