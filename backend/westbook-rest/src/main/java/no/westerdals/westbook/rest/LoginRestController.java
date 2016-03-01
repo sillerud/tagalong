@@ -8,7 +8,7 @@ import java.security.Principal;
 
 @RestController
 public class LoginRestController {
-    @RequestMapping(value="/login", method=RequestMethod.GET)
+    @RequestMapping(value="/rest/login", method=RequestMethod.GET)
     public Principal authenticated(Principal principal) {
         return principal;
     }
