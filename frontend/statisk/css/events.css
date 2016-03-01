@@ -1,15 +1,4 @@
-.event-top h1{
-    display: inline-block;
-    margin: 0;
-    padding-bottom: 0px;
-    border-bottom: 4px solid #000;
-    margin-bottom: 30px;
-}
-.event-top .btn{
-    margin-bottom: 10px;
-    color: #000;
-    border-radius: 0;
-}
+
 .events-feed-wrap h3{
     color: #000;
     text-transform: uppercase;
@@ -31,7 +20,7 @@
     position: relative;
     padding-bottom: 10px;
 }
-.event-image-wrap #eventTitle{
+.event-image-wrap .event-title{
     margin: auto;
     text-align: center;
     position: absolute;
@@ -42,7 +31,7 @@
     font-size: 1.7em;
     color: #FFF;
 }
-#eventImageOverlay{
+.event-image-overlay{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -56,38 +45,48 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#ab000000',GradientType=0 ); /* IE6-9 */
 
 }
-#eventAttendingBtn{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: #FFF;
+.event-attending-btn{ /* Knapp for å delta */
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #333;
     position: absolute;
     left: 0;
     right: 0;
-    top: 20px;
+    top: 30px;
     margin: auto;
-    border: 4px solid #333;
     opacity: 1;
+    color: #FFF;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 200ms linear;
 }
-#eventAttendingBtn .fa{
-    font-size: 3em;
+.attending-text{ /* Tekst inne i knappen */
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    display: none;
+}
+.event-attending-btn .fa{ /* Ikonet i knappen */
+    font-size: 1.2em;
     position: absolute;
     left: 0;
     right: 0;
-    top: 10px;
+    top: 11px;
     text-align: center;
     margin: auto;
+    color: #FFF;
 }
 .events-attending{
     font-weight: bold;
 }
-.events-about{
+.events-about{ /* Info om eventet */
     padding: 15px;
 }
 .an-event-wrap .card-tag-wrap{
     margin-top: 15px;
 }
-.an-event-wrap #eventInfo{
+.an-event-wrap .event-info{
     width: 80px;
     height: 80px;
     background-color: #1EB6EC; /* Lightblue */
@@ -96,7 +95,7 @@
     bottom: -35px;
     border-radius: 50%;
 }
-.an-event-wrap #eventInfo .fa{
+.an-event-wrap .event-info .fa{
     position: absolute;
     left: 22px;
     top: 18px;

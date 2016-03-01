@@ -75,6 +75,28 @@ $(document).ready(function () {
 
     });
 
+    var attendingEvents = function(){
+
+        var hoverEffect = function(){
+            $('.event-attending-btn').hover(function(){
+                $(this).animate({'width': '130px'}, 200);
+                $(this).find('.fa').animate({'left': '-80px'}, 200);
+                $(this).find('.attending-text').fadeIn(200);
+            }, function(){
+                $(this).animate({'width': '40px'}, 200);
+                $(this).find('.fa').animate({'left': '0px'}, 200);
+                $(this).find('.attending-text').fadeOut(200);
+            });
+        }();
+
+        $('.event-attending-btn').on('click', function(){
+
+            $(this).css('background-color', '#00e525');
+
+        });
+    }();
+
+
 
 // Hamburgerikon animasjon
 var menuOpen = false;
