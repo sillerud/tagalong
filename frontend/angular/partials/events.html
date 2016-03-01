@@ -1,5 +1,3 @@
-<?php include 'header.php'; ?>
-
 <div class="container">
 
     <br>
@@ -9,12 +7,10 @@
                 <div class="col-sm-12">
                     <h3>My events</h3>
                 </div>
-
-                <?php for($i = 0; $i < 3; $i++){ ?>
-                <div class="an-event" id="x">
+                <div class="an-event" ng-repeat="i in [1, 2, 3]" id="{{ i }}x">
                     <div class="col-sm-6">
                         <div class="an-event-wrap">
-                            <div class="event-image-wrap" style="background-image: url(images/event_pic.jpg);">
+                            <div class="event-image-wrap" style="background-image: url('../statisk/images/event_pic.jpg');">
 
                                 <a href="/statisk/page_fubar.php">
                                     <div class="event-image-overlay"></div>
@@ -31,7 +27,7 @@
                             <div class="events-about">
                                 <div class="event-location">Location</div>
                                 <div class="an-event-date">24.12.2015 - Kl. 20.00 - 21.00</div>
-                                <div class="events-attending">78 attending</div>
+                                <div class="events-attending">{{ getRandomNumber() }} attending</div>
                                 <div class="card-tag-wrap">
                                     <ul class="card-tag-list">
                                         <li>#Utvikling</li>
@@ -49,12 +45,10 @@
 
                     <div class="edit-card-wrap edit-fields" id="<?php echo $i; ?>">
                         <div class="edit-card">
-                            <h1><?php echo $i; ?></h1>
+                            <h1>{{ i }}</h1>
                         </div><!-- END edit-card -->
                     </div>
                 </div>
-
-                <?php } // END for loop ?>
 
 
         </div><!-- END events feed wrap -->
@@ -63,6 +57,3 @@
 
 </div><!--end container-->
 <div id="darkOverlay"></div>
-
-<?php include 'footer.php'; ?>
-

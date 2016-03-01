@@ -1,13 +1,15 @@
 var baseUrl = "http://localhost";
 var restUrl = baseUrl + "/rest/v1";
 
-var loginService = angular.module('loginServices', ['ngResource']);
+var loginServices = angular.module('loginServices', ['ngResource']);
+var postServices = angular.module('postServices', ['ngResource']);
+var eventServices = angular.module('eventServices', ['ngResource']);
 
 var transform = function(data){
     return $.param(data);
 };
 
-loginService.factory('Login', ['$resource', function($resource) {
+loginServices.factory('Login', ['$resource', function($resource) {
     return $resource(baseUrl + "/rest/login", {}, {
         login: {
             method: 'POST',
@@ -17,6 +19,12 @@ loginService.factory('Login', ['$resource', function($resource) {
         },
         doget: {method: 'GET'}
     })
+}]);
+
+loginServices.factory('Event', ['$resource', function($resource) {
+    return $resource(url('/event'), {}, {
+
+    });
 }]);
 
 function url(v) {
