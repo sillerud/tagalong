@@ -19,6 +19,7 @@
     background-size: cover;
     position: relative;
     padding-bottom: 10px;
+    z-index: 300;
 }
 .event-image-wrap .event-title{
     margin: auto;
@@ -29,6 +30,11 @@
     bottom: 15px;
     font-weight: bold;
     font-size: 1.7em;
+    color: #FFF;
+    display: inline;
+    pointer-events: none;
+}
+.event-image-wrap a{
     color: #FFF;
 }
 .event-image-overlay{
@@ -59,6 +65,7 @@
     color: #FFF;
     overflow: hidden;
     cursor: pointer;
+    z-index: 400;
     transition: background-color 200ms linear;
 }
 .attending-text{ /* Tekst inne i knappen */
@@ -94,6 +101,7 @@
     right: -35px;
     bottom: -35px;
     border-radius: 50%;
+    cursor: pointer;
 }
 .an-event-wrap .event-info .fa{
     position: absolute;

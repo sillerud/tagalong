@@ -94,6 +94,12 @@ $(document).ready(function () {
             $(this).css('background-color', '#00e525');
 
         });
+        $('.event-info').on('click', function(){ // Åpne
+            var openThis = $(this).closest('.an-event').find('.edit-fields').attr('id');
+            console.log(openThis);
+            $('#' + openThis).fadeIn();
+            $('#darkOverlay').fadeIn();
+        });
     }();
 
 
