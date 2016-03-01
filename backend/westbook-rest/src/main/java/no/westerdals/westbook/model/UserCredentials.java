@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 public class UserCredentials implements UserDetails {
     @Getter
     private final User user;
+    @Getter
     private final Credential credential;
     private final List<GrantedAuthority> grantedAuthorities;
 
