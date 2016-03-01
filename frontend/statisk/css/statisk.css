@@ -10,8 +10,11 @@ Gul: #fed575
 */
 /* Globale elementer */
 body{
-    background-color: #e0ece5;
+    background-color: #333;
     font-family: 'acumin-pro';
+}
+.page{
+    background-color: #e0ece5;
 }
 a{
     text-decoration: none;

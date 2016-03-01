@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/forside.css">
     <link rel="stylesheet" type="text/css" href="css/search.css">
     <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" type="text/css" href="css/page_fubar.css">
     <link rel="stylesheet" type="text/css" href="css/pages.css">
     <link rel="stylesheet" type="text/css" href="css/other_profiles.css">
@@ -27,8 +28,11 @@
     <title>Tag along</title>
 </head>
 <body>
+<div class="page">
+
 <style id="customColor">
 </style>
+
 
 <div class="top-header">
     <div class="container">

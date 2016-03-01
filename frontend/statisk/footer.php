@@ -1,29 +1,81 @@
+</div><!-- END page -->
 <footer>
     <div class="container">
-    <strong>Link til "alle" sidene:</strong>
-        <a href="index.php">Forside</a> -
-        <a href="other_profiles.php">Andre sin profil</a> -
-        <a href="profil_edit.php">Rediger sin egen profil</a> -
-        <a href="page_fubar.php">Page (fubar)</a> -
-        <a href="search.php">Search</a> -
-        <a href="sidebar.php">Feed + sidebar</a> -
-        <a href="new_event.php">New event</a>
+        <div class="row">
 
-        <br>
+        <div class="footer-menu">
+            <div class="col-sm-2 menu-item">
+                <a href="">HOME</a>
+            </div>
 
-        <div id="blue">Blue</div>
-        <div id="red">Red</div>
-        <div id="yellow">Yellow</div>
-        <div id="purple">Purple</div>
-        <div id="green">Green</div>
-    </div>
+            <div class="col-sm-2 menu-item">
+                <a href="">FEED</a>
+            </div>
+
+            <div class="col-md-4 col-xs-12 logo-item">
+                <a href="">
+                    <img src="images/logonettsideferdig.png" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-2 menu-item">
+                <a href="">EVENTS</a>
+            </div>
+
+            <div class="col-sm-2 menu-item">
+                <a href="">PAGES</a>
+            </div>
+        </div><!-- END footer-menu -->
+
+        <div class="shortcut-menu">
+
+            <div class="col-md-3 col-xs-6">
+                <a href="">
+                    <section>
+                        <i class="fa fa-globe"></i><br>
+                        <span>Westerdals</span><br>
+                        <span>westerdals.no</span>
+                    </section>
+                </a>
+
+            </div>
+            <div class="col-md-3 col-xs-6">
+                <a href="">
+                    <section>
+                        <i class="fa fa-map-marker"></i><br>
+                        <span>Find campus</span><br>
+                        <span>westerdals.no/kontakt</span>
+                    </section>
+                </a>
+            </div>
+
+            <div class="col-md-3 col-xs-6">
+                <a href="">
+                    <section>
+                        <i class="fa fa-envelope"></i><br>
+                        <span>Support</span><br>
+                        <span>support@tagalong.no</span>
+                    </section>
+                </a>
+            </div>
+
+            <div class="col-md-3 col-xs-6">
+                <a href="">
+                    <section>
+                        <i class="fa fa-bug"></i><br>
+                        <span>Report a bug</span><br>
+                        <span>bug@tagalong.no</span>
+                    </section>
+                </a>
+            </div>
+
+        </div><!-- END shortcut-menu -->
+
+        <center id="copy">$copy All rights reserved Tag Along</center>
+        </div>
+    </div><!-- END container -->
 
 </footer>
-<style>
-footer{
-    padding: 100px 0 30px 0;
-}
-</style>
 
 <script src="../bower_components/jquery/dist/jquery.js"></script>
 <script src="../bower_components/moment/min/moment.min.js"></script>
