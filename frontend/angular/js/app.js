@@ -6,7 +6,6 @@ angular.module('tagalong', [
 ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
-        $httpProvider.defaults.withCredentials = true;
         $routeProvider
             .when("/login", {
                 templatesUrl: 'partials/'
