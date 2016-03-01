@@ -39,7 +39,7 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
         var credentials = {
             accountLocked: false,
             authorities: $scope.roles.split(","),//$scope.user.roles.split(","),
-            passwordHash: $scope.password
+            passwordHash: $scope.user.password
         };
 
         User.create({user: userInfo, credential: credentials});

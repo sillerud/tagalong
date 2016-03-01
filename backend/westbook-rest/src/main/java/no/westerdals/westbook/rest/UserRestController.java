@@ -114,6 +114,7 @@ public class UserRestController
         User inserted = userRepository.save(user);
         Credential credential = userCredentials.getCredential();
         credential.setId(inserted.getId());
+        credential.setPasswordHash(passwordEncoder.encode(credential.getPasswordHash()));
         credentialRepository.save(credential);
         return newOkResult(MessageConstant.USER_CREATED, inserted);
     }
