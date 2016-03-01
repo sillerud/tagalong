@@ -1,5 +1,24 @@
 $(document).ready(function () {
 
+    var personFeed = function(){
+
+        $(".comment-input").keyup(function() {
+            var length = $(this).val().length;
+            var obj = $(this).siblings('.comment-button-wrap');
+            if(length > 0){
+                obj
+                    .animate({'opacity': '1'}, 300)
+                    .css('pointer-events', 'auto');
+                obj.find('.add-comment-btn').addClass('border-color');
+            }else{
+                obj
+                    .animate({'opacity': '0.8'}, 300)
+                    .css('pointer-events', 'none');
+                obj.find('.add-comment-btn').removeClass('border-color');
+            }
+        });
+    }();
+
     var fixedMenu = function(){
         var topOffset = $(document).scrollTop();
         $(window).scroll(function() {
@@ -21,9 +40,13 @@ $(document).ready(function () {
 
     var fixedPageCards = function(){
         var leftOffset = $('.container').offset().left;
-        //ar nameLength = $('.card-shortcut').width() + 20;
         var cardShortcuts = $('.card-shortcut').length;
         var csLength = [];
+
+        $(window).resize(function() {
+            leftOffset = $('.container').offset().left;
+            $('.card-shortcut-wrap').css('left', (leftOffset - 50) + 'px' );
+        });
 
         $('.card-shortcut').each(function(index){
             var thatId = $(this).attr('id');

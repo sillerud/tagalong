@@ -35,6 +35,23 @@
         </div>
     </div><!-- END header-image-wrap -->
 
+
+    <!-- Page content -->
+    <div class="page-content">
+
+        <div class="col-sm-6">
+            <div class="page-gallery-box">
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="page-about-box">
+
+            </div>
+        </div>
+
+    </div><!-- END page-content -->
+
 </div><!--end container-->
 
 <?php include 'footer.php'; ?>
