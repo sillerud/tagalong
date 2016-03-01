@@ -45,7 +45,7 @@
         display: inline-block;
         background-color: transparent; /* Lysegrå */
         color: #333; /* Grå */
-        padding: 2px 5px;
+        padding: 0px 5px 3px 5px;
         margin: 5px 3px 0px 0;
         cursor: pointer;
         border-radius: 3px;

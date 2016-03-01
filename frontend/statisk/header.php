@@ -93,11 +93,13 @@
     </div>
 
 </div>
-<div id="one"></div>
+<div id="colors">
+    <div id="one"></div>
     <div id="two"></div>
     <div id="three"></div>
     <div id="four"></div>
     <div id="five"></div>
+</div>
 <div class="menu-wrap">
     <div class="container" id="inner-menu">
 

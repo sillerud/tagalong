@@ -1,5 +1,24 @@
 $(document).ready(function () {
 
+    var fixedMenu = function(){
+        var topOffset = $(document).scrollTop();
+        $(window).scroll(function() {
+            topOffset = $(document).scrollTop();
+            if( topOffset > 69) makeFixed();
+            else {
+                $('#colors').removeClass('color-fixed');
+                $('.menu-wrap').removeClass('menu-fixed');
+                $('.top-header').css('margin-bottom', '0px');
+            }
+        });
+
+        function makeFixed(){
+            $('#colors').addClass('color-fixed');
+            $('.menu-wrap').addClass('menu-fixed');
+            $('.top-header').css('margin-bottom', '66px');
+        }; // END makeFixed
+    }();
+
     // Legger inn årstall i edit profile
     var select = $("#years");
     var year = (new Date).getFullYear() - 14;
@@ -38,15 +57,15 @@ $(document).ready(function () {
 
             if( !addNewOpen ){
                 $('#newPostBtn').animate({'bottom': '60px', 'opacity': '1'}, 300);
-                $('#newPageBtn').delay(100).animate({'bottom': '110px', 'opacity': '1'}, 300);
-                $('#newEventBtn').delay(200).animate({'bottom': '160px', 'opacity': '1'}, 300);
-                $('#newSearchBtn').delay(300).animate({'bottom': '210px', 'opacity': '1'}, 300);
+                $('#newPageBtn').delay(100).stop().animate({'bottom': '110px', 'opacity': '1'}, 300);
+                $('#newEventBtn').delay(200).stop().animate({'bottom': '160px', 'opacity': '1'}, 300);
+                $('#newSearchBtn').delay(300).stop().animate({'bottom': '210px', 'opacity': '1'}, 300);
                 addNewOpen = true;
             }else{
                 $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300);
-                $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300);
-                $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300);
-                $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300);
+                $('#newEventBtn').delay(100).stop().animate({'bottom': '150px', 'opacity': '0'}, 300);
+                $('#newPageBtn').delay(200).stop().animate({'bottom': '100px', 'opacity': '0'}, 300);
+                $('#newPostBtn').delay(300).stop().animate({'bottom': '50px', 'opacity': '0'}, 300);
                 addNewOpen = false;
             }
         });
@@ -79,13 +98,13 @@ $(document).ready(function () {
 
         var hoverEffect = function(){
             $('.event-attending-btn').hover(function(){
-                $(this).animate({'width': '130px'}, 200);
-                $(this).find('.fa').animate({'left': '-80px'}, 200);
-                $(this).find('.attending-text').fadeIn(200);
+                $(this).stop().animate({'width': '130px'}, 200);
+                $(this).find('.fa').stop().animate({'left': '-80px'}, 200);
+                $(this).find('.attending-text').stop().fadeIn(200);
             }, function(){
-                $(this).animate({'width': '40px'}, 200);
-                $(this).find('.fa').animate({'left': '0px'}, 200);
-                $(this).find('.attending-text').fadeOut(200);
+                $(this).stop().animate({'width': '40px'}, 200);
+                $(this).find('.fa').stop().animate({'left': '0px'}, 200);
+                $(this).find('.attending-text').stop().fadeOut(200);
             });
         }();
 
@@ -96,7 +115,6 @@ $(document).ready(function () {
         });
         $('.event-info').on('click', function(){ // Åpne
             var openThis = $(this).closest('.an-event').find('.edit-fields').attr('id');
-            console.log(openThis);
             $('#' + openThis).fadeIn();
             $('#darkOverlay').fadeIn();
         });
@@ -128,99 +146,6 @@ $('.burger-wrap').on("click", function(){
   }
 });
 // END hamburgerikon animasjon
-
-if(localStorage.currentColor == '') localStorage.currentColor = 'blue'; // blue
-var colorArray = ['blue', 'red', 'yellow', 'purple', 'green'];
-var idMenuArray = ['one', 'two', 'three', 'four', 'five'];
-
-changeColor();
-
-
-$('#blue').on('click', function(){
-    localStorage.currentColor = 'blue'; //green
-    changeColor();
-});
-$('#red').on('click', function(){
-    localStorage.currentColor = 'red'; //green
-    changeColor();
-});
-$('#yellow').on('click', function(){
-    localStorage.currentColor = 'yellow'; //green
-    changeColor();
-});
-$('#purple').on('click', function(){
-    localStorage.currentColor = 'purple'; // purple
-    changeColor();
-});
-$('#green').on('click', function(){
-    localStorage.currentColor = 'green'; //green
-    changeColor();
-
-});
-
-function changeColor(){
-    $('.menu-wrap').addClass('ta-bg-color-' + localStorage.currentColor);
-    menuStripes('ta-menu-', localStorage.currentColor);
-
-} // END changeColor
-
-function menuStripes(className, currentColor){ // Stripene i menyen
-    removeOtherClass('ta-menu-', localStorage.currentColor);
-
-    // for-loop
-    // Sett farge til alle
-        // Finn currentColor
-        // Sett currentColor til #three
-        // Finn classen currentColor og bytt ut med grønn
-
-    if(currentColor == 'blue'){
-
-        $('#one').removeClass().addClass('ta-menu-red');
-        $('#two').removeClass().addClass('ta-menu-yellow');
-        $('#three').removeClass().addClass('ta-menu-blue');
-        $('#four').removeClass().addClass('ta-menu-purple');
-        $('#five').removeClass().addClass('ta-menu-green');
-    }else if(currentColor == 'red'){
-        $('#one').removeClass().addClass('ta-menu-blue');
-        $('#two').removeClass().addClass('ta-menu-yellow');
-        $('#three').removeClass().addClass('ta-menu-red');
-        $('#four').removeClass().addClass('ta-menu-purple');
-        $('#five').removeClass().addClass('ta-menu-green');
-    }else if(currentColor == 'green'){
-        $('#one').removeClass().addClass('ta-menu-blue');
-        $('#two').removeClass().addClass('ta-menu-yellow');
-        $('#three').removeClass().addClass('ta-menu-green');
-        $('#four').removeClass().addClass('ta-menu-red');
-        $('#five').removeClass().addClass('ta-menu-purple');
-    }else if(currentColor == 'yellow'){
-        $('#one').removeClass().addClass('ta-menu-blue');
-        $('#two').removeClass().addClass('ta-menu-red');
-        $('#three').removeClass().addClass('ta-menu-yellow');
-        $('#four').removeClass().addClass('ta-menu-purple');
-        $('#five').removeClass().addClass('ta-menu-green');
-    }else if(currentColor == 'purple'){
-        $('#one').removeClass().addClass('ta-menu-blue');
-        $('#two').removeClass().addClass('ta-menu-yellow');
-        $('#three').removeClass().addClass('ta-menu-purple');
-        $('#four').removeClass().addClass('ta-menu-red');
-        $('#five').removeClass().addClass('ta-menu-green');
-    }
-
-
-} // END menuStripes
-
-function removeOtherClass(className, currentColor){
-
-    for(var k = 0; k < 5; k++){
-
-        if( colorArray[k] != currentColor){
-            $('.' + className + localStorage.currentColor).removeClass(className + colorArray[k]);
-        }else{
-        }
-    }
-
-} // END removeOtherClass
-
 
 
 }); // END DOM

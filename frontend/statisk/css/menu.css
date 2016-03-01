@@ -392,7 +392,7 @@
   position: absolute;
   cursor: pointer;
   opacity: 0;
-  -webkit-box-shadow: 3px 3px 5px #848484;
+  -webkit-box-shadow: 2px 2px 3px #848484;
 }
 .add-new-btn .fa{
   position: absolute;
@@ -452,3 +452,17 @@
   top: 5px;
 }
 /* END add new buttons */
+
+/* Fixed */
+.color-fixed{
+  position: fixed;
+  top: 0;
+  height: 8px;
+  width: 100%;
+  z-index: 800;
+}
+.menu-fixed{
+  position: fixed;
+  top: 8px;
+  z-index: 800;
+}

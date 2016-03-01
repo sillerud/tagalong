@@ -10,7 +10,7 @@
                     5
                 </div>
                 <div class="edit-card-icon">
-                    <i class="fa fa-wrench"></i>
+                    <i class="fa fa-cog"></i>
                 </div>
                 <div class="card-wrap-inner">
 
@@ -35,7 +35,7 @@
                     20
                 </div>
                 <div class="edit-card-icon">
-                    <i class="fa fa-wrench"></i>
+                    <i class="fa fa-cog"></i>
                 </div>
                 <div class="card-wrap-inner">
 
@@ -59,7 +59,7 @@
                     99
                 </div>
                 <div class="edit-card-icon">
-                    <i class="fa fa-wrench"></i>
+                    <i class="fa fa-cog"></i>
                 </div>
                 <div class="card-wrap-inner">
 
@@ -84,7 +84,7 @@
                     0
                 </div>
                 <div class="edit-card-icon">
-                    <i class="fa fa-wrench"></i>
+                    <i class="fa fa-cog"></i>
                 </div>
                 <div class="card-wrap-inner">
 
