@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../statisk/css/forside.css">
     <link rel="stylesheet" type="text/css" href="../statisk/css/search.css">
     <link rel="stylesheet" type="text/css" href="../statisk/css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="../statisk/css/footer.css">
     <link rel="stylesheet" type="text/css" href="../statisk/css/page_fubar.css">
     <link rel="stylesheet" type="text/css" href="../statisk/css/pages.css">
     <link rel="stylesheet" type="text/css" href="../statisk/css/other_profiles.css">
@@ -32,161 +33,192 @@
 </head>
 <body ng-controller="UserInfoCtrl">
 <div class="page">
-<style id="customColor">
-</style>
 
-<div class="top-header">
+    <div class="top-header">
+        <div class="container">
+            <div class="top-left">
+                <a href="#"><img class="logo" src="../statisk/images/logonettsideferdig.png"></a>
+            </div>
+
+            <div class="top-right">
+
+                <div class="varsel">
+                    <i class="fa fa-bell"></i>
+                    <i class="fa fa-bell-o"></i>
+
+                    <div class="varsel-panel">
+
+                        <div class="header-varsel-panel">
+
+                            <div class="bell-varsel">
+                                <i class="fa fa-bell"></i>
+                            </div><!--end bell-varsel-->
+                            <h3 class="varsel-title">Notifications</h3>
+
+                        </div><!--end header-varsel-panel-->
+
+                        <div class="varsel-innhold">
+
+                            <img src="../statisk/images/fubar_logo.jpg" class="profilbilde-varsel">
+                            <p class="tekst-varsel">
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                            </p>
+
+                        </div><!--end varsel-innhold-->
+
+                    </div><!--end varsel-panel-->
+
+                </div><!--end varlse-panel-->
+
+                <a href="other_profiles.php">
+                    <div class="logged-in-person ta-color-hover ta-border-color-hover">
+                        {{ me.firstname }} {{ me.surname }}
+                        <i class="fa fa-user"></i>
+                    </div>
+                </a>
+
+                <div class="fast-search">
+                    <button id="searchBtn"><i class="fa fa-search"></i></button>
+
+                    <div class="search-overlay-wrap">
+                        <div class="container">
+                            <input type="search" placeholder="Søk her..." autofocus>
+                            <i class="exit-search fa fa-times"></i>
+                            <div class="fast-search-result"></div>
+                        </div><!-- END search-overlay-inner -->
+                    </div><!-- END search-overlay-wrap -->
+
+                </div><!-- END fast-search -->
+            </div>
+        </div>
+
+    </div>
+    <div id="colors">
+        <div id="one"></div>
+        <div id="two"></div>
+        <div id="three"></div>
+        <div id="four"></div>
+        <div id="five"></div>
+    </div>
+    <div class="menu-wrap">
+        <div class="container" id="inner-menu">
+
+            <div class="burger-wrap"><!-- Hamburgermenyen -->
+                <div class="bar bar1"></div>
+                <div class="bar bar3"></div>
+                <div class="bar bar2"></div>
+            </div><!-- END hamburgermeny -->
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="sidebar.php">Feed</a></li>
+                    <li><a href="#/events">Events</a></li>
+                    <li><a href="pages.php">Pages</a></li>
+                </ul>
+            </div><!-- END menu inner-->
+        </div><!-- END container -->
+    </div><!-- END menu-wrap -->
+
     <div class="container">
-        <div class="top-left">
-            <a href="#"><img class="logo" src="../statisk/images/logonettsideferdig.png"></a>
-        </div>
+        <div class="breadcrumbs">
+            <a href="#">Home</a>
+            <?php if(basename($_SERVER['SCRIPT_NAME']) == 'index.php'): ?>
 
-        <div class="top-right">
-
-            <div class="varsel">
-                <i class="fa fa-bell"></i>
-                <i class="fa fa-bell-o"></i>
-
-                <div class="varsel-panel">
-
-                    <div class="header-varsel-panel">
-
-                        <div class="bell-varsel">
-                            <i class="fa fa-bell"></i>
-                        </div><!--end bell-varsel-->
-                        <h3 class="varsel-title">Notifications</h3>
-
-                    </div><!--end header-varsel-panel-->
-
-                    <div class="varsel-innhold">
-
-                        <img src="../statisk/images/fubar_logo.jpg" class="profilbilde-varsel">
-                        <p class="tekst-varsel">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                        </p>
-
-                    </div><!--end varsel-innhold-->
-
-                </div><!--end varsel-panel-->
-
-            </div><!--end varlse-panel-->
-
-            <a href="other_profiles.php">
-                <div class="logged-in-person ta-color-hover ta-border-color-hover">
-                    {{ me.firstname }} {{ me.surname }}
-                    <i class="fa fa-user"></i>
-                </div>
-            </a>
-
-            <div class="fast-search">
-                <button id="searchBtn"><i class="fa fa-search"></i></button>
-
-                <div class="search-overlay-wrap">
-                    <div class="container">
-                        <input type="search" placeholder="Søk her..." autofocus>
-                        <i class="exit-search fa fa-times"></i>
-                        <div class="fast-search-result"></div>
-                    </div><!-- END search-overlay-inner -->
-                </div><!-- END search-overlay-wrap -->
-
-            </div><!-- END fast-search -->
+            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'sidebar.php'): ?>
+            - Feed
+            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'other_profiles.php'): ?>
+            - Profil
+            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'profil_edit.php'): ?>
+            - <a href="other_profiles.php">Profil</a> - Edit profile
+            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'page_fubar.php'): ?>
+            - Fubar
+            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'sidebar.php'): ?>
+            - Feed
+            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'search.php'): ?>
+            - Search
+            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'new_event.php'): ?>
+            - New Event
+            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'events.php'): ?>
+            - Events
+            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'pages.php'): ?>
+            - Pages
+            <?php endif; ?>
         </div>
     </div>
 
-</div>
-<div id="colors">
-    <div id="one"></div>
-    <div id="two"></div>
-    <div id="three"></div>
-    <div id="four"></div>
-    <div id="five"></div>
-</div>
-<div class="menu-wrap">
-    <div class="container" id="inner-menu">
-
-        <div class="burger-wrap"><!-- Hamburgermenyen -->
-            <div class="bar bar1"></div>
-            <div class="bar bar3"></div>
-            <div class="bar bar2"></div>
-        </div><!-- END hamburgermeny -->
-
-        <div class="menu">
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="sidebar.php">Feed</a></li>
-                <li><a href="#/events">Events</a></li>
-                <li><a href="pages.php">Pages</a></li>
-            </ul>
-        </div><!-- END menu inner-->
-    </div><!-- END container -->
-</div><!-- END menu-wrap -->
-
-<div ng-view></div>
-
-<div class="container">
-    <div class="breadcrumbs">
-        <a href="#">Home</a>
-        <?php if(basename($_SERVER['SCRIPT_NAME']) == 'index.php'): ?>
-
-        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'sidebar.php'): ?>
-        - Feed
-        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'other_profiles.php'): ?>
-        - Profil
-        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'profil_edit.php'): ?>
-        - <a href="other_profiles.php">Profil</a> - Edit profile
-        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'page_fubar.php'): ?>
-        - Fubar
-        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'sidebar.php'): ?>
-        - Feed
-        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'search.php'): ?>
-        - Search
-        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'new_event.php'): ?>
-        - New Event
-        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'events.php'): ?>
-        - Events
-        <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'pages.php'): ?>
-        - Pages
-        <?php endif; ?>
+    <div class="add-new-btn-wrap">
+        <div id="addNew" class="add-new-btn"><i class="fa fa-plus"></i></div>
+        <div id="newPostBtn" class="add-new-btn"><i class="fa fa-bullhorn"></i></div>
+        <div id="newPageBtn" class="add-new-btn"><i class="fa fa-hand-peace-o"></i></div>
+        <div id="newEventBtn" class="add-new-btn"><i class="fa fa-calendar-plus-o"></i></div>
+        <div id="newSearchBtn" class="add-new-btn"><i class="fa fa-search"></i></div>
     </div>
-</div>
-
-<div class="add-new-btn-wrap">
-    <div id="addNew" class="add-new-btn"><i class="fa fa-plus"></i></div>
-    <div id="newPostBtn" class="add-new-btn"><i class="fa fa-bullhorn"></i></div>
-    <div id="newPageBtn" class="add-new-btn"><i class="fa fa-hand-peace-o"></i></div>
-    <div id="newEventBtn" class="add-new-btn"><i class="fa fa-calendar-plus-o"></i></div>
-    <div id="newSearchBtn" class="add-new-btn"><i class="fa fa-search"></i></div>
-</div>
+    <div ng-view></div>
 
 </div>
 
 <footer>
     <div class="container">
-        <strong>Link til "alle" sidene:</strong>
-        <a href="index.php">Forside</a> -
-        <a href="other_profiles.php">Andre sin profil</a> -
-        <a href="profil_edit.php">Rediger sin egen profil</a> -
-        <a href="page_fubar.php">Page (fubar)</a> -
-        <a href="search.php">Search</a> -
-        <a href="sidebar.php">Feed + sidebar</a> -
-        <a href="new_event.php">New event</a> -
-        <a ng-click="logout()">Log out</a>
+        <div class="row">
 
-        <br>
+            <div class="footer-menu">
+                <div class="col-xs-12 logo-item">
+                    <a href="">
+                        <img src="../statisk/images/logonettsideferdig.png" alt="">
+                    </a>
+                </div>
+            </div><!-- END footer-menu -->
 
-        <div id="blue">Blue</div>
-        <div id="red">Red</div>
-        <div id="yellow">Yellow</div>
-        <div id="purple">Purple</div>
-        <div id="green">Green</div>
-    </div>
+            <div class="shortcut-menu">
+
+                <div class="col-md-3 col-xs-6">
+                    <a href="">
+                        <section>
+                            <img src="../statisk/images/hvit_westerdals.png" alt=""><br>
+                            <span>Westerdals</span><br>
+                            <span>westerdals.no</span>
+                        </section>
+                    </a>
+
+                </div>
+                <div class="col-md-3 col-xs-6">
+                    <a href="">
+                        <section>
+                            <i class="fa fa-map-marker"></i><br>
+                            <span>Find campuses</span><br>
+                            <span>westerdals.no/kontakt</span>
+                        </section>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <a href="">
+                        <section>
+                            <i class="fa fa-envelope"></i><br>
+                            <span>Support</span><br>
+                            <span>support@tagalong.no</span>
+                        </section>
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-xs-6">
+                    <a href="">
+                        <section>
+                            <i class="fa fa-bug"></i><br>
+                            <span>Report a bug</span><br>
+                            <span>bug@tagalong.no</span>
+                        </section>
+                    </a>
+                </div>
+
+            </div><!-- END shortcut-menu -->
+
+            <div class="text-center" id="copy">&copy All rights reserved Tag Along</div>
+        </div>
+    </div><!-- END container -->
 
 </footer>
-<style>
-    footer{
-        padding: 100px 0 30px 0;
-    }
-</style>
 
 <script src="../bower_components/jquery/dist/jquery.js"></script>
 <script src="../bower_components/moment/min/moment.min.js"></script>
@@ -195,18 +227,13 @@
 <script src="../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <link rel="stylesheet" href="../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
 
-
-<!--<script src="../bower_components/jquery/dist/jquery.min.js"></script>-->
 <script src="../bower_components/angular/angular.js"></script>
 <script src="../bower_components/angular-resource/angular-resource.js"></script>
 <script src="../bower_components/angular-route/angular-route.js"></script>
 
-<!--<script src="../statisk/js/custom.js"></script>-->
-
 <script src="js/app.js"></script>
 <script src="js/services.js"></script>
 <script src="js/controllers.js"></script>
-<script src="../statisk/js/custom.js"></script>
-
+<script src="../js/custom.js"></script>
 </body>
 </html>

@@ -71,23 +71,24 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
 }]);
 
 cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Card) {
-    /*Card.create({
-        userId: $scope.me.id,
-        name: 'Programming',
-        description: 'General programming stuff',
-        filter: ['#java', '#rust', '@pg4100']
-    });
-    Card.create({
-        userId: $scope.me.id,
-        name: 'Databases',
-        description: 'General database stuff',
-        filter: ['#mysql', '#mongodb']
-    });*/
-
     // Åpne og lukke edit/add new card
     $scope.addCard = function() {
         $('.edit-card-wrap').fadeIn();
         $('#darkOverlay').fadeIn();
     };
     $scope.cards = Card.all();
+}]);
+cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Card) {
+    var filter = [];
+
+    filter.push("#java");
+
+    $scope.createCard = function() {
+        Card.create({
+            userId: $scope.me.id,
+            name: $scope.newcard.title,
+            description: $scope.newcard.description,
+            filter: filter
+        });
+    }
 }]);
