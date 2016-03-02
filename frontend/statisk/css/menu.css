@@ -418,11 +418,16 @@
 #newPostBtn{
   bottom: 50px;
 }
+#newPostBtn:before, #newPageBtn:before, #newEventBtn:before, #newSearchBtn:before{
+  background-color: #FFF;
+  padding: 0 5px 2px 5px;
+  border-radius: 3px;
+  top: 7px;
+}
 #newPostBtn:before{
   content: 'Add new post';
   position: absolute;
-  left: -95px;
-  top: 5px;
+  left: -105px;
 }
 #newPageBtn{
   bottom: 100px;
@@ -430,8 +435,7 @@
 #newPageBtn:before{
   content: 'Add new page';
   position: absolute;
-  left: -100px;
-  top: 5px;
+  left: -110px;
 }
 #newEventBtn{
   bottom: 150px;
@@ -439,8 +443,7 @@
 #newEventBtn:before{
   content: 'Add new event';
   position: absolute;
-  left: -105px;
-  top: 5px;
+  left: -115px;
 }
 #newSearchBtn{
   bottom: 200px;
@@ -448,8 +451,7 @@
 #newSearchBtn:before{
   content: 'Search';
   position: absolute;
-  left: -55px;
-  top: 5px;
+  left: -65px;
 }
 /* END add new buttons */
 
