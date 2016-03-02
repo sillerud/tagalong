@@ -61,6 +61,9 @@ footer #copy{
     color: #a0a0a0;
     transition: all 200ms linear;
 }
+.shortcut-menu div img{
+    width: 52px;
+}
 .shortcut-menu div span{
     width: 100%;
 }

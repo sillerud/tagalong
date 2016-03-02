@@ -14,13 +14,18 @@
 
     <div id="loginWrap">
         <div id="loginInner">
-            <img id="logo" src="images/tagalong_logo.png" alt="">
-            <form action="index.php">
-                <h3>Finish this form to login</h3>
-                <input id="username" type="text" placeholder="Username">
-                <input id="password" type="password" placeholder="Password">
-                <input type="submit" value="Login">
-            </form>
+            <img id="logo" src="images/logonettsideferdig.png" alt="">
+            <div class="login-form">
+                <div class="form-info">Login to your account</div>
+                <form action="index.php">
+                    <input id="username" type="text" placeholder="Username">
+                    <input id="password" type="password" placeholder="Password">
+                    <div class="comment-button-wrap">
+                        <input type="submit" class="add-comment-btn" value="Login">
+                        <div class="comment-overlay"></div>
+                    </div>
+                </form>
+            </div><!-- END login-form -->
 
         </div>
     </div>

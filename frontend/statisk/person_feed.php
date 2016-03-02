@@ -25,7 +25,7 @@
     </div><!-- END - card-wrap -->
 
     <div class="bottom-bar">
-        <div class="feed-feedback"><span>10</span> personer synes du var flink</div>
+        <div class="feed-feedback"><span>10</span> persons tagged along</div>
     </div>
     <div class="feed-comment-wrap">
         <input type="text" class="comment-input" placeholder="Add a comment...">
@@ -64,7 +64,7 @@
     </div><!-- END - card-wrap -->
 
     <div class="bottom-bar">
-        <div class="feed-feedback"><span>2</span> personer synes du var flink</div>
+        <div class="feed-feedback"><span>2</span>  persons tagged along</div>
     </div>
     <div class="feed-comment-wrap">
         <input type="text" class="comment-input" placeholder="Add a comment...">
@@ -103,7 +103,7 @@
     </div><!-- END - card-wrap -->
 
     <div class="bottom-bar">
-        <div class="feed-feedback"><span>10</span> personer synes du var flink</div>
+        <div class="feed-feedback"><span>10</span> persons tagged along</div>
     </div>
     <div class="feed-comment-wrap">
         <input type="text" class="comment-input" placeholder="Add a comment...">

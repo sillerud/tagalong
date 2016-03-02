@@ -32,7 +32,7 @@
             <div class="col-md-3 col-xs-6">
                 <a href="">
                     <section>
-                        <i class="fa fa-globe"></i><br>
+                        <img src="images/hvit_westerdals.png" alt=""><br>
                         <span>Westerdals</span><br>
                         <span>westerdals.no</span>
                     </section>
@@ -43,7 +43,7 @@
                 <a href="">
                     <section>
                         <i class="fa fa-map-marker"></i><br>
-                        <span>Find campus</span><br>
+                        <span>Find campuses</span><br>
                         <span>westerdals.no/kontakt</span>
                     </section>
                 </a>
