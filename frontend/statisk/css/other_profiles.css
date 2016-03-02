@@ -50,7 +50,7 @@
     width: auto;
 }
 .contact-info{
-    font: auto;
+    <!--font: auto;-->
 }
 .profile-posts{
     font-size: 18px;
@@ -73,7 +73,8 @@
 }
 
 /*----tabs----*/
-.tab{
+.tabs{
+    overflow: hidden;
     width: 100%;
     display:inline-block;
 }
@@ -84,31 +85,49 @@
         clear: both;
         content: '';
     }
+    .tabs ul{
+        margin-bottom: 0;
+        
+        padding-left: 0;
+    }
 
     .tab-links li{
-        margin:0 0;
-        float:left;
-        list-style:none;
+
+
     }
+        .tabs-item{
+            display: table-cell;
+
+        }
+
         .tab-links a{
+            margin:0 0;
+            float:left;
+            list-style:none;
+            display: inline-table;
+            table-layout: fixed;
+            width: 100%;
             padding: 9px 15px;
-            display:inline-block;
             border-radius: 3px 3px 0 0;
-            background: #7FB5DA;
+            background: #e6e1e1;
+            opacity: .5;
             font-size: 16px;
             font-weight: 600;
             color: #4c4c4c;
             transition: all linear 0.15s;
         }
 
+
         .tab-links a:hover{
-            background:#a7cce5;
+            opacity: .8;
+            background:#e6e6e6;
             text-decoration:none;
         }
 
         li.active a, li.active a:hover {
             background:#fff;
             color:#4c4c4c;
+            opacity: 1;
         }
 
         /*----- Content of Tabs -----*/
@@ -117,7 +136,7 @@
             border-radius:3px;
             box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
             background:#fff;
-            width: 35%;
+            width: 100%;
         }
 
         .tab {

@@ -33,4 +33,7 @@ public enum MessageConstant
 
     // Password
     PASSWORD_CHANGED,
+
+    // Cards
+    CARD_CREATED,
 }

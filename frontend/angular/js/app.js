@@ -11,11 +11,17 @@ angular.module('tagalong', [
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
         $routeProvider
+            .when("/home", {
+                templateUrl: 'partials/cards.html'
+            })
             .when("/events", {
                 templateUrl: 'partials/events.html',
                 controller: 'ViewEventsCtrl'
             })
             .when("/login", {
                 templatesUrl: 'partials/'
+            })
+            .otherwise({
+                redirectTo: '/home'
             });
 }]);
