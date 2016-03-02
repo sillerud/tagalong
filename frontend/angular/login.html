@@ -12,18 +12,24 @@
 <body ng-app="tagalong">
 
 <div ng-controller="LoginCtrl">
-<div id="loginWrap">
-    <div id="loginInner">
-        <img id="logo" src="../statisk/images/tagalong_logo.png" alt="">
-        <form role="form" ng-submit="login()">
-            <h3>Finish this form to login</h3>
-            <input ng-model="credentials.username" type="text" placeholder="Username">
-            <input ng-model="credentials.password" type="password" placeholder="Password">
-            <input type="submit" value="Login">
-        </form>
+    <div id="loginWrap">
+        <div id="loginInner">
+            <img id="logo" src="../statisk/images/logonettsideferdig.png" alt="">
+            <div class="login-form">
+                <div class="form-info">Login to your account</div>
+                <form role="form" ng-submit="login()">
+                    <input ng-model="credentials.username" id="username" type="text" placeholder="Username">
+                    <input ng-model="credentials.password" id="password" type="password" placeholder="Password">
+                    <div class="comment-button-wrap">
+                        <input type="submit" class="add-comment-btn" value="Login">
+                        <div class="comment-overlay"></div>
+                    </div>
+                </form>
+            </div><!-- END login-form -->
 
+        </div>
     </div>
-</div>
+
 </div>
 
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
