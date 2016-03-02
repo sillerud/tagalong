@@ -1,4 +1,4 @@
-<div class="person-feed-boks">
+<div class="person-feed-boks box">
 
     <div class="feed-header">
         <div class="person-image" style="border: 2px solid #fd7265;">
@@ -37,7 +37,7 @@
 
 </div><!-- END person-feed-boks -->
 
-<div class="person-feed-boks">
+<div class="person-feed-boks box">
 
     <div class="feed-header">
         <div class="person-image" style="border: 2px solid #FED575;">
@@ -76,7 +76,7 @@
 
 </div><!-- END person-feed-boks -->
 
-<div class="person-feed-boks">
+<div class="person-feed-boks box">
 
     <div class="feed-header">
         <div class="person-image" style="border: 2px solid #fd7265;">

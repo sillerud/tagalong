@@ -93,3 +93,20 @@
     background-color: #1EB6EC;
     border-radius: 20px;
 }
+
+/* Shout out box */
+
+.shout-out-box{
+    border-left: 4px solid #1EB6EC;
+}
+.shout-out-title{
+    border-bottom: 1px solid #d8d8d8;
+    padding-bottom: 10px;
+}
+.shout-out-title h3{
+    margin: 0;
+    font-size: 1.3em;
+}
+.shout-out-text{
+    margin-top: 10px;
+}

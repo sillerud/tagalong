@@ -38,21 +38,32 @@
 
     <!-- Page content -->
     <div class="page-content">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-left-column">
 
-        <div class="col-sm-6">
-            <div class="page-gallery-box">
+                    <div class="shout-out-box box">
+                        <div class="shout-out-title">
+                            <h3>Fubar Shout out</h3>
+                        </div>
+                        <div class="shout-out-text">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae incidunt labore sapiente temporibus ab est non quia, cupiditate, ea accusantium perferendis cum quo repellendus, sit quae id voluptates voluptatum voluptas.
+                            </p>
+                        </div>
+                    </div><!-- END shout out box -->
 
+
+                </div><!-- END page-left-column -->
+            </div>
+            <div class="col-sm-6">
+                <div class="page-right-column">
+                    <?php include 'person_feed.php' ?>
+                </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="page-about-box">
-
-            </div>
-        </div>
-
     </div><!-- END page-content -->
 
 </div><!--end container-->
 
 <?php include 'footer.php'; ?>
-
