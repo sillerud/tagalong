@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CardRepository extends MongoRepository<Card, String> {
-    List<Card> findByOwnerId(String userId);
+    List<Card> findByUserId(String userId);
 }

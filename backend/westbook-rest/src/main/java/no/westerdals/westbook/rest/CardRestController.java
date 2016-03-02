@@ -8,6 +8,7 @@ import no.westerdals.westbook.mongodb.CardRepository;
 import no.westerdals.westbook.responses.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class CardRestController {
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public ResultResponse createCard(Card card) {
+    public ResultResponse createCard(@RequestBody  Card card) {
         card.setId(null);
         Card result = cardRepository.insert(card);
         return newOkResult(MessageConstant.CARD_CREATED, result);
