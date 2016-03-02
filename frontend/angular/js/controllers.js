@@ -4,6 +4,7 @@ var eventControllers = angular.module('eventControllers', []);
 var loginControllers = angular.module('loginControllers', []);
 var userControllers = angular.module('userControllers', []);
 var cardControllers = angular.module('cardControllers', []);
+var pageControllers = angular.module('pageControllers', []);
 
 function redirectLogin() {
     window.location = "login.html";
@@ -67,7 +68,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
     }, redirectLogin);
     $scope.logout = function() {
         User.logout(redirectLogin);
-    }
+    };
 }]);
 
 cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Card) {
@@ -92,3 +93,16 @@ cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Ca
         });
     }
 }]);
+
+pageControllers.controller("PageCtrl", ['$scope', function($scope) {
+    $('.thumb').each(function() {
+        var elem = $(this);
+        elem.removeAttr('style');
+        if (elem.height() > elem.width()) {
+            elem.css('width', '100%');
+        } else {
+            elem.css('height', '100%');
+        }
+    })
+}
+]);

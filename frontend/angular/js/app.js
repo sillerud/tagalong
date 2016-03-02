@@ -1,15 +1,16 @@
 'use strict';
 angular.module('tagalong', [
-    'ngRoute',
-    'loginControllers',
-    'loginServices',
-    'eventControllers',
-    'eventServices',
-    'userControllers',
-    'userServices',
-    'cardControllers',
-    'cardServices'
-])
+        'ngRoute',
+        'loginControllers',
+        'loginServices',
+        'eventControllers',
+        'eventServices',
+        'userControllers',
+        'userServices',
+        'cardControllers',
+        'cardServices',
+        'pageControllers'
+    ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
         $routeProvider
@@ -21,10 +22,21 @@ angular.module('tagalong', [
                 templateUrl: 'partials/events.html',
                 controller: 'ViewEventsCtrl'
             })
-            .when("/login", {
-                templatesUrl: 'partials/'
-            })
-            .otherwise({
-                redirectTo: '/home'
+            .when("/page/:pageId", {
+                templateUrl: 'partials/page.html',
+                controller: 'PageCtrl'
             });
-}]);
+    }])
+    .directive('galeryImage', function() {
+        return {
+            restrict: "A",
+            link: function(scope, element) {
+                scope.getWidth = function() {
+                    return $(element).width();
+                };
+                scope.$watch(scope.getWidth, function(width) {
+                    $(element).height(width);
+                });
+            }
+        }
+    });

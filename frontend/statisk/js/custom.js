@@ -5,35 +5,6 @@ $(document).ready(function () {
         createThumbnails();
     });
 
-    function createThumbnails(){
-
-        var galleryThumbWidth = $('.gallery-thumb').width();
-        $('.gallery-thumb').css('height', galleryThumbWidth + 'px');
-
-        $('.gallery-thumb').each(function(index){
-            var thatObj = $(this).find('.thumb');
-            var objWidth = thatObj.width();
-            var objHeight = thatObj.height();
-            console.log(objWidth);
-
-            if( objHeight > objWidth || objHeight == objWidth) setWidth(thatObj);
-            else if(objWidth > objHeight) setHeight(thatObj);
-
-        });
-
-        function setWidth(index){
-            $(index).removeAttr('style');
-            $(index).css('width', '100%');
-        }; // END setWidth
-
-        function setHeight(index){
-            $(index).removeAttr('style');
-            $(index).css('height', '100%');
-        }; // END setWidth
-
-    }; // END createThumbnails
-    createThumbnails();
-
     var readMore = function(){
         var close = true;
         $('.read-more').on('click', function(){
