@@ -17,8 +17,7 @@ loginServices.factory('Login', ['$resource', function($resource) {
             isArray: false,
             headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
             transformRequest: transform
-        },
-        doget: {method: 'GET'}
+        }
     })
 }]);
 
@@ -29,10 +28,16 @@ loginServices.factory('Event', ['$resource', function($resource) {
 }]);
 
 userServices.factory('User', ['$resource', function($resource) {
-    return $resource(url("/users"), {}, {
+    return $resource(url("/users/:userId"), {}, {
         create: {
+            url: url("/users"),
             method: 'POST',
             isArray: false
+        },
+        find: {
+            method: 'GET',
+            isArray: false,
+            params: {userId: 'me'}
         }
     })
 }]);

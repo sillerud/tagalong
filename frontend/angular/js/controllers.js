@@ -4,20 +4,28 @@ var eventControllers = angular.module('eventControllers', []);
 var loginControllers = angular.module('loginControllers', []);
 var userControllers = angular.module('userControllers', []);
 
-loginControllers.controller('LoginCtrl', ['$scope', 'Login', function($scope, Login){
-    Login.doget();
-    $scope.login = function() {
-        Login.login($scope.credentials,
-            function(data) {
-                window.location = "index.html";
-                console.log(data);
-            },
-            function(error) {
-                alert("Failed to log in. " + error);
-                console.log(error);
-            }
-        );
-    }
+loginControllers.controller('LoginCtrl', ['$scope', 'Login', 'User', function($scope, Login, User){
+    var login = function() {
+        $scope.login = function() {
+            Login.login($scope.credentials,
+                function(data) {
+                    window.location = "index.html";
+                    console.log(data);
+                },
+                function(error) {
+                    alert("Failed to log in. " + error);
+                    console.log(error);
+                }
+            );
+        }
+    };
+    User.find(function(data) {
+        if (data.email) {
+            window.location = "index.html";
+        } else {
+            login();
+        }
+    }, login);
 }]);
 eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($scope, Event) {
     $scope.getRandomNumber = function(){
@@ -44,4 +52,8 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
 
         User.create({user: userInfo, credential: credentials});
     }
+}]);
+
+userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, User) {
+    $scope.me = User.find();
 }]);
