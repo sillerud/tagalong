@@ -19,12 +19,12 @@
 
         <div class="page-name"><h1>Ola Nordmann</h1></div>
 
-        <div class="add-page-to-card-btn">
-            <div class="add-page-to-card-text">
-                Add to card
-                <i class="fa fa-plus"></i>
+            <div class="add-page-to-card">
+                <div class="add-page-to-card-text">Add to card</div>
+                <div class="add-page-to-card-btn">
+                    <i class="fa fa-plus"></i>
+                </div>
             </div>
-        </div>
     </div><!-- END header-image-wrap -->
 
     <!--if(myprofile){-->
