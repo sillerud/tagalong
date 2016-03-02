@@ -167,7 +167,8 @@
         <a href="page_fubar.php">Page (fubar)</a> -
         <a href="search.php">Search</a> -
         <a href="sidebar.php">Feed + sidebar</a> -
-        <a href="new_event.php">New event</a>
+        <a href="new_event.php">New event</a> -
+        <a class="logoutButton">Log out</a>
 
         <br>
 
@@ -204,6 +205,13 @@
 <script src="js/services.js"></script>
 <script src="js/controllers.js"></script>
 <script src="../statisk/js/custom.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.logoutButton').on('click', function() {
+            $.post("/rest/logout");
+        });
+    });
+</script>
 
 </body>
 </html>

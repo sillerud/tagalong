@@ -16,6 +16,7 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -63,7 +64,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .logout()
                 .permitAll()
-                .logoutUrl("/rest/logout")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/rest/logout"))
                 .and()
             .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
         HttpSessionCsrfTokenRepository tokenRepository = new HttpSessionCsrfTokenRepository();
