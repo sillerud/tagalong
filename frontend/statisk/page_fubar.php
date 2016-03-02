@@ -48,10 +48,33 @@
                         </div>
                         <div class="shout-out-text">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae incidunt labore sapiente temporibus ab est non quia, cupiditate, ea accusantium perferendis cum quo repellendus, sit quae id voluptates voluptatum voluptas.
+                                Lorem ipsum <strong>dolor sit amet</strong>, consectetur adipisicing elit. Molestiae incidunt labore sapiente.
+                            </p>
+                            <p>
+                                <strong>temporibus ab est non quia, cupiditate</strong>
                             </p>
                         </div>
                     </div><!-- END shout out box -->
+
+                    <div class="about-box box">
+                        <div class="about-box-title">
+                            <h3>About</h3>
+                        </div>
+                        <div class="about-box-text">
+                            <p class="text-shown">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus aut voluptatum iste? Aliquam facilis reiciendis sequi sapiente quos, ipsum voluptatum voluptate veniam consectetur assumenda doloremque quod animi fugiat, cum in...
+                            </p>
+                            <p class="text-hidden">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quod eveniet totam ipsum provident vitae porro pariatur distinctio modi debitis, quas fuga culpa, odit ipsa sed eum placeat non dolor!
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint velit iure cum itaque commodi assumenda deleniti laboriosam neque consequuntur aspernatur iste nihil, molestiae perspiciatis inventore dolorum est, reprehenderit magni omnis.
+                            </p>
+
+                        </div><!-- END about tekst -->
+                        <div class="about-read-more">
+                            <span class="read-more">Read more</span>
+                        </div>
+
+                    </div><!-- END about-box -->
 
 
                 </div><!-- END page-left-column -->

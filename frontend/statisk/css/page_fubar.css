@@ -110,3 +110,26 @@
 .shout-out-text{
     margin-top: 10px;
 }
+/* END shout out */
+
+/* About  */
+.about-box{
+}
+.about-box-title{
+    border-bottom: 1px solid #d8d8d8;
+    padding-bottom: 10px;
+}
+.about-box-title h3{
+    margin: 0;
+    font-size: 1.3em;
+}
+.about-box-text{
+    margin-top: 10px;
+}
+.about-read-more{
+    padding-top: 10px;
+    color: #1EB6EC;
+}
+.text-hidden{
+    display: none;
+}
