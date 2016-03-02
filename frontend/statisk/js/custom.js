@@ -133,11 +133,6 @@ $(document).ready(function () {
 
     var openCloseOverlays = function(){
 
-        // Åpne og lukke edit/add new card
-        $('.card-wrap-add').on('click', function(){ // Åpne
-            $('.edit-card-wrap').fadeIn();
-            $('#darkOverlay').fadeIn();
-        });
         $('#saveCard').on('click', function(){ // Lukke
             closeOverlay('.edit-card-wrap');
             closeOverlay('#darkOverlay');
