@@ -83,5 +83,11 @@ cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Ca
         description: 'General database stuff',
         filter: ['#mysql', '#mongodb']
     });*/
+
+    // Åpne og lukke edit/add new card
+    $scope.addCard = function() {
+        $('.edit-card-wrap').fadeIn();
+        $('#darkOverlay').fadeIn();
+    };
     $scope.cards = Card.all();
 }]);
