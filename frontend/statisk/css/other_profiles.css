@@ -46,6 +46,7 @@
     margin-left: 200px;
 }
 .info-format{
+    margin-right: 5px;
     float: left;
     width: auto;
 }
@@ -72,11 +73,21 @@
     }
 }
 
+/*----Skills section----*/
+.skill-section{
+    background: #ffffff;
+    padding: 5px 0;
+}
+.skill-head{
+    padding-left: 35px;
+}
+
 /*----tabs----*/
 .tabs{
     overflow: hidden;
     width: 100%;
     display:inline-block;
+    padding-bottom: 30px;
 }
     /*----tab links----*/
     /*----clear fix----*/

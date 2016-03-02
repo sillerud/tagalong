@@ -48,7 +48,7 @@
                 </div>
                 <div class="holder">
                     <p class="info-format" class="gender" ><b>Gender:</b></p>
-                    <p class="gender-c">Female</p>
+                    <p class="gender-c">Male</p>
                 </div>
                  <div class="holder">
                     <p class="info-format" class="city"><b>City of residence: </b></p>
@@ -78,12 +78,28 @@
                     <p class="info-format" class="linkedin"><b>LinkedIn: </b></p>
                     <p class="">olanormannprofotballer</p>
                 </div>
+                <div class="holder">
+                    <p class="info-format" class="phone"><b>Phone: </b></p>
+                    <p class="">12345678</p>
+                </div>
+                <div class="holder">
+                    <p class="info-format" class="extracontact"><b>Extra: </b></p>
+                    <p class="">Whatever</p>
+                </div>
             </div><!--contact-tab END-->
 
         </div><!--tabs-content END-->
 
     </div><!--tabs END-->
-        <div>
+        <div class="skill-section">
+            <h3 class="skill-head">Skills</h3>
+            <ul>
+                <li>Programmering</li>
+                <li>Internett</li>
+                <li>Ting og tang</li>
+                <li>Masse greier as</li>
+                <li>Holy balls What is this</li>
+            </ul>
 
 
         </div><!--skills END-->
