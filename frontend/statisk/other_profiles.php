@@ -83,7 +83,11 @@
         </div><!--tabs-content END-->
 
     </div><!--tabs END-->
-    </div>
+        <div>
+
+
+        </div><!--skills END-->
+    </div><!--col-sm-6 END-->
     <div class="col-sm-6">
         <?php include "person_feed.php" ?>
 
