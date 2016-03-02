@@ -20,7 +20,8 @@
                 <h3>Register users</h3>
                 <input type="hidden" name="roles" ng-model="user.roles" ng-value="roles">
 
-                <input ng-model="user.name" type="text" placeholder="Full name">
+                <input ng-model="user.firstname" type="text" placeholder="Name">
+                <input ng-model="user.surname" type="text" placeholder="Surname">
                 <input ng-model="user.email" type="text" placeholder="Email">
                 <input ng-model="user.password" type="password" placeholder="Password">
                 <input type="radio" class="radio" ng-model="user.gender" value="male" id="male" />

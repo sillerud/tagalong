@@ -63,6 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .logout()
                 .permitAll()
+                .logoutUrl("/rest/logout")
                 .and()
             .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
         HttpSessionCsrfTokenRepository tokenRepository = new HttpSessionCsrfTokenRepository();

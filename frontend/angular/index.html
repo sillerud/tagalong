@@ -30,7 +30,7 @@
 
     <title>Tag along</title>
 </head>
-<body>
+<body ng-controller="UserInfoCtrl">
 <div class="page">
 <style id="customColor">
 </style>
@@ -73,7 +73,7 @@
 
             <a href="other_profiles.php">
                 <div class="logged-in-person ta-color-hover ta-border-color-hover">
-                    Ola Nordmann
+                    {{ me.firstname }} {{ me.surname }}
                     <i class="fa fa-user"></i>
                 </div>
             </a>
