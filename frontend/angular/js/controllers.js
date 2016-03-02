@@ -4,6 +4,10 @@ var eventControllers = angular.module('eventControllers', []);
 var loginControllers = angular.module('loginControllers', []);
 var userControllers = angular.module('userControllers', []);
 
+function redirectLogin() {
+    window.location = "login.html";
+}
+
 loginControllers.controller('LoginCtrl', ['$scope', 'Login', 'User', function($scope, Login, User){
     var login = function() {
         $scope.login = function() {
@@ -55,6 +59,12 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
 }]);
 
 userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, User) {
-    $scope.me = User.find();
-    $scope.logout = User.logout;
+    $scope.me = User.find(function(data) {
+        if (!data.email) {
+            redirectLogin();
+        }
+    }, redirectLogin);
+    $scope.logout = function() {
+        User.logout(redirectLogin);
+    }
 }]);
