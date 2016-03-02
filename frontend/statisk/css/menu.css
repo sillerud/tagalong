@@ -64,6 +64,9 @@
     .top-right{
         float: right;
     }
+    #searchBtn .fa{
+      padding-right: 4px;
+    }
     .fast-search{
         display: inline-block;
         float: right;
@@ -76,7 +79,6 @@
         border: none;
         margin-left: -4px;
         padding: 3px 3px 1px 3px;
-        border-bottom: 1px solid #FFF;
         color: #FFF;
     }
     .search-overlay-wrap{
@@ -103,7 +105,6 @@
         padding: 3px 5px 1px 5px;
         color: #FFF;
         cursor: pointer;
-        border-bottom: 1px solid white;
     }
     .logged-in-person i{
         margin-left: 10px;
@@ -115,8 +116,8 @@
     }
     .varsel i{
       color: white;
-      padding: 5px 5px 5px 5px;
-      border-bottom: 1px solid #FFF;
+      position: relative;
+      top: 7px;
     }
     .varsel .fa-bell{
       display: block;

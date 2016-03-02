@@ -43,6 +43,13 @@
 
             <div class="top-right">
 
+                <a href="other_profiles.php">
+                    <div class="logged-in-person ta-color-hover ta-border-color-hover">
+                        {{ me.firstname }} {{ me.surname }}
+                        <i class="fa fa-user"></i>
+                    </div>
+                </a>
+
                 <div class="varsel">
                     <i class="fa fa-bell"></i>
                     <i class="fa fa-bell-o"></i>
@@ -71,15 +78,9 @@
 
                 </div><!--end varlse-panel-->
 
-                <a href="other_profiles.php">
-                    <div class="logged-in-person ta-color-hover ta-border-color-hover">
-                        {{ me.firstname }} {{ me.surname }}
-                        <i class="fa fa-user"></i>
-                    </div>
-                </a>
 
                 <div class="fast-search">
-                    <button id="searchBtn"><i class="fa fa-search"></i></button>
+                    <button id="searchBtn"><i class="fa fa-search"></i> Search</button>
 
                     <div class="search-overlay-wrap">
                         <div class="container">
