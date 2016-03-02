@@ -43,21 +43,19 @@
     margin-bottom: 30px;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #63caa6; /* Change */
 }
 .edit-field3{
     width: 100%;
     max-width: 100%;
     margin-bottom: 30px;
     background-color: transparent;
-    border: 1px solid #63caa6; /* Change */
     padding: 10px;
 }
 .edit-fields .edit-field1:focus, .edit-fields .edit-field2:focus, .edit-fields .edit-field3:focus{
     outline: none;
 }
 .edit-fields label{
-    color: #63caa6; /* Change */
+     /* se SASS */
 }
 .edit-fields .edit-field1{
     padding: 10px;

@@ -92,7 +92,6 @@
     position: relative;
     width: 30px;
     height: 30px;
-    background-color: #1EB6EC;
     border-radius: 20px;
     float: left;
     cursor: pointer;
@@ -113,7 +112,7 @@
 /* Shout out box */
 
 .shout-out-box{
-    border-left: 4px solid #1EB6EC;
+    /* Se SASS-fila */
 }
 .shout-out-text{
     margin-top: 10px;
@@ -128,7 +127,7 @@
 }
 .about-read-more{
     padding-top: 0px;
-    color: #1EB6EC;
+    color: #333;
 }
 .about-read-more span{
     cursor: pointer;
@@ -152,7 +151,7 @@
 }
 .view-gallery{
     padding-top: 0px;
-    color: #1EB6EC;
+    color: #333;
 }
 .view-gallery span{
     cursor: pointer;

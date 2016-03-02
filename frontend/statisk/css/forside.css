@@ -5,7 +5,6 @@
         padding: 15px 15px 10px 15px;
         position: relative;
         box-sizing: border-box;
-        border-bottom: 5px solid #1eb6ec;
         margin-bottom: 30px;
     }
     .card-wrap-inner{
@@ -17,14 +16,12 @@
         top: 5px;
         right: 5px;
         padding: 1px 3px;
-        background-color: #1eb6ec;
         color: #FFF;
     }
     .edit-card-icon{
         position: absolute;
         top: 30px;
         right: 10px;
-        color: #1eb6ec;
     }
     .card-wrap h3{ /* Tittel på card */
         margin-top: 0;

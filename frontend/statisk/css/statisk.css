@@ -25,7 +25,6 @@ a:hover{
 }
 .btn-no-fill{
     background-color: transparent;
-    border: 2px solid #63caa6;
     color: #FFF;
     text-transform: uppercase;
     font-size: 12px;
@@ -36,11 +35,11 @@ a:hover{
     display: inline-block;
 }
 .btn-no-fill:hover{
-    background-color: #63caa6;
+    /* se SASS */
 }
 .btn-fill{
-    background-color: #63caa6;
-    color: #FFF;
+
+     color: #FFF;
     border: none;
     text-transform: uppercase;
     font-size: 12px;
@@ -49,7 +48,7 @@ a:hover{
     margin-bottom: -10px;
 }
 .btn-fill:hover{
-    background-color: #3aab83;
+    /* se SASS */
 }
 .box{
     padding: 15px;
@@ -66,54 +65,6 @@ a:hover{
 }
 /* END - Globale elementer */
 
-/* Color change */
-.ta-bg-color-blue{
-    background-color: #1eb6ec !important;
-}
-.ta-bg-color-red{
-    background-color: #fd7265 !important;
-}
-.ta-bg-color-yellow{
-    background-color: #fed575 !important;
-}
-.ta-bg-color-purple{
-    background-color: #835581 !important;
-}
-.ta-bg-color-green{
-    background-color: #63caa6 !important;
-}
-
-.ta-menu-blue{
-    background-color: #1eb6ec !important;
-}
-.ta-menu-blue:before{
-    border-right: 8px solid #1eb6ec !important;
-}
-.ta-menu-red{
-    background-color: #fd7265 !important;
-}
-.ta-menu-red:before{
-    border-right: 8px solid #fd7265 !important;
-}
-.ta-menu-yellow{
-    background-color: #fed575 !important;
-}
-.ta-menu-yellow:before{
-    border-right: 8px solid #fed575 !important;
-}
-.ta-menu-purple{
-    background-color: #835581 !important;
-}
-.ta-menu-purple:before{
-    border-right: 8px solid #835581 !important;
-}
-.ta-menu-green{
-    background-color: #63caa6 !important;
-}
-.ta-menu-green:before{
-    border-right: 8px solid #63caa6 !important;
-}
-/* END - Color change */
 
 /* menu.css */
 /* forside.css */
