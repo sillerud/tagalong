@@ -21,7 +21,6 @@
     clear: both;
     margin-bottom: 300px;
     padding: 5px;
-    <!--overflow: scroll;-->
 }
 .profile-pic-holder{
     width: 150px;
@@ -50,9 +49,6 @@
     float: left;
     width: auto;
 }
-.contact-info{
-    <!--font: auto;-->
-}
 .profile-posts{
     font-size: 18px;
 }
@@ -75,11 +71,8 @@
 
 /*----Skills section----*/
 .skill-section{
-    background: #ffffff;
-    padding: 5px 0;
 }
-.skill-head{
-    padding-left: 35px;
+.myProjects{
 }
 
 /*----tabs----*/
@@ -87,7 +80,7 @@
     overflow: hidden;
     width: 100%;
     display:inline-block;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
 }
     /*----tab links----*/
     /*----clear fix----*/
