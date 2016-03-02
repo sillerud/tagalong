@@ -5,11 +5,27 @@
     <div a href="#" class="logo"></div>
 
 
-    <h2 class="page-header">Lise Nordmann</h2>
+    <h2 class="page-header">Ola Nordmann</h2>
     <!--<a href="profil_edit.php" class="edit-profile-page">Edit your profile</a>
 <!-- Profile first frame-->
+<a href="profil_edit.php" class="edit-profile-page">Edit</a> <!--edit button-->
     <div class="profile-box">
 
+        <div class="header-image-wrap">
+        <img src="images/ola_nordmann_sidebilde.jpg" class="img-responsive" alt="">
+        <div class="event-background-overlay"></div>
+        <div class="page-profile-image" style="background-image: url('images/ola_nordmann.jpeg');">
+        </div>
+
+        <div class="page-name"><h1>Ola Nordmann</h1></div>
+
+        <div class="add-page-to-card-btn">
+            <div class="add-page-to-card-text">
+                Add to card
+                <i class="fa fa-plus"></i>
+            </div>
+        </div>
+    </div><!-- END header-image-wrap -->
 
     <!--if(myprofile){-->
         <!--hide-->
@@ -17,7 +33,7 @@
         <!--<a href="profil_edit.php" class="edit-profile-page">Edit</a>-->
     <!--}-->
 
-    <a href="profil_edit.php" class="edit-profile-page">Edit</a>
+
         <!-- Profile picture div -->
     <div class="profile-pic">
             <img src="images/olaNordmann.jpeg" class="profile-pic-holder">
@@ -64,6 +80,7 @@
             </div>
     </div>
     <!-- Profile first frame END -->
+
     <!-- Profile post START -->
     <div class="profile-posts">Lise's posts</div>
 
