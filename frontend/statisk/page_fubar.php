@@ -27,9 +27,9 @@
 
         <div class="page-name"><h1>@Fubar</h1></div>
 
-        <div class="add-page-to-card-btn">
-            <div class="add-page-to-card-text">
-                Add to card
+        <div class="add-page-to-card">
+            <div class="add-page-to-card-text">Add to card</div>
+            <div class="add-page-to-card-btn">
                 <i class="fa fa-plus"></i>
             </div>
         </div>
@@ -43,7 +43,7 @@
                 <div class="page-left-column">
 
                     <div class="shout-out-box box">
-                        <div class="shout-out-title">
+                        <div class="box-title">
                             <h3>Fubar Shout out</h3>
                         </div>
                         <div class="shout-out-text">
@@ -56,8 +56,18 @@
                         </div>
                     </div><!-- END shout out box -->
 
+                    <div class="about-n-gallery box">
+                        <div class="box-title">
+                            <h3><a href="">About</a></h3>
+                        </div>
+                        <span></span>
+                        <div class="box-title">
+                            <h3><a href="">Gallery</a></h3>
+                        </div>
+                    </div>
+
                     <div class="about-box box">
-                        <div class="about-box-title">
+                        <div class="box-title">
                             <h3>About</h3>
                         </div>
                         <div class="about-box-text">
@@ -72,6 +82,38 @@
                         </div><!-- END about tekst -->
                         <div class="about-read-more">
                             <span class="read-more">Read more</span>
+                        </div>
+
+                    </div><!-- END about-box -->
+
+                    <div class="gallery-box box">
+                        <div class="box-title">
+                            <h3>Gallery</h3>
+                        </div>
+
+                        <div class="gallery-thumbs-wrap">
+                            <div class="gallery-thumb">
+                                <img class="thumb" src="images/ola_nordmann.jpeg" alt="">
+                            </div>
+                            <div class="gallery-thumb">
+                                <img class="thumb" src="images/ola_nordmann_sidebilde.jpg" alt="">
+                            </div>
+                            <div class="gallery-thumb">
+                                <img class="thumb" src="images/event_pic.jpg" alt="">
+                            </div>
+                            <div class="gallery-thumb">
+                                <img class="thumb" src="images/ola_nordmann_sidebilde.jpg" alt="">
+                            </div>
+                            <div class="gallery-thumb">
+                                <img class="thumb" src="images/profilbilde_jap.jpg" alt="">
+                            </div>
+                            <div class="gallery-thumb">
+                                <img class="thumb" src="images/ola_nordmann_sidebilde.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="view-gallery">
+                            <span>View gallery</span>
                         </div>
 
                     </div><!-- END about-box -->

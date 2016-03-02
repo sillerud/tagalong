@@ -5,7 +5,7 @@
             <img src="images/profilbilde_jap.jpg" alt="">
         </div>
         <h3 class="person-name">Ola Nordmann</h3><br>
-        <h4 class="person-studie" style="color: #fd7265">Film og TV</h4>
+        <h4 class="person-studie">Film og TV</h4>
 
         <div class="feed-date"> 2 min siden - 01.03.2016</div>
         <div class="feed-star"><i class="fa fa-star"></i></div>
@@ -44,7 +44,7 @@
             <img src="images/profilbilde_2.jpg" alt="">
         </div>
         <h3 class="person-name">Snurre Sprett</h3><br>
-        <h4 class="person-studie" style="color: #FED575">Art Direction</h4>
+        <h4 class="person-studie">Art Direction</h4>
 
         <div class="feed-date">1 time siden - 02.03.2016</div>
         <div class="feed-star"><i class="fa fa-star"></i></div>
@@ -83,7 +83,7 @@
             <img src="images/profilbilde_jap.jpg" alt="">
         </div>
         <h3 class="person-name">Ola Nordmann</h3><br>
-        <h4 class="person-studie" style="color: #fd7265">Film og TV</h4>
+        <h4 class="person-studie">Film og TV</h4>
 
         <div class="feed-date">2 dager siden - 01.03.2016</div>
         <div class="feed-star"><i class="fa fa-star"></i></div>

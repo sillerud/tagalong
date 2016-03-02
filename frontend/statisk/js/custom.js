@@ -1,5 +1,39 @@
 $(document).ready(function () {
 
+    // Kjører hver gang vinduet endrer størrelse
+    $(window).resize(function() {
+        createThumbnails();
+    });
+
+    function createThumbnails(){
+
+        var galleryThumbWidth = $('.gallery-thumb').width();
+        $('.gallery-thumb').css('height', galleryThumbWidth + 'px');
+
+        $('.gallery-thumb').each(function(index){
+            var thatObj = $(this).find('.thumb');
+            var objWidth = thatObj.width();
+            var objHeight = thatObj.height();
+            console.log(objWidth);
+
+            if( objHeight > objWidth || objHeight == objWidth) setWidth(thatObj);
+            else if(objWidth > objHeight) setHeight(thatObj);
+
+        });
+
+        function setWidth(index){
+            $(index).removeAttr('style');
+            $(index).css('width', '100%');
+        }; // END setWidth
+
+        function setHeight(index){
+            $(index).removeAttr('style');
+            $(index).css('height', '100%');
+        }; // END setWidth
+
+    }; // END createThumbnails
+    createThumbnails();
+
     var readMore = function(){
         var close = true;
         $('.read-more').on('click', function(){
@@ -14,7 +48,7 @@ $(document).ready(function () {
                 close = true;
             }
         });
-    }();
+    }(); // END readMore
 
     var personFeed = function(){
 
@@ -156,11 +190,6 @@ $(document).ready(function () {
 
     $('#datetimepicker2').datetimepicker({
         locale: 'nb'
-    });
-
-    // Kjører hver gang vinduet endrer størrelse
-    $(window).resize(function() {
-
     });
 
     var attendingEvents = function(){
