@@ -10,6 +10,6 @@ public class Card {
     private String userId;
     private String name;
     private String description;
-    private int lastSeen;
+    private String lastPostSeen;
     private String[] filter;
 }

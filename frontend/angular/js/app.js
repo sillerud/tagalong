@@ -6,13 +6,16 @@ angular.module('tagalong', [
     'eventControllers',
     'eventServices',
     'userControllers',
-    'userServices'
+    'userServices',
+    'cardControllers',
+    'cardServices'
 ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
         $routeProvider
             .when("/home", {
-                templateUrl: 'partials/cards.html'
+                templateUrl: 'partials/cards.html',
+                controller: 'AllCardCtrl'
             })
             .when("/events", {
                 templateUrl: 'partials/events.html',

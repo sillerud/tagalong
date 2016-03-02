@@ -5,6 +5,7 @@ var loginServices = angular.module('loginServices', ['ngResource']);
 var postServices = angular.module('postServices', ['ngResource']);
 var eventServices = angular.module('eventServices', ['ngResource']);
 var userServices = angular.module('userServices', ['ngResource']);
+var cardServices = angular.module('cardServices', ['ngResource']);
 
 var transform = function(data){
     return $.param(data);
@@ -42,6 +43,19 @@ userServices.factory('User', ['$resource', function($resource) {
         logout: {
             url: baseUrl + "/rest/logout",
             method: 'POST'
+        }
+    })
+}]);
+
+cardServices.factory('Card', ['$resource', function($resource) {
+    return $resource(url("/cards"), {}, {
+        create: {
+            method: 'POST',
+            isArray: false
+        },
+        all: {
+            method: 'GET',
+            isArray: true
         }
     })
 }]);

@@ -3,6 +3,7 @@
 var eventControllers = angular.module('eventControllers', []);
 var loginControllers = angular.module('loginControllers', []);
 var userControllers = angular.module('userControllers', []);
+var cardControllers = angular.module('cardControllers', []);
 
 function redirectLogin() {
     window.location = "login.html";
@@ -67,4 +68,20 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
     $scope.logout = function() {
         User.logout(redirectLogin);
     }
+}]);
+
+cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Card) {
+    /*Card.create({
+        userId: $scope.me.id,
+        name: 'Programming',
+        description: 'General programming stuff',
+        filter: ['#java', '#rust', '@pg4100']
+    });
+    Card.create({
+        userId: $scope.me.id,
+        name: 'Databases',
+        description: 'General database stuff',
+        filter: ['#mysql', '#mongodb']
+    });*/
+    $scope.cards = Card.all();
 }]);
