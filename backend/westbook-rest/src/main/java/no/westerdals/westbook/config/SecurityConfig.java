@@ -57,7 +57,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessHandler((httpServletRequest, httpServletResponse, authentication) -> {
                     httpServletResponse.sendRedirect("login.html");
                 })
-                .logoutRequestMatcher(new AntPathRequestMatcher("/rest/logout"))
+                .logoutUrl("/rest/logout")
                 .and()
             .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class);
         HttpSessionCsrfTokenRepository tokenRepository = new HttpSessionCsrfTokenRepository();

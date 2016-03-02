@@ -38,6 +38,10 @@ userServices.factory('User', ['$resource', function($resource) {
             method: 'GET',
             isArray: false,
             params: {userId: 'me'}
+        },
+        logout: {
+            url: baseUrl + "/rest/logout",
+            method: 'POST'
         }
     })
 }]);

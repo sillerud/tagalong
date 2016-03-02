@@ -56,4 +56,5 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
 
 userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, User) {
     $scope.me = User.find();
+    $scope.logout = User.logout;
 }]);
