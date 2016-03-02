@@ -5,11 +5,11 @@
     <div a href="#" class="logo"></div>
 
 
-    <h2 class="page-header">Ola Nordmann</h2>
+
     <!--<a href="profil_edit.php" class="edit-profile-page">Edit your profile</a>
 <!-- Profile first frame-->
-<a href="profil_edit.php" class="edit-profile-page">Edit</a> <!--edit button-->
-    <div class="profile-box">
+
+
 
         <div class="header-image-wrap">
         <img src="images/ola_nordmann_sidebilde.jpg" class="img-responsive" alt="">
@@ -26,13 +26,32 @@
             </div>
         </div>
     </div><!-- END header-image-wrap -->
-
+<a href="profil_edit.php" class="edit-profile-page">Edit</a> <!--edit button-->
     <!--if(myprofile){-->
         <!--hide-->
     <!--}else{-->
         <!--<a href="profil_edit.php" class="edit-profile-page">Edit</a>-->
     <!--}-->
+    <div class="tabs">
+        <ul class="tab-links">
+            <li class="active"><a href="#about-tab">Info</a></li>
+            <li><a href="#contact-tab">Kontakt meg</a></li>
+        </ul>
 
+        <div class="tabs-content">
+            <div id="about-tab" class="tab active">
+                <p>Info om Ola</p>
+                <p>Ola er en sabla kar</p>
+            </div><!--about-tab END-->
+
+            <div id="contact-tab" class="tab">
+                <p>Kontakt info:</p>
+                <p>tlf: 1231255213</p>
+            </div><!--contact-tab END-->
+
+        </div><!--tabs-content END-->
+
+    </div><!--tabs END-->
 
         <!-- Profile picture div -->
     <div class="profile-pic">
@@ -78,7 +97,7 @@
 
                 </div>
             </div>
-    </div>
+
     <!-- Profile first frame END -->
 
     <!-- Profile post START -->
