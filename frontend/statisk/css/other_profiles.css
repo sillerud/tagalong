@@ -87,19 +87,12 @@
     }
     .tabs ul{
         margin-bottom: 0;
-        
         padding-left: 0;
-    }
-
-    .tab-links li{
-
-
     }
         .tabs-item{
             display: table-cell;
 
         }
-
         .tab-links a{
             margin:0 0;
             float:left;
@@ -116,20 +109,16 @@
             color: #4c4c4c;
             transition: all linear 0.15s;
         }
-
-
         .tab-links a:hover{
             opacity: .8;
             background:#e6e6e6;
             text-decoration:none;
         }
-
         li.active a, li.active a:hover {
             background:#fff;
             color:#4c4c4c;
             opacity: 1;
         }
-
         /*----- Content of Tabs -----*/
         .tabs-content {
             padding:15px;
@@ -138,11 +127,9 @@
             background:#fff;
             width: 100%;
         }
-
         .tab {
             display:none;
         }
-
         .tab.active {
             display:block;
 }

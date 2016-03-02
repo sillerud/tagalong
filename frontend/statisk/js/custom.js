@@ -220,9 +220,7 @@ $(document).ready(function () {
 
     //tab menu function jQuery
     var profiletabs = function(){
-        console.log("tabs function");
         jQuery('.tabs .tab-links a').on('click', function(e)  {
-            console.log("click function");
             var currentAttrValue = jQuery(this).attr('href');
 
             // Show/Hide Tabs
