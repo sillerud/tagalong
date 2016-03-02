@@ -7,12 +7,15 @@
                 <div class="inner-sidebar">
 
                     <div class="col-sidebar-cards">
+                        <div class="sidebar-card-icon" style="background-image: url(images/profilbilde_2.jpg)"></div>
                         <h5>Social</h5>
                     </div>
                     <div class="col-sidebar-cards">
+                        <div class="sidebar-card-icon" style="background-image: url(images/ola_nordmann_sidebilde.jpg)"></div>
                         <h5>Fubar</h5>
                     </div>
                      <div class="col-sidebar-cards">
+                        <div class="sidebar-card-icon" style="background-image: url(images/ola_nordmann.jpeg)"></div>
                     <h5>Academic interests</h5>
                     </div>
 

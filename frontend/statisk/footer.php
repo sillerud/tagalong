@@ -4,26 +4,10 @@
         <div class="row">
 
         <div class="footer-menu">
-            <div class="col-sm-2 menu-item">
-                <a href="">HOME</a>
-            </div>
-
-            <div class="col-sm-2 menu-item">
-                <a href="">FEED</a>
-            </div>
-
-            <div class="col-md-4 col-xs-12 logo-item">
+            <div class="col-xs-12 logo-item">
                 <a href="">
                     <img src="images/logonettsideferdig.png" alt="">
                 </a>
-            </div>
-
-            <div class="col-sm-2 menu-item">
-                <a href="">EVENTS</a>
-            </div>
-
-            <div class="col-sm-2 menu-item">
-                <a href="">PAGES</a>
             </div>
         </div><!-- END footer-menu -->
 

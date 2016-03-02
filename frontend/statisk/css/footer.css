@@ -9,22 +9,9 @@ footer #copy{
 /* Menu section */
 .footer-menu{
     overflow: auto;
-    padding-bottom: 55px;
-    margin-bottom: 50px;
+    padding-bottom: 40px;
+    margin-bottom: 0px;
     position: relative;
-}
-.footer-menu:after{
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    width: 100px;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 2px;
 }
 .footer-menu .menu-item{
     text-align: center !important;

@@ -8,11 +8,28 @@
      background-color: white;
      clear: both;
      margin-bottom: 15px;
-     border-left: 5px solid #1eb6ec;
+     padding-left: 10px;
+     border-radius: 5px;
+     position: relative;
+     border-right: 2px solid #1eb6ec;
+ }
+ .sidebar-card-icon{
+    border-radius: 3px 0 0 3px;
+    width: 38px;
+    height: 38px;
+    background-color: #1eb6ec;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
  }
 .col-sidebar-cards h5{
-    font-size: 1.5em;
-    padding: 20px 10px
+    font-size: 1.2em;
+    padding: 10px 10px;
+    margin: 0;
+    position: relative;
+    left: 30px;
 }
 /* end sidebar*/
 
