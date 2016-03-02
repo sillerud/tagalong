@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <link rel="shortcut icon" type="image/png" href="images/faneikon_logo.png"/>
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/dynamic_colors.css">
     <link rel="stylesheet" type="text/css" href="css/statisk.css">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
     <link rel="stylesheet" type="text/css" href="css/forside.css">
