@@ -1,5 +1,21 @@
 $(document).ready(function () {
 
+    var readMore = function(){
+        var close = true;
+        $('.read-more').on('click', function(){
+
+            if( close ){
+                $(this).parent().siblings('.about-box-text').find('.text-hidden').slideDown(300);
+                $(this).text('Show less');
+                close = false;
+            }else{
+                $(this).parent().siblings('.about-box-text').find('.text-hidden').slideUp(300);
+                $(this).text('Read more');
+                close = true;
+            }
+        });
+    }();
+
     var personFeed = function(){
 
         $(".comment-input").keyup(function() {

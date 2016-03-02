@@ -127,8 +127,11 @@
     margin-top: 10px;
 }
 .about-read-more{
-    padding-top: 10px;
+    padding-top: 0px;
     color: #1EB6EC;
+}
+.about-read-more span{
+    cursor: pointer;
 }
 .text-hidden{
     display: none;
