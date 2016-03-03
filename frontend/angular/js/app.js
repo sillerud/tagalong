@@ -9,7 +9,8 @@ angular.module('tagalong', [
         'userServices',
         'cardControllers',
         'cardServices',
-        'pageControllers'
+        'pageControllers',
+        'pageServices'
     ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
@@ -22,7 +23,7 @@ angular.module('tagalong', [
                 templateUrl: 'partials/events.html',
                 controller: 'ViewEventsCtrl'
             })
-            .when("/pages/:pageId", {
+            .when("/pages/:id", {
                 templateUrl: 'partials/page.html',
                 controller: 'PageCtrl'
             });

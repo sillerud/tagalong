@@ -45,7 +45,8 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
         var userInfo = {
             email: $scope.user.email,
             gender: $scope.user.gender,
-            name: $scope.user.name,
+            firstname: $scope.user.firstname,
+            surname: $scope.user.surname,
             showEmail: true,
             enabled: true
         };
@@ -94,7 +95,7 @@ cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Ca
     }
 }]);
 
-pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', function($scope, Page) {
+pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card', function($scope, $routeParams, Page, Card) {
     /*
      private String id;
      private String customUrl;
@@ -104,7 +105,7 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', functi
      private String contactInfo;
      private PageLink[] links;
      */
-    Page.create({
+    /*Page.create({
         name: 'fubar',
         customUrl: 'fubar',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quod eveniet totam ipsum provident vitae porro pariatur distinctio modi debitis, quas fuga culpa, odit ipsa sed eum placeat non dolor!/n' +
@@ -116,9 +117,15 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', functi
                 description: "Facebook"
             }
         ]
+    });*/
+    var shortDescription = "";
+    var description = "";
+    $scope.page = Page.query({ pageId: $routeParams.id }, function(data) {
+        description = data.description;
+        shortDescription = description.length > 100 ? description.substring(0, 100) : description + "...";
+        $scope.description = shortDescription;
     });
-    $scope.page = Page.query($routeParams.pageId);
-    $scope.page.shortDescription = $scope.description; // TODO: crop
+    $scope.cards = Card.all();
 
     $('.thumb').each(function() {
         var elem = $(this);
@@ -128,6 +135,12 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', functi
         } else {
             elem.css('height', '100%');
         }
-    })
+    });
+
+    $scope.readMore =  function(){
+        $scope.description = $scope.showMoreText ? shortDescription : description;
+        // TODO: redo the animation
+        $scope.showMoreText = !$scope.showMoreText;
+    }
 }
 ]);

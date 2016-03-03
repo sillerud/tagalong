@@ -4,7 +4,7 @@ var restUrl = baseUrl + "/rest/v1";
 var cardServices = angular.module('cardServices', ['ngResource']);
 var eventServices = angular.module('eventServices', ['ngResource']);
 var loginServices = angular.module('loginServices', ['ngResource']);
-var pageSercies = angula.module('pageServices', ['ngResource']);
+var pageServices = angular.module('pageServices', ['ngResource']);
 var postServices = angular.module('postServices', ['ngResource']);
 var userServices = angular.module('userServices', ['ngResource']);
 
