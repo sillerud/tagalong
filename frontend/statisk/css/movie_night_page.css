@@ -1,0 +1,26 @@
+.event-time-icon, .event-time, .event-date, .event-date-icon, .event-place, .event-place-icon{
+    float: left;
+    padding: 5px;
+}
+
+.event-time-icon, .event-date-icon, .event-place-icon{
+    padding-right: 10px;
+}
+
+.event-time-area, .event-date-area, .event-place-area{
+    height: 50px;
+    width: 400px;
+    padding: 10px;
+}
+
+.event-text{
+    padding-top: 20px;
+}
+
+.attending-box{
+    height: 170px;
+}
+
+.attending-thumbs-wrap{
+    margin-top: 15px;   
+}
