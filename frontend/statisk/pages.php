@@ -56,11 +56,11 @@
                                    <li>#Sosialt</li>
                                </ul>
                            </div>
-                           <div class="event-info">
-                               <i class="fa fa-info"></i>
-                           </div>
-                       </div><!-- END page about -->
 
+                       </div><!-- END page about -->
+                       <div class="event-info">
+                           <i class="fa fa-info"></i>
+                       </div>
                    </div><!-- END event-image-wrap -->
 
 

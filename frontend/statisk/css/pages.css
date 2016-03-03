@@ -41,10 +41,19 @@
     width: auto;
 }
 /*Displying pages style*/
-.pages-about{ /* Info om page */
+.page-about{ /* Info om page */
     padding: 15px;
-    background-color: lightgray;
+    background-color: pink;
+    /*opacity: .2;*/
+    bottom: 400px;
 
+
+}
+.event-location{
+    right: 120px;
+}
+.card-tag-list{
+    opacity: 1;
 }
 
 .page-image-wrap{
@@ -91,8 +100,9 @@
 
 /*Checkbox style*/
 .checkbox-style {
-    margin: 0px auto;
+    margin: 10px;
     position: relative;
+
 
 }
 /*Checkbox style END*/
