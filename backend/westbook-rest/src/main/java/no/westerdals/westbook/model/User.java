@@ -12,7 +12,7 @@ import java.util.Date;
 public class User
 {
     public User(String email, Date born, String studyFieldId, String city, String interests,
-                String gender, String firstname, String surname, String profilePictureId)
+                String gender, String firstname, String surname, String profilePictureId, ContactInfo[] contactInfo)
     {
         this.email = email;
         this.born = born;
@@ -23,6 +23,7 @@ public class User
         this.firstname = firstname;
         this.surname = surname;
         this.profilePictureId = profilePictureId;
+        this.contactInfo = contactInfo;
     }
 
     @Id
@@ -40,4 +41,6 @@ public class User
     private String surname;
     private String profilePictureId;
     private Date accountExpires;
+    private ContactInfo contactInfo[];
+    private String[] skills;
 }

@@ -144,3 +144,17 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
     }
 }
 ]);
+userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
+    if ($routeParams.id) {
+        $scope.user = User.find({userId: $routeParams.id})
+    } else {
+        $scope.user = $scope.me; // avoid showing your own name before loading the other person's name
+    }
+
+    $scope.setShowContactInfo = function(val) {
+        $scope.showContactInfo = val;
+    }
+}]);
+userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
+
+}]);

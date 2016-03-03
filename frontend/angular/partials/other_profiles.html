@@ -6,18 +6,18 @@
 
 
 
-    <!--<a href="profil_edit.php" class="edit-profile-page">Edit your profile</a>
+    <!--<a href="edit_profile.html" class="edit-profile-page">Edit your profile</a>
 <!-- Profile first frame-->
 
 
 
         <div class="header-image-wrap">
-        <img src="images/ola_nordmann_sidebilde.jpg" class="img-responsive" alt="">
+        <img src="../statisk/images/ola_nordmann_sidebilde.jpg" class="img-responsive" alt="">
         <div class="event-background-overlay"></div>
         <div class="page-profile-image" style="background-image: url('images/ola_nordmann.jpeg');">
         </div>
 
-        <div class="page-name"><h1>Ola Nordmann</h1></div>
+        <div class="page-name"><h1>{{ user.firstname }} {{ user.surname }}</h1></div>
 
             <div class="add-page-to-card">
                 <div class="add-page-to-card-text">Add to card</div>
@@ -30,43 +30,43 @@
     <!--if(myprofile){-->
         <!--hide-->
     <!--}else{-->
-        <!--<a href="profil_edit.php" class="edit-profile-page">Edit</a>-->
+        <!--<a href="edit_profile.html" class="edit-profile-page">Edit</a>-->
     <!--}-->
 <div class="row">
     <div class="col-sm-6">
         <div class="tabs">
             <ul class="tab-links">
-                <li class=" tabs-item active"><a href="#about-tab">Info</a></li>
-                <li class="tabs-item"><a href="#contact-tab">Contact</a></li>
+                <li class="tabs-item" ng-class="{active: !showContactInfo}"><a ng-click="setShowContactInfo(false)">Info</a></li>
+                <li class="tabs-item" ng-class="{active: showContactInfo}"><a ng-click="setShowContactInfo(true)">Contact</a></li>
             </ul>
 
             <div class="tabs-content">
-                <div id="about-tab" class="tab active">
-                    <div class="holder">
+                <div ng-if="!showContactInfo" id="about-tab" class="tab">
+                    <div ng-if="user.age" class="holder">
                         <p class="info-format" class="age" ><b>Age: </b></p>
-                        <p class="age-c"> 23</p>
+                        <p class="age-c">{{ user.age }}</p>
                     </div>
-                    <div class="holder">
+                    <div ng-if="user.gender" class="holder">
                         <p class="info-format" class="gender" ><b>Gender:</b></p>
-                        <p class="gender-c">Male</p>
+                        <p class="gender-c">{{ user.gender | capitalize }}</p>
                     </div>
-                     <div class="holder">
+                     <div ng-if="user.city" class="holder">
                         <p class="info-format" class="city"><b>City of residence: </b></p>
-                        <p class="city-c">Oslo</p>
+                        <p class="city-c">{{ user.city }}</p>
                     </div>
-                    <div class="holder">
+                    <div ng-if="user.studyFieldDisplayName" class="holder">
                         <p class="info-format" class="field-of-study"><b>Field of study: </b></p>
-                        <p class="field-of-study-c">3D Design</p>
+                        <p class="field-of-study-c">{{ user.studyFieldDisplayName }}</p>
                     </div>
-                    <div class="holder">
+                    <div ng-if="user.interests" class="holder">
                         <p class="info-format" class="interests"><b>Interests: </b></p>
-                        <p class="interests-c"> 3ds Max, java, innebandy og gamings</p>
+                        <p class="interests-c">{{ user.interests }}</p>
                     </div>
-                    <a href="profil_edit.php" class="edit-profile-page">Edit</a> <!--edit button-->
+                    <a href="#/profile/edit" ng-if="user == me" class="edit-profile-page">Edit</a> <!--edit button-->
                 </div><!--about-tab END-->
 
-                <div id="contact-tab" class="tab">
-                    <div class="holder">
+                <div ng-if="showContactInfo" id="contact-tab" class="tab">
+                    <div ng-repeat="contactInfo in user.contactInfo" class="holder">
                         <p class="info-format" class="email"><b>Email: </b></p>
                         <p class="">ettellerannet@hotmail.com</p>
                     </div>
