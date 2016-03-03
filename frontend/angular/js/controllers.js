@@ -150,6 +150,10 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
     } else {
         $scope.user = $scope.me; // avoid showing your own name before loading the other person's name
     }
+
+    $scope.setShowContactInfo = function(val) {
+        $scope.showContactInfo = val;
+    }
 }]);
 userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
 

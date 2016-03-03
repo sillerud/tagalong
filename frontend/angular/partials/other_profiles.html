@@ -36,12 +36,12 @@
     <div class="col-sm-6">
         <div class="tabs">
             <ul class="tab-links">
-                <li class=" tabs-item active"><a href="#about-tab">Info</a></li>
-                <li class="tabs-item"><a href="#contact-tab">Contact</a></li>
+                <li class="tabs-item" ng-class="{active: !showContactInfo}"><a ng-click="setShowContactInfo(false)">Info</a></li>
+                <li class="tabs-item" ng-class="{active: showContactInfo}"><a ng-click="setShowContactInfo(true)">Contact</a></li>
             </ul>
 
             <div class="tabs-content">
-                <div id="about-tab" class="tab active">
+                <div ng-if="!showContactInfo" id="about-tab" class="tab">
                     <div ng-if="user.age" class="holder">
                         <p class="info-format" class="age" ><b>Age: </b></p>
                         <p class="age-c">{{ user.age }}</p>
@@ -62,11 +62,11 @@
                         <p class="info-format" class="interests"><b>Interests: </b></p>
                         <p class="interests-c">{{ user.interests }}</p>
                     </div>
-                    <a href="#/profile/edit" ng-if="me.id == user.id" class="edit-profile-page">Edit</a> <!--edit button-->
+                    <a href="#/profile/edit" ng-if="user == me" class="edit-profile-page">Edit</a> <!--edit button-->
                 </div><!--about-tab END-->
 
-                <div id="contact-tab" class="tab">
-                    <div class="holder">
+                <div ng-if="showContactInfo" id="contact-tab" class="tab">
+                    <div ng-repeat="contactInfo in user.contactInfo" class="holder">
                         <p class="info-format" class="email"><b>Email: </b></p>
                         <p class="">ettellerannet@hotmail.com</p>
                     </div>
