@@ -15,7 +15,7 @@ loginControllers.controller('LoginCtrl', ['$scope', 'Login', 'User', function($s
         $scope.login = function() {
             Login.login($scope.credentials,
                 function(data) {
-                    window.location = "index.html";
+                    window.location = "./";
                     console.log(data);
                 },
                 function(error) {
@@ -27,7 +27,7 @@ loginControllers.controller('LoginCtrl', ['$scope', 'Login', 'User', function($s
     };
     User.find(function(data) {
         if (data.email) {
-            window.location = "index.html";
+            window.location = "./";
         } else {
             login();
         }
