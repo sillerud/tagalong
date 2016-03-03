@@ -22,7 +22,7 @@ angular.module('tagalong', [
                 templateUrl: 'partials/events.html',
                 controller: 'ViewEventsCtrl'
             })
-            .when("/page/:pageId", {
+            .when("/pages/:pageId", {
                 templateUrl: 'partials/page.html',
                 controller: 'PageCtrl'
             });

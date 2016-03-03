@@ -116,7 +116,7 @@
         </div><!--myProjects END-->
     </div><!--col-sm-6 END-->
     <div class="col-sm-6">
-        <?php include "person_feed.php" ?>
+        <?php include "../angular/partials/person_feed.html" ?>
 
 
     </div><!--person_feed.php END-->

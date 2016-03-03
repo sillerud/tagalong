@@ -20,7 +20,10 @@ public class PageRestController
     @RequestMapping(value="/{pageId}", method=RequestMethod.GET)
     public Page getPageById(@PathVariable String pageId)
     {
-        return pageRepository.findOne(pageId);
+        Page result = pageRepository.findByCustomUrl(pageId);
+        if (result == null)
+            result = pageRepository.findOne(pageId);
+        return result;
     }
 
     @RequestMapping(value="/by-name/{name}", method=RequestMethod.GET)

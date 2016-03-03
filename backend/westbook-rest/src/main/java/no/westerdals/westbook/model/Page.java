@@ -19,7 +19,9 @@ public class Page
 
     @Id
     private String id;
+    private String customUrl;
     private String name;
+    private String description;
     private String userId;
     private String contactInfo;
     private PageLink[] links;

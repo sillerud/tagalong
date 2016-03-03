@@ -70,11 +70,10 @@
                         </div>
                         <div class="about-box-text">
                             <p class="text-shown">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus aut voluptatum iste? Aliquam facilis reiciendis sequi sapiente quos, ipsum voluptatum voluptate veniam consectetur assumenda doloremque quod animi fugiat, cum in...
+                                {{ page.shortDescription }}
                             </p>
                             <p class="text-hidden">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quod eveniet totam ipsum provident vitae porro pariatur distinctio modi debitis, quas fuga culpa, odit ipsa sed eum placeat non dolor!
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint velit iure cum itaque commodi assumenda deleniti laboriosam neque consequuntur aspernatur iste nihil, molestiae perspiciatis inventore dolorum est, reprehenderit magni omnis.
+                                {{ page.description }}
                             </p>
 
                         </div><!-- END about tekst -->
@@ -121,8 +120,9 @@
             </div>
             <div class="col-sm-6">
                 <div class="page-right-column">
+                    <ng-include src="'partials/person_feed.html'">
                     <!-- TODO
-                    <?php include 'person_feed.php' ?> -->
+                    <?php include 'person_feed.html' ?> -->
                 </div>
             </div>
         </div>

@@ -11,4 +11,5 @@ public interface PageRepository extends MongoRepository<Page, String>
 {
     List<Page> getByUserId(String userId);
     List<Page> getByName(String name);
+    Page findByCustomUrl(String url);
 }

@@ -1,11 +1,12 @@
 var baseUrl = "";
 var restUrl = baseUrl + "/rest/v1";
 
-var loginServices = angular.module('loginServices', ['ngResource']);
-var postServices = angular.module('postServices', ['ngResource']);
-var eventServices = angular.module('eventServices', ['ngResource']);
-var userServices = angular.module('userServices', ['ngResource']);
 var cardServices = angular.module('cardServices', ['ngResource']);
+var eventServices = angular.module('eventServices', ['ngResource']);
+var loginServices = angular.module('loginServices', ['ngResource']);
+var pageSercies = angula.module('pageServices', ['ngResource']);
+var postServices = angular.module('postServices', ['ngResource']);
+var userServices = angular.module('userServices', ['ngResource']);
 
 var transform = function(data){
     return $.param(data);
@@ -56,6 +57,20 @@ cardServices.factory('Card', ['$resource', function($resource) {
         all: {
             method: 'GET',
             isArray: true
+        }
+    })
+}]);
+
+pageServices.factory('Page', ['$resource', function($resource) {
+    return $resource(url('/pages'), {}, {
+        create: {
+            method: 'POST',
+            isArray: false
+        },
+        query: {
+            url: url('/pages/:pageId'),
+            method: 'GET',
+            isArray: false
         }
     })
 }]);

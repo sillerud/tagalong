@@ -94,7 +94,32 @@ cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Ca
     }
 }]);
 
-pageControllers.controller("PageCtrl", ['$scope', function($scope) {
+pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', function($scope, Page) {
+    /*
+     private String id;
+     private String customUrl;
+     private String name;
+     private String description;
+     private String userId;
+     private String contactInfo;
+     private PageLink[] links;
+     */
+    Page.create({
+        name: 'fubar',
+        customUrl: 'fubar',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quod eveniet totam ipsum provident vitae porro pariatur distinctio modi debitis, quas fuga culpa, odit ipsa sed eum placeat non dolor!/n' +
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint velit iure cum itaque commodi assumenda deleniti laboriosam neque consequuntur aspernatur iste nihil, molestiae perspiciatis inventore dolorum est, reprehenderit magni omnis.',
+        contactInfo: 'Galleri Oslo',
+        links: [
+            {
+                url: "https://www.facebook.com/groups/537053489645341/",
+                description: "Facebook"
+            }
+        ]
+    });
+    $scope.page = Page.query($routeParams.pageId);
+    $scope.page.shortDescription = $scope.description; // TODO: crop
+
     $('.thumb').each(function() {
         var elem = $(this);
         elem.removeAttr('style');
