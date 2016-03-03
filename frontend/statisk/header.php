@@ -43,34 +43,6 @@
 
         <div class="top-right">
 
-            <div class="varsel">
-                <i class="fa fa-bell"></i>
-                <i class="fa fa-bell-o"></i>
-
-                <div class="varsel-panel">
-
-                    <div class="header-varsel-panel">
-
-                        <div class="bell-varsel">
-                            <i class="fa fa-bell"></i>
-                        </div><!--end bell-varsel-->
-                        <h3 class="varsel-title">Notifications</h3>
-
-                    </div><!--end header-varsel-panel-->
-
-                <div class="varsel-innhold">
-
-                    <img src="images/fubar_logo.jpg" class="profilbilde-varsel">
-                    <p class="tekst-varsel">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                    </p>
-
-                </div><!--end varsel-innhold-->
-
-                </div><!--end varsel-panel-->
-
-            </div><!--end varlse-panel-->
-
             <a href="other_profiles.php">
                 <div class="logged-in-person ta-color-hover ta-border-color-hover">
                     Ola Nordmann
