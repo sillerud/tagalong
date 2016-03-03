@@ -3,124 +3,89 @@
 <div class="container">
     <!-- Kode her -->
     <div a href="#" class="logo"></div>
-
-
-
-    <!--<a href="edit_profile.html" class="edit-profile-page">Edit your profile</a>
-<!-- Profile first frame-->
-
-
-
-        <div class="header-image-wrap">
+    <div class="header-image-wrap">
         <img src="../statisk/images/ola_nordmann_sidebilde.jpg" class="img-responsive" alt="">
         <div class="event-background-overlay"></div>
-        <div class="page-profile-image" style="background-image: url('images/ola_nordmann.jpeg');">
+        <div class="page-profile-image" style="background-image: url('../statisk/images/ola_nordmann.jpeg');">
         </div>
 
         <div class="page-name"><h1>{{ user.firstname }} {{ user.surname }}</h1></div>
 
-            <div class="add-page-to-card">
-                <div class="add-page-to-card-text">Add to card</div>
-                <div class="add-page-to-card-btn">
-                    <i class="fa fa-plus"></i>
-                </div>
+        <div class="add-page-to-card">
+            <div class="add-page-to-card-text">Add to card</div>
+            <div class="add-page-to-card-btn">
+                <i class="fa fa-plus"></i>
             </div>
+        </div>
     </div><!-- END header-image-wrap -->
 
-    <!--if(myprofile){-->
-        <!--hide-->
-    <!--}else{-->
-        <!--<a href="edit_profile.html" class="edit-profile-page">Edit</a>-->
-    <!--}-->
-<div class="row">
-    <div class="col-sm-6">
-        <div class="tabs">
-            <ul class="tab-links">
-                <li class="tabs-item" ng-class="{active: !showContactInfo}"><a ng-click="setShowContactInfo(false)">Info</a></li>
-                <li class="tabs-item" ng-class="{active: showContactInfo}"><a ng-click="setShowContactInfo(true)">Contact</a></li>
-            </ul>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="tabs">
+                <ul class="tab-links">
+                    <li class="tabs-item" ng-class="{active: !showContactInfo}"><a ng-click="setShowContactInfo(false)">Info</a></li>
+                    <li class="tabs-item" ng-class="{active: showContactInfo}"><a ng-click="setShowContactInfo(true)">Contact</a></li>
+                </ul>
 
-            <div class="tabs-content">
-                <div ng-if="!showContactInfo" id="about-tab" class="tab">
-                    <div ng-if="user.age" class="holder">
-                        <p class="info-format" class="age" ><b>Age: </b></p>
-                        <p class="age-c">{{ user.age }}</p>
-                    </div>
-                    <div ng-if="user.gender" class="holder">
-                        <p class="info-format" class="gender" ><b>Gender:</b></p>
-                        <p class="gender-c">{{ user.gender | capitalize }}</p>
-                    </div>
-                     <div ng-if="user.city" class="holder">
-                        <p class="info-format" class="city"><b>City of residence: </b></p>
-                        <p class="city-c">{{ user.city }}</p>
-                    </div>
-                    <div ng-if="user.studyFieldDisplayName" class="holder">
-                        <p class="info-format" class="field-of-study"><b>Field of study: </b></p>
-                        <p class="field-of-study-c">{{ user.studyFieldDisplayName }}</p>
-                    </div>
-                    <div ng-if="user.interests" class="holder">
-                        <p class="info-format" class="interests"><b>Interests: </b></p>
-                        <p class="interests-c">{{ user.interests }}</p>
-                    </div>
-                    <a href="#/profile/edit" ng-if="user == me" class="edit-profile-page">Edit</a> <!--edit button-->
-                </div><!--about-tab END-->
+                <div class="tabs-content">
+                    <div ng-if="!showContactInfo" id="about-tab" class="tab">
+                        <div ng-if="user.age" class="holder">
+                            <p class="info-format" class="age" ><b>Age: </b></p>
+                            <p class="age-c">{{ user.age }}</p>
+                        </div>
+                        <div ng-if="user.gender" class="holder">
+                            <p class="info-format" class="gender" ><b>Gender:</b></p>
+                            <p class="gender-c">{{ user.gender | capitalize }}</p>
+                        </div>
+                        <div ng-if="user.city" class="holder">
+                            <p class="info-format" class="city"><b>City of residence: </b></p>
+                            <p class="city-c">{{ user.city }}</p>
+                        </div>
+                        <div ng-if="user.studyFieldDisplayName" class="holder">
+                            <p class="info-format" class="field-of-study"><b>Field of study: </b></p>
+                            <p class="field-of-study-c">{{ user.studyFieldDisplayName }}</p>
+                        </div>
+                        <div ng-if="user.interests" class="holder">
+                            <p class="info-format" class="interests"><b>Interests: </b></p>
+                            <p class="interests-c">{{ user.interests }}</p>
+                        </div>
+                        <a href="#/profile/edit" ng-if="user.id == me.id" class="edit-profile-page">Edit</a> <!--edit button-->
+                    </div><!--about-tab END-->
 
-                <div ng-if="showContactInfo" id="contact-tab" class="tab">
-                    <div ng-repeat="contactInfo in user.contactInfo" class="holder">
-                        <p class="info-format" class="email"><b>Email: </b></p>
-                        <p class="">ettellerannet@hotmail.com</p>
-                    </div>
-                    <div class="holder">
-                        <p class="info-format" class="facebook"><b>Facebook: </b></p>
-                        <p class="">olanormann@facebook.com</p>
-                    </div>
-                    <div class="holder">
-                        <p class="info-format" class="linkedin"><b>LinkedIn: </b></p>
-                        <p class="">olanormannprofotballer</p>
-                    </div>
-                    <div class="holder">
-                        <p class="info-format" class="phone"><b>Phone: </b></p>
-                        <p class="">12345678</p>
-                    </div>
-                    <div class="holder">
-                        <p class="info-format" class="extracontact"><b>Extra: </b></p>
-                        <p class="">Whatever</p>
-                    </div>
-                </div><!--contact-tab END-->
+                    <div ng-if="showContactInfo" id="contact-tab" class="tab">
+                        <div ng-repeat="contactInfo in user.contactInfo" class="holder">
+                            <p class="info-format" class="email"><b>{{ contactInfo.description }}:</b></p>
+                            <p class="">{{ contactInfo.value }}</p>
+                        </div>
+                    </div><!--contact-tab END-->
 
-            </div><!--tabs-content END-->
+                </div><!--tabs-content END-->
 
-        </div><!--tabs END-->
-        <div class="skill-section box">
-            <div class="box-title">
-                <h3>Skills</h3>
-            </div>
-            <ul>
-                <li>Programmering</li>
-                <li>Internett</li>
-                <li>Ting og tang</li>
-                <li>Masse greier as</li>
-                <li>Holy balls What is this</li>
-            </ul>
-        </div><!--skills END-->
+            </div><!--tabs END-->
+            <div class="skill-section box">
+                <div class="box-title">
+                    <h3>Skills</h3>
+                </div>
+                <ul>
+                    <li ng-repeat="skill in user.skills">{{ skill }}</li>
+                </ul>
+            </div><!--skills END-->
 
-        <div class="myProjects box">
-            <div class="box-title">
-                <h3>My Projects</h3>
-            </div>
-            <ul>
-                <li>a</li>
-                <li>a</li>
-                <li>a</li>
-            </ul>
-        </div><!--myProjects END-->
-    </div><!--col-sm-6 END-->
-    <div class="col-sm-6">
-        <?php include "../angular/partials/person_feed.html" ?>
-
-
-    </div><!--person_feed.php END-->
-</div><!--row END-->
+            <div class="myProjects box">
+                <div class="box-title">
+                    <h3>My Projects</h3>
+                </div>
+                <ul>
+                    <li>a</li>
+                    <li>a</li>
+                    <li>a</li>
+                </ul>
+            </div><!--myProjects END-->
+        </div><!--col-sm-6 END-->
+        <div class="col-sm-6">
+            <ng-include src="'partials/person_feed.html'"></ng-include>
+        </div><!--person_feed.php END-->
+    </div><!--row END-->
 
 
 </div>
