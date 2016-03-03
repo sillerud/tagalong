@@ -26,6 +26,18 @@ angular.module('tagalong', [
             .when("/", {
                 templateUrl: 'partials/cards.html',
                 controller: 'AllCardCtrl'
+            })
+            .when("/profile", {
+                templateUrl: 'partials/other_profiles.html',
+                controller: 'ShowUserCtrl'
+            })
+            .when("/profile/edit", {
+                templateUrl: 'partials/edit_profile.html',
+                controller: 'EditProfileCtrl'
+            })
+            .when("/profile/:id", {
+                templateUrl: 'partials/other_profiles.html',
+                controller: 'ShowUserCtrl'
             });
     }])
     .directive('galeryImage', function() {
@@ -39,5 +51,10 @@ angular.module('tagalong', [
                     $(element).height(width);
                 });
             }
+        }
+    })
+    .filter('capitalize', function() {
+        return function(input) {
+            return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
         }
     });
