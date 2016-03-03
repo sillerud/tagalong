@@ -1,5 +1,3 @@
-<?php include 'header.php'; ?>
-
 <div class="container">
     <!-- Kode her -->
     <div a href="#" class="logo"></div>
@@ -30,23 +28,23 @@
                 <div class="tabs-content">
                     <div ng-if="!showContactInfo" id="about-tab" class="tab">
                         <div ng-if="user.age" class="holder">
-                            <p class="info-format" class="age" ><b>Age: </b></p>
+                            <p class="info-format age" ><b>Age: </b></p>
                             <p class="age-c">{{ user.age }}</p>
                         </div>
                         <div ng-if="user.gender" class="holder">
-                            <p class="info-format" class="gender" ><b>Gender:</b></p>
+                            <p class="info-format gender" ><b>Gender:</b></p>
                             <p class="gender-c">{{ user.gender | capitalize }}</p>
                         </div>
                         <div ng-if="user.city" class="holder">
-                            <p class="info-format" class="city"><b>City of residence: </b></p>
+                            <p class="info-format city"><b>City of residence: </b></p>
                             <p class="city-c">{{ user.city }}</p>
                         </div>
                         <div ng-if="user.studyFieldDisplayName" class="holder">
-                            <p class="info-format" class="field-of-study"><b>Field of study: </b></p>
+                            <p class="info-format field-of-study"><b>Field of study: </b></p>
                             <p class="field-of-study-c">{{ user.studyFieldDisplayName }}</p>
                         </div>
                         <div ng-if="user.interests" class="holder">
-                            <p class="info-format" class="interests"><b>Interests: </b></p>
+                            <p class="info-format interests"><b>Interests: </b></p>
                             <p class="interests-c">{{ user.interests }}</p>
                         </div>
                         <a href="#/profile/edit" ng-if="user.id == me.id" class="edit-profile-page">Edit</a> <!--edit button-->
@@ -54,7 +52,7 @@
 
                     <div ng-if="showContactInfo" id="contact-tab" class="tab">
                         <div ng-repeat="contactInfo in user.contactInfo" class="holder">
-                            <p class="info-format" class="email"><b>{{ contactInfo.description }}:</b></p>
+                            <p class="info-format email"><b>{{ contactInfo.description }}:</b></p>
                             <p class="">{{ contactInfo.value }}</p>
                         </div>
                     </div><!--contact-tab END-->
@@ -76,9 +74,7 @@
                     <h3>My Projects</h3>
                 </div>
                 <ul>
-                    <li>a</li>
-                    <li>a</li>
-                    <li>a</li>
+                    <li ng-repeat="project in user.projects">{{ project.description }}</li>
                 </ul>
             </div><!--myProjects END-->
         </div><!--col-sm-6 END-->
@@ -89,5 +85,3 @@
 
 
 </div>
-
-<?php include 'footer.php'; ?>

@@ -4,9 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import no.westerdals.westbook.model.ContactInfo;
+import no.westerdals.westbook.model.ValueDescription;
 import no.westerdals.westbook.model.User;
-import org.springframework.hateoas.Link;
 
 @NoArgsConstructor
 @Getter
@@ -26,7 +25,8 @@ public class UserResponse
     private String surname;
     private String profilePicture;
     private String interests;
-    private ContactInfo[] contactInfo;
+    private ValueDescription[] contactInfo;
+    private ValueDescription[] projects;
     private String[] skills;
 
     public UserResponse(User user)
@@ -44,6 +44,7 @@ public class UserResponse
         this.surname = user.getSurname();
         this.interests = user.getInterests();
         this.contactInfo = user.getContactInfo();
+        this.projects = user.getProjects();
         this.skills = user.getSkills();
     }
 

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class ContactInfo {
+public class ValueDescription {
     private String description;
     private String value;
 }
