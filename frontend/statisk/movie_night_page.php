@@ -104,7 +104,7 @@
                     
                     <div class="attending-box box">
                         <div class="box-title">
-                            <h3 class="attending-box-title"><a href="">People attending</a></h3>
+                            <h3 class="attending-box-title"><a href="">People attending (50)</a></h3>
                         </div>
                         
                         <div class="attending-thumbs-wrap">
