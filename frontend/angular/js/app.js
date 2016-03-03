@@ -15,10 +15,6 @@ angular.module('tagalong', [
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
         $routeProvider
-            .when("/home", {
-                templateUrl: 'partials/cards.html',
-                controller: 'AllCardCtrl'
-            })
             .when("/events", {
                 templateUrl: 'partials/events.html',
                 controller: 'ViewEventsCtrl'
@@ -26,6 +22,10 @@ angular.module('tagalong', [
             .when("/pages/:id", {
                 templateUrl: 'partials/page.html',
                 controller: 'PageCtrl'
+            })
+            .when("/", {
+                templateUrl: 'partials/cards.html',
+                controller: 'AllCardCtrl'
             });
     }])
     .directive('galeryImage', function() {
