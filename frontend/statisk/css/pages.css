@@ -41,66 +41,42 @@
     width: auto;
 }
 /*Displying pages style*/
-.page-about{ /* Info om page */
-    padding: 15px;
-    background-color: pink;
-    opacity: .5;
-    top: -40px;
-    right: 400px;
-
-
+.page-preview{ /* Wrap rundt et event, upcoming og my event */
+    overflow: hidden;
+    margin: 20px 0;
+    background-color: #FFF;
+    position: relative;
+    border-radius: 10px;
+    /*border: 1px solid black;*/
 }
-
-.card-tag-list{
-    opacity: 1;
-}
-.page-tag-wrap{
-    background-color: black;
-    top: -50px;
-}
-
-.page-image-wrap {
+.page-preview-image{
     width: 100%;
     height: 200px;
     background-size: cover;
     position: relative;
     padding-bottom: 10px;
+    padding-top: 10px;
     z-index: 300;
+    background-color: rgba(0,0,0, 0.1);
 }
-.page-tag-list{
-    
-}
-
-.page-image-wrap .page-title{
-    margin: auto;
-    text-align: center;
+.page-preview-info{
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 15px;
-    font-weight: bold;
-    font-size: 1.7em;
-    color: #FFF;
-    display: inline;
-    pointer-events: none;
-}
-.page-image-wrap a{
-    color: #FFF;
-}
-
-.pages-image-overlay{
-    position: absolute;
-    top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left:0;
+    right:0;
+    background-color: rgba(255, 255, 255, 1);
+    height: 30px;
+    /*box-sizing: border-box;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 2px solid black;*/
 
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,000000+0,000000+100&0+69,0.67+100 */
-    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 69%, rgba(0,0,0,0.67) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 69%,rgba(0,0,0,0.67) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 69%,rgba(0,0,0,0.67) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#ab000000',GradientType=0 ); /* IE6-9 */
-
+}
+.page-preview-header{
+    position: relative;
+    text-align: center;
+    top: 90px;;
+    color: #FFFFFF;
 }
 /*Displying pages style END*/
 

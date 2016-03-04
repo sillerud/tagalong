@@ -38,36 +38,24 @@
                 <div class="box-title">
                     <h3 class="pages-all-pages-header">Pages</h3>
                 </div>
-                   <div class="an-event-wrap">
-                       <div class="page-image-wrap" style="background-image: url('../statisk/images/kit.jpg');">
-
-                           <a href="/angular/partials/page.html">
-                               <div class="event-image-overlay"></div>
-                           </a>
 
 
-                           <h4 class="page-title">Kvinner & IT</h4>
-
-                           <div class="page-about">
-
-                               <div class="page-tag-wrap">
-                                   <ul class="page-tag-list">
-                                       <li>#Utvikling</li>
-                                       <li>@Fubar</li>
-                                       <li>#Sosialt</li>
-                                   </ul>
-                               </div>
-                               <div class="event-info">
-                                   <i class="fa fa-info"></i>
-                               </div>
-                           </div><!-- END events about -->
-                       </div><!-- END event-image-wrap -->
+                </div><!--box END-->
+               <div class="page-preview">
+                   <div  class="event-image-overlay"></div>
+                   <div class="page-preview-image" style="background-image: url('../statisk/images/event_pic.jpg');">
+                       <h3 class="page-preview-header"><strong>Kvinner & IT</strong></h3>
+                       <div class="page-preview-info">
+                           <ul class="card-tag-list">
+                               <li>#Kvinner&IT</li>
+                               <li>#Datafordamer</li>
+                               <li>#BedreEnnGutta</li>
+                           </ul><!--card-tag-list END-->
+                       </div><!--page-preview-info END-->
+                   </div><!--page-preview-image END-->
 
 
-                   </div><!-- END - an-event-wrap -->
-
-
-
+               </div><!--page-preview END-->
             </div><!-- col-sm-8 END-->
            </div><!-- most-popular-pages box END-->
         </div><!--row END-->
