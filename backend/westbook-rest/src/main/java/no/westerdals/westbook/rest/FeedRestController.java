@@ -89,7 +89,7 @@ public class FeedRestController
         List<FeedPost> posts = new ArrayList<>();
         for (PostTag tag : feed.getTags())
         {
-            List<Post> dbPosts = postRepository.getByTagsName(tag.getName(), new PageRequest(page, 10, DATE_SORT));
+            List<Post> dbPosts = postRepository.getByTagsTagId(tag.getTagId(), new PageRequest(page, 10, DATE_SORT));
             posts.addAll(dbPosts.stream().map(this::resolve).collect(Collectors.toList()));
         }
 

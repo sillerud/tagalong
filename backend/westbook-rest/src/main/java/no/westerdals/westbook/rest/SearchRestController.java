@@ -1,7 +1,6 @@
 package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.model.Page;
-import no.westerdals.westbook.model.PostTag;
 import no.westerdals.westbook.model.Tag;
 import no.westerdals.westbook.model.User;
 import no.westerdals.westbook.mongodb.PageRepository;
@@ -63,7 +62,7 @@ public class SearchRestController {
 
     @RequestMapping
     public List<SearchResult<Tag>> searchTags(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
-        Stream.concat(tagRepository.findByName(query, new PageRequest(0, maxResults)).stream(),
+        return Stream.concat(tagRepository.findByName(query, new PageRequest(0, maxResults)).stream(),
                 tagRepository.findByDescription(query, new PageRequest(0, maxResults)).stream())
                 .map(tag -> new SearchResult<>("tag", tag))
                 .collect(Collectors.toList());

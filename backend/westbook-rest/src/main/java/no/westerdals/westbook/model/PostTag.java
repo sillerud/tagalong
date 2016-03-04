@@ -8,5 +8,5 @@ import lombok.*;
 public class PostTag
 {
     private boolean displayed;
-    private String tag;
+    private String tagId;
 }

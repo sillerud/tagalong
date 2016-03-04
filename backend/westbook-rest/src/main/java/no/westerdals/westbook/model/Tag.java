@@ -1,6 +1,5 @@
 package no.westerdals.westbook.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -12,8 +11,10 @@ public class Tag {
     String id;
     String parentId;
     String name;
-    public Tag(String parentId, String name) {
+    String description;
+    public Tag(String parentId, String name, String description) {
         this.parentId = parentId;
         this.name = name;
+        this.description = description;
     }
 }
