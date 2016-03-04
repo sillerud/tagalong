@@ -18,6 +18,11 @@ public class PageRestController
     @Autowired
     private PageRepository pageRepository;
 
+    @RequestMapping(method=RequestMethod.GET)
+    public List<Page> getAllPages(@RequestParam(name="maxResults",defaultValue="10") int maxResults) {
+        return pageRepository.findAll(new PageRequest(0, maxResults)).getContent();
+    }
+
     @RequestMapping(value="/{pageId}", method=RequestMethod.GET)
     public Page getPageById(@PathVariable String pageId)
     {
