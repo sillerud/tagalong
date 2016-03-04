@@ -78,9 +78,9 @@ public class SearchRestController {
     public List<SearchResult<ResolvedTag>> searchTagsOld(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
         return Stream.concat(tagRepository.findByNameLike(query, new PageRequest(0, maxResults)).stream(),
                 tagRepository.findByDescription(query, new PageRequest(0, maxResults)).stream())
+                .distinct()
                 .map(this::resolve)
                 .map(tag -> new SearchResult<>("tag", tag))
-                .distinct()
                 .collect(Collectors.toList());
     }
 
@@ -115,8 +115,6 @@ public class SearchRestController {
 
     private Stream<Tag> resolveChildren(Tag tag) {
         List<Tag> tags = tagRepository.findByParentId(tag.getId());
-        System.out.println("===");
-        System.out.println(tag.getId());
         tags.forEach(System.out::println);
         tags.add(tag);
         return tags.stream();
