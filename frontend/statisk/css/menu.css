@@ -98,6 +98,18 @@
       top: 92px;
       cursor: pointer;
     }
+    .search-overlay-wrap input{
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid #c4c4c4;
+      font-size: 3em;
+      position: relative;
+      top: 70px;
+    }
+    .search-overlay-wrap input:focus{
+      outline: none;
+    }
     .logged-in-person{
         display: inline-block;
         float: right;

@@ -51,23 +51,6 @@ public class UserRestController
         return resolve(userRepository.findOne(userId));
     }
 
-    @RequestMapping(value="/by-name/{nameString}", method=RequestMethod.GET)
-    public List<UserResponse> getByName(@PathVariable String nameString, @RequestParam(defaultValue = "20") int maxResults)
-    {
-        String[] nameParts = nameString.split(" ");
-        if (nameParts.length > 4)
-            return null;
-
-        ArrayList<UserResponse> found = new ArrayList<>();
-
-        findUsersByFullName(found, nameString, maxResults);
-
-        if (found.size() < maxResults)
-        {
-            findUsersBySurname(found, nameString, maxResults);
-        }
-        return found;
-    }
 
     @RequestMapping(method=RequestMethod.PATCH)
     public UserResponse updateUserInfo(@RequestBody User user)
@@ -151,32 +134,6 @@ public class UserRestController
                 .collect(Collectors.toList());
     }
 
-    private void findUsersByFullName(List<UserResponse> found, String fullname, int maxResults)
-    {
-        String[] nameParts = fullname.split(" ");
-        for (int i = 1; i < nameParts.length; i++)
-        {
-            String possibleName = join(nameParts, 0, i);
-            String possibleSurname = join(nameParts, i, nameParts.length);
-            User user = userRepository.getByFullName(possibleName, possibleSurname);
-            if (user != null)
-            {
-                found.add(resolve(user));
-            }
-            if (found.size() >= maxResults)
-                return;
-        }
-    }
-
-    private void findUsersBySurname(List<UserResponse> found, String surname, int maxResults)
-    {
-        userRepository.getBySurname(surname, new PageRequest(0, maxResults - found.size()))
-                .stream()
-                .filter(user -> !found.contains(user))
-                .map(this::resolve)
-                .forEach(found::add);
-    }
-
     public UserResponse resolve(User user)
     {
         if (user == null || user.getId() == null)
@@ -191,15 +148,5 @@ public class UserRestController
     private String resolveStudyField(String studyField)
     {
         return studyFieldRepository.getByName(studyField).getId();
-    }
-
-    private String join(String[] strs, int startIndex, int endIndex)
-    {
-        StringBuilder result = new StringBuilder();
-        for (int i = startIndex; i < endIndex; i++)
-        {
-            result.append(strs[i]);
-        }
-        return result.toString();
     }
 }
