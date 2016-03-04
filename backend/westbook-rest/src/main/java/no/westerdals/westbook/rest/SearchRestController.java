@@ -61,11 +61,12 @@ public class SearchRestController {
                 .collect(Collectors.toList());
     }
 
+    //TODO: Optimize
     @RequestMapping(value="/tags",method=RequestMethod.GET)
     public List<SearchResult<ResolvedTag>> searchTags(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
         return Stream.concat(tagRepository.findByNameLike(query, new PageRequest(0, maxResults)).stream(),
                 tagRepository.findByDescription(query, new PageRequest(0, maxResults)).stream())
-                .flatMap(this::resolveChilds)
+                .flatMap(this::resolveChildren)
                 .map(this::resolve)
                 .map(tag -> new SearchResult<>("tag", tag))
                 .collect(Collectors.toList());
@@ -110,9 +111,10 @@ public class SearchRestController {
                 .forEach(found::add);
     }
 
-    private Stream<Tag> resolveChilds(Tag tag) {
+    private Stream<Tag> resolveChildren(Tag tag) {
         List<Tag> tags = tagRepository.findByParentId(tag.getId());
         tags.add(tag);
+        tags.forEach(System.out::println);
         return tags.stream();
     }
 
