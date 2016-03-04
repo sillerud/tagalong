@@ -2,6 +2,7 @@ package no.westerdals.westbook.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +11,7 @@ import java.util.Collection;
 import java.util.Date;
 
 @NoArgsConstructor
+@ToString
 public class UserCredentials implements UserDetails {
     @Getter
     private User user;
@@ -27,6 +29,7 @@ public class UserCredentials implements UserDetails {
         } else {
             grantedAuthorities = credential.getAuthorities();
         }
+        System.out.println(this);
     }
 
     @Override
