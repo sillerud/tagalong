@@ -73,6 +73,14 @@ public class SearchRestController {
 
     private void findUsersByFullName(List<SearchResult<User>> found, String fullname, int maxResults) {
         String[] nameParts = fullname.split(" ");
+        if (nameParts.length == 1) {
+            List<User> users = userRepository.findByFirstnameLike(nameParts[0], new PageRequest(0, maxResults));
+            if (users != null) {
+                users.stream().map(user -> new SearchResult<>("user", user))
+                        .forEach(found::add);
+            }
+            return;
+        }
         for (int i = 1; i < nameParts.length; i++) {
             String possibleName = join(nameParts, 0, i);
             String possibleSurname = join(nameParts, i, nameParts.length);
