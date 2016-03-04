@@ -1,5 +1,6 @@
 package no.westerdals.westbook.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -10,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Date;
 
-@NoArgsConstructor
+@Data
 @ToString
 public class UserCredentials implements UserDetails {
     @Getter

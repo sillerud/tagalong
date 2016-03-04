@@ -52,13 +52,13 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
             enabled: true
         };
         console.log(userInfo);
-        var credentials = {
-            accountLocked: false,
-            authorities: $scope.roles.split(","),//$scope.user.roles.split(","),
-            passwordHash: $scope.user.password
-        };
 
-        User.create({user: userInfo, credential: credentials});
+        User.create({
+            user: userInfo,
+            accountLocked: false,
+            grantedAuthorities: $scope.roles.split(","),//$scope.user.roles.split(","),
+            passwordHash: $scope.user.password
+        });
     }
 }]);
 
