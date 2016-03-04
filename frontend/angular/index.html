@@ -94,11 +94,14 @@
 
                         <div class="search-results">
                             <div class="search-result-wrap" ng-repeat="searchResult in searchResults">
-                                <a ng-href="#/profile/{{ searchResult.data.id }}" ng-click="closeSearch()">
+                                <a ng-href="#/{{ searchResult.url }}" ng-click="closeSearch()" ng-if="searchResult.url">
                                     <div class="search-result">
                                         {{ searchResult.data }}
                                     </div>
                                 </a>
+                            </div>
+                            <div class="search-result" ng-if="!searchResult.url">
+                                {{ searchResult.data }}
                             </div>
                         </div> <!-- END search-results -->
                     </div><!-- END search-overlay-wrap -->

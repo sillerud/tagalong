@@ -184,7 +184,19 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
         timerId = setInterval(function() {
             if (lastKeyPress + 500 < Date.now() && !resultUpdated) {
                 if ($scope.searchText) {
-                    $scope.searchResults = Search.queryAll({query: $scope.searchText});
+                    Search.queryAll({query: $scope.searchText}, function(data) {
+                        console.log(data);
+                        for (var element in data) {
+                            console.log(element);
+                            if (element.type == "user") {
+                                element.url = "profile/" + element.data.id;
+                                console.log("USER");
+                            } else if (element.type == "page") {
+                                element.url = "pages/" + element.data.customUrl;
+                            }
+                        }
+                        $scope.searchResults = data;
+                    }, function(error) {});
                 } else {
                     // TODO: clear results
                 }
