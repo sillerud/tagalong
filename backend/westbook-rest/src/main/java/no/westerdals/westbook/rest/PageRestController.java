@@ -35,7 +35,7 @@ public class PageRestController
     @RequestMapping(value="/by-name/{name}", method=RequestMethod.GET)
     public List<Page> getPagesByName(@PathVariable String name)
     {
-        return pageRepository.findByName(name, new PageRequest(0, 20));
+        return pageRepository.findByNameLikeIgnoreCase(name, new PageRequest(0, 20));
     }
 
     @RequestMapping(value="/by-user/{userId}", method=RequestMethod.GET)

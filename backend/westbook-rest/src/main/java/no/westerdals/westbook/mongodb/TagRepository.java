@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface TagRepository extends MongoRepository<Tag, String> {
     List<Tag> findByDescription(String description, Pageable pageable);
-    List<Tag> findByName(String name, Pageable pageable);
+    List<Tag> findByNameLike(String name, Pageable pageable);
+    List<Tag> findByParentId(String id);
 }

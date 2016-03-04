@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface PageRepository extends MongoRepository<Page, String> {
     List<Page> getByUserId(String userId);
-    List<Page> findByName(String name, Pageable pageable);
+    List<Page> findByNameLikeIgnoreCase(String name, Pageable pageable);
     Page findByCustomUrl(String url);
 }

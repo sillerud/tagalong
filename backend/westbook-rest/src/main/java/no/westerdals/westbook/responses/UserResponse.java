@@ -53,8 +53,6 @@ public class UserResponse
     {
         if (obj instanceof UserResponse)
             return getId().equals(((UserResponse) obj).getId());
-        if (obj instanceof User)
-            return getId().equals(((User) obj).getId());
-        return false;
+        return obj instanceof User && getId().equals(((User) obj).getId());
     }
 }
