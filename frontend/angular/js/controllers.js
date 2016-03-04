@@ -236,7 +236,7 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
 
     //S = 83
     $(document).keypress(function(e) {
-        if (e.key == 's') {
+        if (e.key == 's' || e.keyCode == 83 || e.keyCode == 115) {
             $scope.openSearch();
         }
     });
