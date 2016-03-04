@@ -1,0 +1,12 @@
+.add-to-card-wrap{
+    position: fixed;
+    max-width: 500px;
+    width: 100%;
+    padding: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #FFF;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

@@ -71,6 +71,10 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
     $scope.logout = function() {
         User.logout(redirectLogin);
     };
+    $scope.addToCard = function(){
+        console.log('yo');
+        $('.add-to-card-wrap').fadeIn();
+    }; // END add to card
 }]);
 
 cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Card) {
