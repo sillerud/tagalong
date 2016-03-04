@@ -42,10 +42,69 @@
 
                 </div><!--box END-->
                <div class="page-preview">
-                   <div  class="event-image-overlay"></div>
+
                    <div class="page-preview-image" style="background-image: url('../statisk/images/event_pic.jpg');">
+                       <div  class="event-image-overlay"></div>
+                       <div class="add-page-to-card-pages" ng-click="addToCard()">
+
+                           <div class="add-page-to-card-text">Add to card</div>
+                           <div class="add-page-to-card-btn">
+                               <i class="fa fa-plus"></i>
+                           </div>
+                       </div>
                        <h3 class="page-preview-header"><strong>Kvinner & IT</strong></h3>
                        <div class="page-preview-info">
+
+                           <ul class="card-tag-list">
+                               <li>#Kvinner&IT</li>
+                               <li>#Datafordamer</li>
+                               <li>#BedreEnnGutta</li>
+                           </ul><!--card-tag-list END-->
+                       </div><!--page-preview-info END-->
+                   </div><!--page-preview-image END-->
+
+
+               </div><!--page-preview END-->
+
+               <div class="page-preview">
+
+                   <div class="page-preview-image" style="background-image: url('../statisk/images/event_pic.jpg');">
+                       <div  class="event-image-overlay"></div>
+                       <div class="add-page-to-card-pages" ng-click="addToCard()">
+
+                           <div class="add-page-to-card-text">Add to card</div>
+                           <div class="add-page-to-card-btn">
+                               <i class="fa fa-plus"></i>
+                           </div>
+                       </div>
+                       <h3 class="page-preview-header"><strong>Kvinner & IT</strong></h3>
+                       <div class="page-preview-info">
+
+                           <ul class="card-tag-list">
+                               <li>#Kvinner&IT</li>
+                               <li>#Datafordamer</li>
+                               <li>#BedreEnnGutta</li>
+                           </ul><!--card-tag-list END-->
+                       </div><!--page-preview-info END-->
+                   </div><!--page-preview-image END-->
+
+
+               </div><!--page-preview END-->
+
+               <div class="page-preview">
+
+                   <div class="page-preview-image" style="background-image: url('../statisk/images/event_pic.jpg');">
+                       <div  class="event-image-overlay"></div>
+                       <div class="add-page-to-card-pages" ng-click="addToCard()">
+
+                           <div class="add-page-to-card-text">Add to card</div>
+                           <div class="add-page-to-card-btn">
+                               <i class="fa fa-plus"></i>
+                           </div>
+                       </div>
+                       <h3 class="page-preview-header"><strong>Kvinner & IT</strong></h3>
+                       <div class="page-preview-info">
+
                            <ul class="card-tag-list">
                                <li>#Kvinner&IT</li>
                                <li>#Datafordamer</li>
