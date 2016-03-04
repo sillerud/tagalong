@@ -44,4 +44,6 @@ public class User implements Serializable {
     private ValueDescription contactInfo[];
     private ValueDescription projects[];
     private String[] skills;
+
+    private static final long serialVersionUID = 7123491823762138241L;
 }
