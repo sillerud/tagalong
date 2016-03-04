@@ -50,36 +50,36 @@
                     </div>
                 </a>
 
-            <div class="varsel">
-                <i class="fa fa-bell"></i>
-                <i class="fa fa-bell-o"></i>
+                <div class="varsel">
+                    <i class="fa fa-bell"></i>
+                    <i class="fa fa-bell-o"></i>
 
-                <div class="varsel-panel">
+                    <div class="varsel-panel">
 
-                    <div class="header-varsel-panel">
+                        <div class="header-varsel-panel">
 
-                        <div class="bell-varsel">
-                            <i class="fa fa-bell"></i>
-                        </div><!--end bell-varsel-->
-                        
+                            <div class="bell-varsel">
+                                <i class="fa fa-bell"></i>
+                            </div><!--end bell-varsel-->
+
                             <h3 class="box-title">Notifications</h3>
-                        
-                    </div><!--end header-varsel-panel-->
 
-                <div class="varsel-innhold">
+                        </div><!--end header-varsel-panel-->
 
-                    <img class="profilbilde-varsel" src="../statisk/images/fubar_logo.jpg">
-                    <div class="notification-feed-box">
-                        <p class="overskrift-varsel">fuBar</p>
-                        <p class="tekst-varsel">
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                        </p>
-                    </div>
-                </div><!--end varsel-innhold-->
+                        <div class="varsel-innhold">
 
-                </div><!--end varsel-panel-->
+                            <img class="profilbilde-varsel" src="../statisk/images/fubar_logo.jpg">
+                            <div class="notification-feed-box">
+                                <p class="overskrift-varsel">fuBar</p>
+                                <p class="tekst-varsel">
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                                </p>
+                            </div>
+                        </div><!--end varsel-innhold-->
 
-            </div><!--end varlse-panel-->
+                    </div><!--end varsel-panel-->
+
+                </div><!--end varlse-panel-->
 
                 <div class="fast-search" ng-controller="QuickSearchCtrl">
                     <button id="searchBtn" ng-click="openSearch()"><i class="fa fa-search"></i> Search</button>
@@ -90,9 +90,19 @@
                             <i class="exit-search fa fa-times" ng-click="closeSearch()"></i>
                             <div class="fast-search-result"></div>
                         </div><!-- END search-overlay-inner -->
-                    </div><!-- END search-overlay-wrap -->
 
+                        <div class="search-results">
+                            <div class="search-result-wrap" ng-repeat="searchResult in searchResults">
+                                <a ng-href="#/profile/{{ searchResult.data.id }}" ng-click="closeSearch()">
+                                    <div class="search-result">
+                                        {{ searchResult.data }}
+                                    </div>
+                                </a>
+                            </div>
+                        </div> <!-- END search-results -->
+                    </div><!-- END search-overlay-wrap -->
                 </div><!-- END fast-search -->
+
             </div>
         </div>
 
