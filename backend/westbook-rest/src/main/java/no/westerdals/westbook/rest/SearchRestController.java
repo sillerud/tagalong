@@ -50,7 +50,7 @@ public class SearchRestController {
         if (found.size() < maxResults) {
             findUsersBySurname(found, query, maxResults);
         }
-        return found;
+        return found.stream().distinct().collect(Collectors.toList()); //TODO: Optimize
     }
 
     @RequestMapping(value="/pages",method=RequestMethod.GET)
@@ -58,6 +58,7 @@ public class SearchRestController {
         return pageRepository.findByNameLikeIgnoreCase(query, new PageRequest(0, maxResults))
                 .stream()
                 .map(page -> new SearchResult<>("page", page))
+                .distinct()
                 .collect(Collectors.toList());
     }
 
@@ -69,6 +70,7 @@ public class SearchRestController {
                 .flatMap(this::resolveChildren)
                 .map(this::resolve)
                 .map(tag -> new SearchResult<>("tag", tag))
+                .distinct()
                 .collect(Collectors.toList());
     }
 
@@ -78,6 +80,7 @@ public class SearchRestController {
                 tagRepository.findByDescription(query, new PageRequest(0, maxResults)).stream())
                 .map(this::resolve)
                 .map(tag -> new SearchResult<>("tag", tag))
+                .distinct()
                 .collect(Collectors.toList());
     }
 
@@ -113,8 +116,10 @@ public class SearchRestController {
 
     private Stream<Tag> resolveChildren(Tag tag) {
         List<Tag> tags = tagRepository.findByParentId(tag.getId());
-        tags.add(tag);
+        System.out.println("===");
+        System.out.println(tag.getId());
         tags.forEach(System.out::println);
+        tags.add(tag);
         return tags.stream();
     }
 
