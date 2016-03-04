@@ -95,8 +95,8 @@
                         <div class="search-results">
                             <div class="search-result-wrap" ng-repeat="searchResult in searchResults">
                                 <a ng-href="#/{{ searchResult.url }}" ng-click="closeSearch()" ng-if="searchResult.url">
-                                    <div class="search-result">
-                                        {{ searchResult.data }}
+                                    <div class="search-result" ng-if="searchResult.type == 'user'">
+                                        {{ searchResult.data.firstname }}
                                     </div>
                                 </a>
                                 <div class="search-result" ng-if="!searchResult.url">
