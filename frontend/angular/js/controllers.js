@@ -205,13 +205,12 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
                 if ($scope.searchText) {
                     Search.queryAll({query: $scope.searchText}, function(data) {
                         console.log(data);
-                        for (var element in data) {
-                            console.log(element);
-                            if (element.type == "user") {
-                                element.url = "profile/" + element.data.id;
-                                console.log("USER");
-                            } else if (element.type == "page") {
-                                element.url = "pages/" + element.data.customUrl;
+                        for (var i = 0; i < data.length; i++) {
+                            var result = data[i];
+                            if (result.type == "user") {
+                                result.url = "profile/" + result.data.id;
+                            } else if (result.type == "page") {
+                                result.url = "pages/" + result.data.customUrl;
                             }
                         }
                         $scope.searchResults = data;
