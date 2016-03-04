@@ -95,7 +95,7 @@ public class SearchRestController {
 
     private ResolvedTag resolve(Tag tag) {
         ResolvedTag resolvedTag = new ResolvedTag(tag.getId(), null, tag.getName(), tag.getDescription());
-        if (tag.getId() == null) {
+        if (tag.getParentId() == null) {
             return resolvedTag;
         }
         Tag parent = tagRepository.findOne(tag.getParentId());
