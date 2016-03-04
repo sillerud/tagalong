@@ -3,7 +3,7 @@
 <div class="container">
     <!-- Kode her -->
 
-    <div class="card-shortcut-wrap">
+    <!--<div class="card-shortcut-wrap">
         <div ng-repeat="card in cards" >
             <div class="card-shortcut" id="{{ card.id }}">
                 <div class="cs-icon">{{ card.name | limitTo: 1 }}</div>
@@ -11,7 +11,7 @@
             </div><br>
         </div>
 
-    </div><!-- END card-shortcut-wrap -->
+    </div>--><!-- END card-shortcut-wrap -->
 
     <div class="header-image-wrap">
         <img src="../statisk/images/movienight.jpg" class="img-responsive" alt="">
