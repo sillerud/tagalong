@@ -72,6 +72,10 @@ pageServices.factory('Page', ['$resource', function($resource) {
             url: url('/pages/:pageId'),
             method: 'GET',
             isArray: false
+        },
+        all: {
+            method: 'GET',
+            isArray: true
         }
     })
 }]);

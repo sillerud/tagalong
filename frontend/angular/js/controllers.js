@@ -228,3 +228,7 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
         resultUpdated = false;
     }
 }]);
+
+pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($scope, Page) {
+    $scope.pages = Page.all();
+}]);
