@@ -5,6 +5,7 @@ var loginControllers = angular.module('loginControllers', []);
 var userControllers = angular.module('userControllers', []);
 var cardControllers = angular.module('cardControllers', []);
 var pageControllers = angular.module('pageControllers', []);
+var searchControllers = angular.module('searchControllers', []);
 
 function redirectLogin() {
     window.location = "login.html";
@@ -157,4 +158,39 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
 }]);
 userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
 
+}]);
+
+searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($scope, Search) {
+    function closeOverlay(thatClass){
+        $(thatClass).fadeOut();
+    }
+
+    var timerId = 0;
+    var lastKeyPress;
+    var resultUpdated = true;
+
+    $scope.closeSearch = function(){ // Lukke
+        closeOverlay('.search-overlay-wrap');
+        clearInterval(timerId);
+    };
+
+    $scope.openSearch = function(){ // Åpne
+        $('.search-overlay-wrap').fadeIn();
+
+        timerId = setInterval(function() {
+            if (lastKeyPress + 500 < Date.now() && !resultUpdated) {
+                if ($scope.searchText) {
+                    $scope.searchResults = Search.queryAll({query: $scope.searchText});
+                } else {
+                    // TODO: clear results
+                }
+                resultUpdated = true;
+            }
+        }, 100);
+    };
+
+    $scope.updateSearchResults = function() {
+        lastKeyPress = Date.now();
+        resultUpdated = false;
+    }
 }]);

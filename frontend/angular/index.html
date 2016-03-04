@@ -81,13 +81,13 @@
 
             </div><!--end varlse-panel-->
 
-                <div class="fast-search">
-                    <button id="searchBtn"><i class="fa fa-search"></i> Search</button>
+                <div class="fast-search" ng-controller="QuickSearchCtrl">
+                    <button id="searchBtn" ng-click="openSearch()"><i class="fa fa-search"></i> Search</button>
 
                     <div class="search-overlay-wrap">
                         <div class="container">
-                            <input type="search" placeholder="Søk her..." autofocus>
-                            <i class="exit-search fa fa-times"></i>
+                            <input type="search" placeholder="Søk her..." ng-model="searchText" ng-change="updateSearchResults()" autofocus>
+                            <i class="exit-search fa fa-times" ng-click="closeSearch()"></i>
                             <div class="fast-search-result"></div>
                         </div><!-- END search-overlay-inner -->
                     </div><!-- END search-overlay-wrap -->

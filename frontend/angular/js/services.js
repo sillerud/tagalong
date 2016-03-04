@@ -7,6 +7,7 @@ var loginServices = angular.module('loginServices', ['ngResource']);
 var pageServices = angular.module('pageServices', ['ngResource']);
 var postServices = angular.module('postServices', ['ngResource']);
 var userServices = angular.module('userServices', ['ngResource']);
+var searchServices = angular.module('searchServices', ['ngResource']);
 
 var transform = function(data){
     return $.param(data);
@@ -71,6 +72,15 @@ pageServices.factory('Page', ['$resource', function($resource) {
             url: url('/pages/:pageId'),
             method: 'GET',
             isArray: false
+        }
+    })
+}]);
+
+searchServices.factory('Search', ['$resource', function($resource) {
+    return $resource(url("/search"), {}, {
+        queryAll: {
+            method: 'GET',
+            isArray: true
         }
     })
 }]);

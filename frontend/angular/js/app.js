@@ -10,7 +10,9 @@ angular.module('tagalong', [
         'cardControllers',
         'cardServices',
         'pageControllers',
-        'pageServices'
+        'pageServices',
+        'searchControllers',
+        'searchServices'
     ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
