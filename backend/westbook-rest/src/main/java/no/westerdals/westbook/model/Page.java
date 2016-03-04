@@ -24,6 +24,7 @@ public class Page
     private String description;
     private String userId;
     private String contactInfo;
+    private String[] tags;
     private PageLink[] links;
 
     @AllArgsConstructor
