@@ -93,7 +93,7 @@
 
                     <div class="search-overlay-wrap">
                         <div class="container">
-                            <input type="search" placeholder="Søk her..." ng-model="searchText" ng-change="updateSearchResults()" autofocus>
+                            <input id="quickSearch" type="search" placeholder="Søk her..." ng-model="searchText" ng-keyup="runAutoComplete($event)" ng-change="updateSearchResults()" autofocus>
                             <i class="exit-search fa fa-times" ng-click="closeSearch()"></i>
                             <div class="fast-search-result"></div>
                         </div><!-- END search-overlay-inner -->
@@ -106,7 +106,7 @@
                                     </div>
                                 </a>
                                 <div class="search-result" ng-if="!searchResult.url">
-                                    {{ searchResult.data }}
+                                    {{ searchResult.name }}
                                 </div>
                             </div>
                         </div> <!-- END search-results -->

@@ -17,11 +17,9 @@ loginControllers.controller('LoginCtrl', ['$scope', 'Login', 'User', function($s
             Login.login($scope.credentials,
                 function(data) {
                     window.location = "./";
-                    console.log(data);
                 },
                 function(error) {
                     alert("Failed to log in. " + error);
-                    console.log(error);
                 }
             );
         }
@@ -51,7 +49,6 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
             showEmail: true,
             enabled: true
         };
-        console.log(userInfo);
 
         User.create({
             user: userInfo,
@@ -130,18 +127,18 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
      private PageLink[] links;
      */
     /*Page.create({
-        name: 'fubar',
-        customUrl: 'fubar',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quod eveniet totam ipsum provident vitae porro pariatur distinctio modi debitis, quas fuga culpa, odit ipsa sed eum placeat non dolor!/n' +
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint velit iure cum itaque commodi assumenda deleniti laboriosam neque consequuntur aspernatur iste nihil, molestiae perspiciatis inventore dolorum est, reprehenderit magni omnis.',
-        contactInfo: 'Galleri Oslo',
-        links: [
-            {
-                url: "https://www.facebook.com/groups/537053489645341/",
-                description: "Facebook"
-            }
-        ]
-    });*/
+     name: 'fubar',
+     customUrl: 'fubar',
+     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis quod eveniet totam ipsum provident vitae porro pariatur distinctio modi debitis, quas fuga culpa, odit ipsa sed eum placeat non dolor!/n' +
+     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint velit iure cum itaque commodi assumenda deleniti laboriosam neque consequuntur aspernatur iste nihil, molestiae perspiciatis inventore dolorum est, reprehenderit magni omnis.',
+     contactInfo: 'Galleri Oslo',
+     links: [
+     {
+     url: "https://www.facebook.com/groups/537053489645341/",
+     description: "Facebook"
+     }
+     ]
+     });*/
     var shortDescription = "";
     var description = "";
     $scope.page = Page.query({ pageId: $routeParams.id }, function(data) {
@@ -188,23 +185,27 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
         $(thatClass).fadeOut();
     }
 
+    var searchField = $("#quickSearch");
     var timerId = 0;
     var lastKeyPress;
     var resultUpdated = true;
+    var lastAutocompleted = false;
 
     $scope.closeSearch = function(){ // Lukke
         closeOverlay('.search-overlay-wrap');
         clearInterval(timerId);
+        searchField.val("");
+        delete $scope.searchResults;
     };
 
     $scope.openSearch = function(){ // Åpne
         $('.search-overlay-wrap').fadeIn();
+        searchField.focus();
 
         timerId = setInterval(function() {
             if (lastKeyPress + 200 < Date.now() && !resultUpdated) {
                 if ($scope.searchText) {
                     Search.queryAll({query: $scope.searchText}, function(data) {
-                        console.log(data);
                         for (var i = 0; i < data.length; i++) {
                             var result = data[i];
                             if (result.type == "user") {
@@ -213,22 +214,68 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
                             } else if (result.type == "page") {
                                 result.url = "pages/" + result.data.customUrl;
                                 result.name = result.data.name;
+                            } else if (result.type == "tag") {
+                                var current = result.data;
+                                result.name = "";
+                                while (current) {
+                                    result.name = "/#" + current.name + result.name;
+                                    current = current.parent;
+                                }
+                                if (result.data.description) {
+                                    result.name += " - " + result.data.description;
+                                }
                             }
                         }
                         $scope.searchResults = data;
-                    }, function(error) {});
-                } else {
-                    // TODO: clear results
+                    });
                 }
                 resultUpdated = true;
             }
         }, 100);
     };
 
+    //S = 83
+    $(document).keypress(function(e) {
+        if (e.key == 's') {
+            $scope.openSearch();
+        }
+    });
+
     $scope.updateSearchResults = function() {
         lastKeyPress = Date.now();
         resultUpdated = false;
-    }
+        lastAutocompleted = false;
+        if (!$scope.searchText) {
+            delete $scope.searchResults;
+        }
+    };
+
+    $scope.runAutoComplete = function($event) {
+        /*if (!$scope.searchResults) {
+         return;
+         }
+         if ($event.ctrlKey && $event.keyCode == 32) {
+         if ($scope.searchResults) {
+         $("#quickSearch").val($scope.searchResults[0].name);
+         $scope.searchResults = [$scope.searchResults[0]];
+         lastAutocompleted = true;
+         }
+         }*/
+        //maybe add quick search thingies for opening stuff like itslearning?
+        if ($event.keyCode == 13) {
+            if (searchField.val() == "its") {
+                window.location = "https://woact.itslearning.com/";
+            }
+            if ($scope.searchResults && $scope.searchResults.length == 1  && $scope.searchResults[0].url) {
+                window.location = "#/" + $scope.searchResults[0].url;
+                $scope.closeSearch();
+            }
+        }
+        // ESC
+        if ($event.keyCode == 27) {
+            $scope.closeSearch();
+        }
+    };
 }]);
 
 pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($scope, Page) {
