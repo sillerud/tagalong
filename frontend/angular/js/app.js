@@ -21,6 +21,10 @@ angular.module('tagalong', [
                 templateUrl: 'partials/events.html',
                 controller: 'ViewEventsCtrl'
             })
+            .when("/pages", {
+                templateUrl: 'partials/pages.html',
+                controller: 'ShowPagesController'
+            })
             .when("/pages/:id", {
                 templateUrl: 'partials/page.html',
                 controller: 'PageCtrl'
