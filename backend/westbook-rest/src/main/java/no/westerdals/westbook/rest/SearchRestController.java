@@ -1,9 +1,9 @@
 package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.model.User;
+import no.westerdals.westbook.mongodb.PageRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
 import no.westerdals.westbook.responses.SearchResult;
-import no.westerdals.westbook.responses.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,16 +13,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequestMapping("/rest/v1/search")
 @RestController
 public class SearchRestController {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PageRepository pageRepository;
 
     @RequestMapping(method=RequestMethod.GET)
     public List<SearchResult> searchAll(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
-        return searchUsers(query, maxResults);
+        ArrayList<SearchResult> results = new ArrayList<>(searchUsers(query, maxResults));
+        results.addAll(searchPages(query, maxResults));
+        return results;
     }
 
     @RequestMapping(value="/users",method=RequestMethod.GET)
@@ -39,6 +44,14 @@ public class SearchRestController {
             findUsersBySurname(found, query, maxResults);
         }
         return found;
+    }
+
+    @RequestMapping(value="/pages",method=RequestMethod.GET)
+    public List<SearchResult> searchPages(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
+        return pageRepository.findByName(query, new PageRequest(0, maxResults))
+                .stream()
+                .map(page -> new SearchResult("page", page))
+                .collect(Collectors.toList());
     }
 
     private void findUsersByFullName(List<SearchResult> found, String fullname, int maxResults) {
