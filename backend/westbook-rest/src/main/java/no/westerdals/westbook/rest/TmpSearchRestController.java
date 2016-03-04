@@ -16,7 +16,7 @@ import java.util.List;
 
 @RequestMapping("/rest/v1/search")
 @RestController
-public class SearchRestController {
+public class TmpSearchRestController {
     @Autowired
     private UserRepository userRepository;
 
