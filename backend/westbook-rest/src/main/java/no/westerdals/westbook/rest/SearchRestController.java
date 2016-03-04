@@ -1,7 +1,11 @@
 package no.westerdals.westbook.rest;
 
+import no.westerdals.westbook.model.Page;
+import no.westerdals.westbook.model.PostTag;
+import no.westerdals.westbook.model.Tag;
 import no.westerdals.westbook.model.User;
 import no.westerdals.westbook.mongodb.PageRepository;
+import no.westerdals.westbook.mongodb.TagRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
 import no.westerdals.westbook.responses.SearchResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @RequestMapping("/rest/v1/search")
 @RestController
@@ -22,6 +27,8 @@ public class SearchRestController {
     private UserRepository userRepository;
     @Autowired
     private PageRepository pageRepository;
+    @Autowired
+    private TagRepository tagRepository;
 
     @RequestMapping(method=RequestMethod.GET)
     public List<SearchResult> searchAll(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
@@ -31,12 +38,12 @@ public class SearchRestController {
     }
 
     @RequestMapping(value="/users",method=RequestMethod.GET)
-    public List<SearchResult> searchUsers(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
+    public List<SearchResult<User>> searchUsers(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
         String[] nameParts = query.split(" ");
         if (nameParts.length > 4)
             return null;
 
-        ArrayList<SearchResult> found = new ArrayList<>();
+        ArrayList<SearchResult<User>> found = new ArrayList<>();
 
         findUsersByFullName(found, query, maxResults);
 
@@ -47,32 +54,40 @@ public class SearchRestController {
     }
 
     @RequestMapping(value="/pages",method=RequestMethod.GET)
-    public List<SearchResult> searchPages(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
+    public List<SearchResult<Page>> searchPages(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
         return pageRepository.findByName(query, new PageRequest(0, maxResults))
                 .stream()
-                .map(page -> new SearchResult("page", page))
+                .map(page -> new SearchResult<>("page", page))
                 .collect(Collectors.toList());
     }
 
-    private void findUsersByFullName(List<SearchResult> found, String fullname, int maxResults) {
+    @RequestMapping
+    public List<SearchResult<Tag>> searchTags(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
+        Stream.concat(tagRepository.findByName(query, new PageRequest(0, maxResults)).stream(),
+                tagRepository.findByDescription(query, new PageRequest(0, maxResults)).stream())
+                .map(tag -> new SearchResult<>("tag", tag))
+                .collect(Collectors.toList());
+    }
+
+    private void findUsersByFullName(List<SearchResult<User>> found, String fullname, int maxResults) {
         String[] nameParts = fullname.split(" ");
         for (int i = 1; i < nameParts.length; i++) {
             String possibleName = join(nameParts, 0, i);
             String possibleSurname = join(nameParts, i, nameParts.length);
             User user = userRepository.getByFullName(possibleName, possibleSurname);
             if (user != null) {
-                found.add(new SearchResult("user", user));
+                found.add(new SearchResult<>("user", user));
             }
             if (found.size() >= maxResults)
                 return;
         }
     }
 
-    private void findUsersBySurname(List<SearchResult> found, String surname, int maxResults) {
+    private void findUsersBySurname(List<SearchResult<User>> found, String surname, int maxResults) {
         userRepository.getBySurname(surname, new PageRequest(0, maxResults - found.size()))
                 .stream()
                 .filter(user -> !found.contains(user))
-                .map(user -> new SearchResult("user", user))
+                .map(user -> new SearchResult<>("user", user))
                 .forEach(found::add);
     }
 
