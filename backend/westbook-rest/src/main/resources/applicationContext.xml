@@ -20,6 +20,12 @@
         <property name="path" value="/tmp/uploads" />
     </bean>-->
 
+    <aop:config>
+        <aop:pointcut id="restControllers" expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)" />
+        <aop:aspect id="exceptions" ref="performanceTester">
+            <aop:around method="testPerformance" pointcut-ref="restControllers" />
+        </aop:aspect>
+    </aop:config>
     <!--<aop:config>
         <aop:pointcut id="restControllers" expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)" />
         <aop:aspect id="exceptions" ref="exceptionHandler">
