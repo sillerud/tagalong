@@ -5,7 +5,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class SearchResult {
+public class SearchResult<T> {
     String type;
-    Object data;
+    T data;
 }

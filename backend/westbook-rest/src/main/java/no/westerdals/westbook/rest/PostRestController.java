@@ -40,7 +40,7 @@ public class PostRestController
         ArrayList<Post> result = new ArrayList<>();
         for (String tag : tags)
         {
-            result.addAll(postRepo.getByTagsName(tag));
+            result.addAll(postRepo.getByTagsTagId(tag));
         }
         return result;
     }

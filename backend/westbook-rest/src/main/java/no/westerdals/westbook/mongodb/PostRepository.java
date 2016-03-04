@@ -12,7 +12,7 @@ import java.util.List;
 public interface PostRepository extends MongoRepository<Post, String>
 {
     List<Post> getByUserId(String userId);
-    List<Post> getByTagsName(String name);
-    List<Post> getByTagsName(String name, Pageable pageable);
+    List<Post> getByTagsTagId(String tagId);
+    List<Post> getByTagsTagId(String tagId, Pageable pageable);
     List<Post> getByPageId(String pageId);
 }
