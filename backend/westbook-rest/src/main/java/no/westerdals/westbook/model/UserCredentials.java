@@ -1,45 +1,43 @@
 package no.westerdals.westbook.model;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @NoArgsConstructor
+@Data
+@ToString
 public class UserCredentials implements UserDetails {
-    @Getter
     private User user;
-    @Getter
-    private Credential credential;
-    private List<GrantedAuthority> grantedAuthorities;
+    private boolean accountLocked;
+    private String passwordHash;
+    private String[] grantedAuthorities;
 
     public UserCredentials(User user, Credential credential) {
         this.user = user;
-        this.credential = credential;
+        this.accountLocked = credential.isAccountLocked();
+        this.passwordHash = credential.getPasswordHash();
         if (credential.getAuthorities() == null) {
-            grantedAuthorities = new ArrayList<>();
+            grantedAuthorities = new String[0];
         } else {
-            grantedAuthorities = credential.getAuthorities().stream()
-                    .map(MongoGrantedAuthority::new)
-                    .collect(Collectors.toList());
+            grantedAuthorities = credential.getAuthorities();
         }
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return grantedAuthorities;
+        return AuthorityUtils.createAuthorityList(grantedAuthorities);
     }
 
     @Override
     public String getPassword() {
-        return credential.getPasswordHash();
+        return passwordHash;
     }
 
     @Override
@@ -55,7 +53,7 @@ public class UserCredentials implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !credential.isAccountLocked();
+        return !accountLocked;
     }
 
     @Override
@@ -66,10 +64,5 @@ public class UserCredentials implements UserDetails {
     @Override
     public boolean isEnabled() {
         return user.isEnabled();
-    }
-
-    @Data
-    public static class MongoGrantedAuthority implements GrantedAuthority {
-        private final String authority;
     }
 }

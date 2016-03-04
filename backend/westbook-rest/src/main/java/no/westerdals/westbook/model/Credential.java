@@ -15,5 +15,5 @@ public class Credential {
     String id;
     String passwordHash;
     private boolean accountLocked;
-    private List<String> authorities;
+    private String[] authorities;
 }
