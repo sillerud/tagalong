@@ -10,4 +10,5 @@ import java.io.Serializable;
 public class ValueDescription implements Serializable {
     private String description;
     private String value;
+    private static final long serialVersionUID = 9068711302098927061L;
 }

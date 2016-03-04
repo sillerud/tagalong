@@ -76,9 +76,10 @@ public class SearchRestController {
         for (int i = 1; i < nameParts.length; i++) {
             String possibleName = join(nameParts, 0, i);
             String possibleSurname = join(nameParts, i, nameParts.length);
-            User user = userRepository.getByFullName(possibleName, possibleSurname);
-            if (user != null) {
-                found.add(new SearchResult<>("user", user));
+            List<User> users = userRepository.findByFirstnameLikeAndSurnameLike(possibleName, possibleSurname);
+            if (users != null) {
+                users.stream().map(user -> new SearchResult<>("user", user))
+                        .forEach(found::add);
             }
             if (found.size() >= maxResults)
                 return;
@@ -86,7 +87,7 @@ public class SearchRestController {
     }
 
     private void findUsersBySurname(List<SearchResult<User>> found, String surname, int maxResults) {
-        userRepository.getBySurname(surname, new PageRequest(0, maxResults - found.size()))
+        userRepository.findBySurnameLike(surname, new PageRequest(0, maxResults - found.size()))
                 .stream()
                 .filter(user -> !found.contains(user))
                 .map(user -> new SearchResult<>("user", user))
