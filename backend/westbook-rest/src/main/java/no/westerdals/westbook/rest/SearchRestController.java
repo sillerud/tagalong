@@ -115,7 +115,6 @@ public class SearchRestController {
 
     private Stream<Tag> resolveChildren(Tag tag) {
         List<Tag> tags = tagRepository.findByParentId(tag.getId());
-        tags.forEach(System.out::println);
         tags.add(tag);
         return tags.stream();
     }
