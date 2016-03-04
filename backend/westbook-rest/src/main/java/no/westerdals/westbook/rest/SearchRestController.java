@@ -21,12 +21,12 @@ public class SearchRestController {
     private UserRepository userRepository;
 
     @RequestMapping(method=RequestMethod.GET)
-    public List<SearchResult> searchAll(@RequestParam String query, @RequestParam(name="maxResults",value="20") int maxResults) {
+    public List<SearchResult> searchAll(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
         return searchUsers(query, maxResults);
     }
 
     @RequestMapping(value="/users",method=RequestMethod.GET)
-    public List<SearchResult> searchUsers(@RequestParam String query, @RequestParam(name="maxResults",value="20") int maxResults) {
+    public List<SearchResult> searchUsers(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
         String[] nameParts = query.split(" ");
         if (nameParts.length > 4)
             return null;
