@@ -37,7 +37,7 @@
 
                     <div class="shout-out-box box">
                         <div class="box-title">
-                            <h3>Movie night Shout Out</h3>
+                            <h3><i class="fa fa-bullhorn"></i>Movie night Shout Out</h3>
                         </div>
                         <div class="shout-out-text">
                             <p>

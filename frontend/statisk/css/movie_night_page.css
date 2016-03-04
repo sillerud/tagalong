@@ -1,3 +1,7 @@
+.fa-bullhorn{
+   padding-right: 10px;
+}
+
 .event-time-icon, .event-time, .event-date, .event-date-icon, .event-place, .event-place-icon{
     float: left;
     padding: 5px;

@@ -28,7 +28,7 @@ $color5: rgb(255,112,97);
 #five{ background-color: $color5; }
 #five:before{ border-right: 8px solid $color5; }
 
-.varsel-title{ border-bottom: 3px solid $color; }
+.varsel-title{ border-bottom: 3px solid $color; } //skal IKKE være med
 .menu-wrap{ background-color: $color; }
 .menu{ background-color: $color; }
 .add-new-btn{ border: 2px solid $color; }
@@ -75,3 +75,8 @@ $color5: rgb(255,112,97);
 .btn-no-fill:hover{ background-color: $color; }
 .btn-fill{ background-color: $color; }
 .btn-fill:hover{ background-color: $color; }
+
+/* --- LEGG TIL ---
+Linje i varselboks: .varsel-panel{border-bottom:2px solid #61afca}
++ se linje 31 i denne fila
+*/
