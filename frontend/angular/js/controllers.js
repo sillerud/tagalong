@@ -201,7 +201,7 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
         $('.search-overlay-wrap').fadeIn();
 
         timerId = setInterval(function() {
-            if (lastKeyPress + 500 < Date.now() && !resultUpdated) {
+            if (lastKeyPress + 200 < Date.now() && !resultUpdated) {
                 if ($scope.searchText) {
                     Search.queryAll({query: $scope.searchText}, function(data) {
                         console.log(data);

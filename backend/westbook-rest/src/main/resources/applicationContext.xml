@@ -7,7 +7,7 @@
     <mongo:mongo host="127.0.0.1" port="27017" />
     <mongo:db-factory dbname="development" />
     <bean class="no.westerdals.westbook.aop.ExceptionHandler" id="exceptionHandler" />
-    <bean class="no.westerdals.westbook.aop.PerformanceTester" id="performanceTester" />
+    <!--<bean class="no.westerdals.westbook.aop.PerformanceTester" id="performanceTester" />-->
 
     <bean class="no.westerdals.westbook.uploads.MongoUploadService">
         <constructor-arg index="0" ref="gridFsTemplate" />
@@ -20,12 +20,12 @@
         <property name="path" value="/tmp/uploads" />
     </bean>-->
 
-    <aop:config>
+    <!--<aop:config>
         <aop:pointcut id="restControllers" expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)" />
         <aop:aspect id="exceptions" ref="performanceTester">
             <aop:around method="testPerformance" pointcut-ref="restControllers" />
         </aop:aspect>
-    </aop:config>
+    </aop:config>-->
     <!--<aop:config>
         <aop:pointcut id="restControllers" expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)" />
         <aop:aspect id="exceptions" ref="exceptionHandler">
