@@ -4,19 +4,12 @@
     <!-- Kode her -->
 
     <div class="card-shortcut-wrap">
-
-        <div class="card-shortcut" id="cs0">
-            <div class="cs-icon">M</div>
-            <div class="card-name">My social card is very long</div>
-        </div><br>
-        <div class="card-shortcut" id="cs1">
-            <div class="cs-icon">S</div>
-            <div class="card-name">Skolerelatert</div>
-        </div><br>
-        <div class="card-shortcut" id="cs2">
-            <div class="cs-icon">K</div>
-            <div class="card-name">Katta med slips</div>
-        </div><br>
+        <div ng-repeat="card in cards" >
+            <div class="card-shortcut" id="{{ card.id }}">
+                <div class="cs-icon">{{ card.name | limitTo: 1 }}</div>
+                <div class="card-name">{{ card.name }}</div>
+            </div><br>
+        </div>
 
     </div><!-- END card-shortcut-wrap -->
 
