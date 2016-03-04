@@ -44,12 +44,18 @@
 
             <div class="top-right">
 
-                <a href="#/profile">
-                    <div class="logged-in-person ta-color-hover ta-border-color-hover">
-                        {{ me.firstname }} {{ me.surname }}
-                        <i class="fa fa-user"></i>
+                <div class="logged-in-person">
+                    <a href="#/profile">
+                        <div class="person-name">
+                            {{ me.firstname }} {{ me.surname }}
+                            <i class="fa fa-user"></i>
+                        </div>
+                    </a>
+                    <div class="menu-person-dropdown">
+                        <a ng-click="logout()">Log out</a>
                     </div>
-                </a>
+
+                </div>
 
                 <div class="varsel">
                     <i class="fa fa-bell"></i>
@@ -229,7 +235,6 @@
                         </section>
                     </a>
                 </div>
-                <a ng-click="logout()">Ikke klikk meg!</a>
 
             </div><!-- END shortcut-menu -->
 

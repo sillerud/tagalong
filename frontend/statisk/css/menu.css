@@ -112,14 +112,41 @@
     }
     .logged-in-person{
         display: inline-block;
+        position: relative;
         float: right;
         margin-left: 20px;
-        padding: 3px 5px 1px 5px;
+        padding: 3px 5px 5px 5px;
         color: #FFF;
         cursor: pointer;
     }
+    .logged-in-person a{ color: #FFF;}
+    .logged-in-person a:hover{ text-decoration: none;}
+    .logged-in-person:hover{
+      background-color: #222;
+      border-radius: 5px 5px 0 0;
+    }
     .logged-in-person i{
         margin-left: 10px;
+    }
+    .logged-in-person:hover .menu-person-dropdown{
+      display: block;
+    }
+    .logged-in-person:hover .person-name{
+      border-bottom: 1px solid #333;
+    }
+    .menu-profile-wrap{
+      position: relative;
+    }
+    .menu-person-dropdown{
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      padding: 5px;
+      border-radius: 0 0 5px 5px;
+      background-color: #222;
+      z-index: 2;
+      display: none;
     }
     .varsel{
       float: right;
