@@ -6,6 +6,7 @@ import no.westerdals.westbook.model.User;
 import no.westerdals.westbook.mongodb.PageRepository;
 import no.westerdals.westbook.mongodb.TagRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
+import no.westerdals.westbook.responses.ResolvedTag;
 import no.westerdals.westbook.responses.SearchResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -62,9 +63,10 @@ public class SearchRestController {
     }
 
     @RequestMapping
-    public List<SearchResult<Tag>> searchTags(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
+    public List<SearchResult<ResolvedTag>> searchTags(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
         return Stream.concat(tagRepository.findByName(query, new PageRequest(0, maxResults)).stream(),
                 tagRepository.findByDescription(query, new PageRequest(0, maxResults)).stream())
+                .map(this::resolve)
                 .map(tag -> new SearchResult<>("tag", tag))
                 .collect(Collectors.toList());
     }
@@ -89,6 +91,16 @@ public class SearchRestController {
                 .filter(user -> !found.contains(user))
                 .map(user -> new SearchResult<>("user", user))
                 .forEach(found::add);
+    }
+
+    private ResolvedTag resolve(Tag tag) {
+        ResolvedTag resolvedTag = new ResolvedTag(tag.getId(), null, tag.getName(), tag.getDescription());
+        if (tag.getId() == null) {
+            return resolvedTag;
+        }
+        Tag parent = tagRepository.findOne(tag.getParentId());
+        resolvedTag.setParent(resolve(parent));
+        return resolvedTag;
     }
 
     private String join(String[] strs, int startIndex, int endIndex) {
