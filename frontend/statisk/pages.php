@@ -38,33 +38,33 @@
                 <div class="box-title">
                     <h3 class="pages-all-pages-header">Pages</h3>
                 </div>
-               <div class="an-event-wrap">
-                   <div class="page-image-wrap" style="background-image: url('../statisk/images/kit.jpg');">
+                   <div class="an-event-wrap">
+                       <div class="page-image-wrap" style="background-image: url('../statisk/images/kit.jpg');">
 
-                       <a href="/angular/partials/page.html">
-                           <div class="pages-image-overlay"></div>
-                       </a>
-
-
-                       <h4 class="event-title">Kvinner og IT</h4>
-                       <div class="page-about">
-                           <div class="event-location">Location</div>
-                           <div class="card-tag-wrap">
-                               <ul class="card-tag-list">
-                                   <li>#Utvikling</li>
-                                   <li>@Fubar</li>
-                                   <li>#Sosialt</li>
-                               </ul>
-                           </div>
-                           <div class="event-info">
-                               <i class="fa fa-info"></i>
-                           </div>
-                       </div><!-- END page about -->
-
-                   </div><!-- END event-image-wrap -->
+                           <a href="/angular/partials/page.html">
+                               <div class="event-image-overlay"></div>
+                           </a>
 
 
-               </div><!-- END - an-event-wrap -->
+                           <h4 class="page-title">Kvinner & IT</h4>
+
+                           <div class="page-about">
+
+                               <div class="page-tag-wrap">
+                                   <ul class="page-tag-list">
+                                       <li>#Utvikling</li>
+                                       <li>@Fubar</li>
+                                       <li>#Sosialt</li>
+                                   </ul>
+                               </div>
+                               <div class="event-info">
+                                   <i class="fa fa-info"></i>
+                               </div>
+                           </div><!-- END events about -->
+                       </div><!-- END event-image-wrap -->
+
+
+                   </div><!-- END - an-event-wrap -->
 
 
 
