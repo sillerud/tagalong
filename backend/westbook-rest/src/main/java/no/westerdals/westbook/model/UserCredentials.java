@@ -1,16 +1,15 @@
 package no.westerdals.westbook.model;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @NoArgsConstructor
 public class UserCredentials implements UserDetails {
@@ -26,9 +25,8 @@ public class UserCredentials implements UserDetails {
         if (credential.getAuthorities() == null) {
             grantedAuthorities = new ArrayList<>();
         } else {
-            grantedAuthorities = credential.getAuthorities().stream()
-                    .map(MongoGrantedAuthority::new)
-                    .collect(Collectors.toList());
+            grantedAuthorities = AuthorityUtils.createAuthorityList(credential.getAuthorities()
+                    .toArray(new String[credential.getAuthorities().size()]));
         }
     }
 
@@ -66,10 +64,5 @@ public class UserCredentials implements UserDetails {
     @Override
     public boolean isEnabled() {
         return user.isEnabled();
-    }
-
-    @Data
-    public static class MongoGrantedAuthority implements GrantedAuthority {
-        private final String authority;
     }
 }
