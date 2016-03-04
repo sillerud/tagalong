@@ -6,38 +6,37 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 @NoArgsConstructor
 public class UserCredentials implements UserDetails {
     @Getter
     private User user;
+    private boolean accountLocked;
+    private String passwordHash;
     @Getter
-    private Credential credential;
-    private List<GrantedAuthority> grantedAuthorities;
+    private String[] grantedAuthorities;
 
     public UserCredentials(User user, Credential credential) {
         this.user = user;
-        this.credential = credential;
+        this.accountLocked = credential.isAccountLocked();
+        this.passwordHash = credential.getPasswordHash();
         if (credential.getAuthorities() == null) {
-            grantedAuthorities = new ArrayList<>();
+            grantedAuthorities = new String[0];
         } else {
-            grantedAuthorities = AuthorityUtils.createAuthorityList(credential.getAuthorities()
-                    .toArray(new String[credential.getAuthorities().size()]));
+            grantedAuthorities = credential.getAuthorities();
         }
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return grantedAuthorities;
+        return AuthorityUtils.createAuthorityList(grantedAuthorities);
     }
 
     @Override
     public String getPassword() {
-        return credential.getPasswordHash();
+        return passwordHash;
     }
 
     @Override
@@ -53,7 +52,7 @@ public class UserCredentials implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !credential.isAccountLocked();
+        return !accountLocked;
     }
 
     @Override
