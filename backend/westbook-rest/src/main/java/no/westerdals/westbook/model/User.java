@@ -3,14 +3,14 @@ package no.westerdals.westbook.model;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @NoArgsConstructor
 @ToString
 @Getter
 @Setter
-public class User
-{
+public class User implements Serializable {
     public User(String email, Date born, String studyFieldId, String city, String interests,
                 String gender, String firstname, String surname, String profilePictureId, ValueDescription[] contactInfo)
     {
