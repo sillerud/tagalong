@@ -16,7 +16,7 @@ import java.util.List;
 
 @RequestMapping("/rest/v1/search")
 @RestController
-public class TmpSearchRestController {
+public class SearchRestController {
     @Autowired
     private UserRepository userRepository;
 
@@ -25,7 +25,7 @@ public class TmpSearchRestController {
         return searchUsers(query, maxResults);
     }
 
-    @RequestMapping(method=RequestMethod.GET)
+    @RequestMapping(value="/users",method=RequestMethod.GET)
     public List<SearchResult> searchUsers(@RequestParam String query, @RequestParam(name="maxResults",value="20") int maxResults) {
         String[] nameParts = query.split(" ");
         if (nameParts.length > 4)
