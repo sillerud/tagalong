@@ -18,9 +18,9 @@ public interface UserRepository extends MongoRepository<User, String>, UserRepos
     List<User> getBySurname(String surname);
     List<User> getBySurname(String surname, Pageable pageable);
     List<User> getByStudyFieldId(String id);
-    List<User> findByFirstnameLike(String name, Pageable pageable);
-    List<User> findBySurnameLike(String name, Pageable pageable);
-    List<User> findByFirstnameLikeAndSurnameLike(String firstname, String surname);
+    List<User> findByFirstnameLikeIgnoreCase(String name, Pageable pageable);
+    List<User> findBySurnameLikeIgnoreCase(String name, Pageable pageable);
+    List<User> findByFirstnameLikeAndSurnameLikeIgnoreCase(String firstname, String surname);
     @Query("{firstname: ?0, surname: ?1}")
     User getByFullName(String firstname, String surname);
     User getByEmail(String email);
