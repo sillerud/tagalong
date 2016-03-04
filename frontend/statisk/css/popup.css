@@ -2,11 +2,19 @@
     position: fixed;
     max-width: 500px;
     width: 100%;
-    padding: 100px;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #FFF;
     left: 0;
     right: 0;
     margin: auto;
+}
+.add-to-card-wrap #atcSearch{
+    width: 100%;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    padding: 10px 15px;
+    position: relative;
+}
+.add-to-card-wrap .box-title{
+    margin-bottom: 15px;
 }
