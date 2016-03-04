@@ -84,7 +84,7 @@ public class SearchRestController {
         for (int i = 1; i < nameParts.length; i++) {
             String possibleName = join(nameParts, 0, i);
             String possibleSurname = join(nameParts, i, nameParts.length);
-            List<User> users = userRepository.findByFirstnameLikeAndSurnameLikeIgnoreCase(possibleName, possibleSurname);
+            List<User> users = userRepository.findByFirstnameLikeIgnoreCaseAndSurnameLikeIgnoreCase(possibleName, possibleSurname);
             if (users != null) {
                 users.stream().map(user -> new SearchResult<>("user", user))
                         .forEach(found::add);
