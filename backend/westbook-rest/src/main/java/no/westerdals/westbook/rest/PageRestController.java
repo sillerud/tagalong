@@ -6,6 +6,7 @@ import no.westerdals.westbook.mongodb.PageRepository;
 import no.westerdals.westbook.responses.ResultResponse;
 import static no.westerdals.westbook.responses.ResultResponse.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class PageRestController
     @RequestMapping(value="/by-name/{name}", method=RequestMethod.GET)
     public List<Page> getPagesByName(@PathVariable String name)
     {
-        return pageRepository.getByName(name);
+        return pageRepository.findByName(name, new PageRequest(0, 20));
     }
 
     @RequestMapping(value="/by-user/{userId}", method=RequestMethod.GET)
