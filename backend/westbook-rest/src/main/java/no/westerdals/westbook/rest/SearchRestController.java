@@ -33,6 +33,7 @@ public class SearchRestController {
     public List<SearchResult> searchAll(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
         ArrayList<SearchResult> results = new ArrayList<>(searchUsers(query, maxResults));
         results.addAll(searchPages(query, maxResults));
+        results.addAll(searchTags(query, maxResults));
         return results;
     }
 
