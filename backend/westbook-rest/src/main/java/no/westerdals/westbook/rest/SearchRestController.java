@@ -109,7 +109,6 @@ public class SearchRestController {
     private void findUsersBySurname(List<SearchResult<User>> found, String[] query, int maxResults) {
         userRepository.findBySurnameLikeIgnoreCase(query[0], new PageRequest(0, maxResults - found.size()))
                 .stream()
-                .filter(user -> !found.contains(user))
                 .map(user -> new SearchResult<>("user", user))
                 .forEach(found::add);
     }

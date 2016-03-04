@@ -78,8 +78,7 @@ public class UserRestController
 
     //!!!!!!!!!!NEED TO CHECK ACCESS LEVEL!!!!!!!!!!!!
     @RequestMapping(value="/{userId}", method=RequestMethod.DELETE)
-    public ResultResponse deleteUser(@PathVariable String userId)
-    {
+    public ResultResponse deleteUser(@PathVariable String userId) {
         if (userRepository.findOne(userId) == null)
         {
             return newErrorResult(MessageConstant.USER_NOT_FOUND);
@@ -89,8 +88,7 @@ public class UserRestController
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public ResultResponse createUser(@RequestBody UserCredentials userCredentials)
-    {
+    public ResultResponse createUser(@RequestBody UserCredentials userCredentials) {
         User user = userCredentials.getUser();
         user.setId(null);
         userRepository.save(user);

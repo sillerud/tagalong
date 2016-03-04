@@ -209,8 +209,10 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
                             var result = data[i];
                             if (result.type == "user") {
                                 result.url = "profile/" + result.data.id;
+                                result.name = result.data.firstname + " " + result.data.surname;
                             } else if (result.type == "page") {
                                 result.url = "pages/" + result.data.customUrl;
+                                result.name = result.data.name;
                             }
                         }
                         $scope.searchResults = data;

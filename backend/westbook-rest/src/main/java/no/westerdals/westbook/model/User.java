@@ -7,9 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @NoArgsConstructor
-@ToString
-@Getter
-@Setter
+@Data
 public class User implements Serializable {
     public User(String email, Date born, String studyFieldId, String city, String interests,
                 String gender, String firstname, String surname, String profilePictureId, ValueDescription[] contactInfo)
