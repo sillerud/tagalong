@@ -110,20 +110,22 @@
                             <input id="quickSearch" type="search" placeholder="Søk her..." ng-model="searchText" ng-keyup="runAutoComplete($event)" ng-change="updateSearchResults()" autofocus>
                             <i class="exit-search fa fa-times" ng-click="closeSearch()"></i>
                             <div class="fast-search-result"></div>
-                        </div><!-- END search-overlay-inner -->
 
-                        <div class="search-results">
-                            <div class="search-result-wrap" ng-repeat="searchResult in searchResults">
-                                <a ng-href="#/{{ searchResult.url }}" ng-click="closeSearch()" ng-if="searchResult.url">
-                                    <div class="search-result">
+
+                            <div class="search-results">
+                                <div class="search-result-wrap" ng-repeat="searchResult in searchResults">
+                                    <a ng-href="#/{{ searchResult.url }}" ng-click="closeSearch()" ng-if="searchResult.url">
+                                        <div class="search-result">
+                                            {{ searchResult.name }}
+                                        </div>
+                                    </a>
+                                    <div class="search-result" ng-if="!searchResult.url">
                                         {{ searchResult.name }}
                                     </div>
-                                </a>
-                                <div class="search-result" ng-if="!searchResult.url">
-                                    {{ searchResult.name }}
                                 </div>
-                            </div>
-                        </div> <!-- END search-results -->
+                            </div> <!-- END search-results -->
+
+                        </div>
                     </div><!-- END search-overlay-wrap -->
                 </div><!-- END fast-search -->
 

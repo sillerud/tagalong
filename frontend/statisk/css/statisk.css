@@ -65,6 +65,25 @@ a:hover{
 }
 /* END - Globale elementer */
 
+/* Search overlay */
+.search-results{
+    position: relative;
+    top: 100px;
+}
+.add-to-card-wrap .add-btn{
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    background-color: #61afca;
+    padding: 0 10px 2px;
+    border-radius: 5px;
+    display: none;
+    cursor: pointer;
+    -webkit-box-shadow: 1px 1px 3px #317b94;
+}
+.add-to-card-wrap .col-sidebar-cards:hover .add-btn{
+    display: block;
+}
 
 /* menu.css */
 /* forside.css */

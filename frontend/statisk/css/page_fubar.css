@@ -104,10 +104,12 @@
 .add-page-to-card-text{
     position: relative;
     float: left;
-    padding-right: 10px;
+    padding: 0 5px 2px 5px;
+    right: 5px;
     top: 3px;
-    color: #FFF;
-    text-shadow: 1px 1px #000;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
 }
 
 /* Shout out box */

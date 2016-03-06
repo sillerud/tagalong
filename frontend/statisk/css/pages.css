@@ -43,7 +43,7 @@
 /*Displying pages style*/
 .page-preview{ /* Wrap rundt et event, upcoming og my event */
     overflow: hidden;
-    margin: 20px 0;
+    margin-bottom: 30px;
     background-color: #FFF;
     position: relative;
     border: 5px solid #FFF;
