@@ -236,12 +236,12 @@
     }
 @media screen and (min-width: 470px){
     .varsel-panel{
-        min-width: 400px;
+        min-width: 200px;
     }
 }
 @media screen and (max-width: 400px){
     .varsel-panel{
-        min-width: 250px;
+        min-width: 200px;
     }
 }
 
@@ -252,8 +252,14 @@
 }
 
 .notification-feed-box{
-    width: 330px;
+    width: 200px;
+    height: 50px;
+    border-bottom: 1px solid black;
 }
+.notification-timestamp{
+    float: right;
+}
+
 
 .notification-feed-box, .profilbilde-varsel{
     float: left;
