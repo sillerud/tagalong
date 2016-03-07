@@ -1,5 +1,6 @@
 package no.westerdals.westbook.rest;
 
+import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.uploads.DownloadRequest;
 import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.FileMeta;
@@ -8,11 +9,13 @@ import static no.westerdals.westbook.responses.ResultResponse.*;
 
 import no.westerdals.westbook.uploads.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 
@@ -32,10 +35,11 @@ public class FileRestController
     @RequestMapping(method=RequestMethod.POST)
     public ResultResponse handleUpload(@RequestParam("name") String name, // Ugly as fuck...
                                        @RequestParam(value="attachment", defaultValue="false") boolean attachment,
-                                       @RequestParam("file") MultipartFile file) throws IOException
-    {
+                                       @RequestParam("file") MultipartFile file,
+                                       Principal principal) throws IOException {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         // TODO: Get user ID from session
-        FileMeta fileMeta = uploadService.uploadFile(new FileMeta("todo:userid", name, attachment, new Date()), file.getInputStream());
+        FileMeta fileMeta = uploadService.uploadFile(new FileMeta(userCredentials.getUser().getId(), name, attachment, new Date()), file.getInputStream());
         return newOkResult(MessageConstant.FILE_UPLOADED, fileMeta);
     }
 

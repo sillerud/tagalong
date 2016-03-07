@@ -220,8 +220,12 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
         $scope.showContactInfo = val;
     }
 }]);
-userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
-
+userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Uploads', function($scope, $routeParams, User, Uploads) {
+    $scope.uploadFile = function(file) {
+        Uploads.upload({file: file, name: file.name, attachment: false}, function(data) {
+            User.update({profilePictureId: data.id});
+        });
+    }
 }]);
 
 searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($scope, Search) {

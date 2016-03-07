@@ -8,6 +8,7 @@ var pageServices = angular.module('pageServices', ['ngResource']);
 var postServices = angular.module('postServices', ['ngResource']);
 var userServices = angular.module('userServices', ['ngResource']);
 var searchServices = angular.module('searchServices', ['ngResource']);
+var uploadsServices = angular.module('uploadServices', ['ngResource']);
 
 var transform = function(data){
     return $.param(data);
@@ -85,6 +86,13 @@ searchServices.factory('Search', ['$resource', function($resource) {
         queryAll: {
             method: 'GET',
             isArray: true
+        }
+    })
+}]);
+
+uploadsServices.factory('Uploads', ['$resource', function($resource) {
+    return $resource(url("/uploads/:uploadId"), {}, {
+        upload: {
         }
     })
 }]);
