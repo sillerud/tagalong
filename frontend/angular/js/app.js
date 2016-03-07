@@ -13,8 +13,7 @@ angular.module('tagalong', [
         'pageControllers',
         'pageServices',
         'searchControllers',
-        'searchServices',
-        'uploadServices'
+        'searchServices'
     ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {

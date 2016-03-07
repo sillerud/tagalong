@@ -11,15 +11,12 @@ import no.westerdals.westbook.responses.ResultResponse;
 import no.westerdals.westbook.responses.UserResponse;
 import static no.westerdals.westbook.responses.ResultResponse.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.encoding.BasePasswordEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,7 +49,7 @@ public class UserRestController
     }
 
 
-    @RequestMapping(method=RequestMethod.PATCH)
+    /*@RequestMapping(method=RequestMethod.PATCH)
     public UserResponse updateUserInfo(@RequestBody User user)
     {
         // This needs some checks if its sane
@@ -60,7 +57,7 @@ public class UserRestController
             return null;
         userRepository.updateStudyField(user.getId(), user.getStudyFieldId());
         return resolve(userRepository.findOne(user.getId()));
-    }
+    }*/
 
     @RequestMapping(value="/by-studyfield/{studyField}", method=RequestMethod.GET)
     public List<UserResponse> getByStudyField(@PathVariable String studyField)
@@ -87,6 +84,18 @@ public class UserRestController
         return newOkResult(MessageConstant.USER_DELETED);
     }
 
+    @RequestMapping(method=RequestMethod.PATCH)
+    public ResultResponse updateUser(@RequestBody User user, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
+        if (user.getId() == null) {
+            user.setId(userCredentials.getUser().getId());
+            return newOkResult(MessageConstant.USER_UPDATED, userRepository.save(user));
+        } else {
+            // TODO: Edit other profiles
+            return newErrorResult(MessageConstant.NOT_IMPLEMENTED);
+        }
+    }
+
     @RequestMapping(method=RequestMethod.POST)
     public ResultResponse createUser(@RequestBody UserCredentials userCredentials) {
         User user = userCredentials.getUser();
@@ -106,7 +115,7 @@ public class UserRestController
         credential.setAuthorities(null);
         credential.setAccountLocked(false);
         credentialRepository.save(credential);
-        return newOkResult(MessageConstant.PASSWORD_CHANGED);
+        return newOkResult(MessageConstant.USER_UPDATED);
     }
 
     @PreAuthorize("hasRole('SET_PASSWORD')")
@@ -119,7 +128,7 @@ public class UserRestController
 
         credentialRepository.save(credential);
 
-        return newOkResult(MessageConstant.PASSWORD_CHANGED);
+        return newOkResult(MessageConstant.USER_UPDATED);
     }
 
     @RequestMapping(method=RequestMethod.GET)
