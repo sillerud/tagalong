@@ -203,6 +203,16 @@
       z-index: 2;
       display: none;
     }
+    .logged-in-person:hover .person-name{
+      padding-bottom: 5px;
+    }
+    .person-list{
+      padding: 5px;
+    }
+    .person-list:hover{
+      background-color: #000;
+      border-radius: 3px;
+    }
     .varsel{
       float: right;
       margin-left: 20px;
