@@ -6,6 +6,7 @@ public enum MessageConstant
     USER_NOT_FOUND,
     USER_DELETED,
     USER_CREATED,
+    USER_UPDATED,
 
     // Post
     POST_CREATED,
@@ -31,9 +32,9 @@ public enum MessageConstant
     // Post,
     PAGE_CREATED,
 
-    // Password
-    PASSWORD_CHANGED,
-
     // Cards
     CARD_CREATED,
+
+    // General
+    NOT_IMPLEMENTED,
 }

@@ -220,9 +220,18 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
         $scope.showContactInfo = val;
     }
 }]);
-userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Uploads', function($scope, $routeParams, User, Uploads) {
+userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', function($scope, $routeParams, User, Upload) {
     $scope.uploadFile = function(file) {
-        Uploads.upload({file: file, name: file.name, attachment: false}, function(data) {
+        Upload.upload({
+            url: "/rest/v1/uploads",
+            data: {
+                file: file,
+                name: file.name,
+                attachment: false
+            }
+        }).then(function(result) {
+            console.log(result);
+            var data = result.data.extra;
             User.update({profilePictureId: data.id});
         });
     }

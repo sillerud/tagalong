@@ -33,6 +33,11 @@ loginServices.factory('Event', ['$resource', function($resource) {
 
 userServices.factory('User', ['$resource', function($resource) {
     return $resource(url("/users/:userId"), {}, {
+        update: {
+            url: url("/users"),
+            method: 'PATCH',
+            isArray: false
+        },
         create: {
             url: url("/users"),
             method: 'POST',
@@ -86,13 +91,6 @@ searchServices.factory('Search', ['$resource', function($resource) {
         queryAll: {
             method: 'GET',
             isArray: true
-        }
-    })
-}]);
-
-uploadsServices.factory('Uploads', ['$resource', function($resource) {
-    return $resource(url("/uploads/:uploadId"), {}, {
-        upload: {
         }
     })
 }]);
