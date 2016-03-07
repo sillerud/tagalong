@@ -183,6 +183,20 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
         $scope.user = $scope.me; // avoid showing your own name before loading the other person's name
     }
 
+    $scope.user.$promise.then(function(user) {
+        if (user.profilePictureId) {
+            user.profilePictureUrl = "/rest/v1/uploads/" + user.profilePictureId;
+        } else {
+            user.profilePictureUrl = "img/user_placeholder.png";
+        }
+        if (user.profileHeaderPictureId) {
+            user.profileHeaderPictureUrl = "/rest/v1/uploads/" + user.profileHeaderPictureId;
+        } else {
+            user.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
+        }
+        console.log(user.profilePictureUrl);
+    });
+
     $scope.setShowContactInfo = function(val) {
         $scope.showContactInfo = val;
     }
