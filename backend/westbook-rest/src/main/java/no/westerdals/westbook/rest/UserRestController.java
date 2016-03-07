@@ -49,7 +49,7 @@ public class UserRestController
     }
 
 
-    @RequestMapping(method=RequestMethod.PATCH)
+    /*@RequestMapping(method=RequestMethod.PATCH)
     public UserResponse updateUserInfo(@RequestBody User user)
     {
         // This needs some checks if its sane
@@ -57,7 +57,7 @@ public class UserRestController
             return null;
         userRepository.updateStudyField(user.getId(), user.getStudyFieldId());
         return resolve(userRepository.findOne(user.getId()));
-    }
+    }*/
 
     @RequestMapping(value="/by-studyfield/{studyField}", method=RequestMethod.GET)
     public List<UserResponse> getByStudyField(@PathVariable String studyField)
