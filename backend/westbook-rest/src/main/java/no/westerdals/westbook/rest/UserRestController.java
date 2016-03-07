@@ -89,7 +89,7 @@ public class UserRestController
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         if (user.getId() == null) {
             user.setId(userCredentials.getUser().getId());
-            return newOkResult(MessageConstant.USER_UPDATED, userRepository.save(user));
+            return newOkResult(MessageConstant.USER_UPDATED, userRepository.update(user));
         } else {
             // TODO: Edit other profiles
             return newErrorResult(MessageConstant.NOT_IMPLEMENTED);
