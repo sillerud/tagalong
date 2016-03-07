@@ -63,6 +63,17 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
     $scope.me = User.find(function(data) {
         if (!data.email) {
             redirectLogin();
+            return;
+        }
+        if (data.profilePictureId) {
+            data.profilePictureUrl = "/rest/v1/uploads/" + data.profilePictureId;
+        } else {
+            data.profilePictureUrl = "img/user_placeholder.png";
+        }
+        if (data.profileHeaderPictureId) {
+            data.profileHeaderPictureUrl = "/rest/v1/uploads/" + data.profileHeaderPictureId;
+        } else {
+            data.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
         }
     }, redirectLogin);
     $scope.logout = function() {
@@ -178,24 +189,21 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
 ]);
 userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
     if ($routeParams.id) {
-        $scope.user = User.find({userId: $routeParams.id})
+        $scope.user = User.find({userId: $routeParams.id}, function(data) {
+            if (data.profilePictureId) {
+                data.profilePictureUrl = "/rest/v1/uploads/" + data.profilePictureId;
+            } else {
+                data.profilePictureUrl = "img/user_placeholder.png";
+            }
+            if (data.profileHeaderPictureId) {
+                data.profileHeaderPictureUrl = "/rest/v1/uploads/" + data.profileHeaderPictureId;
+            } else {
+                data.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
+            }
+        });
     } else {
         $scope.user = $scope.me; // avoid showing your own name before loading the other person's name
     }
-
-    $scope.user.$promise.then(function(user) {
-        if (user.profilePictureId) {
-            user.profilePictureUrl = "/rest/v1/uploads/" + user.profilePictureId;
-        } else {
-            user.profilePictureUrl = "img/user_placeholder.png";
-        }
-        if (user.profileHeaderPictureId) {
-            user.profileHeaderPictureUrl = "/rest/v1/uploads/" + user.profileHeaderPictureId;
-        } else {
-            user.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
-        }
-        console.log(user.profilePictureUrl);
-    });
 
     $scope.setShowContactInfo = function(val) {
         $scope.showContactInfo = val;

@@ -4,10 +4,9 @@
     <form>
     <center><h1>Edit your profile details</h1></center>
 
-    <div class="edit-profile-profile-pic">
-        <img class="img-responsive" src="../statisk/images/profilbilde_jap.jpg">
-        <input id="chooseProfilePic" type="file" style="visibility:hidden">
-        <div class="pic-overlay" onclick="$('#chooseProfilePic').click();"><b>Click to edit</b></div>
+    <div class="edit-profile-profile-pic" ngf-select="upload($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
+        <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
+        <div class="pic-overlay"><b>Click to edit</b></div>
     </div>
     <div class="row">
         <div class="col-sm-12">
