@@ -107,8 +107,12 @@
 
                     <div class="search-overlay-wrap">
                         <div class="container">
+                            <div class="close-search" ng-click="closeSearch()">
+                                <i class="exit-search fa fa-times"></i>
+                                Exit
+                            </div>
                             <input id="quickSearch" type="search" placeholder="Søk her..." ng-model="searchText" ng-keyup="runAutoComplete($event)" ng-change="updateSearchResults()" autofocus>
-                            <i class="exit-search fa fa-times" ng-click="closeSearch()"></i>
+                            <i class="search-search fa fa-search"></i>
                             <div class="fast-search-result"></div>
 
 
