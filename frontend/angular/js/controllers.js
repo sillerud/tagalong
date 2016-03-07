@@ -212,7 +212,7 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
 userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Uploads', function($scope, $routeParams, User, Uploads) {
     $scope.uploadFile = function(file) {
         Uploads.upload({file: file, name: file.name, attachment: false}, function(data) {
-            
+            User.update({profilePictureId: data.id});
         });
     }
 }]);
