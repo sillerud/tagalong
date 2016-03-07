@@ -1,6 +1,7 @@
 'use strict';
 angular.module('tagalong', [
         'ngRoute',
+        'ngFileUpload',
         'loginControllers',
         'loginServices',
         'eventControllers',
@@ -12,7 +13,8 @@ angular.module('tagalong', [
         'pageControllers',
         'pageServices',
         'searchControllers',
-        'searchServices'
+        'searchServices',
+        'uploadServices'
     ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {

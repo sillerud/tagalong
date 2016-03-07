@@ -2,9 +2,9 @@
     <!-- Kode her -->
     <div a href="#" class="logo"></div>
     <div class="header-image-wrap">
-        <img src="../statisk/images/ola_nordmann_sidebilde.jpg" class="img-responsive" alt="">
+        <img ng-src="{{ user.profileHeaderPictureUrl }}" class="img-responsive" alt="">
         <div class="event-background-overlay"></div>
-        <div class="page-profile-image" style="background-image: url('../statisk/images/ola_nordmann.jpeg');">
+        <div class="page-profile-image" ng-style="{'background-image': 'url(' + user.profilePictureUrl + ')'}">
         </div>
 
         <div class="page-name"><h1>{{ user.firstname }} {{ user.surname }}</h1></div>

@@ -63,6 +63,17 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
     $scope.me = User.find(function(data) {
         if (!data.email) {
             redirectLogin();
+            return;
+        }
+        if (data.profilePictureId) {
+            data.profilePictureUrl = "/rest/v1/uploads/" + data.profilePictureId;
+        } else {
+            data.profilePictureUrl = "img/user_placeholder.png";
+        }
+        if (data.profileHeaderPictureId) {
+            data.profileHeaderPictureUrl = "/rest/v1/uploads/" + data.profileHeaderPictureId;
+        } else {
+            data.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
         }
     }, redirectLogin);
     $scope.logout = function() {
@@ -100,6 +111,17 @@ cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Ca
         $('#darkOverlay').fadeIn();
     };
     $scope.cards = Card.all();
+    // ESC
+    $(document).keyup(function(e) {
+        if ( e.keyCode == 27) {
+            $scope.closeCard();
+        }
+    });
+
+    $scope.closeCard = function(){
+        $('.edit-card-wrap').fadeOut();
+        $('#darkOverlay').fadeOut();
+    };
 }]);
 cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Card) {
     var filter = [];
@@ -167,7 +189,18 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
 ]);
 userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
     if ($routeParams.id) {
-        $scope.user = User.find({userId: $routeParams.id})
+        $scope.user = User.find({userId: $routeParams.id}, function(data) {
+            if (data.profilePictureId) {
+                data.profilePictureUrl = "/rest/v1/uploads/" + data.profilePictureId;
+            } else {
+                data.profilePictureUrl = "img/user_placeholder.png";
+            }
+            if (data.profileHeaderPictureId) {
+                data.profileHeaderPictureUrl = "/rest/v1/uploads/" + data.profileHeaderPictureId;
+            } else {
+                data.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
+            }
+        });
     } else {
         $scope.user = $scope.me; // avoid showing your own name before loading the other person's name
     }
@@ -176,8 +209,12 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
         $scope.showContactInfo = val;
     }
 }]);
-userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
-
+userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Uploads', function($scope, $routeParams, User, Uploads) {
+    $scope.uploadFile = function(file) {
+        Uploads.upload({file: file, name: file.name, attachment: false}, function(data) {
+            User.update({profilePictureId: data.id});
+        });
+    }
 }]);
 
 searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($scope, Search) {
