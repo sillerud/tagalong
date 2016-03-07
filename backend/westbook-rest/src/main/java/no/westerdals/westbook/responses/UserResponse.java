@@ -24,6 +24,7 @@ public class UserResponse
     private String firstname;
     private String surname;
     private String profilePictureId;
+    private String profileHeaderPictureId;
     private String interests;
     private ValueDescription[] contactInfo;
     private ValueDescription[] projects;
@@ -47,6 +48,7 @@ public class UserResponse
         this.projects = user.getProjects();
         this.skills = user.getSkills();
         this.profilePictureId = user.getProfilePictureId();
+        this.profileHeaderPictureId = user.getProfileHeaderPictureId();
     }
 
     @Override
