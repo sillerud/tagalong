@@ -31,27 +31,27 @@ public class UserRepositoryImpl implements UserRepositoryCustom
             return null;
         Update update = new Update();
         if (user.getStudyFieldId() != null)
-            update.addToSet("studyFieldId", user.getStudyFieldId());
+            update.set("studyFieldId", user.getStudyFieldId());
         if (user.getBorn() != null)
-            update.addToSet("born", user.getBorn());
+            update.set("born", user.getBorn());
         if (user.getAccountExpires() != null)
-            update.addToSet("accountExpires", user.getAccountExpires());
+            update.set("accountExpires", user.getAccountExpires());
         if (user.getCity() != null)
-            update.addToSet("city", user.getCity());
+            update.set("city", user.getCity());
         if (user.getContactInfo() != null)
-            update.addToSet("contactInfo", user.getContactInfo());
+            update.set("contactInfo", user.getContactInfo());
         if (user.getEmail() != null)
-            update.addToSet("email", user.getEmail());
+            update.set("email", user.getEmail());
         if (user.getFirstname() != null)
-            update.addToSet("firstname", user.getEmail());
+            update.set("firstname", user.getFirstname());
         if (user.getSurname() != null)
-            update.addToSet("surname", user.getSurname());
+            update.set("surname", user.getSurname());
         if (user.getInterests() != null)
-            update.addToSet("interests", user.getInterests());
+            update.set("interests", user.getInterests());
         if (user.getProfilePictureId() != null)
-            update.addToSet("profilePictureId", user.getProfilePictureId());
+            update.set("profilePictureId", user.getProfilePictureId());
         if (user.getProfileHeaderPictureId() != null)
-            update.addToSet("profileHeaderPictureId", user.getProfileHeaderPictureId());
+            update.set("profileHeaderPictureId", user.getProfileHeaderPictureId());
 
         return mongoTemplate.findAndModify(new Query(new Criteria("_id").is(user.getId())), update, User.class);
     }
