@@ -267,6 +267,32 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
         delete $scope.searchResults;
     };
 
+    function mapResult(result) {
+        if (result.type == "user") {
+            result.url = "profile/" + result.data.id;
+            result.name = result.data.firstname + " " + result.data.surname;
+            if (result.data.profilePictureId) {
+                result.thumbnailUrl = "/rest/v1/uploads/" + result.data.profilePictureId;
+            } else {
+                result.thumbnailUrl = "img/user_placeholder.png";
+            }
+
+        } else if (result.type == "page") {
+            result.url = "pages/" + result.data.customUrl;
+            result.name = result.data.name;
+        } else if (result.type == "tag") {
+            var current = result.data;
+            result.name = "";
+            while (current) {
+                result.name = "/#" + current.name + result.name;
+                current = current.parent;
+            }
+            if (result.data.description) {
+                result.name += " - " + result.data.description;
+            }
+        }
+    }
+
     $scope.openSearch = function(){ // Åpne
         $('.search-overlay-wrap').fadeIn();
         searchField.focus();
@@ -275,26 +301,7 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
             if (lastKeyPress + 200 < Date.now() && !resultUpdated) {
                 if ($scope.searchText) {
                     Search.queryAll({query: $scope.searchText}, function(data) {
-                        for (var i = 0; i < data.length; i++) {
-                            var result = data[i];
-                            if (result.type == "user") {
-                                result.url = "profile/" + result.data.id;
-                                result.name = result.data.firstname + " " + result.data.surname;
-                            } else if (result.type == "page") {
-                                result.url = "pages/" + result.data.customUrl;
-                                result.name = result.data.name;
-                            } else if (result.type == "tag") {
-                                var current = result.data;
-                                result.name = "";
-                                while (current) {
-                                    result.name = "/#" + current.name + result.name;
-                                    current = current.parent;
-                                }
-                                if (result.data.description) {
-                                    result.name += " - " + result.data.description;
-                                }
-                            }
-                        }
+                        data.forEach(mapResult);
                         $scope.searchResults = data;
                     });
                 }

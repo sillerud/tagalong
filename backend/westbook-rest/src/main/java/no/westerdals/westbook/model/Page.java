@@ -19,6 +19,7 @@ public class Page
 
     @Id
     private String id;
+    private String logoPictureId;
     private String customUrl;
     private String name;
     private String description;
