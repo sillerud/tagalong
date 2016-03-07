@@ -23,7 +23,7 @@ public class UserResponse
     private String gender;
     private String firstname;
     private String surname;
-    private String profilePicture;
+    private String profilePictureId;
     private String interests;
     private ValueDescription[] contactInfo;
     private ValueDescription[] projects;
@@ -46,6 +46,7 @@ public class UserResponse
         this.contactInfo = user.getContactInfo();
         this.projects = user.getProjects();
         this.skills = user.getSkills();
+        this.profilePictureId = user.getProfilePictureId();
     }
 
     @Override

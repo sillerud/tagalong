@@ -208,13 +208,14 @@
       margin-left: 20px;
       position: relative;
     }
-    .varsel i{
+    #noticifation-title{
       color: white;
       position: relative;
       top: 7px;
-    }
+    }   
     .varsel .fa-bell{
       display: block;
+        color: white;
     }
     .varsel .fa-bell-o{
       display: none;
