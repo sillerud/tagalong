@@ -232,8 +232,10 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
             }
         }).then(function(result) {
             console.log(result);
-            var data = result.data.extra;
-            User.update({profilePictureId: data.id});
+            var extra = result.data.extra;
+            User.update({profilePictureId: extra.id}, function(result) {
+                console.log(result);
+            });
         });
     }
 }]);
