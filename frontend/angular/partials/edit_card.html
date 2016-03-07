@@ -1,4 +1,4 @@
-<div class="edit-card-wrap edit-fields" ng-controller="AddCardCtrl">
+<div class="edit-card-wrap edit-fields popup" ng-controller="AddCardCtrl">
     <div class="edit-card">
         <form ng-submit="createCard()">
 
@@ -11,7 +11,7 @@
             <!--<input class="edit-field2"  type="text" hidden> Plassering av tags i form -->
             <input class="edit-field2" placeholder="Legg til tags" type="search">
 
-            <input id="saveCard" type="submit" class="btn-fill" value="Save card" ng-click="closeCard()">
+            <input id="saveCard" type="submit" class="btn-fill" value="Save card" ng-click="closePopup()">
         </form>
     </div><!-- END edit-card -->
 </div>

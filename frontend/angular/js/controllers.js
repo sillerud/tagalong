@@ -80,19 +80,30 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
         User.logout(redirectLogin);
     };
     $scope.addToCard = function(){
-        console.log('yo');
         $('.add-to-card-wrap').fadeIn();
     }; // END add to card
+    $scope.openNewPost = function(){
+        $('.new-post-wrap').fadeIn();
+        $('#darkOverlay').fadeIn();
+    };
+    $scope.closePopup = function(){
+        $('.popup').fadeOut();
+        $('#darkOverlay').fadeOut();
+        $scope.openShortcuts();
+    }
+
     var addNewOpen = false;
     $scope.openShortcuts = function(){
 
         if( !addNewOpen ){
+            $('#darkOverlay').fadeIn();
             $('#newPostBtn').stop().animate({'bottom': '60px', 'opacity': '1'}, 300);
             $('#newPageBtn').delay(100).animate({'bottom': '110px', 'opacity': '1'}, 300);
             $('#newEventBtn').delay(200).animate({'bottom': '160px', 'opacity': '1'}, 300);
             $('#newSearchBtn').delay(300).animate({'bottom': '210px', 'opacity': '1'}, 300);
             addNewOpen = true;
         }else{
+            $('#darkOverlay').fadeOut();
             $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300);
             $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300);
             $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300);

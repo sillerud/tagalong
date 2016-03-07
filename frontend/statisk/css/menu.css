@@ -212,7 +212,7 @@
       color: white;
       position: relative;
       top: 7px;
-    }   
+    }
     .varsel .fa-bell{
       display: block;
         color: white;
@@ -373,7 +373,7 @@
         height: 100%;
         overflow: hidden;
         position: fixed;
-        z-index: 8000;
+        z-index: 900;
         scroll: no-scroll;
         vertical-align: middle;
     }
@@ -409,7 +409,7 @@
         display: block;
         float: right;
         cursor: pointer;
-        z-index: 9000;
+        z-index: 1000;
     }
     .burger-wrap .bar{
         width: 30px;
@@ -444,7 +444,7 @@
   height: auto;
   right: 30px;
   bottom: 40px;
-  z-index: 800;
+  z-index: 3000;
 }
 .add-new-btn{
   border-radius: 50%;
@@ -487,6 +487,7 @@
   padding: 0 5px 2px 5px;
   border-radius: 3px;
   top: 7px;
+  border: 1px solid #61afca;
 }
 #newPostBtn:before{
   content: 'Add new post';

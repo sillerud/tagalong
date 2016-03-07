@@ -50,6 +50,7 @@
 </head>
 <body ng-controller="UserInfoCtrl">
 <div class="page">
+<div id="darkOverlay" ng-click="closePopup()"></div>
 
     <div class="top-header">
         <div class="container">
@@ -194,11 +195,27 @@
 
     <div class="add-new-btn-wrap">
         <div id="addNew" class="add-new-btn" ng-click="openShortcuts()"><i class="fa fa-pencil"></i></div>
-        <div id="newPostBtn" class="add-new-btn"><i class="fa fa-sticky-note-o"></i></div>
+        <div id="newPostBtn" class="add-new-btn" ng-click="openNewPost()"><i class="fa fa-sticky-note-o"></i></div>
         <div id="newPageBtn" class="add-new-btn"><i class="fa fa-file-text-o"></i></div>
         <div id="newEventBtn" class="add-new-btn"><i class="fa fa-calendar-plus-o"></i></div>
         <div id="newSearchBtn" class="add-new-btn" ng-click="openSearch()"><i class="fa fa-search"></i></div>
     </div>
+
+    <div class="new-post-wrap edit-fields popup" ng-controller="AddCardCtrl">
+        <div class="edit-card">
+            <form ng-submit="createCard()">
+
+                <strong>Create post</strong>
+                <br><br>
+                <textarea ng-model="" class="edit-field3" rows="2" placeholder="Whats on your mind?"></textarea>
+                <input type="file" name="" accept="image/*">
+                <input class="edit-field2" placeholder="Legg til tags" type="search">
+
+                <input type="submit" class="btn-fill" value="Publish post">
+            </form>
+        </div><!-- END edit-card -->
+    </div>
+
     <div ng-view></div>
 
 </div>

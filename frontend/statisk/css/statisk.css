@@ -63,6 +63,15 @@ a:hover{
     margin: 0;
     font-size: 1.3em;
 }
+.popup{
+    display: none;
+}
+@media screen and (max-width: 767px){
+    .popup{
+        top: 50px !important;
+        transform: translateY(0) !important;
+    }
+} /* END maxwidth 767px */
 /* END - Globale elementer */
 
 /* Search overlay */
@@ -85,7 +94,18 @@ a:hover{
     display: block;
 }
 
-/* menu.css */
-/* forside.css */
-/* search.css */
-/* sidebar.css */
+/* New post */
+.new-post-wrap{
+    max-width: 500px;
+    width: 100%;
+    position: fixed;
+    margin: auto;
+    padding: 15px;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2000;
+    background-color: #FFF;
+}
+/* END post */

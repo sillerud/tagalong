@@ -87,7 +87,6 @@
 
 /* Edit new card pop-up */
 .edit-card-wrap{
-    display: none;
     max-width: 500px;
     width: calc(100% - 20px);
     height: auto;
