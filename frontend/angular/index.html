@@ -220,13 +220,18 @@
         <div class="edit-card">
             <form ng-submit="createCard()">
 
-                <strong>Create post</strong>
-                <br><br>
-                <textarea ng-model="" class="edit-field3" rows="2" placeholder="Whats on your mind?"></textarea>
-                <input type="file" name="" accept="image/*">
-                <input class="edit-field2" placeholder="Legg til tags" type="search">
+                <div class="popup-top">
+                    <strong>Create post</strong>
+                    <br><br>
+                    <textarea ng-model="" class="edit-field3" rows="2" placeholder="Whats on your mind?"></textarea>
+                    <input type="file" name="" accept="image/*">
+                    <input class="edit-field2" placeholder="Legg til tags" type="search">
+                </div><!-- END popup top -->
 
-                <input type="submit" class="btn-fill" value="Publish post">
+                <div class="popup-bottom">
+                    <input type="submit" class="btn-fill" value="Publish post">
+                </div><!-- END popup bottom -->
+
             </form>
         </div><!-- END edit-card -->
     </div>

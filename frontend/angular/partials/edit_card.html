@@ -1,17 +1,22 @@
 <div class="edit-card-wrap edit-fields popup" ng-controller="AddCardCtrl">
     <div class="edit-card">
         <form ng-submit="createCard()">
+            <div class="popup-top">
 
-            <strong>Add a card</strong>
-            <br><br>
-            <input ng-model="newcard.title" class="edit-field2" placeholder="Title to card" type="text">
+                <strong>Add a card</strong>
+                <br><br>
+                <input ng-model="newcard.title" class="edit-field2" placeholder="Title to card" type="text">
 
-            <textarea ng-model="newcard.description" class="edit-field3" rows="2" placeholder="Card description"></textarea>
+                <textarea ng-model="newcard.description" class="edit-field3" rows="2" placeholder="Card description"></textarea>
 
-            <!--<input class="edit-field2"  type="text" hidden> Plassering av tags i form -->
-            <input class="edit-field2" placeholder="Legg til tags" type="search">
+                <!--<input class="edit-field2"  type="text" hidden> Plassering av tags i form -->
+                <input class="edit-field2" placeholder="Legg til tags" type="search">
 
-            <input id="saveCard" type="submit" class="btn-fill" value="Save card" ng-click="closePopup()">
+            </div><!-- END popup top -->
+
+            <div class="popup-bottom">
+                <input id="saveCard" type="submit" class="btn-fill" value="Save card" ng-click="closePopup()">
+            </div><!-- END popu-bottom -->
         </form>
     </div><!-- END edit-card -->
 </div>
