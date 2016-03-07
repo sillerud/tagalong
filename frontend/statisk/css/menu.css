@@ -172,6 +172,7 @@
         margin-left: 20px;
         padding: 3px 5px 5px 5px;
         color: #FFF;
+        cursor: pointer;
     }
     .logged-in-person a{ color: #FFF;}
     .logged-in-person a:hover{ text-decoration: none;}
@@ -186,7 +187,6 @@
       display: block;
     }
     .logged-in-person:hover .person-name{
-      padding-bottom: 5px;
       border-bottom: 1px solid #333;
     }
     .menu-profile-wrap{
@@ -202,15 +202,6 @@
       background-color: #222;
       z-index: 2;
       display: none;
-    }
-    .person-list{
-      padding: 5px;
-      margin-bottom: 3px;
-      cursor: pointer;
-      border-radius: 3px;
-    }
-    .person-list:hover{
-      background-color: #000;
     }
     .varsel{
       float: right;
@@ -229,7 +220,7 @@
     .varsel .fa-bell-o{
       display: none;
     }
-    .varsel:hover .varsel-panel, .varsel:focus .varsel-panel{
+    .varsel .varsel-panel, .varsel:focus .varsel-panel{
       display: block;
     }
     .varsel-panel{
@@ -258,13 +249,6 @@
     width: 100%;
     overflow: auto;
     text-align: center;
-}
-
-.bell-varsel{
-    width: auto;
-    margin-top: 8px;
-    margin-bottom: 10px;
-    font-size: 18px;
 }
 
 .notification-feed-box{
