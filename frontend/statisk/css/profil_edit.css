@@ -37,18 +37,21 @@
     margin-top: -10px;
     color: #FFF;
 }
-
+.edit-title-description{
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
 .edit-fields .edit-field1, .edit-fields .edit-field2{
     width: 100%;
     margin-bottom: 30px;
-    background-color: transparent;
-    border: none;
+    background-color: white;
+    border: 1px solid #61afca;
 }
 .edit-field3{
     width: 100%;
     max-width: 100%;
-    margin-bottom: 30px;
-    background-color: transparent;
+    margin-bottom: 50px;
+    background-color: white;
     padding: 10px;
 }
 .edit-fields .edit-field1:focus, .edit-fields .edit-field2:focus, .edit-fields .edit-field3:focus{
@@ -65,10 +68,10 @@
     font-size: 1.2em;
 }
 /* Placeholder tekst */
-    .edit-fields ::-webkit-input-placeholder {
+.edit-fields ::-webkit-input-placeholder {
        color: #333;
        opacity: .8;
-    }
+}
     .edit-fields :-moz-placeholder { /* Firefox 18- */
        color: #333;
        opacity: .8;
