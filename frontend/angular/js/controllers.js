@@ -222,6 +222,15 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
     }
 }]);
 userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', function($scope, $routeParams, User, Upload) {
+    $scope.years = [];
+    for (var i = new Date().getFullYear(); i >= 1900; i--) {
+        $scope.years.push(i);
+    }
+
+    $('#datetimepicker1').datetimepicker({
+         format: 'DD/MM/YYYY'
+    });
+
     $scope.uploadFile = function(file) {
         Upload.upload({
             url: "/rest/v1/uploads",

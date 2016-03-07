@@ -1,10 +1,11 @@
 <?php include 'header.php'; ?>
 <!-- Datepicker -->
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- END Datepicker -->
 <div class="container edit-profile-wrap edit-fields">
-    <form>
+
+    <ng-form>
     <center><h1>Edit your profile details</h1></center>
 
     <div class="edit-profile-profile-pic" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
@@ -26,14 +27,14 @@
             <br><br>
 
             <label>Year of birth</label>
-            <select class="edit-field1" id="years">
-                <input type="text" id="datepicker">
-                <script>
-                  $(function() {
-                    $( "#datepicker" ).datepicker();
-                  });
-                  </script>
-            </select>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
 
             <label>Your gender</label>
             <select class="edit-field1" id="years">
@@ -60,29 +61,28 @@
                 <option value="4">4th year</option>
                 <option value="5">5th year</option>
             </select>
+            </div>
+            <div class="col-sm-6">
+                <h3>Edit your contact information</h3>
+                <h5 class="edit-title-description">All fields are optional</h5>
 
+                <br><br>
+
+                <label>Email:</label>
+                <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+
+                <label>Facebook:</label>
+                <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+
+                <label>LinkedIn:</label>
+                <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+
+                <label>Website:</label>
+                <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+            </div>
         </div>
-        <div class="col-sm-6">
-            <h3>Edit your contact information</h3>
-            <h5 class="edit-title-description">All fields are optional</h5>
-
-            <br><br>
-
-            <label>Email:</label>
-            <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
-
-            <label>Facebook:</label>
-            <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
-
-            <label>LinkedIn:</label>
-            <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
-
-            <label>Website:</label>
-            <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
-        </div>
-    </div>
-    <center><input type="submit" class="btn-fill" value="Save profile"></center>
-    </form>
+        <center><input type="submit" class="btn-fill" value="Save profile"></center>
+    </ng-form>
 </div><!-- END - container -->
 
 <?php include 'footer.php'; ?>

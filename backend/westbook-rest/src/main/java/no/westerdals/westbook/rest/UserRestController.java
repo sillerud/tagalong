@@ -39,7 +39,7 @@ public class UserRestController
     @RequestMapping(value="/me", method=RequestMethod.GET)
     public UserResponse getMe(Principal user) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)user).getPrincipal();
-        return resolve(userCredentials.getUser());
+        return resolve(userRepository.findOne(userCredentials.getUser().getId()));
     }
 
     @RequestMapping(value="/{userId}", method=RequestMethod.GET)
