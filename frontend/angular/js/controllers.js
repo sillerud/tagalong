@@ -82,10 +82,11 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
     $scope.addToCard = function(){
         $('.add-to-card-wrap').fadeIn();
     }; // END add to card
-    $scope.openNewPost = function(){
+    $scope.openNewPost = function(doo){
         $('.new-post-wrap').fadeIn();
         $('#darkOverlay').fadeIn();
-        $scope.openShortcuts(1);
+        // Sjekker om shortcuts skal kjøre eller ikke
+        if( doo != 0) $scope.openShortcuts(1);
     };
     $scope.closePopup = function(){
         $('.popup').fadeOut();

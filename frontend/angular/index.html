@@ -68,8 +68,23 @@
                         </div>
                     </a>
                     <div class="menu-person-dropdown">
-                        <a ng-click="logout()">Log out</a>
-                    </div>
+                        <a href="#/profile/edit">
+                            <div class="person-list">
+                                Edit profile
+                            </div>
+                        </a>
+                        <a ng-click="openNewPost(0)">
+                            <div class="person-list">
+                                New post
+                            </div>
+                        </a>
+                        <a ng-click="logout()">
+                            <div class="person-list">
+                                Log out
+                            </div>
+                        </a>
+                    </div><!-- END menu-person-dropdown -->
+
 
                 </div><!-- END logged-in-person-->
 
