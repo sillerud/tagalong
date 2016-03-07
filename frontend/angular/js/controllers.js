@@ -85,15 +85,15 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
     $scope.openNewPost = function(){
         $('.new-post-wrap').fadeIn();
         $('#darkOverlay').fadeIn();
+        $scope.openShortcuts(1);
     };
     $scope.closePopup = function(){
         $('.popup').fadeOut();
         $('#darkOverlay').fadeOut();
-        $scope.openShortcuts();
     }
 
     var addNewOpen = false;
-    $scope.openShortcuts = function(){
+    $scope.openShortcuts = function(dark){
 
         if( !addNewOpen ){
             $('#darkOverlay').fadeIn();
@@ -103,7 +103,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
             $('#newSearchBtn').delay(300).animate({'bottom': '210px', 'opacity': '1'}, 300);
             addNewOpen = true;
         }else{
-            $('#darkOverlay').fadeOut();
+            if( dark != 1) $('#darkOverlay').fadeOut();
             $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300);
             $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300);
             $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300);
