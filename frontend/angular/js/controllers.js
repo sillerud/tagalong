@@ -222,13 +222,17 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
     }
 }]);
 userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', function($scope, $routeParams, User, Upload) {
-    $scope.years = [];
-    for (var i = new Date().getFullYear(); i >= 1900; i--) {
-        $scope.years.push(i);
-    }
+    var datetimepicker = $('#datetimepicker1');
 
-    $('#datetimepicker1').datetimepicker({
-         format: 'DD/MM/YYYY'
+    datetimepicker.datetimepicker({
+        format: 'DD/MM/YYYY'
+    });
+
+    $scope.me.$promise.then(function() {
+        $('#gender-field').val($scope.me.gender);
+        if ($scope.me.born) { 
+            datetimepicker.data("DateTimePicker").date(new Date($scope.me.born));
+        }
     });
 
     $scope.uploadFile = function(file) {

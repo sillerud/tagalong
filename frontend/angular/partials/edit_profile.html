@@ -1,66 +1,66 @@
 <?php include 'header.php'; ?>
 <!-- Datepicker -->
-    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <!-- END Datepicker -->
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<!-- END Datepicker -->
 <div class="container edit-profile-wrap edit-fields">
 
     <ng-form>
-    <center><h1>Edit your profile details</h1></center>
+        <center><h1>Edit your profile details</h1></center>
 
-    <div class="edit-profile-profile-pic" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
-        <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
-        <div class="pic-overlay"><b>Click to edit</b></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <input class="edit-field2" placeholder="Interests, seperated, by, comma">
-            <textarea rows="5" class="edit-field3" placeholder="About you"></textarea>
+        <div class="edit-profile-profile-pic" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
+            <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
+            <div class="pic-overlay"><b>Click to edit</b></div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <input class="edit-field2" placeholder="Interests" value="{{ me.interests }}">
+                <textarea rows="5" class="edit-field3" placeholder="About you">{{ me.about }}</textarea>
+            </div>
+        </div>
 
-    <div class="row">
-        <div class="col-sm-6">
-            <h3>Edit your personal status</h3>
-            <h5 class="edit-title-description">Fields marked with * (asterisk) are required</h5>
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Edit your personal status</h3>
+                <h5 class="edit-title-description">Fields marked with * (asterisk) are required</h5>
 
-            <br><br>
+                <br><br>
 
-            <label>Year of birth</label>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
+                <label>Year of birth</label>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
+                    </div>
                 </div>
-            </div>
 
-            <label>Your gender</label>
-            <select class="edit-field1" id="years">
-                <option>Choose your gender</option>
-                <option value="Famel">Female</option>
-                <option value="Male">Male</option>
-                <option value="Other">Other</option>
-            </select>
+                <label for="gender-field">Your gender</label>
+                <select id="gender-field" class="edit-field1">
+                    <option value="null">Not specified</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                    <option value="other">Other</option>
+                </select>
 
-            <label>City</label>
-            <input type=text class="edit-field1" id="years" placeholder="Type in the city you're living in">
+                <label>City</label>
+                <input type=text class="edit-field1" placeholder="Type in the city you're living in">
 
-            <label>Field of study *</label>
-            <select class="edit-field1" id="years">
-                <option selected disabled>Choose your field of study</option>
-            </select>
+                <label>Field of study *</label>
+                <select class="edit-field1">
+                    <option selected disabled>Choose your field of study</option>
+                </select>
 
-            <label>Year of study start *</label>
-            <select class="edit-field1" id="years">
-                <option>Choose the year you started your educations</option>
-                <option value="1">1st year</option>
-                <option value="2">2nd year</option>
-                <option value="3">3rd year</option>
-                <option value="4">4th year</option>
-                <option value="5">5th year</option>
-            </select>
+                <label>Year of study start *</label>
+                <select class="edit-field1">
+                    <option>Choose the year you started your educations</option>
+                    <option value="1">1st year</option>
+                    <option value="2">2nd year</option>
+                    <option value="3">3rd year</option>
+                    <option value="4">4th year</option>
+                    <option value="5">5th year</option>
+                </select>
             </div>
             <div class="col-sm-6">
                 <h3>Edit your contact information</h3>
@@ -69,7 +69,7 @@
                 <br><br>
 
                 <label>Email:</label>
-                <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+                <input class="edit-field2" type="text" placeholder="ola@nordmann.no" value="{{ me.email }}">
 
                 <label>Facebook:</label>
                 <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
