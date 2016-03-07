@@ -172,6 +172,7 @@
         margin-left: 20px;
         padding: 3px 5px 5px 5px;
         color: #FFF;
+        cursor: pointer;
     }
     .logged-in-person a{ color: #FFF;}
     .logged-in-person a:hover{ text-decoration: none;}
@@ -186,7 +187,6 @@
       display: block;
     }
     .logged-in-person:hover .person-name{
-      padding-bottom: 5px;
       border-bottom: 1px solid #333;
     }
     .menu-profile-wrap{
@@ -202,15 +202,6 @@
       background-color: #222;
       z-index: 2;
       display: none;
-    }
-    .person-list{
-      padding: 5px;
-      margin-bottom: 3px;
-      cursor: pointer;
-      border-radius: 3px;
-    }
-    .person-list:hover{
-      background-color: #000;
     }
     .varsel{
       float: right;
@@ -233,10 +224,10 @@
       display: block;
     }
     .varsel-panel{
-      display: none;
+      display: none ;
       position: absolute;
       z-index: 90000; /* Over alt annet innhold */
-      right: 0;
+      left: 0px;
       margin-top: 32px;
       /*border: 3px solid #333;*/
       width: auto;
@@ -245,12 +236,12 @@
     }
 @media screen and (min-width: 470px){
     .varsel-panel{
-        min-width: 400px;
+        min-width: 200px;
     }
 }
 @media screen and (max-width: 400px){
     .varsel-panel{
-        min-width: 250px;
+        min-width: 200px;
     }
 }
 
@@ -260,16 +251,15 @@
     text-align: center;
 }
 
-.bell-varsel{
-    width: auto;
-    margin-top: 8px;
-    margin-bottom: 10px;
-    font-size: 18px;
+.notification-feed-box{
+    width: 200px;
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+.notification-timestamp{
+    float: right;
 }
 
-.notification-feed-box{
-    width: 330px;
-}
 
 .notification-feed-box, .profilbilde-varsel{
     float: left;

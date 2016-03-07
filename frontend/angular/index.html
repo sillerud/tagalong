@@ -68,23 +68,8 @@
                         </div>
                     </a>
                     <div class="menu-person-dropdown">
-                        <a href="#/profile/edit">
-                            <div class="person-list">
-                                Edit profile
-                            </div>
-                        </a>
-                        <a ng-click="openNewPost(0)">
-                            <div class="person-list">
-                                New post
-                            </div>
-                        </a>
-                        <a ng-click="logout()">
-                            <div class="person-list">
-                                Log out
-                            </div>
-                        </a>
-                    </div><!-- END menu-person-dropdown -->
-
+                        <a ng-click="logout()">Log out</a>
+                    </div>
 
                 </div><!-- END logged-in-person-->
 
@@ -95,24 +80,20 @@
                     <div class="varsel-panel">
 
                         <div class="header-varsel-panel">
-
-                            <div class="bell-varsel">
-                                <i class="fa fa-bell"></i>
-                            </div><!--end bell-varsel-->
-
                             <h3 class="box-title">Notifications</h3>
 
                         </div><!--end header-varsel-panel-->
 
                         <div class="varsel-innhold">
+                            <a href="#" class="notification-feed-box">
+                                <img>
+                                <p class="notification-person">Ole C Reinhartsen</p>
+                                <p class="notification-spesific">Notification</p>
+                                <p class="notification-timestamp">Tid</p>
+                            </a>
+                            <a href="#" class="notification-feed-box">Kevin Sillerud</a>
+                            <a href="#" class="notification-feed-box">Hannah Sollund</a>
 
-                            <img class="profilbilde-varsel" src="../statisk/images/fubar_logo.jpg">
-                            <div class="notification-feed-box">
-                                <p class="overskrift-varsel">fuBar</p>
-                                <p class="tekst-varsel">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                                </p>
-                            </div>
                         </div><!--end varsel-innhold-->
 
                     </div><!--end varsel-panel-->
