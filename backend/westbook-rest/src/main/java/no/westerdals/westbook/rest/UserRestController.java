@@ -139,7 +139,6 @@ public class UserRestController
         UserResponse userResponse = new UserResponse(user);
         if (user.getStudyFieldId() != null)
             userResponse.setStudyFieldDisplayName(studyFieldRepository.findOne(user.getStudyFieldId()).getDescription());
-        userResponse.setProfilePicture(null); //TODO
         return userResponse;
     }
 
