@@ -282,11 +282,13 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
             result.name = result.data.name;
         } else if (result.type == "tag") {
             var current = result.data;
+            result.url = "feed/" + result.data.name;
             result.name = "";
             while (current) {
                 result.name = "/#" + current.name + result.name;
                 current = current.parent;
             }
+            result.name = result.name.substring(1);
             if (result.data.description) {
                 result.name += " - " + result.data.description;
             }
