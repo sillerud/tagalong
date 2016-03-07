@@ -1,0 +1,81 @@
+<?php include 'header.php'; ?>
+
+<div class="container edit-profile-wrap edit-fields">
+    <form>
+    <center><h1>Edit your profile details</h1></center>
+
+    <div class="edit-profile-profile-pic" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
+        <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
+        <div class="pic-overlay"><b>Click to edit</b></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <input class="edit-field2" placeholder="Interests, seperated, by, comma">
+            <textarea rows="5" class="edit-field3" placeholder="About you"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Edit your personal status</h3>
+            <h5 class="edit-title-description">Fields marked with * (asterisk) are required</h5>
+
+            <br><br>
+
+            <label>Year of birth</label>
+            <select class="edit-field1" id="years">
+                <option>Choose when you where born</option>
+                <option value="1996">1996</option>
+            </select>
+
+            <label>Your gender</label>
+            <select class="edit-field1" id="years">
+                <option>Choose your gender</option>
+                <option value="Famel">Female</option>
+                <option value="Male">Male</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label>City</label>
+            <input type=text class="edit-field1" id="years" placeholder="Type in the city you're living in">
+
+            <label>Field of study *</label>
+            <select class="edit-field1" id="years">
+                <option selected disabled>Choose your field of study</option>
+            </select>
+
+            <label>Year of study start *</label>
+            <select class="edit-field1" id="years">
+                <option>Choose the year you started your educations</option>
+                <option value="1">1st year</option>
+                <option value="2">2nd year</option>
+                <option value="3">3rd year</option>
+                <option value="4">4th year</option>
+                <option value="5">5th year</option>
+            </select>
+
+        </div>
+        <div class="col-sm-6">
+            <h3>Edit your contact information</h3>
+            <h5 class="edit-title-description">All fields are optional</h5>
+
+            <br><br>
+
+            <label>Email:</label>
+            <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+
+            <label>Facebook:</label>
+            <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+
+            <label>LinkedIn:</label>
+            <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+
+            <label>Website:</label>
+            <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+        </div>
+    </div>
+    <center><input type="submit" class="btn-fill" value="Save profile"></center>
+    </form>
+</div><!-- END - container -->
+
+<?php include 'footer.php'; ?>
