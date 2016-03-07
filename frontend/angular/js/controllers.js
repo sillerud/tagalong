@@ -100,6 +100,17 @@ cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Ca
         $('#darkOverlay').fadeIn();
     };
     $scope.cards = Card.all();
+    // ESC
+    $(document).keyup(function(e) {
+        if ( e.keyCode == 27) {
+            $scope.closeCard();
+        }
+    });
+
+    $scope.closeCard = function(){
+        $('.edit-card-wrap').fadeOut();
+        $('#darkOverlay').fadeOut();
+    };
 }]);
 cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Card) {
     var filter = [];

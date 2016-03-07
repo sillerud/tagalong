@@ -121,12 +121,12 @@
                                 <div class="search-result-wrap" ng-repeat="searchResult in searchResults">
                                     <a ng-href="#/{{ searchResult.url }}" ng-click="closeSearch()" ng-if="searchResult.url">
                                         <div class="search-result">
-                                            {{ searchResult.name }}
+                                            <div class="result-image-wrap" style="background-image: url(/statisk/images/ola_nordmann.jpeg); border-right: 3px solid #1eb6ec"></div>
+                                            <div class="search-name">{{ searchResult.name }}</div>
+                                            <div class="search-stud">Interaktivt design</div>
+                                            <div class="search-add"><i class="exit-search fa fa-plus"></i></div>
                                         </div>
                                     </a>
-                                    <div class="search-result" ng-if="!searchResult.url">
-                                        {{ searchResult.name }}
-                                    </div>
                                 </div>
                             </div> <!-- END search-results -->
 

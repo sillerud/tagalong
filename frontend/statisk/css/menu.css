@@ -127,9 +127,40 @@
       padding: 10px;
       background-color: #FFF;
       margin-bottom: 10px;
+      position: relative;
+    }
+    .result-image-wrap{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 60px;
+      background-size: cover;
+    }
+    .search-name{
+      font-weight: bold;
+    }
+    .search-add{
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 10px;
+      height: 100%;
+      color: #333;
+      background-color: #1eb6ec;
+    }
+    .search-add .fa{
+      position: relative;
+      top: 45%;
+      transform: translateY(-50%);
+    }
+    .search-name, .search-stud{
+      position: relative;
+      margin-left: 70px;
     }
     .search-result-wrap .search-result{
       margin-bottom: 0;
+      overflow: hidden;
     }
     .search-overlay-wrap input:focus{
       outline: none;
