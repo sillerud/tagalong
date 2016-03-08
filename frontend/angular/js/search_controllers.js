@@ -29,7 +29,9 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
             } else {
                 result.thumbnailUrl = "img/user_placeholder.png";
             }
-
+            if (result.data.studyFieldId) {
+                result.studyFieldDisplay = $scope.studyfields.getById(result.data.studyFieldId).description;
+            }
         } else if (result.type == "page") {
             result.url = "pages/" + result.data.customUrl;
             result.name = result.data.name;
