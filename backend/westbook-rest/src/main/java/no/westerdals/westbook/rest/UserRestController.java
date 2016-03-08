@@ -87,7 +87,7 @@ public class UserRestController
     @RequestMapping(method=RequestMethod.PATCH)
     public ResultResponse updateUser(@RequestBody User user, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
-        if (user.getId() == null) {
+        if (user.getId() == null || user.getId().equals(userCredentials.getUser().getId())) {
             user.setId(userCredentials.getUser().getId());
             return newOkResult(MessageConstant.USER_UPDATED, userRepository.update(user));
         } else {

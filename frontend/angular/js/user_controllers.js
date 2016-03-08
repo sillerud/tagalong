@@ -128,13 +128,13 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
 
     $scope.updateProfile = function() {
         var updatedInfo = {};
-        updatedInfo.id = $scope.me.id;
+        //updatedInfo.id = $scope.me.id;
         angular.forEach($scope.user, function(value, key) {
             console.log(key);
             if (key == 'email') { // Temporarily disable email changing
 
             } else if (key == 'studyFieldId') {
-                updatedInfo.studyField = value.id;
+                updatedInfo.studyFieldId = value.id;
             } else if ($scope.me[key] != value) {
                 updatedInfo[key] = value;
             }
