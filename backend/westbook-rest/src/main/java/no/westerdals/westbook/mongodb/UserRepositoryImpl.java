@@ -33,7 +33,7 @@ public class UserRepositoryImpl implements UserRepositoryCustom
         if (user.getStudyFieldId() != null)
             update.set("studyFieldId", user.getStudyFieldId());
         if (user.getBorn() != null)
-            update.set("born", user.getBorn().getTime());
+            update.set("born", user.getBorn());
         if (user.getAccountExpires() != null)
             update.set("accountExpires", user.getAccountExpires());
         if (user.getCity() != null)
