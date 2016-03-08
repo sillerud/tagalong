@@ -177,11 +177,11 @@
     <div class="container">
         <div class="breadcrumbs">
             <a href="#/">Home</a>
-            <?php if(basename($_SERVER['SCRIPT_NAME']) == 'index.php'): ?>
-
-            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'sidebar.php'): ?>
-            - Feed
-            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'other_profiles.php'): ?>
+            <!--<div ng-if="breadcrumb" style="display: inline;">
+                - <a ng-if="breadcrumb.url" ng-href="{{breadcrumb.url}}">{{ breadcrumb.name }}</a>
+                <div ng-if="!breadcrumb.url" style="display: inline;">{{ breadcrumb.name }}</div>
+            </div>--!>
+            <!--<?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'other_profiles.php'): ?>
             - Profil
             <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'profil_edit.php'): ?>
             - <a href="other_profiles.php">Profil</a> - Edit profile
@@ -197,7 +197,7 @@
             - Events
             <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'pages.php'): ?>
             - Pages
-            <?php endif; ?>
+            <?php endif; ?>--!>
         </div>
     </div>
 

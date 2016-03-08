@@ -81,7 +81,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
 }]);
 
 
-userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', function($scope, $routeParams, User) {
+userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParams', 'User', function($scope, $rootScope, $routeParams, User) {
     if ($routeParams.id) {
         $scope.user = User.find({userId: $routeParams.id}, function(data) {
             if (data.profilePictureId) {
@@ -98,6 +98,7 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
     } else {
         $scope.user = $scope.me; // avoid showing your own name before loading the other person's name
     }
+    $rootScope.breadcrumb = {name: "Profile", url: "#/profile"};
 
     $scope.setShowContactInfo = function(val) {
         $scope.showContactInfo = val;
