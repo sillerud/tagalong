@@ -52,7 +52,6 @@ public class UserRepositoryImpl implements UserRepositoryCustom
             update.set("profilePictureId", user.getProfilePictureId());
         if (user.getProfileHeaderPictureId() != null)
             update.set("profileHeaderPictureId", user.getProfileHeaderPictureId());
-
         return mongoTemplate.findAndModify(new Query(new Criteria("_id").is(user.getId())), update, User.class);
     }
 }

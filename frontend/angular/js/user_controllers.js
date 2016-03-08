@@ -105,16 +105,23 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
     }
 }]);
 
-userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', 'Static', function($scope, $routeParams, User, Upload, Static) {
+userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', 'User', 'Upload', 'Static', function($scope, $routeParams, $q, User, Upload, Static) {
     var datetimepicker = $('#bornDate');
     var dtpData = datetimepicker.data("DateTimePicker");
+
     $scope.studyfields = Static.getAllStudyFields();
 
     datetimepicker.datetimepicker({
         format: 'DD/MM/YYYY'
     });
 
-    $scope.me.$promise.then(function() {
+    function getStudyField() {
+        return $scope.studyfields.find(function(element) {
+            return element.id == $scope.me.studyField;
+        });
+    }
+
+    $q.all([$scope.me.$promise, $scope.studyfields.$promise]).then(function() {
         //$('#gender-field').val($scope.me.gender);
         if ($scope.me.born) {
             dtpData.date(new Date($scope.me.born));
@@ -122,8 +129,10 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
         $scope.user = {
             email: $scope.me.email,
             gender: $scope.me.gender,
-            city: $scope.me.city
+            city: $scope.me.city,
+            studyFieldId: getStudyField()
         };
+        console.log($scope.user);
     });
 
     $scope.updateProfile = function() {
@@ -132,10 +141,11 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
         angular.forEach($scope.user, function(value, key) {
             console.log(key);
             if (key == 'email') { // Temporarily disable email changing
-
-            } else if (key == 'studyFieldId') {
-                updatedInfo.studyFieldId = value.id;
-            } else if ($scope.me[key] != value) {
+                delete value.email;
+            } else if (value.id) {
+                value = value.id;
+            }
+            if ($scope.me[key] != value) {
                 updatedInfo[key] = value;
             }
         });
