@@ -117,7 +117,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
 
     function getStudyField() {
         return $scope.studyfields.find(function(element) {
-            return element.id == $scope.me.studyField;
+            return element.id == $scope.me.studyFieldId;
         });
     }
 
@@ -132,24 +132,22 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             city: $scope.me.city,
             studyFieldId: getStudyField()
         };
-        console.log($scope.user);
     });
 
     $scope.updateProfile = function() {
         var updatedInfo = {};
         //updatedInfo.id = $scope.me.id;
         angular.forEach($scope.user, function(value, key) {
-            console.log(key);
-            if (key == 'email') { // Temporarily disable email changing
-                delete value.email;
-            } else if (value.id) {
+            if (key == "studyFieldId") {
                 value = value.id;
             }
-            if ($scope.me[key] != value) {
+            if ($scope.me[key] != value && key != 'email') {
                 updatedInfo[key] = value;
             }
         });
-        User.update(updatedInfo);
+        if (!$.isEmptyObject(updatedInfo)) {
+            User.update(updatedInfo);
+        }
     };
 
     $scope.uploadFile = function(file) {
