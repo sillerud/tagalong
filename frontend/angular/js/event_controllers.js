@@ -7,3 +7,7 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
         return 4;
     }
 }]);
+
+eventControllers.controller('EditEventCtrl', ['$scope', 'Event', function ($scope, Event) {
+
+}]);

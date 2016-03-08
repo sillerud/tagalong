@@ -20,6 +20,10 @@ angular.module('tagalong', [
                 templateUrl: 'partials/events.html',
                 controller: 'ViewEventsCtrl'
             })
+            .when("/events/:id/edit", {
+                templateUrl: 'partials/edit_event.html',
+                controller: 'EditEventCtrl'
+            })
             .when("/pages", {
                 templateUrl: 'partials/pages.html',
                 controller: 'ShowPagesController'
@@ -27,6 +31,10 @@ angular.module('tagalong', [
             .when("/pages/:id", {
                 templateUrl: 'partials/page.html',
                 controller: 'PageCtrl'
+            })
+            .when("/pages/:id/edit", {
+                templateUrl: 'partials/edit_page.html',
+                controller: "EditPageCtrl"
             })
             .when("/", {
                 templateUrl: 'partials/cards.html',
