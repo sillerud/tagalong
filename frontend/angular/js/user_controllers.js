@@ -107,13 +107,14 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
 
 userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', 'User', 'Upload', 'Static', function($scope, $routeParams, $q, User, Upload, Static) {
     var datetimepicker = $('#bornDate');
-    var dtpData = datetimepicker.data("DateTimePicker");
-
-    $scope.studyfields = Static.getAllStudyFields();
 
     datetimepicker.datetimepicker({
         format: 'DD/MM/YYYY'
     });
+
+    var dtpData = datetimepicker.data("DateTimePicker");
+
+    $scope.studyfields = Static.getAllStudyFields();
 
     function getStudyField() {
         return $scope.studyfields.find(function(element) {
@@ -145,6 +146,10 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
                 updatedInfo[key] = value;
             }
         });
+        if (dtpData.date() && dtpData.date().valueOf() != $scope.me.born) {
+            console.log(dtpData.date().valueOf());
+            updatedInfo.born = dtpData.valueOf();
+        }
         if (!$.isEmptyObject(updatedInfo)) {
             User.update(updatedInfo);
         }
