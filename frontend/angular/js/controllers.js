@@ -223,17 +223,33 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$routeParams', 'User', fu
 }]);
 userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', function($scope, $routeParams, User, Upload) {
     var datetimepicker = $('#datetimepicker1');
+    var dtpData = datetimepicker.data("DateTimePicker");
 
     datetimepicker.datetimepicker({
         format: 'DD/MM/YYYY'
     });
 
     $scope.me.$promise.then(function() {
-        $('#gender-field').val($scope.me.gender);
-        if ($scope.me.born) { 
-            datetimepicker.data("DateTimePicker").date(new Date($scope.me.born));
+        //$('#gender-field').val($scope.me.gender);
+        if ($scope.me.born) {
+            dtpData.date(new Date($scope.me.born));
         }
+        $scope.user = {
+            email: $scope.me.email,
+            gender: $scope.me.gender,
+            city: $scope.me.city
+        };
     });
+
+    $scope.updateProfile = function() {
+        var updatedInfo = {};
+        angular.forEach($scope.editUserForm, function(value, key) {
+            if(key[0] == '$') return;
+            if (value && !value.$pristine)
+                updatedInfo[key] = value;
+        });
+        console.log(updatedInfo);
+    };
 
     $scope.uploadFile = function(file) {
         Upload.upload({

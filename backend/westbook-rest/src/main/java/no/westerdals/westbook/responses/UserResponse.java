@@ -7,6 +7,8 @@ import lombok.ToString;
 import no.westerdals.westbook.model.ValueDescription;
 import no.westerdals.westbook.model.User;
 
+import java.util.Date;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -16,7 +18,7 @@ public class UserResponse
     private String id;
     private String pageId;
     private String email;
-    private long born;
+    private Date born;
     private String studyField;
     private String studyFieldDisplayName;
     private String city;
@@ -37,7 +39,7 @@ public class UserResponse
         if (user.isShowEmail())
             this.email = user.getEmail();
         if (user.getBorn() != null)
-            this.born = user.getBorn().getTime();
+            this.born = user.getBorn();
         this.studyField = user.getStudyFieldId();
         this.city = user.getCity();
         this.gender = user.getGender();

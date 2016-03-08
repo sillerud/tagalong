@@ -5,7 +5,7 @@
 <!-- END Datepicker -->
 <div class="container edit-profile-wrap edit-fields">
 
-    <ng-form>
+    <ng-form name="editUserForm">
         <center><h1>Edit your profile details</h1></center>
 
         <div class="edit-profile-profile-pic" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
@@ -29,7 +29,7 @@
                 <label>Year of birth</label>
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" />
+                        <input ng-model="user.born" type='text' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -37,7 +37,7 @@
                 </div>
 
                 <label for="gender-field">Your gender</label>
-                <select id="gender-field" class="edit-field1">
+                <select ng-model="user.gender" id="gender-field" class="edit-field1">
                     <option value="null">Not specified</option>
                     <option value="female">Female</option>
                     <option value="male">Male</option>
@@ -45,7 +45,7 @@
                 </select>
 
                 <label>City</label>
-                <input type=text class="edit-field1" placeholder="Type in the city you're living in">
+                <input ng-model="user.city" type=text class="edit-field1" placeholder="Type in the city you're living in">
 
                 <label>Field of study *</label>
                 <select class="edit-field1">
@@ -69,7 +69,7 @@
                 <br><br>
 
                 <label>Email:</label>
-                <input class="edit-field2" type="text" placeholder="ola@nordmann.no" value="{{ me.email }}">
+                <input name="email" ng-model="user.email" class="edit-field2" type="text" placeholder="ola@nordmann.no">
 
                 <label>Facebook:</label>
                 <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
@@ -81,7 +81,7 @@
                 <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
             </div>
         </div>
-        <center><input type="submit" class="btn-fill" value="Save profile"></center>
+        <center><input type="submit" class="btn-fill" value="Save profile" ng-click="updateProfile()"></center>
     </ng-form>
 </div><!-- END - container -->
 
