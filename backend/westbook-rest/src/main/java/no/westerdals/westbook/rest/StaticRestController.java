@@ -5,12 +5,19 @@ import no.westerdals.westbook.mongodb.StudyFieldRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/rest/v1/static")
 public class StaticRestController
 {
     @Autowired
     private StudyFieldRepository studyFieldRepository;
+
+    @RequestMapping(method=RequestMethod.GET)
+    public List<StudyField> getAllStudyFields() {
+        return studyFieldRepository.findAll();
+    }
 
     @RequestMapping(value="/studyfield/{studyFieldId}", method=RequestMethod.GET)
     public StudyField getStudyFieldById(@PathVariable String studyFieldId)
