@@ -1,44 +1,12 @@
-.pages-header-text{
-    padding-bottom: 10px;
-     border-bottom: 3px solid #303030;
+.order-by-box, .filter-by-box{
+    margin-bottom: 20px;
 }
-
-.pages-main-content{
-    width: auto;
-    height: auto;
+.order-pages-by, .filter-pages-by{
+    padding-top: 5px;
 }
-
-.most-popular-pages{
-    margin: 10px;
-    height: 500px;
-}
-
-.pages-all-pages{
-    height: 500px;
-}
-
-.pages-result-profilbilde{
-    padding-right: 20px;
-    width: 100px;
-    float: left;
-    display: block;
-}
-
-.pages-most-popular-header {
-    margin-bottom: 30px;
-    font-size: 2em;
-    padding-bottom: 2px;
-}
-
-.pages-all-pages-header{
-     margin-bottom: 30px;
-    font-size: 2em;
-    padding-bottom: 2px;
-}
-
-.page-result-description{
-    overflow: hidden;
-    width: auto;
+input[type:checkbox]{
+    padding-right: 15px;
+    background-color: red;
 }
 /*Displying pages style*/
 .page-preview{ /* Wrap rundt et event, upcoming og my event */
@@ -105,11 +73,9 @@
 /* Add to card knapp END*/
 
 /*Checkbox style*/
-.checkbox-style {
-    margin: 10px;
+.checkbox-style{
+    margin: 0px;
     position: relative;
-
-
 }
 /*Checkbox style END*/
 

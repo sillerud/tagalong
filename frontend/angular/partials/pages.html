@@ -8,30 +8,34 @@
         <div class="row">
             <div class="col-sm-5">
                 <div class="filter-pages box">
-                    <div class="box-title">
-                        <h3 class="pages-most-popular-header">Filter pages</h3>
-                    </div>
-
-                    <div class=" box">
-                        <div>
-                            <h5 class="box-title">Rating</h5>
+                   <input type="submit" class="btn-no-fill all-feeds-btn" value="Unfiltered">
+                   
+                    <div class="order-by-box">
+                        <div class="box-title">
+                            <h3>Order by</h3>
                         </div>
-                        <div class="checkbox-style box">
-                            <input type="checkbox" class="checkbox-style" value="None" name="check">Most popular<br>
-                            <input type="checkbox" class="checkbox-style" value="None" name="check">Most resent<br>
-                            <input type="checkbox" class="checkbox-style" value="None" name="check">Relevant to class
-                        </div><!--filter-details END-->
 
-                        <div>
-                            <h5 class="box-title">Specifics</h5>
+                        <form class="checkbox-style order-pages-by">
+                            <input type="checkbox" class="checkbox-style" name="check">Most popular<br>
+                            <input type="checkbox" class="checkbox-style" name="check">Most resent<br>
+                        </form><!--checkbox-style boxD-->
+                    </div><!--END order-by-box-->
+                           
+                    <div class="filter-by-box">     
+                        <div class="box-title">
+                            <h3>Filter by</h3>
                         </div>
-                        <form class="filter-rating box">
-                            <input type="checkbox" class="checkbox-style" value="">Film og TV
-                        </form><!--filter-rating END-->
-                    </div><!--checkbox END-->
-
-                </div><!--most-popular-pages END-->
-            </div><!-- col-sm-4 END-->
+                
+                        <form class="filter-pages-by">
+                            <input type="checkbox" class="checkbox-style filter-pages-by" value="" id="id">Kommunikasjon<br>
+                            <input type="checkbox" class="checkbox-style filter-pages-by">Kunstfag<br>
+                            <input type="checkbox" class="checkbox-style filter-pages-by">Teknologi<br>
+                            <input type="checkbox" class="checkbox-style filter-pages-by">Film, TV og spill<br>
+                            <input type="checkbox" class="checkbox-style filter-pages-by">Ledelse
+                        </form>
+                    </div><!--END filter-by-box--> 
+                </div><!--END filter-pages box-->
+            </div><!-- col-sm-5 END-->
 
             <div class="col-sm-7">
 
