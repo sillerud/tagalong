@@ -234,15 +234,17 @@
       display: block;
     }
     .varsel-panel{
-      display: none ;
+      display: none;
       position: absolute;
       z-index: 90000; /* Over alt annet innhold */
       right: -100px;
       margin-top: 32px;
-      /*border: 3px solid #333;*/
       width: auto;
       height: 450px;
-      background-color: white;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     }
 @media screen and (min-width: 470px){
     .varsel-panel{
@@ -256,12 +258,40 @@
 }
 
 .header-varsel-panel{
+    margin: 0;
+    background-color: lightblue;
     width: 100%;
     overflow: auto;
     text-align: center;
 }
+/* DROPDOWN TEST*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-.notification-feed-box a{
+.dropdown-content {
+    z-index: 90000;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 350px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    margin: 0 0px;
+    width: auto;
+    height: 80px;
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: aquamarine}
+
+/* DROPDOWN TEST*/
+.varsel-innhold a{
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -270,10 +300,38 @@
 .notification-timestamp{
     float: right;
 }
+.notification-img{
+    padding: 10px 10px 10px 10px;
+    float: left;
+    position: relative;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+}
+.name{
+    padding: 3px;
+    float: left;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-size: 13px; 
+    width: 200px;
+}
+.notification-text{
+    padding: 3;
+    float: left;
+    font-size: 12px; 
+    margin-left: 5px;
+    margin-bottom: 0;
+    width: 200px;
+}
+.time{
+    float: right;
+    margin: 5px 5px 5px 0;
+    font-size: 10px;   
+}
 
 
 .notification-feed-box, .profilbilde-varsel{
-    float: left;
 }
 
 .profilbilde-varsel{
@@ -291,11 +349,8 @@
     padding-bottom: 5px;
 }
 
-.varsel-innhold{
-    margin: 10px;
-    width: auto;
-    height: auto;
-    overflow: auto;
+.varsel-panel{
+    
 }
 
 .tekst-varsel{
