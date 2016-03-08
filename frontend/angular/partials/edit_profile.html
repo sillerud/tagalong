@@ -47,28 +47,19 @@
                 <label>City</label>
                 <input ng-model="user.city" type=text class="edit-field2" placeholder="Type in the city you're living in">
                 
-                <label>Field of study *</label>
-                <select class="edit-field2" ng-options="studyField.description for studyField in studyfields track by studyField.id" ng-model="user.studyFieldId">
-                
+                <label>Field of study</label>
+                <select class="edit-field2" ng-options="studyField.description for studyField in studyfields track by studyField.id" ng-model="user.studyFieldId"></select>
+
+                <label>Study start year</label>
                 <div class='input-group date' id='studyStartYear'>
                     <input ng-model="user.studyStartYear" type='text' class="form-control"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-                
-                </select>
-
-                <label></label>
-                <select class="edit-field2">
-                    <option selected disabled>Choose the year you started your education</option>
-                    <option value="1">2016</option>
-                    <option value="2">2nd year</option>
-                    <option value="3">3rd year</option>
-                    <option value="4">2</option>
-                    <option value="5">2011</option>
-                </select>
-            </div>
+                </select><!--END edit-field2-->
+            </div><!--END col-sm-6-->
+        
             <div class="col-sm-6">
                 <h3>Edit your contact information</h3>
                 <h5 class="edit-title-description">All fields are optional</h5>
@@ -86,8 +77,9 @@
 
                 <label>Website:</label>
                 <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
-            </div>
-        </div>
+            </div><!--END col-sm-6-->
+        </div><!--END row-->
+    </div><!--END container-->
         <center><input type="submit" class="btn-fill" value="Save profile" ng-click="updateProfile()"></center>
     </ng-form>
 </div><!-- END - container -->
