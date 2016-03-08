@@ -105,9 +105,10 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
     }
 }]);
 
-userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', function($scope, $routeParams, User, Upload) {
-    var datetimepicker = $('#datetimepicker1');
+userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', 'Static', function($scope, $routeParams, User, Upload, Static) {
+    var datetimepicker = $('#bornDate');
     var dtpData = datetimepicker.data("DateTimePicker");
+    $scope.studyfields = Static.getAllStudyFields();
 
     datetimepicker.datetimepicker({
         format: 'DD/MM/YYYY'
@@ -127,12 +128,18 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
 
     $scope.updateProfile = function() {
         var updatedInfo = {};
-        angular.forEach($scope.editUserForm, function(value, key) {
-            if(key[0] == '$') return;
-            if (value && !value.$pristine)
+        //updatedInfo.id = $scope.me.id;
+        angular.forEach($scope.user, function(value, key) {
+            console.log(key);
+            if (key == 'email') { // Temporarily disable email changing
+
+            } else if (key == 'studyFieldId') {
+                updatedInfo.studyFieldId = value.id;
+            } else if ($scope.me[key] != value) {
                 updatedInfo[key] = value;
+            }
         });
-        console.log(updatedInfo);
+        User.update(updatedInfo);
     };
 
     $scope.uploadFile = function(file) {

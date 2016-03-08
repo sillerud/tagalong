@@ -11,7 +11,8 @@ angular.module('tagalong', [
         'pageControllers',
         'pageServices',
         'searchControllers',
-        'searchServices'
+        'searchServices',
+        'staticServices'
     ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {

@@ -28,7 +28,7 @@
 
                 <label>Year of birth</label>
                 <div class="form-group">
-                    <div class='input-group date' id='datetimepicker1'>
+                    <div class='input-group date' id='bornDate'>
                         <input ng-model="user.born" type='text' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
@@ -48,7 +48,7 @@
                 <input ng-model="user.city" type=text class="edit-field1" placeholder="Type in the city you're living in">
 
                 <label>Field of study *</label>
-                <select class="edit-field1">
+                <select class="edit-field1" ng-model="user.studyFieldId" ng-options="studyfield.description for studyfield in studyfields">
                     <option selected disabled>Choose your field of study</option>
                 </select>
 
