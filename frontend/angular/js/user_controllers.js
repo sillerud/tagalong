@@ -43,7 +43,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function
 
     $scope.studyfields = Static.getAllStudyFields();
     $scope.studyfields.getById = function(id) {
-        return $scope.studyfields.find(function(element) {
+        return this.find(function(element) {
             return element.id == id;
         });
     };
@@ -122,12 +122,6 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
 
     var dtpData = datetimepicker.data("DateTimePicker");
 
-    function getStudyField() {
-        return $scope.studyfields.find(function(element) {
-            return element.id == $scope.me.studyFieldId;
-        });
-    }
-
     $q.all([$scope.me.$promise, $scope.studyfields.$promise]).then(function() {
         //$('#gender-field').val($scope.me.gender);
         if ($scope.me.born) {
@@ -137,7 +131,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             email: $scope.me.email,
             gender: $scope.me.gender,
             city: $scope.me.city,
-            studyFieldId: getStudyField()
+            studyFieldId: $scope.studyfields.getById($scope.me.studyFieldId)
         };
     });
 
