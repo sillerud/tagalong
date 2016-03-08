@@ -97,7 +97,7 @@ searchServices.factory('Search', ['$resource', function($resource) {
 }]);
 
 staticServices.factory('Static', ['$resource', function($resource) {
-    return $resource(url("/static"), {}, {
+    return $resource(url("/static/studyfield"), {}, {
         getAllStudyFields: {
             isArray: true
         }
