@@ -105,9 +105,10 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
     }
 }]);
 
-userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', function($scope, $routeParams, User, Upload) {
-    var datetimepicker = $('#datetimepicker1');
+userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', 'Static', function($scope, $routeParams, User, Upload, Static) {
+    var datetimepicker = $('#bornDate');
     var dtpData = datetimepicker.data("DateTimePicker");
+    $scope.studyfields = Static.getAllStudyFields();
 
     datetimepicker.datetimepicker({
         format: 'DD/MM/YYYY'

@@ -14,7 +14,7 @@ public class StaticRestController
     @Autowired
     private StudyFieldRepository studyFieldRepository;
 
-    @RequestMapping(method=RequestMethod.GET)
+    @RequestMapping(value="/studyfield", method=RequestMethod.GET)
     public List<StudyField> getAllStudyFields() {
         return studyFieldRepository.findAll();
     }
