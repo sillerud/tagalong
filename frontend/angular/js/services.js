@@ -25,7 +25,7 @@ loginServices.factory('Login', ['$resource', function($resource) {
     })
 }]);
 
-loginServices.factory('Event', ['$resource', function($resource) {
+eventServices.factory('Event', ['$resource', function($resource) {
     return $resource(url('/event'), {}, {
 
     });
