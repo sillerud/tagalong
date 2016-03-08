@@ -39,7 +39,7 @@ a:hover{
      /*se SASS*/
 }
 .btn-fill{
-    color: #FFF;
+    color: black;
     margin-bottom: -10px;
     padding: 6px 16px 4px 16px;
     border: none;

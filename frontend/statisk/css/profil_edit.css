@@ -1,4 +1,15 @@
+#chooseProfilePic{
+    position: absolute;
+}
 .edit-profile-wrap{
+}
+.edit-profile-profile-pic{
+    text-align: center;
+    width: 200px;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    position: relative;
 }
 .edit-profile-profile-pic .pic-overlay{
     opacity: 0;

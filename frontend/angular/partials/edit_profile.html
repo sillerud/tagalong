@@ -37,7 +37,7 @@
                 </div>
 
                 <label for="gender-field">Your gender</label>
-                <select ng-model="user.gender" id="gender-field" class="edit-field1">
+                <select ng-model="user.gender" id="gender-field" class="edit-field2">
                     <option value="null">Not specified</option>
                     <option value="female">Female</option>
                     <option value="male">Male</option>
@@ -45,15 +45,15 @@
                 </select>
 
                 <label>City</label>
-                <input ng-model="user.city" type=text class="edit-field1" placeholder="Type in the city you're living in">
+                <input ng-model="user.city" type=text class="edit-field2" placeholder="Type in the city you're living in">
 
-                <label>Field of study *</label>
-                <select class="edit-field1" ng-model="user.studyFieldId" ng-options="studyfield.description for studyfield in studyfields">
-                    <option selected disabled>Choose your field of study</option>
+                <label>Year of study</label>
+                <select class="edit-field2" ng-model="user.studyFieldId" ng-options="studyfield.description for studyfield in studyfields">
+                    <option selected disabled>Choose the year you are in</option>
                 </select>
 
                 <label>Year of study start *</label>
-                <select class="edit-field1">
+                <select class="edit-field2">
                     <option>Choose the year you started your educations</option>
                     <option value="1">1st year</option>
                     <option value="2">2nd year</option>

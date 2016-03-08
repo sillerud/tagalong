@@ -4,9 +4,9 @@
 .order-pages-by, .filter-pages-by{
     padding-top: 5px;
 }
-input[type:checkbox]{
-    padding-right: 15px;
-    background-color: red;
+label{
+    padding-left: 5px;
+    font-weight: normal;
 }
 /*Displying pages style*/
 .page-preview{ /* Wrap rundt et event, upcoming og my event */
