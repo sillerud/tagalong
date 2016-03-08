@@ -39,9 +39,13 @@
     <script src="../bower_components/angular-route/angular-route.js"></script>
     <script src="../bower_components/ng-file-upload/ng-file-upload.min.js"></script>
 
-    <script src="js/app.js"></script>
+    <script src="js/card_controllers.js"></script>
+    <script src="js/event_controllers.js"></script>
+    <script src="js/page_controllers.js"></script>
+    <script src="js/search_controllers.js"></script>
+    <script src="js/user_controllers.js"></script>
     <script src="js/services.js"></script>
-    <script src="js/controllers.js"></script>
+    <script src="js/app.js"></script>
     <script src="../js/custom.js"></script>
     <script src="https://use.typekit.net/dtg0waj.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -50,6 +54,7 @@
 </head>
 <body ng-controller="UserInfoCtrl">
 <div class="page">
+<div id="darkOverlay" ng-click="closePopup()"></div>
 
     <div class="top-header">
         <div class="container">
@@ -67,8 +72,16 @@
                         </div>
                     </a>
                     <div class="menu-person-dropdown">
-                        <a ng-click="logout()">Log out</a>
-                    </div>
+                        <a ng-click="openNewPost(0)">
+                            <div class="person-list">New post</div>
+                        </a>
+                        <a href="#/profile/edit">
+                            <div class="person-list">Edit profile</div>
+                        </a>
+                        <a ng-click="logout()">
+                            <div class="person-list">Log out</div>
+                        </a>
+                    </div><!-- END menu-person-dropdown -->
 
                 </div><!-- END logged-in-person-->
 
@@ -79,24 +92,20 @@
                     <div class="varsel-panel">
 
                         <div class="header-varsel-panel">
-
-                            <div class="bell-varsel">
-                                <i class="fa fa-bell"></i>
-                            </div><!--end bell-varsel-->
-
                             <h3 class="box-title">Notifications</h3>
 
                         </div><!--end header-varsel-panel-->
 
                         <div class="varsel-innhold">
+                            <a href="#" class="notification-feed-box">
+                                <img>
+                                <p class="notification-person">Ole C Reinhartsen</p>
+                                <p class="notification-spesific">Notification</p>
+                                <p class="notification-timestamp">Tid</p>
+                            </a>
+                            <a href="#" class="notification-feed-box">Kevin Sillerud</a>
+                            <a href="#" class="notification-feed-box">Hannah Sollund</a>
 
-                            <img class="profilbilde-varsel" src="../statisk/images/fubar_logo.jpg">
-                            <div class="notification-feed-box">
-                                <p class="overskrift-varsel">fuBar</p>
-                                <p class="tekst-varsel">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                                </p>
-                            </div>
                         </div><!--end varsel-innhold-->
 
                     </div><!--end varsel-panel-->
@@ -119,9 +128,9 @@
 
                             <div class="search-results">
                                 <div class="search-result-wrap" ng-repeat="searchResult in searchResults">
-                                    <a ng-href="#/{{ searchResult.url }}" ng-click="closeSearch()" ng-if="searchResult.url">
+                                    <a ng-href="#/{{ searchResult.url }}" ng-click="closeSearch()">
                                         <div class="search-result">
-                                            <div class="result-image-wrap" style="background-image: url(/statisk/images/ola_nordmann.jpeg); border-right: 3px solid #1eb6ec"></div>
+                                            <div class="result-image-wrap" style="border-right: 3px solid #1eb6ec" ng-style="{'background-image': 'url(' + searchResult.thumbnailUrl + ')'}"></div>
                                             <div class="search-name">{{ searchResult.name }}</div>
                                             <div class="search-stud">Interaktivt design</div>
                                             <div class="search-add"><i class="exit-search fa fa-plus"></i></div>
@@ -168,11 +177,11 @@
     <div class="container">
         <div class="breadcrumbs">
             <a href="#/">Home</a>
-            <?php if(basename($_SERVER['SCRIPT_NAME']) == 'index.php'): ?>
-
-            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'sidebar.php'): ?>
-            - Feed
-            <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'other_profiles.php'): ?>
+            <!--<div ng-if="breadcrumb" style="display: inline;">
+                - <a ng-if="breadcrumb.url" ng-href="{{breadcrumb.url}}">{{ breadcrumb.name }}</a>
+                <div ng-if="!breadcrumb.url" style="display: inline;">{{ breadcrumb.name }}</div>
+            </div>--!>
+            <!--<?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'other_profiles.php'): ?>
             - Profil
             <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'profil_edit.php'): ?>
             - <a href="other_profiles.php">Profil</a> - Edit profile
@@ -188,17 +197,38 @@
             - Events
             <?php elseif(basename($_SERVER['SCRIPT_NAME']) == 'pages.php'): ?>
             - Pages
-            <?php endif; ?>
+            <?php endif; ?>--!>
         </div>
     </div>
 
     <div class="add-new-btn-wrap">
         <div id="addNew" class="add-new-btn" ng-click="openShortcuts()"><i class="fa fa-pencil"></i></div>
-        <div id="newPostBtn" class="add-new-btn"><i class="fa fa-sticky-note-o"></i></div>
+        <div id="newPostBtn" class="add-new-btn" ng-click="openNewPost()"><i class="fa fa-sticky-note-o"></i></div>
         <div id="newPageBtn" class="add-new-btn"><i class="fa fa-file-text-o"></i></div>
         <div id="newEventBtn" class="add-new-btn"><i class="fa fa-calendar-plus-o"></i></div>
-        <div id="newSearchBtn" class="add-new-btn" ng-click="openSearch()"><i class="fa fa-search"></i></div>
+        <div id="newSearchBtn" class="add-new-btn" ng-click="openSearch() "><i class="fa fa-search"></i></div>
     </div>
+
+    <div class="new-post-wrap edit-fields popup" ng-controller="AddCardCtrl">
+        <div class="edit-card">
+            <form ng-submit="createCard()">
+
+                <div class="popup-top">
+                    <strong>Create post</strong>
+                    <br><br>
+                    <textarea class="edit-field3" rows="2" placeholder="Whats on your mind?"></textarea>
+                    <input type="file" name="" accept="image/*">
+                    <input class="edit-field2" placeholder="Legg til tags" type="search">
+                </div><!-- END popup top -->
+
+                <div class="popup-bottom">
+                    <input type="submit" class="btn-fill" value="Publish post">
+                </div><!-- END popup bottom -->
+
+            </form>
+        </div><!-- END edit-card -->
+    </div>
+
     <div ng-view></div>
 
 </div>

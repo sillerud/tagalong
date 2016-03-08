@@ -203,6 +203,16 @@
       z-index: 2;
       display: none;
     }
+    .logged-in-person:hover .person-name{
+      padding-bottom: 5px;
+    }
+    .person-list{
+      padding: 5px;
+    }
+    .person-list:hover{
+      background-color: #000;
+      border-radius: 3px;
+    }
     .varsel{
       float: right;
       margin-left: 20px;
@@ -212,7 +222,7 @@
       color: white;
       position: relative;
       top: 7px;
-    }   
+    }
     .varsel .fa-bell{
       display: block;
         color: white;
@@ -224,10 +234,10 @@
       display: block;
     }
     .varsel-panel{
-      display: none;
+      display: none ;
       position: absolute;
       z-index: 90000; /* Over alt annet innhold */
-      right: 0;
+      left: 0px;
       margin-top: 32px;
       /*border: 3px solid #333;*/
       width: auto;
@@ -236,12 +246,12 @@
     }
 @media screen and (min-width: 470px){
     .varsel-panel{
-        min-width: 400px;
+        min-width: 200px;
     }
 }
 @media screen and (max-width: 400px){
     .varsel-panel{
-        min-width: 250px;
+        min-width: 200px;
     }
 }
 
@@ -251,16 +261,15 @@
     text-align: center;
 }
 
-.bell-varsel{
-    width: auto;
-    margin-top: 8px;
-    margin-bottom: 10px;
-    font-size: 18px;
+.notification-feed-box{
+    width: 200px;
+    height: 50px;
+    border-bottom: 1px solid black;
+}
+.notification-timestamp{
+    float: right;
 }
 
-.notification-feed-box{
-    width: 330px;
-}
 
 .notification-feed-box, .profilbilde-varsel{
     float: left;
@@ -373,7 +382,7 @@
         height: 100%;
         overflow: hidden;
         position: fixed;
-        z-index: 8000;
+        z-index: 900;
         scroll: no-scroll;
         vertical-align: middle;
     }
@@ -409,7 +418,7 @@
         display: block;
         float: right;
         cursor: pointer;
-        z-index: 9000;
+        z-index: 1000;
     }
     .burger-wrap .bar{
         width: 30px;
@@ -444,7 +453,7 @@
   height: auto;
   right: 30px;
   bottom: 40px;
-  z-index: 800;
+  z-index: 3000;
 }
 .add-new-btn{
   border-radius: 50%;
@@ -487,6 +496,7 @@
   padding: 0 5px 2px 5px;
   border-radius: 3px;
   top: 7px;
+  border: 1px solid #61afca;
 }
 #newPostBtn:before{
   content: 'Add new post';

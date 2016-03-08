@@ -2,8 +2,6 @@
 angular.module('tagalong', [
         'ngRoute',
         'ngFileUpload',
-        'loginControllers',
-        'loginServices',
         'eventControllers',
         'eventServices',
         'userControllers',
@@ -13,8 +11,7 @@ angular.module('tagalong', [
         'pageControllers',
         'pageServices',
         'searchControllers',
-        'searchServices',
-        'uploadServices'
+        'searchServices'
     ])
 
     .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {

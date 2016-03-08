@@ -29,6 +29,7 @@ public class User implements Serializable {
     private boolean enabled;
     private String pageId;
     private String email;
+    private String personalInfo;
     private boolean showEmail;
     private Date born;
     private String studyFieldId;
