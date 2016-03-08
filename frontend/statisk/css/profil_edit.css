@@ -1,16 +1,4 @@
-/* Edit profil */
-#chooseProfilePic{
-    position: absolute;
-}
 .edit-profile-wrap{
-}
-.edit-profile-profile-pic{
-    text-align: center;
-    width: 200px;
-    margin: auto;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    position: relative;
 }
 .edit-profile-profile-pic .pic-overlay{
     opacity: 0;
@@ -37,11 +25,7 @@
     margin-top: -10px;
     color: #FFF;
 }
-.edit-title-description{
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
-}
-.edit-fields .edit-field1, .edit-fields .edit-field2{
+.edit-fields .edit-field2{
     width: 100%;
     margin-bottom: 30px;
     background-color: #F5F5F5;
@@ -87,6 +71,10 @@
        color: #333;
        opacity: .8;
     }
+
+.edit-event-date-icon, .edit-event-location-icon{
+    padding-right: 10px;
+}
 /* PEND - laceholder tekst */
 
 /* END - Edit profil */

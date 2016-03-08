@@ -1,0 +1,45 @@
+<?php include 'header.php'; ?>
+
+<div class="container edit-profile-wrap edit-fields">
+    <form>
+    <center><h1>Create and/or edit an event</h1></center>
+
+    <div class="col-sm-12">
+        <div class="edit-cover-piv" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
+        <img src="../statisk/images/event_pic.jpg" class="img-responsive" alt="">
+            <div class="pic-overlay"><b>Click to edit</b></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+           <label><h3>Title</h3></label>
+            <input class="edit-field2" placeholder="Title of the event">
+            <textarea rows="5" class="edit-field3" placeholder="About the event"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3><i class="fa fa-clock-o edit-event-date-icon"></i>Date</h3>
+            
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input ng-model="user.born" type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div>
+            
+        </div><!--END col-sm-6-->
+        
+        <div class="col-sm-6">
+            <h3><i class="fa fa-map-marker edit-event-location-icon"></i>Location</h3>
+            <input name="email" ng-model="user.email" class="edit-field2" type="text" placeholder="Where will the event take place?">
+        </div><!--END col-sm-4-->
+    </div><!--END rows-->
+    <center><input type="submit" class="btn-fill" value="Save profile"></center>
+    </form>
+</div><!-- END - container -->
+
+<?php include 'footer.php'; ?>

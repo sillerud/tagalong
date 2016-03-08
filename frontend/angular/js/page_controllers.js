@@ -59,3 +59,7 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
 pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($scope, Page) {
     $scope.pages = Page.all();
 }]);
+
+pageControllers.controller('EditPageController', ['$scope', 'Page', function($scope, Page) {
+
+}]);
