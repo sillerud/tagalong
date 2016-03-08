@@ -2,8 +2,6 @@
 angular.module('tagalong', [
         'ngRoute',
         'ngFileUpload',
-        'loginControllers',
-        'loginServices',
         'eventControllers',
         'eventServices',
         'userControllers',

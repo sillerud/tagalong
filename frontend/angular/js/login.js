@@ -23,3 +23,9 @@ loginControllers.controller('LoginCtrl', ['$scope', 'Login', 'User', function($s
         }
     }, login);
 }]);
+
+angular.module('tagalongLogin', [
+    'userServices',
+    'loginControllers',
+    'loginServices'
+]);
