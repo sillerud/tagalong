@@ -19,7 +19,7 @@ public class UserResponse
     private String pageId;
     private String email;
     private Date born;
-    private String studyField;
+    private String studyFieldId;
     private String studyFieldDisplayName;
     private String city;
     private String gender;
@@ -40,7 +40,7 @@ public class UserResponse
             this.email = user.getEmail();
         if (user.getBorn() != null)
             this.born = user.getBorn();
-        this.studyField = user.getStudyFieldId();
+        this.studyFieldId = user.getStudyFieldId();
         this.city = user.getCity();
         this.gender = user.getGender();
         this.firstname = user.getFirstname();

@@ -46,20 +46,27 @@
 
                 <label>City</label>
                 <input ng-model="user.city" type=text class="edit-field2" placeholder="Type in the city you're living in">
-
-                <label>Year of study</label>
-                <select class="edit-field2" ng-model="user.studyFieldId" ng-options="studyfield.description for studyfield in studyfields">
-                    <option selected disabled>Choose the year you are in</option>
+                
+                <label>Field of study *</label>
+                <select class="edit-field2" ng-options="studyField.description for studyField in studyfields track by studyField.id" ng-model="user.studyFieldId">
+                
+                <div class='input-group date' id='studyStartYear'>
+                    <input ng-model="user.studyStartYear" type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                
                 </select>
 
-                <label>Year of study start *</label>
+                <label></label>
                 <select class="edit-field2">
-                    <option>Choose the year you started your educations</option>
-                    <option value="1">1st year</option>
+                    <option selected disabled>Choose the year you started your education</option>
+                    <option value="1">2016</option>
                     <option value="2">2nd year</option>
                     <option value="3">3rd year</option>
-                    <option value="4">4th year</option>
-                    <option value="5">5th year</option>
+                    <option value="4">2</option>
+                    <option value="5">2011</option>
                 </select>
             </div>
             <div class="col-sm-6">
