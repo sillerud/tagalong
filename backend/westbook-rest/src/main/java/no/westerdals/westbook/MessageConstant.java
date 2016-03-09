@@ -32,6 +32,7 @@ public enum MessageConstant
     // Post,
     PAGE_CREATED,
     PAGE_UPDATED,
+    PAGE_URL_ALREADY_EXISTS_ERROR,
 
     // Cards
     CARD_CREATED,

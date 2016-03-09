@@ -69,10 +69,13 @@ pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', fu
     $scope.updatePage = function() {
         if (originalPage == null)
             return;
+        var updatedPage = {};
         angular.forEach($scope.page, function(value, key) {
-            console.log(originalPage[key]);
-            console.log(value);
+            if (value != originalPage[key]) {
+                updatedPage[key] = value;
+            }
         });
+        console.log(updatedPage);
     }
 
 }]);

@@ -7,16 +7,7 @@ import org.springframework.data.annotation.Id;
 @Getter
 @Setter
 @ToString
-public class Page
-{
-    public Page(String name, String userId, String contactInfo, PageLink[] links)
-    {
-        this.name = name;
-        this.userId = userId;
-        this.contactInfo = contactInfo;
-        this.links = links;
-    }
-
+public class Page {
     @Id
     private String id;
     private String logoPictureId;
@@ -24,18 +15,21 @@ public class Page
     private String name;
     private String description;
     private String userId;
-    private String contactInfo;
+    private boolean pagePublic;
+    private ValueDescription[] contactInfo;
     private String[] tags;
-    private PageLink[] links;
+    private PageAdministrator[] administrators;
+    private ValueDescription[] links;
 
     @AllArgsConstructor
+    @Data
     @NoArgsConstructor
-    @Getter
-    @Setter
-    @ToString
-    public static class PageLink
-    {
-        private String url;
-        private String description;
+    public static class PageAdministrator {
+        private String userId;
+        private AccessLevel accessLevel;
+    }
+
+    public enum AccessLevel {
+        ALL
     }
 }
