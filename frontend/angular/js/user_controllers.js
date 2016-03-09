@@ -5,27 +5,23 @@ var userControllers = angular.module('userControllers', []);
 userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope, User) {
     $scope.roles = "READ_COMMENT,NEW_COMMENT,READ_FEED,NEW_FEED,EDIT_FEED,READ_LINK,NEW_LINK,READ_PAGE,NEW_PAGE,EDIT_PAGE,READ_POST,NEW_POST,EDIT_POST,NEW_STUDYFIELD,READ_STUDYFIELD,READ_UPLOAD,NEW_UPLOAD,READ_ALL_FILES,READ_FILE,READ_SELF,READ_USER,READ_ALL_USERS,READ_USER,NEW_USER,DELETE_USER]";
     $scope.create = function() {
-        var userInfo = {
-            email: $scope.user.email,
-            gender: $scope.user.gender,
+        var user = {
             firstname: $scope.user.firstname,
             surname: $scope.user.surname,
-            showEmail: true,
-            enabled: true
-        };
-
-        User.create({
-            user: userInfo,
+            email: $scope.user.email,
+            password: $scope.user.password,
+            gender: $scope.user.gender,
+            accountLocked: false,
             enabled: true,
-            authorities: $scope.roles.split(","),//$scope.user.roles.split(","),
-            password: $scope.user.password
-        });
+            authorities: $scope.roles.split(",")
+        };
+        User.create(user);
     }
 }]);
 
 userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function($scope, User, Static) {
     $scope.me = User.find(function(data) {
-        if (!data.email) {
+        if (!data.id) {
             redirectLogin();
             return;
         }

@@ -16,7 +16,7 @@ loginControllers.controller('LoginCtrl', ['$scope', 'Login', 'User', function($s
         }
     };
     User.find(function(data) {
-        if (data.email) {
+        if (data.id) {
             window.location = "./";
         } else {
             login();
