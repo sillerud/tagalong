@@ -31,6 +31,7 @@ public enum MessageConstant
 
     // Post,
     PAGE_CREATED,
+    PAGE_UPDATED,
 
     // Cards
     CARD_CREATED,

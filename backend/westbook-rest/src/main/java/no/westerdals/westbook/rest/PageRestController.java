@@ -1,6 +1,7 @@
 package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.MessageConstant;
+import no.westerdals.westbook.ModelHelper;
 import no.westerdals.westbook.model.Page;
 import no.westerdals.westbook.mongodb.PageRepository;
 import no.westerdals.westbook.responses.ResultResponse;
@@ -23,9 +24,15 @@ public class PageRestController
         return pageRepository.findAll(new PageRequest(0, maxResults)).getContent();
     }
 
+    @RequestMapping(value="/{pageId}", method=RequestMethod.PATCH)
+    public ResultResponse updatePage(@PathVariable String pageId, @RequestBody Page updatedPage) {
+        // TODO: Check access level!
+        Page page = pageRepository.findOne(pageId);
+        return newOkResult(MessageConstant.PAGE_UPDATED, ModelHelper.mapObjects(page, updatedPage, Page.class));
+    }
+
     @RequestMapping(value="/{pageId}", method=RequestMethod.GET)
-    public Page getPageById(@PathVariable String pageId)
-    {
+    public Page getPageById(@PathVariable String pageId) {
         Page result = pageRepository.findByCustomUrl(pageId);
         if (result == null)
             result = pageRepository.findOne(pageId);
@@ -33,8 +40,7 @@ public class PageRestController
     }
 
     @RequestMapping(value="/by-name/{name}", method=RequestMethod.GET)
-    public List<Page> getPagesByName(@PathVariable String name)
-    {
+    public List<Page> getPagesByName(@PathVariable String name) {
         return pageRepository.findByNameLikeIgnoreCase(name, new PageRequest(0, 20));
     }
 
@@ -45,8 +51,7 @@ public class PageRestController
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public ResultResponse createNewPage(@RequestBody Page page)
-    {
+    public ResultResponse createNewPage(@RequestBody Page page) {
         page.setId(null);
         page.setUserId(null); //TODO
         Page result = pageRepository.insert(page);
