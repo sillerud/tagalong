@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-wrap-inner">
 
-                    <h3>{{ card.name }}</h3>
+                    <h3>{{ card.name | limitTo : 20 }}{{card.name.length > 20 ? '...' : ''}}</h3>
                     <p>{{ card.description }}</p>
 
                     <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
