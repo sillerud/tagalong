@@ -26,8 +26,8 @@ public class CardRestController {
 
     @RequestMapping(method=RequestMethod.GET)
     public List<Card> getOwnCards(Principal principal) {
-        User user = ((UserCredentials) ((Authentication)principal).getPrincipal()).getUser();
-        return cardRepository.findByUserId(user.getId());
+        UserCredentials user = ((UserCredentials) ((Authentication)principal).getPrincipal());
+        return cardRepository.findByUserId(user.getUserId());
     }
 
     @RequestMapping(method=RequestMethod.POST)

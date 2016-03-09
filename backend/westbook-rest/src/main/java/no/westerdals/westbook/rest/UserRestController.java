@@ -7,6 +7,7 @@ import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.mongodb.CredentialRepository;
 import no.westerdals.westbook.mongodb.StudyFieldRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
+import no.westerdals.westbook.responses.CreateUserRequest;
 import no.westerdals.westbook.responses.ResultResponse;
 import no.westerdals.westbook.responses.UserResponse;
 import static no.westerdals.westbook.responses.ResultResponse.*;
@@ -39,7 +40,7 @@ public class UserRestController
     @RequestMapping(value="/me", method=RequestMethod.GET)
     public UserResponse getMe(Principal user) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)user).getPrincipal();
-        return resolve(userRepository.findOne(userCredentials.getUser().getId()));
+        return getById(userCredentials.getUserId());
     }
 
     @RequestMapping(value="/{userId}", method=RequestMethod.GET)
@@ -87,8 +88,8 @@ public class UserRestController
     @RequestMapping(method=RequestMethod.PATCH)
     public ResultResponse updateUser(@RequestBody User user, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
-        if (user.getId() == null || user.getId().equals(userCredentials.getUser().getId())) {
-            user.setId(userCredentials.getUser().getId());
+        if (user.getId() == null || user.getId().equals(userCredentials.getUserId())) {
+            user.setId(userCredentials.getUserId());
             return newOkResult(MessageConstant.USER_UPDATED, userRepository.update(user));
         } else {
             // TODO: Edit other profiles
@@ -97,14 +98,14 @@ public class UserRestController
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public ResultResponse createUser(@RequestBody UserCredentials userCredentials) {
-        User user = userCredentials.getUser();
+    public ResultResponse createUser(@RequestBody CreateUserRequest userCredentials) {
+        User user = userCredentials.toUser();
         user.setId(null);
         userRepository.save(user);
         User inserted = userRepository.save(user);
-        Credential credential = new Credential(null, userCredentials.getPassword(), !userCredentials.isAccountNonLocked(), userCredentials.getGrantedAuthorities());
+        String hashedPassword = passwordEncoder.encode(userCredentials.getPassword());
+        Credential credential = new Credential(null, hashedPassword, !userCredentials.isAccountLocked(), userCredentials.getAuthorities());
         credential.setId(inserted.getId());
-        credential.setPasswordHash(passwordEncoder.encode(userCredentials.getPasswordHash()));
         credentialRepository.save(credential);
         return newOkResult(MessageConstant.USER_CREATED, inserted);
     }

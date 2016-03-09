@@ -39,7 +39,7 @@ public class FileRestController
                                        Principal principal) throws IOException {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         // TODO: Get user ID from session
-        FileMeta fileMeta = uploadService.uploadFile(new FileMeta(userCredentials.getUser().getId(), name, attachment, new Date()), file.getInputStream());
+        FileMeta fileMeta = uploadService.uploadFile(new FileMeta(userCredentials.getUserId(), name, attachment, new Date()), file.getInputStream());
         return newOkResult(MessageConstant.FILE_UPLOADED, fileMeta);
     }
 
