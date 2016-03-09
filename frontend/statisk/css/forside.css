@@ -6,6 +6,15 @@
         position: relative;
         box-sizing: border-box;
         margin-bottom: 30px;
+        background-size: cover;
+    }
+    .card-overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255,255,255, 0.5);
     }
     .card-wrap-inner{
         min-height: 150px;
