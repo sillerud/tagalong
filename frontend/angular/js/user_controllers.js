@@ -85,26 +85,20 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function
         }
 
     }; // END openShortcuts
-    
-     var showNotification = false;
-    $scope.myFunction = function() {
-        console.log("God dag!");
-        
-        $(".dropdown-content").fadeIn;
-    }
-    /* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.varsel')) {
-    if (showNotification) {
-        
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-        console.log("Hei");
-    }
-  }
-}
+    var dropdownToggle = false;
+    var dropdown = $(".dropdown-content");
+    $scope.openNotifications = function() {
+        dropdown.fadeIn();
+        dropdownToggle = true;
+    };
+
+    $(document).mouseup(function (e) {
+        if (dropdownToggle && !dropdown.is(e.target) && dropdown.has(e.target).length === 0) {
+            dropdown.fadeOut();
+            dropdownToggle = false;
+        }
+    });
 
 }]);
 
@@ -158,7 +152,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             gender: $scope.me.gender,
             city: $scope.me.city,
             studyFieldId: $scope.studyfields.getById($scope.me.studyFieldId),
-            contactInfo: $scope.me.contactInfo
+            contactInfo: $scope.me.contactInfo.slice(0)
         };
     });
 
@@ -169,7 +163,11 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             if (key == "studyFieldId") {
                 value = value.id;
             }
-            if ($scope.me[key] != value && key != 'email') {
+            if ($.isArray(value)) {
+                if (!($(value).not($scope.me[key]).length === 0 && $($scope.me[key]).not(value).length === 0)) {
+                    updatedInfo[key] = value;
+                }
+            } else if ($scope.me[key] != value && key != 'email') {
                 updatedInfo[key] = value;
             }
         });

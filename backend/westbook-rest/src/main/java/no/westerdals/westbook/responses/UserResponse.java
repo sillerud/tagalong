@@ -28,6 +28,7 @@ public class UserResponse
     private String profilePictureId;
     private String profileHeaderPictureId;
     private String interests;
+    private short yearStarted;
     private ValueDescription[] contactInfo;
     private ValueDescription[] projects;
     private String[] skills;
@@ -46,6 +47,7 @@ public class UserResponse
         this.firstname = user.getFirstname();
         this.surname = user.getSurname();
         this.interests = user.getInterests();
+        this.yearStarted = user.getYearStarted();
         this.contactInfo = user.getContactInfo();
         this.projects = user.getProjects();
         this.skills = user.getSkills();
