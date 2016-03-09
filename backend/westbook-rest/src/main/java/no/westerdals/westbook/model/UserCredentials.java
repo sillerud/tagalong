@@ -34,6 +34,7 @@ public class UserCredentials implements UserDetails {
         } else {
             grantedAuthorities = credential.getAuthorities();
         }
+        System.out.println(this);
     }
 
     @Override
