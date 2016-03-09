@@ -38,9 +38,12 @@ public class UserRestController
     private PasswordEncoder passwordEncoder;
 
     @RequestMapping(value="/me", method=RequestMethod.GET)
-    public UserResponse getMe(Principal user) {
-        UserCredentials userCredentials = (UserCredentials) ((Authentication)user).getPrincipal();
-        return getById(userCredentials.getUserId());
+    public UserResponse getMe(Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication) principal).getPrincipal();
+        User user = userRepository.findOne(userCredentials.getUserId());
+        UserResponse response = resolve(user);
+        response.setEmail(user.getEmail());
+        return response;
     }
 
     @RequestMapping(value="/{userId}", method=RequestMethod.GET)
@@ -51,13 +54,13 @@ public class UserRestController
 
 
     /*@RequestMapping(method=RequestMethod.PATCH)
-    public UserResponse updateUserInfo(@RequestBody User user)
+    public UserResponse updateUserInfo(@RequestBody User principal)
     {
         // This needs some checks if its sane
-        if (user.getId() == null)
+        if (principal.getId() == null)
             return null;
-        userRepository.updateStudyField(user.getId(), user.getStudyFieldId());
-        return resolve(userRepository.findOne(user.getId()));
+        userRepository.updateStudyField(principal.getId(), principal.getStudyFieldId());
+        return resolve(userRepository.findOne(principal.getId()));
     }*/
 
     @RequestMapping(value="/by-studyfield/{studyField}", method=RequestMethod.GET)
@@ -104,8 +107,7 @@ public class UserRestController
         userRepository.save(user);
         User inserted = userRepository.save(user);
         String hashedPassword = passwordEncoder.encode(userCredentials.getPassword());
-        Credential credential = new Credential(null, hashedPassword, !userCredentials.isAccountLocked(), userCredentials.getAuthorities());
-        credential.setId(inserted.getId());
+        Credential credential = new Credential(inserted.getId(), hashedPassword, !userCredentials.isAccountLocked(), userCredentials.getAuthorities());
         credentialRepository.save(credential);
         return newOkResult(MessageConstant.USER_CREATED, inserted);
     }

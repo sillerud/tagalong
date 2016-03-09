@@ -23,12 +23,14 @@
                     <li class="tabs-item" ng-class="{active: showContactInfo}"><a ng-click="setShowContactInfo(true)">Contact</a></li>
                 </ul>
 
-                <div class="tabs-content">
-                   
+                <div class="row">
+                    <div class="col-sm-6">
                         <div class="page-profile-image" ng-style="{'background-image': 'url(' + user.profilePictureUrl + ')'}"></div>
+                   </div><!--END col-sm-6-->
                    
-                   <div class="tab-content-section">
-                   
+                   <div class="col-sm-6">
+                       <div class="tab-content-section">
+
                         <div ng-if="!showContactInfo" id="about-tab" class="tab">
                             <div ng-if="user.age" class="holder">
                                 <p class="info-format age" ><b>Age: </b></p>
@@ -59,10 +61,10 @@
                                 <p class="">{{ contactInfo.value }}</p>
                             </div>
                         </div><!--contact-tab END-->
-                    </div><!--END tab-content-section-->
-                </div><!--tabs-content END-->
-
-            </div><!--tabs END-->
+                    </div><!--END tabs-content-->
+                </div><!--END col-sm-6-->
+            </div><!--row END-->
+            
             <div class="skill-section box">
                 <div class="box-title">
                     <h3>Skills</h3>
@@ -80,11 +82,14 @@
                     <li ng-repeat="project in user.projects">{{ project.description }}</li>
                 </ul>
             </div><!--myProjects END-->
-        </div><!--col-sm-6 END-->
+        </div><!--END tabs-->
+        
+        </div><!--END col-sm-6-->
         <div class="col-sm-6">
             <ng-include src="'partials/person_feed.html'"></ng-include>
         </div><!--person_feed.php END-->
-    </div><!--row END-->
-
-
+        
+    
+    </div><!--END row-->
+    
 </div>
