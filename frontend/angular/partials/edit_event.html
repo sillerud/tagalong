@@ -12,9 +12,10 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-           <label><h3>Title</h3></label>
+            <h3 class="edit-this-title">Title</h3>
+            <h4 class="delete-this-link"><a href="#">Delete page</a></h4>
             <input class="edit-field2" placeholder="Title of the event">
-            <textarea rows="5" class="edit-field3" placeholder="About the event"></textarea>
+            <textarea rows="6" class="edit-field3" placeholder="About the event"></textarea>
         </div>
     </div>
 
@@ -38,7 +39,15 @@
             <input name="email" ng-model="user.email" class="edit-field2" type="text" placeholder="Where will the event take place?">
         </div><!--END col-sm-4-->
     </div><!--END rows-->
-    <center><input type="submit" class="btn-fill btn-fill-save" value="Save profile"></center>
+    
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Tags for event</h3>
+            <input name="email" ng-model="user.email" class="edit-field2" type="text" placeholder="Separate, tags, by, comma">
+        </div><!--END col-sm-12-->
+    </div><!--END rows-->
+    
+    <center><input type="submit" class="btn-fill btn-fill-save" value="Save changes"></center>
     </form>
 </div><!-- END - container -->
 

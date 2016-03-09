@@ -107,9 +107,15 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
 
 userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', 'User', 'Upload', 'Static', function($scope, $routeParams, $q, User, Upload, Static) {
     var datetimepicker = $('#bornDate');
+    var studyStartYear = $('#studyStartYear');
 
     datetimepicker.datetimepicker({
         format: 'DD/MM/YYYY'
+    });
+    studyStartYear.datetimepicker({
+        format: 'YYYY',
+        minDate: moment().subtract(5, 'years'),
+        maxDate: moment()
     });
 
     var dtpData = datetimepicker.data("DateTimePicker");
