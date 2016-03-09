@@ -290,6 +290,8 @@
 .dropdown-content a:hover {background-color: aquamarine}
 
 .arrow-up {
+    display: none;
+    z-index: 90000;
 	width: 0; 
 	height: 0; 
 	border-left: 10px solid transparent;
