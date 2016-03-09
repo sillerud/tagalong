@@ -16,9 +16,9 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
 
         User.create({
             user: userInfo,
-            accountLocked: false,
-            grantedAuthorities: $scope.roles.split(","),//$scope.user.roles.split(","),
-            passwordHash: $scope.user.password
+            enabled: true,
+            authorities: $scope.roles.split(","),//$scope.user.roles.split(","),
+            password: $scope.user.password
         });
     }
 }]);
@@ -86,9 +86,11 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function
 
     }; // END openShortcuts
 
+    
     var dropdownToggle = false;
     var dropdown = $(".dropdown-content");
     $scope.openNotifications = function() {
+        console.log("sdalsjøf");
         dropdown.fadeIn();
         dropdownToggle = true;
     };

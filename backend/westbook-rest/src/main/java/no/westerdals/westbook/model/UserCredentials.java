@@ -24,6 +24,7 @@ public class UserCredentials implements UserDetails {
     public UserCredentials(User user, Credential credential) {
         this.userId = user.getId();
         this.email = user.getEmail();
+        this.enabled = user.isEnabled();
         this.accountLocked = credential.isAccountLocked();
         this.passwordHash = credential.getPasswordHash();
         if (user.getAccountExpires() != null) {
@@ -34,7 +35,6 @@ public class UserCredentials implements UserDetails {
         } else {
             grantedAuthorities = credential.getAuthorities();
         }
-        System.out.println(this);
     }
 
     @Override

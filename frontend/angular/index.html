@@ -65,6 +65,36 @@
 
             <div class="top-right">
 
+                <div ng-click="openNotifications()" class="varsel">
+                    <div>
+                        <p class="varsel-title">Varsel</p>
+                        <i class="fa fa-bell"></i>
+                        <i class="fa fa-bell-o"></i>
+                    </div>
+                      <div id="myDropdown" class="dropdown-content">
+                          <div class="header-varsel-panel">
+                            <h3>Notifications</h3>
+                          </div>
+
+                            <a ng-href="#OleChristian">
+                                <img class="notification-img" src="../statisk/images/ola_nordmann.jpeg">
+                                <p class="notification-name">Ole Christian Reinhartsen{{notfication.name}}</p>
+                                <p class="notification-time">33 min</p>
+                                <p class="notification-text">Has tagged along to your post</p>
+                            </a>
+
+
+                            <a ng-href="#OleChristian">
+                                <img class="notification-img" src="../statisk/images/ola_nordmann.jpeg">
+                                <p class="notification-name">Ole Christian Reinhartsen{{notfication.name}}</p>
+                                <p class="notification-time">2 hours</p>
+                                <p class="notification-text">Has tagged along to your post</p>
+                            </a>
+
+                        </div><!--END -->
+
+                </div><!--end varsel-panel-->
+                
                 <div class="logged-in-person">
                     <a href="#/profile">
                         <div class="person-name">
@@ -86,33 +116,7 @@
 
                 </div><!-- END logged-in-person-->
 
-                <div ng-click="openNotifications()" class="varsel">
-                    <i class="fa fa-bell"></i>
-                    <i class="fa fa-bell-o"></i>
-
-                      <div ng-blur="closeDropdown()" id="myDropdown" class="dropdown-content">
-                          <div class="header-varsel-panel">
-                            <h3>Notifications</h3>
-                          </div>
-
-                            <a ng-href="#OleChristian">
-                                <img class="notification-img" src="../statisk/images/ola_nordmann.jpeg">
-                                <p class="name">Ole Christian Reinhartsen{{notfication.name}}</p>
-                                <p class="time">33 min</p>
-                                <p class="notification-text">Has tagged along to your post</p>
-                            </a>
-
-
-                            <a ng-href="#OleChristian">
-                                <img class="notification-img" src="../statisk/images/ola_nordmann.jpeg">
-                                <p class="name">Ole Christian Reinhartsen{{notfication.name}}</p>
-                                <p class="time">2 hours</p>
-                                <p class="notification-text">Has tagged along to your post</p>
-                            </a>
-
-                        </div><!--END -->
-
-                </div><!--end varlse-panel-->
+                
 
                 <div class="fast-search" ng-controller="QuickSearchCtrl">
                     <button id="searchBtn" ng-click="openSearch()"><i class="fa fa-search"></i> <span>Search</span></button>
