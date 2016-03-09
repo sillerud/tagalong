@@ -56,11 +56,14 @@
 <body ng-controller="UserInfoCtrl">
 
 <div class="card-sidebar">
-    <h3>Your cards</h3>
+    <div class="card-sidebar-top">
+        <h5>Gjermund Norderhaug</h5>
+        <h3>Your cards</h3>
+    </div>
     <div ng-repeat="card in cards" class="sidebar-a-card">
         <div class="card-shortcut" id="{{ card.id }}">
             <div class="card-name">{{ card.name }}</div>
-        </div><br>
+        </div>
     </div>
 
 </div><!-- END card-shortcut-wrap -->
@@ -85,7 +88,7 @@
                     <div>
                         <div class="arrow-up"></div><!--END arrow-up-->
                       <div id="myDropdown" class="dropdown-content">
-                        
+
 
                           <div class="header-varsel-panel">
                             <h3>Notifications</h3>
