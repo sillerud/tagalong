@@ -85,6 +85,26 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function
         }
 
     }; // END openShortcuts
+    
+     var showNotification = false;
+    $scope.myFunction = function() {
+        console.log("God dag!");
+        
+        $(".dropdown-content").fadeIn;
+    }
+    /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.varsel')) {
+    if (showNotification) {
+        
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+        console.log("Hei");
+    }
+  }
+}
 
 }]);
 
