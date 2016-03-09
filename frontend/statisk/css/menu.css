@@ -261,7 +261,7 @@
 }
 .card-menu-wrap{
   position: absolute;
-  left: 0;
+  left: 15px;
 }
 .header-varsel-panel{
     margin: 0;
@@ -436,7 +436,7 @@
       bottom: 20px !important;
     }
     #inner-menu{
-        margin-left: -15px !important;
+        padding-left: 0px !important;
         top: 6px;
         margin-right: 0;
         position: relative;

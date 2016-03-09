@@ -44,7 +44,7 @@
 /* Card shortcuts */
 .card-shortcut-wrap{
     position: fixed;
-    left: 0;
+    left: 15px;
     top: 160px;
     z-index: 600;
 }
@@ -52,11 +52,12 @@
     position: relative;
     width: auto;
     height: 40px;
-    border-radius: 20px;
-    background-color: #333;
+    border-radius: 5px;
+    background-color: #FFF;
+    border: 1px solid #333;
     left: 0;
     opacity: 1;
-    color: #FFF;
+    color: #333;
     overflow: hidden;
     cursor: pointer;
     z-index: 400;
