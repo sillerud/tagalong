@@ -271,7 +271,6 @@
 }
 
 .dropdown-content {
-    display: none; /* Fjern denne for å få frem notification tabben */
     z-index: 90000;
     position: absolute;
     background-color: #f9f9f9;
