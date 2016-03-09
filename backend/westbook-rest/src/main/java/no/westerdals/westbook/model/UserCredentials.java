@@ -23,6 +23,7 @@ public class UserCredentials implements UserDetails {
 
     public UserCredentials(User user, Credential credential) {
         this.userId = user.getId();
+        this.email = user.getEmail();
         this.accountLocked = credential.isAccountLocked();
         this.passwordHash = credential.getPasswordHash();
         if (user.getAccountExpires() != null) {
@@ -52,7 +53,7 @@ public class UserCredentials implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return accountExpires != 0 || accountExpires < System.currentTimeMillis();
+        return accountExpires == 0 || accountExpires < System.currentTimeMillis();
     }
 
     @Override
