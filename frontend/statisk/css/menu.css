@@ -256,7 +256,10 @@
         min-width: 200px;
     }
 }
-
+.card-menu-wrap{
+  position: absolute;
+  left: 0;
+}
 .header-varsel-panel{
     margin: 0;
     background-color: lightblue;
