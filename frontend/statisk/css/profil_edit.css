@@ -75,19 +75,19 @@
 /* Placeholder tekst */
 .edit-fields ::-webkit-input-placeholder {
        color: #333;
-       opacity: .8;
+       opacity: .6;
 }
     .edit-fields :-moz-placeholder { /* Firefox 18- */
        color: #333;
-       opacity: .8;
+       opacity: .6;
     }
     .edit-fields ::-moz-placeholder {  /* Firefox 19+ */
        color: #333;
-       opacity: .8;
+       opacity: .6;
     }
     .edit-fields :-ms-input-placeholder {
        color: #333;
-       opacity: .8;
+       opacity: .6;
     }
 
 .edit-event-date-icon, .edit-event-location-icon{
