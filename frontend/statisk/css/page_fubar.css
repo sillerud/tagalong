@@ -46,7 +46,7 @@
     position: fixed;
     left: 15px;
     top: 160px;
-    z-index: 600;
+    z-index: 1100;
 }
 .card-shortcut{ /* Knapp for å delta */
     position: relative;

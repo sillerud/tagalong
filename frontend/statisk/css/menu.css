@@ -608,7 +608,7 @@
   top: 8px;
   z-index: 800;
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 600px){
   .person-name span, #searchBtn span{
     display: none;
   }
