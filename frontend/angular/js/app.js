@@ -21,6 +21,9 @@ angular.module('tagalong', [
                 templateUrl: 'partials/events.html',
                 controller: 'ViewEventsCtrl'
             })
+            .when('/events/:id', {
+                templateUrl: 'partials/event.html'
+            })
             .when("/events/:id/edit", {
                 templateUrl: 'partials/edit_event.html',
                 controller: 'EditEventCtrl'
