@@ -239,15 +239,12 @@
     cursor: pointer;
 }
 
-@media screen and (min-width: 470px){
-    .varsel-panel{
-        min-width: 200px;
-    }
+@media screen and (min-width: 401px){
     .arrow-up{
         left: 20px;
     }
-    .varsel{
-        
+    .dropdown-content{
+        min-width: 350px; 
     }
     
 }
@@ -260,6 +257,10 @@
     }
     .arrow-up{
         left: 0px;
+    }
+    .dropdown-content{
+        position: fixed !important;   
+        top: 78px;
     }
 }
 .card-menu-wrap{
@@ -285,7 +286,6 @@
     position: absolute;
     right: 0;
     background-color: #f9f9f9;
-    min-width: 350px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
