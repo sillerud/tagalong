@@ -230,9 +230,12 @@
     .varsel .fa-bell-o{
       display: none;
     }
-    .varsel .varsel-panel, .varsel:focus .varsel-panel{
+   /* .varsel .varsel-panel, .varsel:focus .varsel-panel{
       display: block;
-    }
+    }*/
+.varsel:hover{
+    cursor: pointer;
+}
     .varsel-panel{
       display: none;
       position: absolute;
@@ -271,6 +274,7 @@
 }
 
 .dropdown-content {
+    display: none;
     z-index: 90000;
     position: absolute;
     background-color: #f9f9f9;
@@ -287,6 +291,8 @@
     text-decoration: none;
     display: block;
 }
+
+.show {display:block;}
 
 .dropdown-content a:hover {background-color: aquamarine}
 
@@ -317,6 +323,7 @@
     width: 200px;
 }
 .notification-text{
+    display: none;
     padding: 3;
     float: left;
     font-size: 12px;
