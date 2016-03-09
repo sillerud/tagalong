@@ -16,6 +16,7 @@ body{
 .page{
     background-color: #F2F2EE;
     padding-bottom: 30px;
+    position: relative;
 }
 a{
     text-decoration: none;
@@ -129,3 +130,11 @@ a:hover{
     background-color: #FFF;
 }
 /* END post */
+.card-sidebar{
+    position: fixed;
+    color: #FFF;
+    left: -300px;
+    padding: 15px;
+    height: 100%;
+}
+/* Card sidebar */

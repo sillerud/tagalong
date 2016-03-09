@@ -19,7 +19,7 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
     }
 }]);
 
-userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function($scope, User, Static) {
+userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', function($scope, User, Static, Card) {
     $scope.me = User.find(function(data) {
         if (!data.id) {
             redirectLogin();
@@ -82,7 +82,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function
 
     }; // END openShortcuts
 
-    
+
     var dropdownToggle = false;
     var dropdown = $(".dropdown-content");
     $scope.openNotifications = function() {
@@ -97,10 +97,10 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function
             dropdownToggle = false;
         }
     });
-
+    $scope.cards = Card.all();
     $scope.openCardShortcuts = function(){
-        $('.card-shortcut-wrap').fadeIn();
-        $('#darkOverlay').fadeIn();
+        $('.page').animate({'left': '300px'});
+        $('.card-sidebar').animate('left': '0');
     };
 
 }]);

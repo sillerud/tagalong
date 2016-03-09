@@ -54,6 +54,18 @@
     <title>Tag along</title>
 </head>
 <body ng-controller="UserInfoCtrl">
+
+<div class="card-sidebar">
+    YOOO
+    <div ng-repeat="card in cards" >
+        <div class="card-shortcut" id="{{ card.id }}">
+            <div class="cs-icon">{{ card.name | limitTo: 1 }}</div>
+            <div class="card-name">{{ card.name }}</div>
+        </div><br>
+    </div>
+
+</div><!-- END card-shortcut-wrap -->
+
 <div class="page">
 <div id="darkOverlay" ng-click="closePopup()"></div>
 
@@ -94,7 +106,7 @@
                         </div><!--END -->
 
                 </div><!--end varsel-panel-->
-                
+
                 <div class="logged-in-person">
                     <a href="#/profile">
                         <div class="person-name">
@@ -116,7 +128,7 @@
 
                 </div><!-- END logged-in-person-->
 
-                
+
 
                 <div class="fast-search" ng-controller="QuickSearchCtrl">
                     <button id="searchBtn" ng-click="openSearch()"><i class="fa fa-search"></i> <span>Search</span></button>

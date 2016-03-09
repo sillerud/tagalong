@@ -36,7 +36,6 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
         shortDescription = description.length > 100 ? description.substring(0, 100) : description + "...";
         $scope.description = shortDescription;
     });
-    $scope.cards = Card.all();
 
     $('.thumb').each(function() {
         var elem = $(this);
