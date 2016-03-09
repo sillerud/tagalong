@@ -608,3 +608,8 @@
   top: 8px;
   z-index: 800;
 }
+@media screen and (max-width: 400px){
+  .person-name span, #searchBtn span{
+    display: none;
+  }
+} /* END max 400px */

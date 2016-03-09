@@ -100,6 +100,11 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function
         }
     });
 
+    $scope.openCardShortcuts = function(){
+        $('.card-shortcut-wrap').fadeIn();
+        $('.dark-overlay').fadeIn();
+    };
+
 }]);
 
 
