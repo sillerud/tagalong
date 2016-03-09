@@ -86,9 +86,11 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function
 
     }; // END openShortcuts
 
+    
     var dropdownToggle = false;
     var dropdown = $(".dropdown-content");
     $scope.openNotifications = function() {
+        console.log("sdalsjøf");
         dropdown.fadeIn();
         dropdownToggle = true;
     };
