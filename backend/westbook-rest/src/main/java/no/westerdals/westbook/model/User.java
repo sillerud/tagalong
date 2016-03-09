@@ -26,7 +26,7 @@ public class User {
 
     @Id
     private String id;
-    private boolean enabled;
+    private boolean disabled;
     private String pageId;
     private String email;
     private String personalInfo;

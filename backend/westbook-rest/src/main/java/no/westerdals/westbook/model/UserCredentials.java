@@ -22,13 +22,9 @@ public class UserCredentials implements UserDetails {
     private String[] grantedAuthorities;
 
     public UserCredentials(User user, Credential credential) {
-        for (int i = 0; i < 100; i++) {
-            System.out.println(i);
-            System.out.println(user);
-        }
         this.userId = user.getId();
-        System.out.println(credential);
         this.email = user.getEmail();
+        this.enabled = !user.isDisabled();
         this.accountLocked = credential.isAccountLocked();
         this.passwordHash = credential.getPasswordHash();
         if (user.getAccountExpires() != null) {
@@ -39,7 +35,6 @@ public class UserCredentials implements UserDetails {
         } else {
             grantedAuthorities = credential.getAuthorities();
         }
-        System.out.println(this);
     }
 
     @Override
@@ -59,12 +54,12 @@ public class UserCredentials implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return accountExpires == 0 || accountExpires < System.currentTimeMillis();
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return !accountLocked;
     }
 
     @Override
