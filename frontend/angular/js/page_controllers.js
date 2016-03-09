@@ -75,7 +75,10 @@ pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', fu
                 updatedPage[key] = value;
             }
         });
-        console.log(updatedPage);
+
+        if (!$.isEmptyObject(updatedPage)) {
+            Page.update({pageId: originalPage.id}, updatedPage)
+        }
     }
 
 }]);
