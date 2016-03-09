@@ -40,49 +40,6 @@
     bottom: 10px;
     color: #FFF;
 }
-
-/* Card shortcuts */
-.card-shortcut-wrap{
-    position: fixed;
-    left: 15px;
-    top: 160px;
-    z-index: 1100;
-}
-.card-shortcut{ /* Knapp for å delta */
-    position: relative;
-    width: auto;
-    height: 40px;
-    border-radius: 5px;
-    background-color: #FFF;
-    border: 1px solid #333;
-    left: 0;
-    opacity: 1;
-    color: #333;
-    overflow: hidden;
-    cursor: pointer;
-    z-index: 400;
-    margin-bottom: 10px;
-    transition: background-color 200ms linear;
-    display: inline-block;
-    float: none;
-}
-.card-name{ /* Tekst inne i knappen */
-    position: relative;
-    top: 8px;
-    padding: 0 15px 0 35px;
-    height: 23px;
-    overflow: hidden;
-}
-.card-shortcut .cs-icon{ /* Ikonet i knappen */
-    font-size: 1.2em;
-    position: absolute;
-    left: 12px;
-    right: 0;
-    top: 7px;
-    text-align: left;
-    margin: auto;
-    color: #333;
-}
 /* Add to card btn */
 .add-page-to-card{
     position: absolute;

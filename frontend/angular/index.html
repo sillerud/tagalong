@@ -56,10 +56,9 @@
 <body ng-controller="UserInfoCtrl">
 
 <div class="card-sidebar">
-    YOOO
-    <div ng-repeat="card in cards" >
+    <h3>Your cards</h3>
+    <div ng-repeat="card in cards" class="sidebar-a-card">
         <div class="card-shortcut" id="{{ card.id }}">
-            <div class="cs-icon">{{ card.name | limitTo: 1 }}</div>
             <div class="card-name">{{ card.name }}</div>
         </div><br>
     </div>
