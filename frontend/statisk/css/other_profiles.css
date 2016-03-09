@@ -11,9 +11,14 @@
     background-color: white;
     clear: both;
     margin-bottom: 15px;
-
     padding: 5px;
 }
+.page-profile-image, .tab-content-section{
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
 .profile-post-box{
     width: 100%;
     height: auto;
@@ -21,15 +26,6 @@
     clear: both;
     margin-bottom: 300px;
     padding: 5px;
-}
-.profile-pic-holder{
-    width: 150px;
-    height: 150px;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 0;
-    border-radius: 80px;
-    float: left;
 }
 .edit-profile-page{
     float: right;
@@ -130,4 +126,8 @@ li.active a, li.active a:hover {
     box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
     background:#fff;
     width: 100%;
+}
+.tab-content-section{
+    height: 300px;
+    background-color: red;
 }
