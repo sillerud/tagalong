@@ -23,57 +23,64 @@
                     <li class="tabs-item" ng-class="{active: showContactInfo}"><a ng-click="setShowContactInfo(true)">Contact</a></li>
                 </ul>
 
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="page-profile-image" ng-style="{'background-image': 'url(' + user.profilePictureUrl + ')'}"></div>
-                   </div><!--END col-sm-6-->
-                   
-                   <div class="col-sm-6">
+                <div class="tabs-content">
+                  
                        <div class="tab-content-section">
 
-                        <div ng-if="!showContactInfo" id="about-tab" class="tab">
-                            <div ng-if="user.age" class="holder">
-                                <p class="info-format age" ><b>Age: </b></p>
-                                <p class="age-c">{{ user.age }}</p>
-                            </div>
-                            <div ng-if="user.gender" class="holder">
-                                <p class="info-format gender" ><b>Gender:</b></p>
-                                <p class="gender-c">{{ user.gender | capitalize }}</p>
-                            </div>
-                            <div ng-if="user.city" class="holder">
-                                <p class="info-format city"><b>City of residence: </b></p>
-                                <p class="city-c">{{ user.city }}</p>
-                            </div>
-                            <div ng-if="user.studyFieldDisplayName" class="holder">
-                                <p class="info-format field-of-study"><b>Field of study: </b></p>
-                                <p class="field-of-study-c">{{ user.studyFieldDisplayName }}</p>
-                            </div>
-                            <div ng-if="user.interests" class="holder">
-                                <p class="info-format interests"><b>Interests: </b></p>
-                                <p class="interests-c">{{ user.interests }}</p>
-                            </div>
-                            <a href="#/profile/edit" ng-if="user.id == me.id" class="edit-profile-page">Edit</a> <!--edit button-->
+                        <div ng-if="!showContactInfo" id="about-tab" class="tab"><!-- Tab 1 -->
+                           
+                           <div class="col-sm-6">
+                                <img class="img-profile-img" src="../statisk/images/profilbilde_jap.jpg">
+                           </div><!--END col-sm-6-->
+                           
+                            <div class="col-sm-6">
+                           
+                                <div ng-if="user.age" class="holder">
+                                    <p class="info-format age" ><b>Age: </b></p>
+                                    <p class="age-c">{{ user.age }}</p>
+                                </div>
+                                <div ng-if="user.gender" class="holder">
+                                    <p class="info-format gender" ><b>Gender:</b></p>
+                                    <p class="gender-c">{{ user.gender | capitalize }}</p>
+                                </div>
+                                <div ng-if="user.city" class="holder">
+                                    <p class="info-format city"><b>City of residence: </b></p>
+                                    <p class="city-c">{{ user.city }}</p>
+                                </div>
+                                <div ng-if="user.studyFieldDisplayName" class="holder">
+                                    <p class="info-format field-of-study"><b>Field of study: </b></p>
+                                    <p class="field-of-study-c">{{ user.studyFieldDisplayName }}</p>
+                                </div>
+                                <div ng-if="user.interests" class="holder">
+                                    <p class="info-format interests"><b>Interests: </b></p>
+                                    <p class="interests-c">{{ user.interests }}</p>
+                                </div>
+                            </div><!-- END col 6 -->
+                            
                         </div><!--about-tab END-->
 
-                        <div ng-if="showContactInfo" id="contact-tab" class="tab">
+                        <div ng-if="showContactInfo" id="contact-tab" class="tab"><!-- Tab 2 -->
                             <div ng-repeat="contactInfo in user.contactInfo" class="holder">
                                 <p class="info-format email"><b>{{ contactInfo.description }}:</b></p>
                                 <p class="">{{ contactInfo.value }}</p>
-                            </div>
-                        </div><!--contact-tab END-->
+                            </div><!--END holder-->
+                        </div><!--END contact-tab-->
+                        
                     </div><!--END tabs-content-->
-                </div><!--END col-sm-6-->
-            </div><!--row END-->
+                    
+                    <a href="#/profile/edit" ng-if="user.id == me.id" class="edit-profile-page-link">Edit</a> <!--edit button-->
+                </div><!--END tabs-content-->
+            </div><!-- END  tabs-->
+               
+                <div class="skill-section box">
+                    <div class="box-title">
+                        <h3>Skills</h3>
+                    </div>
+                    <ul>
+                        <li ng-repeat="skill in user.skills">{{ skill }}</li>
+                    </ul>
+                </div><!--skills END-->
             
-            <div class="skill-section box">
-                <div class="box-title">
-                    <h3>Skills</h3>
-                </div>
-                <ul>
-                    <li ng-repeat="skill in user.skills">{{ skill }}</li>
-                </ul>
-            </div><!--skills END-->
-
             <div class="myProjects box">
                 <div class="box-title">
                     <h3>My Projects</h3>
@@ -82,7 +89,9 @@
                     <li ng-repeat="project in user.projects">{{ project.description }}</li>
                 </ul>
             </div><!--myProjects END-->
-        </div><!--END tabs-->
+
+        
+        
         
         </div><!--END col-sm-6-->
         <div class="col-sm-6">

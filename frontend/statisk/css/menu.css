@@ -243,10 +243,23 @@
     .varsel-panel{
         min-width: 200px;
     }
+    .arrow-up{
+        left: 20px;
+    }
+    .varsel{
+        
+    }
+    
 }
 @media screen and (max-width: 400px){
     .varsel-panel{
-        min-width: 200px;
+        min-width: 100px;
+    }
+    .notification-title{
+        display: none;
+    }
+    .arrow-up{
+        left: 0px;
     }
 }
 .card-menu-wrap{
@@ -290,6 +303,9 @@
 .dropdown-content a:hover {background-color: aquamarine}
 
 .arrow-up {
+    display: none;
+    z-index: 90000;
+    position: relative;
 	width: 0; 
 	height: 0; 
 	border-left: 10px solid transparent;

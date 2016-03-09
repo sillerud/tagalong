@@ -84,16 +84,19 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
 
 
     var dropdownToggle = false;
-    var dropdown = $(".dropdown-content");
+    var dropdown = $('.dropdown-content');
+    var dropdownArrow = $('.arrow-up');
     $scope.openNotifications = function() {
-        console.log("sdalsjøf");
+        dropdownArrow.fadeIn();
         dropdown.fadeIn();
+        
         dropdownToggle = true;
     };
 
     $(document).mouseup(function (e) {
         if (dropdownToggle && !dropdown.is(e.target) && dropdown.has(e.target).length === 0) {
             dropdown.fadeOut();
+            dropdownArrow.fadeOut();
             dropdownToggle = false;
         }
     });

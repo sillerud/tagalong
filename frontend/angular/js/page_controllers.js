@@ -59,6 +59,26 @@ pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($s
     $scope.pages = Page.all();
 }]);
 
-pageControllers.controller('EditPageController', ['$scope', 'Page', function($scope, Page) {
+pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', function($scope, $routeParams, Page) {
+    var originalPage = null;
+    Page.query({pageId: $routeParams.id}, function(data) {
+        $scope.page = data;
+        originalPage = $.extend({}, data);
+    });
+
+    $scope.updatePage = function() {
+        if (originalPage == null)
+            return;
+        var updatedPage = {};
+        angular.forEach($scope.page, function(value, key) {
+            if (value != originalPage[key]) {
+                updatedPage[key] = value;
+            }
+        });
+
+        if (!$.isEmptyObject(updatedPage)) {
+            Page.update({pageId: originalPage.id}, updatedPage)
+        }
+    }
 
 }]);

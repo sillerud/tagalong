@@ -83,6 +83,11 @@ pageServices.factory('Page', ['$resource', function($resource) {
         all: {
             method: 'GET',
             isArray: true
+        },
+        update: {
+            url: url("/pages/:pageId"),
+            method: 'PATCH',
+            isArray: false
         }
     })
 }]);

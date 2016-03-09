@@ -2,14 +2,20 @@
     <ng-form>
         <div class="center-input"><h1>Edit your profile details</h1></div>
 
-        <div class="edit-profile-profile-pic" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
-            <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
-            <div class="pic-overlay"><b>Click to edit</b></div>
+        <div class="center-block">
+            <div class="edit-profile-profile-pic">
+                <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
+                <div class="pic-overlay" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
+                    <div class="pic-overlay-text">Click to edit</div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <input class="edit-field2" placeholder="Interests" value="{{ me.interests }}">
-                <textarea rows="6" class="edit-field3" placeholder="About you">{{ me.about }}</textarea>
+                <div class="group-description">
+                    <input class="edit-field2" placeholder="Interests" value="{{ me.interests }}">
+                    <textarea rows="6" class="edit-field3" placeholder="About you">{{ me.about }}</textarea>
+                </div>
             </div>
         </div>
 

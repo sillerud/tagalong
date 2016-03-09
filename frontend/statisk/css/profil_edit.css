@@ -1,43 +1,45 @@
-#chooseProfilePic{
-    position: absolute;
-}
+
 .edit-profile-wrap{
 }
 .edit-profile-profile-pic{
-    text-align: center;
-    width: 200px;
-    margin: auto;
-    margin-bottom: 30px;
+    width: 128px;
+    height: 128px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 30px;
     position: relative;
 }
-.edit-profile-profile-pic .pic-overlay{
+.pic-overlay {
     opacity: 0;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
     background-color: rgba(0, 0, 0, .6);
     transition: opacity 300ms linear;
     cursor: pointer;
 }
-.edit-profile-profile-pic:hover .pic-overlay{
+.edit-profile-profile-pic:hover .pic-overlay {
     opacity: 1;
     transition: opacity 300ms linear;
 }
-.pic-overlay b{
-    margin: auto;
-    display: inline-block;
+.edit-profile-profile-pic {
+    display: block;
+}
+.pic-overlay {
     position: absolute;
+    display: block;
     left: 0;
     right: 0;
-    top: 50%;
-    margin-top: -10px;
+    top: 0;
+    bottom: 0;
     color: #FFF;
+}
+.pic-overlay-text {
+    text-align: center;
+    margin: auto;
+    margin-bottom: -30px;
+    position: relative;
 }
 .group-description {
     margin-bottom: 30px;
+    margin-top: 15px;
 }
 .edit-field-group {
     margin-top: 15px;
@@ -103,6 +105,9 @@
     text-align: center;
 }
 .center-input input {
+    display: inline-block;
+}
+.center-input div {
     display: inline-block;
 }
 /* PEND - laceholder tekst */
