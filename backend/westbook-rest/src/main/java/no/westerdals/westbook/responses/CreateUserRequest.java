@@ -14,6 +14,7 @@ public class CreateUserRequest {
     private String password;
     private String gender;
     private boolean accountLocked;
+    private boolean enabled;
     private String[] authorities;
 
     public User toUser() {
@@ -22,6 +23,7 @@ public class CreateUserRequest {
         user.setSurname(surname);
         user.setEmail(email);
         user.setGender(gender);
+        user.setEnabled(enabled);
         return user;
     }
 }

@@ -24,7 +24,7 @@ public class UserCredentials implements UserDetails {
     public UserCredentials(User user, Credential credential) {
         this.userId = user.getId();
         this.email = user.getEmail();
-        this.enabled = !user.isDisabled();
+        this.enabled = user.isEnabled();
         this.accountLocked = credential.isAccountLocked();
         this.passwordHash = credential.getPasswordHash();
         if (user.getAccountExpires() != null) {

@@ -16,9 +16,9 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
 
         User.create({
             user: userInfo,
-            accountLocked: false,
-            grantedAuthorities: $scope.roles.split(","),//$scope.user.roles.split(","),
-            passwordHash: $scope.user.password
+            enabled: true,
+            authorities: $scope.roles.split(","),//$scope.user.roles.split(","),
+            password: $scope.user.password
         });
     }
 }]);
