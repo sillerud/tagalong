@@ -78,32 +78,36 @@
 
                 <div ng-click="openNotifications()" class="varsel">
                     <div>
-                        <p class="varsel-title">Varsel</p>
+                        <span class="notification-title">Varsel</span>
                         <i class="fa fa-bell"></i>
                         <i class="fa fa-bell-o"></i>
                     </div>
+                    <div>
+                        <div class="arrow-up"></div><!--END arrow-up-->
                       <div id="myDropdown" class="dropdown-content">
+                        
+
                           <div class="header-varsel-panel">
                             <h3>Notifications</h3>
                           </div>
 
                             <a ng-href="#OleChristian">
                                 <img class="notification-img" src="../statisk/images/ola_nordmann.jpeg">
-                                <p class="notification-name">Ole Christian Reinhartsen{{notfication.name}}</p>
+                                <p class="notification-name">{{me.firstname}} {{me.surname}}</p>
                                 <p class="notification-time">33 min</p>
-                                <p class="notification-text">Has tagged along to your post</p>
+                                <p class="notification-text">Ate shit and puked on you!</p>
                             </a>
 
 
                             <a ng-href="#OleChristian">
                                 <img class="notification-img" src="../statisk/images/ola_nordmann.jpeg">
-                                <p class="notification-name">Ole Christian Reinhartsen{{notfication.name}}</p>
+                                <p class="notification-name">{{me.firstname}} {{me.surname}}</p>
                                 <p class="notification-time">2 hours</p>
                                 <p class="notification-text">Has tagged along to your post</p>
                             </a>
 
                         </div><!--END -->
-
+                    </div>
                 </div><!--end varsel-panel-->
 
                 <div class="logged-in-person">

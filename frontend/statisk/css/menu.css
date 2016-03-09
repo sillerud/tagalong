@@ -213,8 +213,10 @@
       background-color: #000;
       border-radius: 3px;
     }
+    .notification-title{
+      margin-right: 10px;   
+    }
     .varsel{
-        width: 100px;
       color: white;
       float: right;
       margin-left: 20px;
@@ -227,7 +229,6 @@
       top: 7px;
     }
     .varsel .fa-bell{
-      display: block;
         color: white;
     }
     .varsel .fa-bell-o{
@@ -254,7 +255,7 @@
 }
 .header-varsel-panel{
     margin: 0;
-    background-color: lightblue;
+    background-color: #8fc6d9;
     width: 100%;
     overflow: auto;
     text-align: center;
@@ -269,6 +270,7 @@
     display: none;
     z-index: 90000;
     position: absolute;
+    right: 0;
     background-color: #f9f9f9;
     min-width: 350px;
     overflow: auto;
@@ -284,10 +286,17 @@
     display: block;
 }
 
-.show {display:block;}
 
 .dropdown-content a:hover {background-color: aquamarine}
 
+.arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	
+	border-bottom: 10px solid #8fc6d9;
+}
 /* DROPDOWN TEST*/
 
 
