@@ -137,7 +137,8 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             email: $scope.me.email,
             gender: $scope.me.gender,
             city: $scope.me.city,
-            studyFieldId: $scope.studyfields.getById($scope.me.studyFieldId)
+            studyFieldId: $scope.studyfields.getById($scope.me.studyFieldId),
+            contactInfo: $scope.me.contactInfo
         };
     });
 
@@ -176,5 +177,12 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
                 console.log(result);
             });
         });
-    }
+    };
+
+    $scope.addItem = function() {
+        $scope.user.contactInfo.push({description: "", value: ""});
+    };
+    $scope.deleteItem = function(item) {
+        $scope.user.contactInfo.splice($scope.user.contactInfo.indexOf(item), 1);
+    };
 }]);

@@ -15,61 +15,77 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <h3>Edit your personal status</h3>
-                <h5 class="edit-title-description">Fields marked with * (asterisk) are required</h5>
+                <div class="group-description">
+                    <h3>Edit your personal status</h3>
+                    <h5 class="edit-title-description">Fields marked with * (asterisk) are required</h5>
+                </div>
 
-                <br><br>
-
-                <label for="userBorn">Year of birth</label>
-                <div class="form-group">
+                <div class="form-group edit-field-group">
+                    <label for="userBorn">Year of birth</label>
                     <div class='input-group date' id='bornDate'>
-                        <input id="userBorn" ng-model="user.born" type='text' class="form-control" />
+                        <input id="userBorn" ng-model="user.born" type='text' class="edit-field2" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                     </div>
                 </div>
 
-                <label for="gender-field">Your gender</label>
-                <select ng-model="user.gender" id="gender-field" class="edit-field2">
-                    <option value="null">Not specified</option>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                    <option value="other">Other</option>
-                </select>
+                <div class="edit-field-group">
+                    <label for="gender-field">Your gender</label>
+                    <select ng-model="user.gender" id="gender-field" class="edit-field2">
+                        <option value="null">Not specified</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
 
-                <label>City</label>
-                <input ng-model="user.city" type=text class="edit-field2" placeholder="Type in the city you're living in">
 
-                <label for="studyFieldId">Field of study</label>
-                <select id="studyFieldId" class="edit-field2" ng-options="studyField.description for studyField in studyfields track by studyField.id" ng-model="user.studyFieldId"></select>
+                <div class="edit-field-group">
+                    <label>City</label>
+                    <input ng-model="user.city" type=text class="edit-field2" placeholder="Type in the city you're living in">
+                </div>
 
-                <label for="studyStartYearInput">Study start year</label>
-                <div class='input-group date' id='studyStartYear'>
-                    <input id="studyStartYearInput" ng-model="user.studyStartYear" type='text' class="form-control"/>
+                <div class="edit-field-group">
+                    <label for="studyFieldId">Field of study</label>
+                    <select id="studyFieldId" class="edit-field2" ng-options="studyField.description for studyField in studyfields track by studyField.id" ng-model="user.studyFieldId"></select>
+                </div>
+
+                <div class="edit-field-group">
+                    <label for="studyStartYearInput">Study start year</label>
+                    <div class='input-group date' id='studyStartYear'>
+                        <input id="studyStartYearInput" ng-model="user.studyStartYear" type='text' class="edit-field2"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
+                    </div>
                 </div>
             </div><!--END col-sm-6-->
 
             <div class="col-sm-6">
-                <h3>Edit your contact information</h3>
-                <h5 class="edit-title-description">All fields are optional</h5>
+                <div class="group-description">
+                    <h3>Edit your contact information</h3>
+                    <h5 class="edit-title-description">All fields are optional</h5>
+                </div>
+                <div class="edit-field-group">
+                    <label>Email:</label>
+                    <input name="email" ng-model="user.email" class="edit-field2" type="text" placeholder="ola@nordmann.no">
+                </div>
 
-                <br><br>
-
-                <label>Email:</label>
-                <input name="email" ng-model="user.email" class="edit-field2" type="text" placeholder="ola@nordmann.no">
-
-                <label>Facebook:</label>
-                <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
-
-                <label>LinkedIn:</label>
-                <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
-
-                <label>Website:</label>
-                <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
+            </div><!--END col-sm-6-->
+            <div class="col-sm-6">
+                <div class="group-description">
+                    <h3>Add link</h3>
+                    <h5 class="edit-title-description">All fields are optional</h5>
+                </div>
+                <div class="edit-field-group" ng-repeat="item in user.contactInfo">
+                    <label>Description</label>
+                    <input class="edit-field2" type="text" placeholder="Google" ng-model="item.description">
+                    <label>Link</label>
+                    <input class="edit-field2" type="text" placeholder="https://google.com/" ng-model="item.value">
+                    <input type="button" class="btn btn-danger btn-sm" ng-click="deleteItem(item)" value="Delete">
+                </div>
+                <input type="button" class="btn btn-default btn-sm" ng-click="addItem()" value="Add info">
             </div><!--END col-sm-6-->
         </div><!--END row-->
 
