@@ -1,12 +1,6 @@
-<?php include 'header.php'; ?>
-<!-- Datepicker -->
-<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<!-- END Datepicker -->
 <div class="container edit-profile-wrap edit-fields">
-
-    <ng-form name="editUserForm">
-        <center><h1>Edit your profile details</h1></center>
+    <ng-form>
+        <div class="center-input"><h1>Edit your profile details</h1></div>
 
         <div class="edit-profile-profile-pic" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
             <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
@@ -26,10 +20,10 @@
 
                 <br><br>
 
-                <label>Year of birth</label>
+                <label for="userBorn">Year of birth</label>
                 <div class="form-group">
                     <div class='input-group date' id='bornDate'>
-                        <input ng-model="user.born" type='text' class="form-control" />
+                        <input id="userBorn" ng-model="user.born" type='text' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -46,20 +40,19 @@
 
                 <label>City</label>
                 <input ng-model="user.city" type=text class="edit-field2" placeholder="Type in the city you're living in">
-                
-                <label>Field of study</label>
-                <select class="edit-field2" ng-options="studyField.description for studyField in studyfields track by studyField.id" ng-model="user.studyFieldId"></select>
 
-                <label>Study start year</label>
+                <label for="studyFieldId">Field of study</label>
+                <select id="studyFieldId" class="edit-field2" ng-options="studyField.description for studyField in studyfields track by studyField.id" ng-model="user.studyFieldId"></select>
+
+                <label for="studyStartYearInput">Study start year</label>
                 <div class='input-group date' id='studyStartYear'>
-                    <input ng-model="user.studyStartYear" type='text' class="form-control"/>
+                    <input id="studyStartYearInput" ng-model="user.studyStartYear" type='text' class="form-control"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-                </select><!--END edit-field2-->
             </div><!--END col-sm-6-->
-        
+
             <div class="col-sm-6">
                 <h3>Edit your contact information</h3>
                 <h5 class="edit-title-description">All fields are optional</h5>
@@ -79,9 +72,11 @@
                 <input class="edit-field2" type="text" placeholder="ola@nordmann.no">
             </div><!--END col-sm-6-->
         </div><!--END row-->
+<<<<<<< HEAD
     </div><!--END container-->
         <center><input type="submit" class="btn-fill btn-fill-save" value="Save changes" ng-click="updateProfile()"></center>
+=======
+        <div class="col-md-12 center-input"><input type="submit" class="btn-fill" value="Save profile" ng-click="updateProfile()"></div>
+>>>>>>> 4f174d16f1bf7ee61574e71eba76845e4274756d
     </ng-form>
 </div><!-- END - container -->
-
-<?php include 'footer.php'; ?>

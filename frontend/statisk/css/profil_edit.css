@@ -93,6 +93,12 @@
 .edit-event-date-icon, .edit-event-location-icon{
     padding-right: 10px;
 }
+.center-input {
+    text-align: center;
+}
+.center-input input {
+    display: inline-block;
+}
 /* PEND - laceholder tekst */
 
 /* END - Edit profil */

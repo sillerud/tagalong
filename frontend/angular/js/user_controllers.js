@@ -23,7 +23,7 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
     }
 }]);
 
-userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, User) {
+userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function($scope, User, Static) {
     $scope.me = User.find(function(data) {
         if (!data.email) {
             redirectLogin();
@@ -40,6 +40,14 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", function($scope, U
             data.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
         }
     }, redirectLogin);
+
+    $scope.studyfields = Static.getAllStudyFields();
+    $scope.studyfields.getById = function(id) {
+        return this.find(function(element) {
+            return element.id == id;
+        });
+    };
+
     $scope.logout = function() {
         User.logout(redirectLogin);
     };
@@ -120,24 +128,16 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
 
     var dtpData = datetimepicker.data("DateTimePicker");
 
-    $scope.studyfields = Static.getAllStudyFields();
-
-    function getStudyField() {
-        return $scope.studyfields.find(function(element) {
-            return element.id == $scope.me.studyFieldId;
-        });
-    }
-
     $q.all([$scope.me.$promise, $scope.studyfields.$promise]).then(function() {
         //$('#gender-field').val($scope.me.gender);
         if ($scope.me.born) {
-            dtpData.date(new Date($scope.me.born));
+            dtpData.date(moment($scope.me.born));
         }
         $scope.user = {
             email: $scope.me.email,
             gender: $scope.me.gender,
             city: $scope.me.city,
-            studyFieldId: getStudyField()
+            studyFieldId: $scope.studyfields.getById($scope.me.studyFieldId)
         };
     });
 
@@ -152,9 +152,9 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
                 updatedInfo[key] = value;
             }
         });
-        if (dtpData.date() && dtpData.date().valueOf() != $scope.me.born) {
-            console.log(dtpData.date().valueOf());
-            updatedInfo.born = dtpData.valueOf();
+        if (dtpData.date() && dtpData.date().utcOffset(120).valueOf() != $scope.me.born) {
+            console.log(dtpData.date().utcOffset(120).valueOf());
+            updatedInfo.born = dtpData.date().utcOffset(120).valueOf();
         }
         if (!$.isEmptyObject(updatedInfo)) {
             User.update(updatedInfo);
