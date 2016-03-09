@@ -9,8 +9,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class ValueDescription implements Serializable {
+public class ValueDescription {
     private String description;
     private String value;
-    private static final long serialVersionUID = 9068711302098927061L;
 }

@@ -8,21 +8,26 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.Date;
 
 @NoArgsConstructor
 @Data
 @ToString
 public class UserCredentials implements UserDetails {
-    private User user;
+    private String userId;
+    private String email;
+    private long accountExpires;
     private boolean accountLocked;
+    private boolean enabled;
     private String passwordHash;
     private String[] grantedAuthorities;
 
     public UserCredentials(User user, Credential credential) {
-        this.user = user;
+        this.userId = user.getId();
         this.accountLocked = credential.isAccountLocked();
         this.passwordHash = credential.getPasswordHash();
+        if (user.getAccountExpires() != null) {
+            this.accountExpires = user.getAccountExpires().getTime();
+        }
         if (credential.getAuthorities() == null) {
             grantedAuthorities = new String[0];
         } else {
@@ -42,13 +47,12 @@ public class UserCredentials implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return user.getAccountExpires() == null ||
-                user.getAccountExpires().after(new Date());
+        return accountExpires == 0 || accountExpires < System.currentTimeMillis();
     }
 
     @Override
@@ -59,10 +63,5 @@ public class UserCredentials implements UserDetails {
     @Override
     public boolean isCredentialsNonExpired() {
         return true;// !credential.isCredentialsExpired();
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return user.isEnabled();
     }
 }

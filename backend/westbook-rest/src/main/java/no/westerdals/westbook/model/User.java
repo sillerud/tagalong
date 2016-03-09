@@ -8,7 +8,7 @@ import java.util.Date;
 
 @NoArgsConstructor
 @Data
-public class User implements Serializable {
+public class User {
     public User(String email, Date born, String studyFieldId, String city, String interests,
                 String gender, String firstname, String surname, String profilePictureId, ValueDescription[] contactInfo)
     {
@@ -39,11 +39,10 @@ public class User implements Serializable {
     private String firstname;
     private String surname;
     private String profilePictureId;
+    private short yearStarted;
     private Date accountExpires;
     private ValueDescription contactInfo[];
     private ValueDescription projects[];
     private String[] skills;
     private String profileHeaderPictureId;
-
-    private static final long serialVersionUID = 7123491823762138241L;
 }
