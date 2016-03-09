@@ -22,12 +22,12 @@ public class UserCredentials implements UserDetails {
     private String[] grantedAuthorities;
 
     public UserCredentials(User user, Credential credential) {
-        this.userId = user.getId();
         for (int i = 0; i < 100; i++) {
             System.out.println(i);
             System.out.println(user);
-            System.out.println(credential);
         }
+        this.userId = user.getId();
+        System.out.println(credential);
         this.email = user.getEmail();
         this.accountLocked = credential.isAccountLocked();
         this.passwordHash = credential.getPasswordHash();
