@@ -152,7 +152,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             gender: $scope.me.gender,
             city: $scope.me.city,
             studyFieldId: $scope.studyfields.getById($scope.me.studyFieldId),
-            contactInfo: $scope.me.contactInfo
+            contactInfo: $scope.me.contactInfo.slice(0)
         };
     });
 
@@ -163,7 +163,11 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             if (key == "studyFieldId") {
                 value = value.id;
             }
-            if ($scope.me[key] != value && key != 'email') {
+            if ($.isArray(value)) {
+                if (!($(value).not($scope.me[key]).length === 0 && $($scope.me[key]).not(value).length === 0)) {
+                    updatedInfo[key] = value;
+                }
+            } else if ($scope.me[key] != value && key != 'email') {
                 updatedInfo[key] = value;
             }
         });
