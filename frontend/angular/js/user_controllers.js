@@ -85,23 +85,20 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', function
         }
 
     }; // END openShortcuts
-    
-    var showNotification = false;
-    
-    $scope.myFunction = function() {
-        $(".dropdown-content").fadeIn();
-    }
-    
-    $(document).mouseup(function (e)
-{
-    var dropdown = $(".dropdown-content");
 
-    if (!dropdown.is(e.target)
-        && dropdown.has(e.target).length === 0)
-    {
-        dropdown.fadeOut();
-    }
-});
+    var dropdownToggle = false;
+    var dropdown = $(".dropdown-content");
+    $scope.openNotifications = function() {
+        dropdown.fadeIn();
+        dropdownToggle = true;
+    };
+
+    $(document).mouseup(function (e) {
+        if (dropdownToggle && !dropdown.is(e.target) && dropdown.has(e.target).length === 0) {
+            dropdown.fadeOut();
+            dropdownToggle = false;
+        }
+    });
 
 }]);
 
