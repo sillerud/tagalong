@@ -34,7 +34,6 @@ public class UserCredentials implements UserDetails {
         } else {
             grantedAuthorities = credential.getAuthorities();
         }
-        System.out.println(this);
     }
 
     @Override
@@ -54,12 +53,12 @@ public class UserCredentials implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return accountExpires == 0 || accountExpires < System.currentTimeMillis();
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return !accountLocked;
+        return true;
     }
 
     @Override
