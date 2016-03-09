@@ -255,7 +255,7 @@
 }
 .header-varsel-panel{
     margin: 0;
-    background-color: lightblue;
+    background-color: #8fc6d9;
     width: 100%;
     overflow: auto;
     text-align: center;
@@ -295,7 +295,7 @@
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	
-	border-bottom: 10px solid lightblue;
+	border-bottom: 10px solid #8fc6d9;
 }
 /* DROPDOWN TEST*/
 
