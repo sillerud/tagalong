@@ -36,6 +36,13 @@
     margin-top: -10px;
     color: #FFF;
 }
+.group-description {
+    margin-bottom: 30px;
+}
+.edit-field-group {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 .edit-this-title, .delete-this-link{
     float: left;
 }
@@ -45,7 +52,6 @@
 }
 .edit-fields .edit-field2{
     width: 100%;
-    margin-bottom: 30px;
     background-color: white;
     border: 1px solid #DCDCDC;
     border-radius: 3px;
