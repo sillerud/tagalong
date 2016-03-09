@@ -10,7 +10,7 @@ html,body{
 }
 #loginWrap{
     padding: 20px 10px;
-    max-width: 350px;
+    max-width: 400px;
     width: 100%;
     margin: auto;
     text-align: center;
@@ -58,7 +58,6 @@ html,body{
 #loginInner{
     margin-left: 10px;
     margin-right: 10px;
-    margin-top: 70px;
 }
 #logo{
     max-width: 200px;
@@ -148,3 +147,10 @@ html,body{
     left: -30px;
 }
 /* END button effect */
+
+@media screen and (max-width: 767px){
+    #loginWrap{
+        top: 20px;
+        transform: translateY(0%);
+    }
+} /* END max width 767px */
