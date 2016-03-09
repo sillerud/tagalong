@@ -7,6 +7,7 @@ public class ModelHelper {
     public static <T>T mapObjects(T toUpdate, T updated, Class<T> cl) {
         try {
             for (Field field: cl.getFields()) {
+                field.setAccessible(true);
                 Object value = field.get(updated);
                 if (value != null) {
                     field.set(toUpdate, value);

@@ -28,10 +28,13 @@ public class PageRestController
     public ResultResponse updatePage(@PathVariable String pageId, @RequestBody Page updatedPage) {
         // TODO: Check access level!
         Page page = pageRepository.findOne(pageId);
-        if (updatedPage.getCustomUrl() != null && getPageById(updatedPage.getCustomUrl()) != null) {
+        if (page == null)
+            return newErrorResult(MessageConstant.PAGE_NOT_FOUND);
+
+        if (updatedPage.getCustomUrl() != null && getPageById(updatedPage.getCustomUrl()) != null)
             return newErrorResult(MessageConstant.PAGE_URL_ALREADY_EXISTS_ERROR, "The page url " + updatedPage.getCustomUrl() + " is already in use.");
-        }
-        return newOkResult(MessageConstant.PAGE_UPDATED, ModelHelper.mapObjects(page, updatedPage, Page.class));
+
+        return newOkResult(MessageConstant.PAGE_UPDATED, pageRepository.save(ModelHelper.mapObjects(page, updatedPage, Page.class)));
     }
 
     @RequestMapping(value="/{pageId}", method=RequestMethod.GET)
