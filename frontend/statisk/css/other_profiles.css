@@ -14,9 +14,7 @@
     padding: 5px;
 }
 .page-profile-image, .tab-content-section{
-    float: left;
-    width: 100px;
-    height: 100px;
+ 
 }
 
 .profile-post-box{
@@ -27,10 +25,6 @@
     margin-bottom: 300px;
     padding: 5px;
 }
-.edit-profile-page{
-    float: right;
-}
-
 .holder{
     margin-top: 0;
 }
