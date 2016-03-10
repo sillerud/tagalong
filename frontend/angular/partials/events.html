@@ -32,54 +32,42 @@
                 </div><!--END filter-pages box-->
             </div><!-- col-sm-5 END-->
         <div class="col-sm-7">
-            <div class="events-feed-wrap">
-                
-                <div class="an-event" ng-repeat="i in [1, 2, 3]" id="{{ i }}x">
-                    
-                        <div class="an-event-wrap">
-                            <div class="event-image-wrap" style="background-image: url('../statisk/images/event_pic.jpg');">
 
-                                <a href="/angular/partials/page.html">
-                                    <div class="event-image-overlay"></div>
-                                </a>
-                                <div class="event-attending-btn">
-                                    <i class="fa fa-check"></i>
-                                    <div class="attending-text">Attending</div>
+                <div class="page-preview">
+                    <div class="page-preview-image" style="background-image: url('../statisk/images/event_pic.jpg');">
+
+                        <div class="add-page-to-card-pages" ng-click="addToCard()">
+                            <div class="add-page-to-card-text">Add to card</div>
+                            <div class="add-page-to-card-btn">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                        </div><!-- END add page to card -->
+
+                        <a ng-href="#/pages/{{ page.customUrl ? page.customUrl : page.id }}">
+                            <div class="page-preview-info">
+                                <ul class="card-tag-list">
+                                    <li>#TODO: Resolve this from backend</li>
+                                    <li>#Kvinner&IT</li>
+                                    <li>#Tits&Ass</li>
+                                    <li>#BedreEnnGutta</li>
+                                </ul><!--card-tag-list END-->
+                            </div><!--page-preview-info END-->
+
+                            <div class="page-preview-header">
+                                <div class="events-preview-info-wrap">
+                                    <h3 class="events-preview-title">Glowparty</h3>
+                                    <h4 class="events-preview-location">Location: Fubar</h4>
+                                    <h4 class="events-preview-attending">142 people attending</h4>
                                 </div>
-
-                                <h4 class="event-title">X-mas</h4>
-
-
-                            </div><!-- END event-image-wrap -->
-                            <div class="events-about">
-                                <div class="event-location">Location</div>
-                                <div class="an-event-date">24.12.2015 - Kl. 20.00 - 21.00</div>
-                                <div class="events-attending">{{ getRandomNumber() }} attending</div>
-                                <div class="card-tag-wrap">
-                                    <ul class="card-tag-list">
-                                        <li>#Utvikling</li>
-                                        <li>@Fubar</li>
-                                        <li>#Sosialt</li>
-                                    </ul>
+                                <div class="events-preview-date-wrap">
+                                    <h3 class="events-preview-date">01</h3>
+                                    <h3 class="events-preview-month">April</h3>
                                 </div>
-                                <!--<div class="event-info">
-                                    <i class="fa fa-info"></i>
-                                </div>-->
-                            </div><!-- END events about -->
-
-                        </div><!-- END - an-event-wrap -->
-                    
-
-                    <div class="edit-card-wrap edit-fields" id="<?php echo $i; ?>">
-                        <div class="edit-card">
-                            <!--      <h1>{{ i }}</h1>   3 tallet overlay midt på siden    --> 
-                        </div><!-- END edit-card -->
-                    </div>
-                </div>
-
-                
-            </div><!-- END events feed wrap -->
-        </div><!-- END col 7 -->
+                            </div>
+                        </a>
+                    </div><!--page-preview-image END-->
+                </div><!--page-preview END-->
+        </div><!-- col-sm-8 END-->
     </div><!-- END row -->
 
 

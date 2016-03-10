@@ -108,3 +108,51 @@
     top: 18px;
     font-size: 1.3em;
 }
+.events-preview-title {
+    color: #333;
+    text-align: left;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 1.3em;
+}
+.events-preview-location{
+    color:#333;
+    text-align: left;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px 10px;
+    font-size: 0.8em;
+}
+.events-preview-attending{
+    color:#333;
+    text-align: left;
+    
+    font-weight: bold;
+    margin: 0;
+    padding: 2px 10px;
+    font-size: 0.8em;
+}
+.events-preview-date{
+    color:#333;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px 10px;
+    font-size: 2em;
+}.events-preview-month{
+    color:#333;
+    font-weight: bold;
+    margin: 0;
+    padding: 2px 10px;
+    font-size: 1em;
+}
+.events-preview-info-wrap{
+    float: left;   
+}
+.events-preview-date-wrap{
+    position: absolute;
+    right: 10px;
+    overflow: hidden;
+    display: inline-block;
+    width: auto;
+}
