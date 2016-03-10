@@ -1,14 +1,41 @@
 <div class="container">
 
-    <br>
-
     <div class="row">
+        <div class="col-sm-5">
+                <div class="filter-pages box">
+                   <input type="submit" class="btn-no-fill all-feeds-btn" value="Unfiltered">
+
+                    <div class="order-by-box">
+                        <div class="box-title">
+                            <h3>Order by</h3>
+                        </div>
+
+                        <form class="checkbox-style order-pages-by">
+                            <input type="checkbox" name="mostRecentCheck" id="mostRecentCheck" value="kommunikasjon"><label for="mostRecentCheck">Most recent</label><br>
+                            <input type="checkbox" name="mostTaggedAlongCheck" id="mostTaggedAlongCheck" value="mostTaggedAlong"><label for="mostTaggedAlongCheck">Most people tagged along</label><br>
+                        </form><!--checkbox-style boxD-->
+                    </div><!--END order-by-box-->
+
+                    <div class="filter-by-box">
+                        <div class="box-title">
+                            <h3>Filter by</h3>
+                        </div>
+
+                        <form class="filter-pages-by">
+                            <input type="checkbox" name="communicationCheck" id="communicationCheck" value="kommunikasjon"><label for="communicationCheck">Communication</label><br>
+                            <input type="checkbox" name="artsCheck" id="artsCheck" value="kunstfag"><label for="artsCheck">Arts </label><br>
+                            <input type="checkbox" name="technologyCheck" id="technologyCheck" value="teknologi"><label for="technologyCheck">Technology</label><br>
+                            <input type="checkbox" name="filmTVGameDesignCheck" id="filmTVGameDesignCheck" value="film, TV og spill"><label for="filmTVGameDesignCheck">Film, TV og Game Design</label><br>
+                            <input type="checkbox" name="managementCheck" id="managementCheck" value="management"><label for="managementCheck">Management </label><br>
+                        </form>
+                    </div><!--END filter-by-box-->
+                </div><!--END filter-pages box-->
+            </div><!-- col-sm-5 END-->
+        <div class="col-sm-7">
             <div class="events-feed-wrap">
-                <div class="col-sm-12">
-                    <h3>My events</h3>
-                </div>
+                
                 <div class="an-event" ng-repeat="i in [1, 2, 3]" id="{{ i }}x">
-                    <div class="col-sm-6">
+                    
                         <div class="an-event-wrap">
                             <div class="event-image-wrap" style="background-image: url('../statisk/images/event_pic.jpg');">
 
@@ -41,7 +68,7 @@
                             </div><!-- END events about -->
 
                         </div><!-- END - an-event-wrap -->
-                    </div><!-- END col 6 -->
+                    
 
                     <div class="edit-card-wrap edit-fields" id="<?php echo $i; ?>">
                         <div class="edit-card">
@@ -50,8 +77,9 @@
                     </div>
                 </div>
 
-
-        </div><!-- END events feed wrap -->
+                
+            </div><!-- END events feed wrap -->
+        </div><!-- END col 7 -->
     </div><!-- END row -->
 
 
