@@ -30,9 +30,14 @@ public class EventRestController {
                                     @RequestParam(required=false, name="tagIds") String[] tagIds,
                                     @RequestParam(required=false, name="pageId") String pageId,
                                     @RequestParam(defaultValue="20", name="entries") int entries,
-                                    @RequestParam(defaultValue="0", name="page") int page) {
+                                    @RequestParam(defaultValue="0", name="page") int page,
+                                    @RequestParam(required=false, name="createdBy") String createdBy,
+                                    Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         // TODO: Add sort
-        return eventRepository.filterEvents(startDate, endDate, tagIds, pageId, new PageRequest(page, entries));
+        if (createdBy != null && createdBy.equals("me"))
+            createdBy = userCredentials.getUserId();
+        return eventRepository.filterEvents(createdBy, startDate, endDate, tagIds, pageId, new PageRequest(page, entries));
     }
 
     @RequestMapping(value="/{eventId}",method=RequestMethod.GET)
