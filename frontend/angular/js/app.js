@@ -1,4 +1,13 @@
 'use strict';
+
+function getUploadUrl(uploadId, fallback) {
+    if (uploadId) {
+        return "/rest/v1/uploads/" + uploadId;
+    } else {
+        return fallback ? fallback : 'img/placeholder_big.jpg';
+    }
+}
+
 angular.module('tagalong', [
         'ngRoute',
         'ngFileUpload',

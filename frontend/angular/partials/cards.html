@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-4" ng-repeat="card in cards" id="{{ card.id }}">
-            <div class="card-wrap" style="background-image: url(../statisk/images/ola_nordmann_sidebilde.jpg)">
+            <div class="card-wrap" ng-style="{'background-image': 'url(' + card.backgroundImageUrl + ')'}">
                 <div class="card-overlay"></div>
                 <div class="new-post-in-card-icon">
                     5
@@ -13,7 +13,7 @@
                 <div class="card-wrap-inner">
 
                     <h3>{{ card.name | limitTo : 23 }}{{card.name.length > 20 ? '...' : ''}}</h3>
-                    <p>{{ card.description | limitTo : 197 }}{{card.description.length > 200 ? '...' : ''}}</p>
+                    <p>{{ card.description | limitTo : 200 }}{{card.description.length > 200 ? '...' : ''}}</p>
 
                     <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                     <div class="card-tag-wrap">

@@ -41,7 +41,7 @@
             <div class="col-sm-7">
 
                 <div class="page-preview" ng-repeat="page in pages">
-                    <div class="page-preview-image" style="background-image: url('../statisk/images/event_pic.jpg');">
+                    <div class="page-preview-image" ng-style="{'background-image': 'url(' + page.coverPictureUrl + ')'}">
 
                         <div class="add-page-to-card-pages" ng-click="addToCard()">
                             <div class="add-page-to-card-text">Add to card</div>

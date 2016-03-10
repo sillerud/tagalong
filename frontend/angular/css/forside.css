@@ -1,12 +1,12 @@
 /* Cards */
     .card-wrap{ /* Wrap rundt et card */
         width: 100%;
-        background-color: white;
         padding: 15px 15px 10px 15px;
         position: relative;
         box-sizing: border-box;
         margin-bottom: 30px;
         background-size: cover;
+        background-position: center;
     }
     .card-overlay{
         position: absolute;

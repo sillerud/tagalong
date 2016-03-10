@@ -56,7 +56,12 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
 ]);
 
 pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($scope, Page) {
-    $scope.pages = Page.all();
+    $scope.pages = Page.all(function(data) {
+        data.forEach(function(page) {
+            page.coverPictureUrl = getUploadUrl(page.coverPictureUrl);
+            console.log(page);
+        });
+    });
 }]);
 
 pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', function($scope, $routeParams, Page) {

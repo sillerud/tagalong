@@ -24,11 +24,7 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
         if (result.type == "user") {
             result.url = "profile/" + result.data.id;
             result.name = result.data.firstname + " " + result.data.surname;
-            if (result.data.profilePictureId) {
-                result.thumbnailUrl = "/rest/v1/uploads/" + result.data.profilePictureId;
-            } else {
-                result.thumbnailUrl = "img/user_placeholder.png";
-            }
+            result.thumbnailUrl = getUploadUrl(result.data.profilePictureId, "img/user_placeholder.png");
             if (result.data.studyFieldId) {
                 result.studyFieldDisplay = $scope.studyfields.getById(result.data.studyFieldId).description;
             }

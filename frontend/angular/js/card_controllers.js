@@ -19,6 +19,10 @@ cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Ca
 
                 }
             });
+            if (card.customBackground) {
+            } else {
+                card.backgroundImageUrl = "img/placeholder_big.jpg";
+            }
         });
     });
     // ESC

@@ -25,16 +25,8 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
             redirectLogin();
             return;
         }
-        if (data.profilePictureId) {
-            data.profilePictureUrl = "/rest/v1/uploads/" + data.profilePictureId;
-        } else {
-            data.profilePictureUrl = "img/user_placeholder.png";
-        }
-        if (data.profileHeaderPictureId) {
-            data.profileHeaderPictureUrl = "/rest/v1/uploads/" + data.profileHeaderPictureId;
-        } else {
-            data.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
-        }
+        data.profilePictureUrl = getUploadUrl(data.profilePictureId, "img/user_placeholder.png");
+        data.profileHeaderPictureUrl = getUploadUrl(data.profileHeaderPictureId);
 
         if( localStorage.styleColor == null || localStorage.styleColor == 'undefined'){
             localStorage.styleColor = 'blue';
@@ -46,7 +38,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
 
         $scope.changeStylesheet = function(color){
             localStorage.styleColor = color;
-            $scope.stylesheetUrl = '../statisk/css/dynamic_colors_' + localStorage.styleColor + '.css';
+            $scope.stylesheetUrl = 'css/dynamic_colors_' + localStorage.styleColor + '.css';
         };
 
         $scope.changeStylesheet(localStorage.styleColor);
@@ -143,16 +135,8 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
 userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParams', 'User', function($scope, $rootScope, $routeParams, User) {
     if ($routeParams.id) {
         $scope.user = User.find({userId: $routeParams.id}, function(data) {
-            if (data.profilePictureId) {
-                data.profilePictureUrl = "/rest/v1/uploads/" + data.profilePictureId;
-            } else {
-                data.profilePictureUrl = "img/user_placeholder.png";
-            }
-            if (data.profileHeaderPictureId) {
-                data.profileHeaderPictureUrl = "/rest/v1/uploads/" + data.profileHeaderPictureId;
-            } else {
-                data.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
-            }
+            data.profilePictureUrl = getUploadUrl(data.profilePictureId, "img/user_placeholder.png");
+            data.profileHeaderPictureUrl = getUploadUrl(data.profileHeaderPictureId);
         });
     } else {
         $scope.user = $scope.me; // avoid showing your own name before loading the other person's name
