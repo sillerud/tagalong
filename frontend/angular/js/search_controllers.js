@@ -69,9 +69,16 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
 
     //S = 83
     $(document).keyup(function(e) {
-        if (e.key == 's' || e.keyCode == 83 || e.keyCode == 115) {
-            $scope.openSearch();
+        var input = $('input');
+        var textarea = $('textarea');
+        if( input.is(':focus') || textarea.is(':focus') ){
+
+        }else{
+            if (e.key == 's' || e.keyCode == 83 || e.keyCode == 115) {
+                $scope.openSearch();
+            }
         }
+
     });
 
     $scope.updateSearchResults = function() {

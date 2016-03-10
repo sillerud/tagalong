@@ -81,6 +81,21 @@
 .fa-bullhorn{
    padding-right: 10px;
 }
+.shout-out-box:hover .quick-edit{
+    display: block;
+}
+.quick-edit{
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    background-color: #1eb6ec;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+}
 /* END shout out */
 
 /* About  */
