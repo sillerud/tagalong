@@ -7,5 +7,5 @@ import java.util.Date;
 import java.util.List;
 
 public interface EventRepositoryCustom {
-    List<Event> filterEvents(Date startDate, Date endDate, String[] tagIds, String pageId, Pageable pageable);
+    List<Event> filterEvents(String userId, Date startDate, Date endDate, String[] tagIds, String pageId, Pageable pageable);
 }

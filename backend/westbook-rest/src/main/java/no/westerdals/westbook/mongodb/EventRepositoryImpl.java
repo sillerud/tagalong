@@ -18,8 +18,11 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public List<Event> filterEvents(Date startDate, Date endDate, String[] tagIds, String pageId, Pageable pageable) {
+    public List<Event> filterEvents(String userId, Date startDate, Date endDate, String[] tagIds, String pageId, Pageable pageable) {
         Query query = new Query();
+        if (userId != null) {
+            query.addCriteria(where("ownerId").is(userId));
+        }
         if (startDate != null) {
             query.addCriteria(where("startDate").gt(startDate));
         }
