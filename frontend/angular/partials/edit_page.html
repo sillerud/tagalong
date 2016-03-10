@@ -20,6 +20,17 @@
 
                 <h3>About</h3>
                 <textarea rows="6" class="edit-field2" placeholder="Write about your page" ng-model="page.description"></textarea>
+
+                <ui-select multiple ng-model="selected.value">
+                    <ui-select-match placeholder="Select person...">
+                        {{$item.name}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                        <span ng-bind="item.name"></span>
+                    </ui-select-choices>
+                </ui-select>
+
+
             </div><!--END col-sm-12-->
         </div><!--END row-->
         <div class="center-input"><input type="button" ng-click="updatePage()" class="btn-fill btn-fill-save" value="Save changes"></div>
