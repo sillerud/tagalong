@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.Date;
@@ -26,7 +23,7 @@ public class EventRestController {
     @Autowired
     private EventRepository eventRepository;
 
-    @RequestMapping
+    @RequestMapping(method=RequestMethod.GET)
     public List<Event> filterEvents(@RequestParam(required=false, name="startDate") Date startDate,
                                     @RequestParam(required=false, name="endDate") Date endDate,
                                     @RequestParam(required=false, name="tagIds") String[] tagIds,
@@ -37,7 +34,7 @@ public class EventRestController {
         return eventRepository.filterEvents(startDate, endDate, tagIds, pageId, new PageRequest(page, entries));
     }
 
-    @RequestMapping
+    @RequestMapping(method=RequestMethod.POST)
     public ResultResponse createEvent(@RequestBody Event event, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         event.setId(null);
