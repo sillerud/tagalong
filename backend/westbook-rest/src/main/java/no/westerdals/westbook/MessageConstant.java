@@ -40,7 +40,10 @@ public enum MessageConstant
 
     // Events
     EVENT_CREATED,
+    EVENT_UPDATED,
+    EVENT_NOT_FOUND,
 
     // General
     NOT_IMPLEMENTED,
+    ACCESS_DENIED,
 }

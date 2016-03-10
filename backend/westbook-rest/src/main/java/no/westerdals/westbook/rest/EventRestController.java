@@ -1,6 +1,7 @@
 package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.MessageConstant;
+import no.westerdals.westbook.ModelHelper;
 import no.westerdals.westbook.model.Event;
 import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.mongodb.EventRepository;
@@ -44,6 +45,18 @@ public class EventRestController {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         event.setId(null);
         event.setAttending(new String[]{userCredentials.getUserId()});
+        event.setOwnerId(userCredentials.getUserId());
         return newOkResult(MessageConstant.EVENT_CREATED, eventRepository.insert(event));
+    }
+
+    @RequestMapping(method=RequestMethod.PATCH)
+    public ResultResponse updateEvent(@RequestBody Event event, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
+        Event original = eventRepository.findOne(event.getId());
+        if (original == null)
+            return newErrorResult(MessageConstant.EVENT_NOT_FOUND);
+        if (original.getOwnerId().equals(userCredentials.getUserId()))
+            return newErrorResult(MessageConstant.ACCESS_DENIED, "You do not have access to modify this event.");
+        return newOkResult(MessageConstant.EVENT_UPDATED, eventRepository.save(ModelHelper.mapObjects(original, event, Event.class)));
     }
 }

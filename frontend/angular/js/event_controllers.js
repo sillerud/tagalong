@@ -10,11 +10,6 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
 
 function updateEvent(originalId, $scope, Event, Static, Upload) {
     $scope.title = "Create event";
-    if (originalId) {
-        $scope.event = Event.getEvent(originalId);
-    } else {
-        $scope.event = {};
-    }
 
     var startDatePicker = $('#eventStartDate');
     startDatePicker.datetimepicker();
@@ -22,6 +17,23 @@ function updateEvent(originalId, $scope, Event, Static, Upload) {
     endDatePicker.datetimepicker();
     startDatePicker = startDatePicker.data("DateTimePicker");
     endDatePicker = endDatePicker.data("DateTimePicker");
+
+    if (originalId) {
+        $scope.event = Event.getById({eventId: originalId}, function(data) {
+            startDatePicker.date(moment(data.startDate));
+            if (data.endDate && data.endDate != 0) {
+                endDatePicker.date(moment(data.endDate));
+            }
+            var tagIds = [];
+            data.tagIds.forEach(function(tag) {
+                tagIds.push($scope.allTags.getById(tag));
+            });
+            data.tagIds = tagIds;
+        });
+    } else {
+        $scope.event = {};
+    }
+
     $scope.createEvent = function() {
         var event = {};
         if (!startDatePicker.date()) {
@@ -61,13 +73,17 @@ function updateEvent(originalId, $scope, Event, Static, Upload) {
             // TODO: Inform user
             return;
         }
-        Event.create(event);
+        if (originalId) {
+            Event.update(event);
+        } else {
+            Event.create(event);
+        }
         //console.log(JSON.stringify(event));
     };
 }
 
-eventControllers.controller('EditEventCtrl', ['$scope', '$requestParam', 'Event', 'Static', 'Upload', function ($scope, $requestParam, Event, Static, Upload) {
-    updateEvent($requestParam.id, $scope, Event, Static, Upload)
+eventControllers.controller('EditEventCtrl', ['$scope', '$routeParams', 'Event', 'Static', 'Upload', function($scope, $routeParams, Event, Static, Upload) {
+    updateEvent($routeParams.id, $scope, Event, Static, Upload)
 }]);
 
 eventControllers.controller('NewEventCtrl', ['$scope', 'Event', 'Static', 'Upload', function($scope, Event, Static, Upload) {

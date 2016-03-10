@@ -30,6 +30,18 @@ eventServices.factory('Event', ['$resource', function($resource) {
     return $resource(url('/events'), {}, {
         create: {
             method: 'POST'
+        },
+        update: {
+            method: 'PATCH'
+        },
+        all: {
+            method: 'GET',
+            isArray: true
+        },
+        getById: {
+            method: 'GET',
+            isArray: false,
+            url: url('/events/:eventId')
         }
     });
 }]);
