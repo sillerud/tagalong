@@ -1,6 +1,7 @@
 'use strict';
 
 if( localStorage.styleColor == 0 || localStorage.styleColor == null){
+    console.log('YOLO');
     localStorage.styleColor = 'blue';
 }
 
