@@ -8,6 +8,7 @@
     right: 0;
     margin: auto;
     display: none;
+    z-index: 2000;
 }
 .add-to-card-wrap #atcSearch{
     width: 100%;
