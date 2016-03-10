@@ -38,6 +38,9 @@ public enum MessageConstant
     // Cards
     CARD_CREATED,
 
+    // Events
+    EVENT_CREATED,
+
     // General
     NOT_IMPLEMENTED,
 }

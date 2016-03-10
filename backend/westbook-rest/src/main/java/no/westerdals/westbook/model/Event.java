@@ -17,11 +17,12 @@ public class Event {
     private String shoutOut;
     private String headerImage;
     private String ownerId;
+    private String pageId;
     private String description;
     private Date startDate;
     private Date endDate;
     private String location;
-    private String[] tags;
+    private String[] tagIds;
     private String[] attending;
     private String[] galleryImages;
 }
