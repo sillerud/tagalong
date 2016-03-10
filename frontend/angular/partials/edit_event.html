@@ -1,26 +1,26 @@
 <div class="container edit-profile-wrap edit-fields">
     <ng-form>
-    <div class="center-input"><h1>Create and/or edit an event</h1></div>
+        <div class="center-input"><h1>{{ title }}</h1></div>
 
-    <div class="col-sm-12">
-        <div class="edit-cover-piv" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
-        <img src="../statisk/images/event_pic.jpg" class="img-responsive" alt="">
-            <div class="pic-overlay"><b>Click to edit</b></div>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-sm-12">
-            <h3 class="edit-this-title">Title</h3>
-            <h4 ng-if="edit" class="delete-this-link"><a href="#">Delete event</a></h4>
-            <input class="edit-field2" placeholder="Title of the event">
-            <textarea rows="6" class="edit-field3" placeholder="About the event"></textarea>
+            <div class="edit-cover-piv" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
+                <img src="../statisk/images/event_pic.jpg" class="img-responsive" alt="">
+                <div class="pic-overlay"><b>Click to edit</b></div>
+            </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3 class="edit-this-title">Title</h3>
+                <h4 ng-if="edit" class="delete-this-link"><a href="#">Delete event</a></h4>
+                <input class="edit-field2" placeholder="Title of the event">
+                <textarea rows="6" class="edit-field3" placeholder="About the event"></textarea>
+            </div>
+        </div>
 
-    <div class="row">
-        <div class="col-sm-6">
-            <h3><i class="fa fa-clock-o edit-event-date-icon"></i>Date</h3>
-            
+        <div class="row">
+            <div class="col-sm-6">
+                <h3><i class="fa fa-clock-o edit-event-date-icon"></i>Start date</h3>
+
                 <div class="form-group">
                     <label for="eventStartDateField" hidden>Event start date</label>
                     <div id="eventStartDate" class='input-group date1'>
@@ -30,22 +30,40 @@
                     </span>
                     </div>
                 </div><!--END form-group-->
-            
-        </div><!--END col-sm-6-->
-        
-        <div class="col-sm-6">
-            <h3><i class="fa fa-map-marker edit-event-location-icon"></i>Location</h3>
-            <input name="email" ng-model="event.location" class="edit-field2" type="text" placeholder="Where will the event take place?">
-        </div><!--END col-sm-4-->
-    </div><!--END rows-->
-    
-    <div class="row">
-        <div class="col-sm-12">
-            <h3>Tags for event</h3>
-            <input name="email" ng-model="event.tags" class="edit-field2" type="text" placeholder="Separate, tags, by, comma">
-        </div><!--END col-sm-12-->
-    </div><!--END rows-->
-    
-    <div class="center-input"><input type="submit" class="btn-fill btn-fill-save" value="Save changes"></div>
+                <h3><i class="fa fa-clock-o edit-event-date-icon"></i>End date</h3>
+
+                <div class="form-group">
+                    <label for="eventStartDateField" hidden>Event start date</label>
+                    <div id="eventEndDate" class='input-group date1'>
+                        <input id="eventEndDateField" ng-model="event.endDate" type='text' class="edit-field2"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div><!--END form-group-->
+
+            </div><!--END col-sm-6-->
+
+            <div class="col-sm-6">
+                <h3><i class="fa fa-map-marker edit-event-location-icon"></i>Location</h3>
+                <input name="email" ng-model="event.location" class="edit-field2" type="text" placeholder="Where will the event take place?">
+            </div><!--END col-sm-4-->
+        </div><!--END rows-->
+
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tags for event</h3>
+                <ui-select multiple ng-model="event.tagIds">
+                    <ui-select-match placeholder="Select tag...">
+                        {{$item.name}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="tag in (allTags | filter: $select.search) track by tag.id">
+                        <span ng-bind="tag.name"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div><!--END col-sm-12-->
+        </div><!--END rows-->
+
+        <div class="center-input"><input type="submit" class="btn-fill btn-fill-save" value="Save changes"></div>
     </ng-form>
 </div><!-- END - container -->

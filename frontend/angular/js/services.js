@@ -110,6 +110,10 @@ staticServices.factory('Static', ['$resource', function($resource) {
     return $resource(url("/static/studyfield"), {}, {
         getAllStudyFields: {
             isArray: true
+        },
+        getAllTags: {
+            url: url("/static/tags"),
+            isArray: true
         }
     })
 }]);

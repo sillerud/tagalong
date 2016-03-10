@@ -13,8 +13,8 @@
                     <ui-select-match placeholder="Select tags...">
                         {{$item.name}}
                     </ui-select-match>
-                    <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-                        <span ng-bind="item.name"></span>
+                    <ui-select-choices repeat="tag in (allTags | filter: $select.search) track by tag.id">
+                        <span ng-bind="tag.name"></span>
                     </ui-select-choices>
                 </ui-select>
 

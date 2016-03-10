@@ -37,6 +37,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
         }
     }, redirectLogin);
 
+    $scope.allTags = Static.getAllTags();
     $scope.studyfields = Static.getAllStudyFields();
     $scope.studyfields.getById = function(id) {
         return this.find(function(element) {

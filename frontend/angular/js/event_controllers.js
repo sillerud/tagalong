@@ -8,17 +8,16 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
     }
 }]);
 
-eventControllers.controller('EditEventCtrl', ['$scope', 'Event', 'Upload', function ($scope, Event, Uplaod) {
+eventControllers.controller('EditEventCtrl', ['$scope', '$q', 'Event', 'Static', 'Upload', function ($scope, $q, Event, Static, Uplaod) {
     $scope.title = "Edit event";
     $scope.edit = true;
     var startDatePicker = $('#eventStartDate');
     startDatePicker.datetimepicker();
     var endDatePicker = $('#eventEndDate');
     endDatePicker.datetimepicker();
-    console.log("im not a error hehe1 ");
 }]);
 
-eventControllers.controller('NewEventCtrl', ['$scope', 'Event', 'Upload', function($scope, Event, Upload) {
+eventControllers.controller('NewEventCtrl', ['$scope', 'Event', 'Static', 'Upload', function($scope, Event, Static, Upload) {
     $scope.title = "Create event";
     var startDatePicker = $('#eventStartDate');
     startDatePicker.datetimepicker();
