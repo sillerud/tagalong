@@ -173,3 +173,6 @@ a:hover{
 .ui-select-container .ui-select-choices li a{
     color: #333;
 }
+.form-group input{
+    margin-bottom: 0 !important;
+}
