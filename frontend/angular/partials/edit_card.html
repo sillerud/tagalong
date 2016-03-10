@@ -1,4 +1,4 @@
-<div class="edit-card-wrap edit-fields popup">
+<div class="edit-card-wrap edit-fields popup" ng-controller="AddCardCtrl">
     <div class="edit-card">
         <form ng-submit="createCard()">
             <div class="popup-top">
@@ -9,8 +9,14 @@
 
                 <textarea ng-model="newcard.description" class="edit-field3" rows="2" placeholder="Card description"></textarea>
 
-                <!--<input class="edit-field2"  type="text" hidden> Plassering av tags i form -->
-                <input class="edit-field2" placeholder="Legg til tags" type="search">
+                <ui-select multiple ng-model="selected.value">
+                    <ui-select-match placeholder="Select tags...">
+                        {{$item.name}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                        <span ng-bind="item.name"></span>
+                    </ui-select-choices>
+                </ui-select>
 
             </div><!-- END popup top -->
 

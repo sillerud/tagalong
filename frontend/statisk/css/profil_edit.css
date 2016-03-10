@@ -61,7 +61,7 @@
 .edit-field3{
     width: 100%;
     max-width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     background-color: white;
     border: 1px solid #DCDCDC;
     padding: 10px;
@@ -79,6 +79,7 @@
 .edit-fields .edit-field2{
     padding: 8px 10px 10px;
     font-size: 1em;
+    margin-bottom: 30px;
 }
 /* Placeholder tekst */
 .edit-fields ::-webkit-input-placeholder {

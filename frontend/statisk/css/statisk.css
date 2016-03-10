@@ -142,3 +142,34 @@ a:hover{
     z-index: 100;
 }
 
+
+/* Card search */
+.ui-select-container{
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    height: auto;
+    -webkit-box-shadow: none;
+}
+.ui-select-container input{ /* Søket etter tags */
+    width: 100% !important;
+    background-color: white;
+    border: 1px solid #DCDCDC;
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.ui-select-container input:focus{
+    outline: none;
+}
+.ui-select-container .ui-select-match-item{ /* Velgte tags span elementer*/
+    margin-right: 10px;
+}
+.ui-select-container .ui-select-choices{ /* Dropdown valg */
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+}
+.ui-select-container .ui-select-choices li a{
+    color: #333;
+}
