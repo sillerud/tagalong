@@ -3,9 +3,17 @@
 var eventControllers = angular.module('eventControllers', []);
 
 eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($scope, Event) {
-    $scope.getRandomNumber = function(){
-        return 4;
-    }
+    $scope.events = Event.all(function(data) {
+        data.forEach(function(event) {
+            event.coverImageUrl = getUploadUrl(data.coverImageId, "img/placeholder_thumb.jpg");
+            event.tags = [];
+            event.tagIds.forEach(function(tagId) {
+                event.tags.push($scope.allTags.getById(tagId));
+            });
+            console.log(event);
+        });
+        console.log($scope.events);
+    });
 }]);
 
 eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event', function($scope, $routeParams, Event) {
