@@ -1,10 +1,5 @@
 'use strict';
 
-if( localStorage.styleColor == 0 || localStorage.styleColor == null){
-    console.log('YOLO');
-    localStorage.styleColor = 'blue';
-}
-
 var userControllers = angular.module('userControllers', []);
 
 userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope, User) {
@@ -40,6 +35,13 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
         } else {
             data.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
         }
+
+        if( localStorage.styleColor == null || localStorage.styleColor == 'undefined'){
+            localStorage.styleColor = 'blue';
+        }else{
+
+        }
+        console.log( localStorage.getItem('styleColor') );
 
 
         $scope.changeStylesheet = function(color){
