@@ -9,7 +9,7 @@
 
                 <textarea ng-model="newcard.description" class="edit-field3" rows="2" placeholder="Card description"></textarea>
 
-                <ui-select multiple ng-model="selected.value">
+                <ui-select multiple ng-model="newcard.tags">
                     <ui-select-match placeholder="Select tags...">
                         {{$item.name}}
                     </ui-select-match>
