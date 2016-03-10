@@ -5,6 +5,7 @@ var cardControllers = angular.module('cardControllers', []);
 cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Card) {
     // Åpne og lukke edit/add new card
     $scope.addCard = function() {
+        $('.popup').fadeOut();
         $('.edit-card-wrap').fadeIn();
         $('#darkOverlay').fadeIn();
     };

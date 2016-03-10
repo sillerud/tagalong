@@ -55,6 +55,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
     };
     $scope.addToCard = function(){
         $('.add-to-card-wrap').fadeIn();
+        $('#darkOverlay').fadeIn();
     }; // END add to card
     $scope.openNewPost = function(doo){
         $('.new-post-wrap').fadeIn();
@@ -65,6 +66,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
     $scope.closePopup = function(){
         $('.popup').fadeOut();
         $('#darkOverlay').fadeOut();
+        $scope.closeShortcuts();
     };
 
     var addNewOpen = false;
@@ -79,14 +81,17 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
             addNewOpen = true;
         }else{
             if( dark != 1) $('#darkOverlay').fadeOut();
-            $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300);
-            $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300);
-            $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300);
-            $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300);
-            addNewOpen = false;
+            $scope.closeShortcuts();
         }
 
     }; // END openShortcuts
+    $scope.closeShortcuts = function(){
+        $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300);
+        $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300);
+        $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300);
+        $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300);
+        addNewOpen = false;
+    };
 
 
     var dropdownToggle = false;
