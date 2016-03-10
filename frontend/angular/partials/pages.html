@@ -9,7 +9,7 @@
             <div class="col-sm-5">
                 <div class="filter-pages box">
                    <input type="submit" class="btn-no-fill all-feeds-btn" value="Unfiltered">
-                   
+
                     <div class="order-by-box">
                         <div class="box-title">
                             <h3>Order by</h3>
@@ -20,12 +20,12 @@
                             <input type="checkbox" name="mostTaggedAlongCheck" id="mostTaggedAlongCheck" value="mostTaggedAlong"><label for="mostTaggedAlongCheck">Most people tagged along</label><br>
                         </form><!--checkbox-style boxD-->
                     </div><!--END order-by-box-->
-                           
-                    <div class="filter-by-box">     
+
+                    <div class="filter-by-box">
                         <div class="box-title">
                             <h3>Filter by</h3>
                         </div>
-                
+
                         <form class="filter-pages-by">
                             <input type="checkbox" name="communicationCheck" id="communicationCheck" value="kommunikasjon"><label for="communicationCheck">Communication</label><br>
                             <input type="checkbox" name="artsCheck" id="artsCheck" value="kunstfag"><label for="artsCheck">Arts </label><br>
@@ -33,7 +33,7 @@
                             <input type="checkbox" name="filmTVGameDesignCheck" id="filmTVGameDesignCheck" value="film, TV og spill"><label for="filmTVGameDesignCheck">Film, TV og Game Design</label><br>
                             <input type="checkbox" name="managementCheck" id="managementCheck" value="management"><label for="managementCheck">Management </label><br>
                         </form>
-                    </div><!--END filter-by-box--> 
+                    </div><!--END filter-by-box-->
                 </div><!--END filter-pages box-->
             </div><!-- col-sm-5 END-->
 
@@ -60,7 +60,7 @@
                             </div><!--page-preview-info END-->
 
                             <div class="page-preview-header">
-                                <h3 class="preview-title">{{ page.name }}</h3>
+                                <h3 class="preview-title">{{ page.name | limitTo : 100 }}{{page.name.length > 100 ? '...' : ''}}</h3>
                             </div>
                         </a>
                     </div><!--page-preview-image END-->

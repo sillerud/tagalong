@@ -49,6 +49,10 @@ angular.module('tagalong', [
                 templateUrl: 'partials/cards.html',
                 controller: 'AllCardCtrl'
             })
+            .when("/cards/:id/edit", {
+                templateUrl: 'partials/edit_card.html',
+                controller: 'EditCardCtrl'
+            })
             .when("/profile", {
                 templateUrl: 'partials/other_profiles.html',
                 controller: 'ShowUserCtrl'

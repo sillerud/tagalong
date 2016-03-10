@@ -36,3 +36,9 @@ cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Ca
         });
     }
 }]);
+
+cardControllers.controller("EditCardCtrl", ['$scope', 'Card', '$routeParams', function($scope, Card, $routeParams){
+    $scope.card = Card.get({ cardId: $routeParams.id });
+
+
+}]);

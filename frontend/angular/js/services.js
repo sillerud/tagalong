@@ -65,6 +65,11 @@ cardServices.factory('Card', ['$resource', function($resource) {
         all: {
             method: 'GET',
             isArray: true
+        },
+        get: {
+            method: 'GET',
+            isArray: false,
+            url: url('/cards/:cardId')
         }
     })
 }]);
