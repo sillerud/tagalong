@@ -12,13 +12,13 @@
                 </div>
                 <div class="card-wrap-inner">
 
-                    <h3>{{ card.name | limitTo : 20 }}{{card.name.length > 20 ? '...' : ''}}</h3>
-                    <p>{{ card.description | limitTo : 200 }}{{card.description.length > 200 ? '...' : ''}}</p>
+                    <h3>{{ card.name | limitTo : 23 }}{{card.name.length > 20 ? '...' : ''}}</h3>
+                    <p>{{ card.description | limitTo : 197 }}{{card.description.length > 200 ? '...' : ''}}</p>
 
                     <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                     <div class="card-tag-wrap">
                         <ul class="card-tag-list">
-                            <li ng-repeat="tag in card.filter">{{ tag }}</li>
+                            <li ng-repeat="filter in card.displayFilters">{{ filter }}</li>
                         </ul>
                     </div>
                 </div>

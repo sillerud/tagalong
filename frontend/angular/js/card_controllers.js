@@ -8,7 +8,18 @@ cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Ca
         $('.edit-card-wrap').fadeIn();
         $('#darkOverlay').fadeIn();
     };
-    $scope.cards = Card.all();
+    $scope.cards = Card.all(function(data) {
+        data.forEach(function(card) {
+            card.displayFilters = [];
+            card.filter.forEach(function(value){
+                if (value.charAt(0) == '#') { // Its a tag
+                    card.displayFilters.push('#' + $scope.allTags.getById(value.substring(1)).name);
+                } else { // its a page
+
+                }
+            });
+        });
+    });
     // ESC
     $(document).keyup(function(e) {
         if ( e.keyCode == 27) {
@@ -23,21 +34,12 @@ cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Ca
 }]);
 
 cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Card) {
-    var filter = [];
-
-    filter.push("#java");
-
-    $scope.itemArray = [
-        {id: 1, name: 'first'},
-        {id: 2, name: 'second'},
-        {id: 3, name: 'third'},
-        {id: 4, name: 'fourth'},
-        {id: 5, name: 'fifth'},
-    ];
-
-    $scope.selected = { value: $scope.itemArray[0] };
 
     $scope.createCard = function() {
+        var filter = [];
+        $scope.newcard.tags.forEach(function(tag) {
+            filter.push("#" + tag.id);
+        });
         Card.create({
             userId: $scope.me.id,
             name: $scope.newcard.title,
