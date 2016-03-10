@@ -42,7 +42,7 @@ public class StaticRestController
     }
 
     @RequestMapping(value="/tags")
-    public List<ResolvedTag> getAllTags() {
-        return null;
+    public List<Tag> getAllTags() {
+        return tagRepository.findAll();
     }
 }
