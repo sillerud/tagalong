@@ -51,6 +51,11 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
 
         $scope.changeStylesheet(localStorage.styleColor);
 
+        $scope.goToUrl = function(url){
+            $scope.closePopup();
+            window.location = url;
+        };
+
     }, redirectLogin);
 
     $scope.allTags = Static.getAllTags();

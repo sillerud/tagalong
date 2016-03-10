@@ -21,3 +21,17 @@
 .add-to-card-wrap .box-title{
     margin-bottom: 15px;
 }
+.exit-btn{
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    font-size: 1.2em;
+    padding: 4px 10px 6px;
+    border-radius: 50%;
+    background-color: #1eb6ec;
+    cursor: pointer;
+}
+.exit-btn:hover{
+    background-color: #333;
+    color: #FFF;
+}
