@@ -8,6 +8,10 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
     }
 }]);
 
+eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event', function($scope, $routeParams, Event) {
+    $scope.event = Event.getById({eventId: $routeParams.id});
+}]);
+
 function updateEvent(originalId, $scope, Event, Static, Upload) {
     $scope.title = "Create event";
 
@@ -36,15 +40,6 @@ function updateEvent(originalId, $scope, Event, Static, Upload) {
 
     $scope.createEvent = function() {
         var event = {};
-        if (!startDatePicker.date()) {
-            // TODO: Inform user
-            console.log("No start date");
-            return;
-        }
-        event.startDate = startDatePicker.date();
-        if (endDatePicker.date()) {
-            event.endDate = endDatePicker.date();
-        }
         angular.forEach($scope.event, function(value, key) {
             if (key == 'tagIds') {
                 var tagIds = [];
@@ -57,7 +52,16 @@ function updateEvent(originalId, $scope, Event, Static, Upload) {
                 event[key] = value;
             }
         });
-        console.log(event);
+        if (!startDatePicker.date()) {
+            // TODO: Inform user
+            console.log("No start date");
+            return;
+        }
+        event.startDate = startDatePicker.date();
+        if (endDatePicker.date()) {
+            console.log(endDatePicker.date());
+            event.endDate = endDatePicker.date();
+        }
         if (!event.tagIds) {
             console.log("No tags");
             // TODO: Inform user
@@ -78,7 +82,6 @@ function updateEvent(originalId, $scope, Event, Static, Upload) {
         } else {
             Event.create(event);
         }
-        //console.log(JSON.stringify(event));
     };
 }
 

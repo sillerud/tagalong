@@ -3,7 +3,6 @@
 }
 
 .event-time-icon, .event-time, .event-date, .event-date-icon, .event-place, .event-place-icon{
-    float: left;
     padding: 5px;
 }
 
@@ -12,8 +11,7 @@
 }
 
 .event-time-area, .event-date-area, .event-place-area{
-    height: 50px;
-    width: 400px;
+    width: 100%;
     padding: 10px;
 }
 
@@ -22,7 +20,11 @@
 }
 
 .attending-box{
-    height: 170px;
+    overflow: hidden;
+}
+
+.about-element {
+    display: block;
 }
 
 .attending-thumbs-wrap{
