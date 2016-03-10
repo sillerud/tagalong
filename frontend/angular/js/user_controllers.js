@@ -1,5 +1,9 @@
 'use strict';
 
+if( localStorage.styleColor == 0 ){
+    localStorage.styleColor = 'red';
+}
+
 var userControllers = angular.module('userControllers', []);
 
 userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope, User) {
@@ -35,6 +39,15 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
         } else {
             data.profileHeaderPictureUrl = "img/pageimage_placeholder.png";
         }
+
+
+        $scope.changeStylesheet = function(color){
+            localStorage.styleColor = color;
+            $scope.stylesheetUrl = '../statisk/css/dynamic_colors_' + localStorage.styleColor + '.css';
+        };
+
+        $scope.changeStylesheet(localStorage.styleColor);
+
     }, redirectLogin);
 
     $scope.allTags = Static.getAllTags();

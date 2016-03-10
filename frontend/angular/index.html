@@ -2,7 +2,7 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="tagalong" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="tagalong" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="tagalong" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="tagalong" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="tagalong" class="no-js" ng-controller="UserInfoCtrl"> <!--<![endif]-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,9 @@
     <meta name="description" content="">
     <link rel="shortcut icon" type="image/png" href="../statisk/images/faneikon_logo.png"/>
     <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../statisk/css/dynamic_colors.css">
+
+    <link rel="stylesheet" type="text/css" href="{{stylesheetUrl}}">
+
     <link rel="stylesheet" type="text/css" href="../statisk/css/statisk.css">
     <link rel="stylesheet" type="text/css" href="../statisk/css/menu.css">
     <link rel="stylesheet" type="text/css" href="../statisk/css/forside.css">
@@ -63,7 +65,7 @@
 
     <title>Tag along</title>
 </head>
-<body ng-controller="UserInfoCtrl">
+<body>
 
 <div class="card-shortcut-wrap">
     <div class="container">
@@ -327,7 +329,12 @@
 
             </div><!-- END shortcut-menu -->
 
-            <div class="text-center" id="copy">&copy All rights reserved Tag Along</div>
+            <div class="text-center" id="copy">&copy All rights reserved Tag Along</div><br>
+            <div ng-click="changeStylesheet('red')">Be red</div>
+            <div ng-click="changeStylesheet('blue')">Be blue</div>
+            <div ng-click="changeStylesheet('purple')">Be purple</div>
+            <div ng-click="changeStylesheet('yellow')">Be yellow</div>
+            <div ng-click="changeStylesheet('green')">Be green</div>
         </div>
     </div><!-- END container -->
 
