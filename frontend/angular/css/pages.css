@@ -29,7 +29,7 @@ label{
 }
 .page-preview-info{
     position: absolute;
-    bottom: 25px;
+    bottom: 10px;
     left: 0;
     right: 0;
     overflow: hidden;
@@ -47,11 +47,6 @@ label{
     background-color: rgba(0,0,0, 0.6);
 }
 .page-preview-header{
-    position: absolute;
-    text-align: center;
-    bottom: 0px;
-    left: 0;
-    right: 0;
     background-color: #FFF;
 }
 .preview-title{

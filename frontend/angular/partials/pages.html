@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-sm-5">
                 <div class="filter-pages box">
-                   <input type="submit" class="btn-no-fill all-feeds-btn" value="Unfiltered">
+                    <input type="submit" class="btn-no-fill all-feeds-btn" value="Unfiltered">
 
                     <div class="order-by-box">
                         <div class="box-title">
@@ -50,25 +50,26 @@
                             </div>
                         </div><!-- END add page to card -->
 
-                        <a ng-href="#/pages/{{ page.customUrl ? page.customUrl : page.id }}">
-                            <div class="page-preview-info">
-                                <ul class="card-tag-list">
-                                    <li>#TODO: Resolve this from backend</li>
-                                    <li>#Kvinner&IT</li>
-                                    <li>#Datafordamer</li>
-                                    <li>#BedreEnnGutta</li>
-                                </ul><!--card-tag-list END-->
-                            </div><!--page-preview-info END-->
+                        <div class="page-preview-info">
+                            <ul class="card-tag-list">
+                                <li>#TODO: Resolve this from backend</li>
+                                <li>#Kvinner&IT</li>
+                                <li>#Datafordamer</li>
+                                <li>#BedreEnnGutta</li>
+                            </ul><!--card-tag-list END-->
+                        </div><!--page-preview-info END-->
 
-                            <div class="page-preview-header">
-                                <h3 class="preview-title">{{ page.name | limitTo : 100 }}{{page.name.length > 100 ? '...' : ''}}</h3>
-                            </div>
-                        </a>
                     </div><!--page-preview-image END-->
+
+                    <a ng-href="#/pages/{{ page.customUrl ? page.customUrl : page.id }}">
+                        <div class="page-preview-header">
+                            <h3 class="preview-title">{{ page.name | limitTo : 100 }}{{page.name.length > 100 ? '...' : ''}}</h3>
+                        </div>
+                    </a>
                 </div><!--page-preview END-->
-        </div><!-- col-sm-8 END-->
-</div><!--row END-->
-</div><!--end pages-main-content-->
+            </div><!-- col-sm-8 END-->
+        </div><!--row END-->
+    </div><!--end pages-main-content-->
 
 </div><!--end container-->
 

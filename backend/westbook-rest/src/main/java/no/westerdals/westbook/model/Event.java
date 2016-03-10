@@ -15,7 +15,7 @@ public class Event {
     private String id;
     private String title;
     private String shoutOut;
-    private String headerImage;
+    private String coverImageId;
     private String ownerId;
     private String pageId;
     private String description;
