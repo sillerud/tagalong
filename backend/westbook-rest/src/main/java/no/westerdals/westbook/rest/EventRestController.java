@@ -55,7 +55,7 @@ public class EventRestController {
         Event original = eventRepository.findOne(event.getId());
         if (original == null)
             return newErrorResult(MessageConstant.EVENT_NOT_FOUND);
-        if (original.getOwnerId().equals(userCredentials.getUserId()))
+        if (!original.getOwnerId().equals(userCredentials.getUserId()))
             return newErrorResult(MessageConstant.ACCESS_DENIED, "You do not have access to modify this event.");
         return newOkResult(MessageConstant.EVENT_UPDATED, eventRepository.save(ModelHelper.mapObjects(original, event, Event.class)));
     }
