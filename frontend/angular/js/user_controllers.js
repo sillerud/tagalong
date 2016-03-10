@@ -1,7 +1,7 @@
 'use strict';
 
-if( localStorage.styleColor == 0 ){
-    localStorage.styleColor = 'red';
+if( localStorage.styleColor == 0 || localStorage.styleColor == null){
+    localStorage.styleColor = 'blue';
 }
 
 var userControllers = angular.module('userControllers', []);
