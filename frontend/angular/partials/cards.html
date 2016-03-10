@@ -13,7 +13,7 @@
                 <div class="card-wrap-inner">
 
                     <h3>{{ card.name | limitTo : 20 }}{{card.name.length > 20 ? '...' : ''}}</h3>
-                    <p>{{ card.description }}</p>
+                    <p>{{ card.description| limitTo : 200 }}{{card.description.length > 200 ? '...' : ''}}</p>
 
                     <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                     <div class="card-tag-wrap">

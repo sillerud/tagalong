@@ -89,7 +89,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
     $scope.openNotifications = function() {
         dropdownArrow.fadeIn();
         dropdown.fadeIn();
-        
+
         dropdownToggle = true;
     };
 
@@ -102,8 +102,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
     });
     $scope.cards = Card.all();
     $scope.openCardShortcuts = function(){
-        $('.page').animate({'left': '300px'});
-        $('.card-sidebar').animate({'left': '0'});
+        $('.card-shortcut-wrap').fadeIn();
     };
 
 }]);
