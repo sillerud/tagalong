@@ -223,11 +223,6 @@
       position: relative;
       padding: 3px 5px 5px 5px;
     }
-    #noticifation-title{
-      color: white;
-      position: relative;
-      top: 7px;
-    }
     .varsel .fa-bell{
         color: white;
     }
@@ -267,12 +262,31 @@
   position: absolute;
   left: 15px;
 }
-.header-varsel-panel{
+.header-notification-tab{
     margin: 0;
     background-color: #8fc6d9;
     width: 100%;
     overflow: auto;
     text-align: center;
+}
+
+
+.overskrift-varsel{
+    width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+
+
+
+.tekst-varsel{
+    width: calc(100% - 60px);
+    height: auto;
+    float: left;
+    font-size: 10px;
+    padding-left: 20px;
 }
 /* DROPDOWN TEST*/
 .dropdown {
@@ -300,12 +314,13 @@
 }
 
 
-.dropdown-content a:hover {background-color: aquamarine}
+.dropdown-content a:hover {background-color: #E1F4FA}
 
 .arrow-up {
     display: none;
     z-index: 90000;
     position: relative;
+    left: 50px;
 	width: 0; 
 	height: 0; 
 	border-left: 10px solid transparent;
@@ -352,28 +367,11 @@
     height: auto;
     float: left;
 }
-
-.overskrift-varsel{
-    width: 100px;
-    font-size: 14px;
-    font-weight: bold;
-    padding-left: 20px;
-    padding-bottom: 5px;
-}
-
-
-
-.tekst-varsel{
-    width: calc(100% - 60px);
-    height: auto;
-    float: left;
-    font-size: 10px;
-    padding-left: 20px;
-}
-
 .varsel-panel .fa-bell{
     border: none;
 }
+
+
   /* END - Top header */
 
   .menu-wrap{ /* Wrap rundt menydelen - nedre del av header */
