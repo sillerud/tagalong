@@ -8,10 +8,7 @@ import no.westerdals.westbook.mongodb.CardRepository;
 import no.westerdals.westbook.responses.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -28,6 +25,11 @@ public class CardRestController {
     public List<Card> getOwnCards(Principal principal) {
         UserCredentials user = ((UserCredentials) ((Authentication)principal).getPrincipal());
         return cardRepository.findByUserId(user.getUserId());
+    }
+
+    @RequestMapping(value="/{cardId}", method=RequestMethod.GET)
+    public Card getCard(@PathVariable String cardId) {
+        return cardRepository.findOne(cardId);
     }
 
     @RequestMapping(method=RequestMethod.POST)
