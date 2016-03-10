@@ -34,6 +34,11 @@ public class EventRestController {
         return eventRepository.filterEvents(startDate, endDate, tagIds, pageId, new PageRequest(page, entries));
     }
 
+    @RequestMapping(value="/{eventId}",method=RequestMethod.GET)
+    public Event getEventById(@PathVariable String eventId) {
+        return eventRepository.findOne(eventId);
+    }
+
     @RequestMapping(method=RequestMethod.POST)
     public ResultResponse createEvent(@RequestBody Event event, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();

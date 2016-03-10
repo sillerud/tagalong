@@ -27,8 +27,10 @@ loginServices.factory('Login', ['$resource', function($resource) {
 }]);
 
 eventServices.factory('Event', ['$resource', function($resource) {
-    return $resource(url('/event'), {}, {
-
+    return $resource(url('/events'), {}, {
+        create: {
+            method: 'POST'
+        }
     });
 }]);
 
