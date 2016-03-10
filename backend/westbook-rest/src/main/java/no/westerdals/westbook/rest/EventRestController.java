@@ -45,6 +45,7 @@ public class EventRestController {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         event.setId(null);
         event.setAttending(new String[]{userCredentials.getUserId()});
+        event.setOwnerId(userCredentials.getUserId());
         return newOkResult(MessageConstant.EVENT_CREATED, eventRepository.insert(event));
     }
 
