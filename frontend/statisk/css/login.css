@@ -65,13 +65,13 @@ html,body{
     margin-bottom: 30px;
 }
 #username{
-    background-image: url('../images/user-icon.png');
+    background-image: url('../../angular/img/user-icon.png');
     background-repeat: no-repeat;
     background-size: 18px;
     background-position: 12px 15px;
 }
 #password{
-    background-image: url('../images/password-icon.png');
+    background-image: url('../../angular/img/password-icon.png');
     background-repeat: no-repeat;
     background-size: 15px;
     background-position: 15px 15px;
