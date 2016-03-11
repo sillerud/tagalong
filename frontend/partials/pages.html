@@ -15,10 +15,11 @@
                             <h3>Order by</h3>
                         </div>
 
-                        <form class="checkbox-style order-pages-by">
-                            <input type="checkbox" name="mostRecentCheck" id="mostRecentCheck" value="kommunikasjon"><label for="mostRecentCheck">Most recent</label><br>
-                            <input type="checkbox" name="mostTaggedAlongCheck" id="mostTaggedAlongCheck" value="mostTaggedAlong"><label for="mostTaggedAlongCheck">Most people tagged along</label><br>
-                        </form><!--checkbox-style boxD-->
+                        <div class="input-group checkbox-style order-pages-by">
+                            <input type="radio" ng-change="filterUpdated()" ng-model="filter.order" value="recent" name="mostRecentCheck" id="mostRecentCheck"><label for="mostRecentCheck">Most recent</label><br>
+                            <input type="radio" ng-change="filterUpdated()" ng-model="filter.order" value="startDate" name="startDateCheck" id="startDateCheck"><label for="startDateCheck">Start date</label><br>
+                            <input type="radio" ng-change="filterUpdated()" ng-model="filter.order" value="tags" name="mostTaggedAlongCheck" id="mostTaggedAlongCheck"><label for="mostTaggedAlongCheck">Most people tagged along</label><br>
+                        </div><!--checkbox-style boxD-->
                     </div><!--END order-by-box-->
 
                     <!--<div class="filter-by-box">

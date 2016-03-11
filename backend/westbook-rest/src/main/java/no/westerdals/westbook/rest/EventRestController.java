@@ -44,11 +44,11 @@ public class EventRestController {
     private Sort getOrder(String orderBy) {
         switch (orderBy) {
             case "startDate":
-                return new Sort(Sort.Direction.DESC, "startDate");
+                return new Sort(Sort.Direction.ASC, "startDate");
             case "tags":
-                return new Sort(Sort.Direction.DESC, "_id"); // TODO: Add order by tagalongs
+                return new Sort(Sort.Direction.ASC, "_id"); // TODO: Add order by tagalongs
             default:
-                return new Sort(Sort.Direction.DESC, "_id");
+                return new Sort(Sort.Direction.ASC, "_id");
         }
     }
 
