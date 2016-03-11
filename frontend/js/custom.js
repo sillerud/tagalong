@@ -2,7 +2,8 @@ $(document).ready(function () {
 
     // Kjører hver gang vinduet endrer størrelse
     $(window).resize(function() {
-        createThumbnails();
+        //createThumbnails();
+        $('.sidebar-all-card').removeAttr('style');
     });
 
     var personFeed = function(){

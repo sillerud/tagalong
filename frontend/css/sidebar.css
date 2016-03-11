@@ -5,7 +5,20 @@
     margin-bottom: 15px;
     position: relative;
 }
-.card-sidebar-wrap:
+.sidebar-card-info{
+    overflow: hidden;
+}
+.sidebar-card:nth-child(2) .card-sidebar-inner:after{
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #FFF;
+}
 .card-sidebar-image{
     background-color: #fd7265;
     height: 55px;
@@ -27,6 +40,28 @@
 .card-sidebar-inner .card-tag-wrap{
     float: left;
     margin-left: -5px;
+    clear: both;
+}
+.sidebar-mobile{
+    display: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 10px;
+    background-color: #FFF;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.sidebar-all-card{
+    display: block;
+}
+@media screen and (max-width: 767px){
+    .sidebar-mobile{
+        display: block;
+    }
+    .sidebar-all-card{
+        display: none;
+    }
 }
 /* end sidebar*/
 
