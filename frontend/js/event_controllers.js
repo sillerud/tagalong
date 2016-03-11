@@ -48,18 +48,7 @@ function updateEvent(originalId, $scope, Event, Static, Upload) {
 
     $scope.createEvent = function() {
         var event = {};
-        angular.forEach($scope.event, function(value, key) {
-            if (key == 'tagIds') {
-                var tagIds = [];
-                value.forEach(function(tag) {
-                    tagIds.push(tag.id);
-                });
-                if (tagIds.length > 0)
-                    event.tagIds = tagIds;
-            } else {
-                event[key] = value;
-            }
-        });
+        angular.forEach($scope.event, genericValueMapping, event);
         if (!startDatePicker.date()) {
             // TODO: Inform user
             console.log("No start date");

@@ -81,6 +81,11 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
         $('#darkOverlay').fadeOut();
         $scope.closeShortcuts();
     };
+    $scope.createPost = function() {
+        var newpost = {};
+        angular.forEach($scope.newpost, genericValueMapping, newpost);
+        console.log(newpost);
+    };
 
     var addNewOpen = false;
     $scope.openShortcuts = function(dark){
