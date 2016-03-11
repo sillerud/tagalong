@@ -37,8 +37,7 @@ public class PostRestController {
     @RequestMapping(value="/by-tags/{tags}", method=RequestMethod.GET)
     public List<Post> getPostsByTag(@PathVariable String[] tags) {
         ArrayList<Post> result = new ArrayList<>();
-        for (String tag : tags)
-        {
+        for (String tag : tags) {
             result.addAll(postRepo.getByTagsTagId(tag));
         }
         return result;

@@ -14,5 +14,5 @@ public interface PostRepository extends MongoRepository<Post, String>, PostRepos
     List<Post> getByUserId(String userId);
     List<Post> getByTagsTagId(String tagId);
     List<Post> getByTagsTagId(String tagId, Pageable pageable);
-    List<Post> getByPageId(String pageId);
+    List<Post> getByParentId(String pageId);
 }
