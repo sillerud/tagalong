@@ -12,7 +12,8 @@
 
                     <div class="input-group checkbox-style order-pages-by">
                         <input type="radio" ng-change="filterUpdated()" ng-model="filter.order" value="recent" name="mostRecentCheck" id="mostRecentCheck"><label for="mostRecentCheck">Most recent</label><br>
-                        <input type="radio" ng-change="filterUpdated()" ng-model="filter.order" value="tags" name="mostTaggedAlongCheck" id="mostTaggedAlongCheck"><label for="mostTaggedAlongCheck">Most people tagged along</label><br>
+                        <input type="radio" ng-change="filterUpdated()" ng-model="filter.order" value="startDate" name="startDateCheck" id="startDateCheck"><label for="startDateCheck">Start date</label><br>
+                        <input type="radio" ng-change="filterUpdated()" ng-model="filter.order" value="attending" name="mostTaggedAlongCheck" id="mostTaggedAlongCheck"><label for="mostTaggedAlongCheck">Most people attending</label><br>
                     </div><!--checkbox-style boxD-->
                 </div><!--END order-by-box-->
 
@@ -50,8 +51,8 @@
                     </div><!-- END add page to card -->
 
                     <div class="page-preview-info">
-                        <ul ng-repeat="tag in event.tags" class="card-tag-list">
-                            <li>#{{ tag.name }}</li>
+                        <ul class="card-tag-list">
+                            <li ng-repeat="tag in event.tags">#{{ tag.name }}</li>
                         </ul><!--card-tag-list END-->
                     </div><!--page-preview-info END-->
 

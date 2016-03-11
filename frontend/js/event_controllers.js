@@ -3,17 +3,25 @@
 var eventControllers = angular.module('eventControllers', []);
 
 eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($scope, Event) {
-    $scope.events = Event.all(function(data) {
-        data.forEach(function(event) {
-            event.coverImageUrl = getUploadUrl(data.coverImageId, "img/placeholder_thumb.jpg");
-            event.tags = [];
-            event.tagIds.forEach(function(tagId) {
-                event.tags.push($scope.allTags.getById(tagId));
-            });
-            console.log(event);
-        });
-        console.log($scope.events);
-    });
+    $scope.filter = {
+        order: "recent"
+    };
+    function mapEvent(event) {
+        event.coverImageUrl = getUploadUrl(event.coverImageId);
+        event.tags = [];
+        event.tagIds.forEach(function(tagId) {
+            this.push($scope.allTags.getById(tagId));
+        }, event.tags);
+    }
+
+    function mapEvents(events) {
+        events.forEach(mapEvent);
+    }
+
+    $scope.events = Event.all(mapEvents);
+    $scope.filterUpdated = function() {
+        $scope.events = Event.all({orderBy: $scope.filter.order}, mapEvents);
+    }
 }]);
 
 eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event', function($scope, $routeParams, Event) {
