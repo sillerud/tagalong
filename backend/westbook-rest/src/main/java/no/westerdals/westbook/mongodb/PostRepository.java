@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PostRepository extends MongoRepository<Post, String>
+public interface PostRepository extends MongoRepository<Post, String>, PostRepositoryCustom
 {
     List<Post> getByUserId(String userId);
     List<Post> getByTagsTagId(String tagId);

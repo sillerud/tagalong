@@ -6,14 +6,11 @@ import org.springframework.data.annotation.Id;
 import java.util.Date;
 
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 public class Post
 {
-    public Post(String pageId, String userId, String title, String content, PostTag[] tags, Date time)
-    {
-        this.pageId = pageId;
+    public Post(String pageId, String userId, String title, String content, PostTag[] tags, Date time) {
+        this.parentId = pageId;
         this.userId = userId;
         this.title = title;
         this.content = content;
@@ -22,7 +19,7 @@ public class Post
     }
     @Id
     private String id;
-    private String pageId;
+    private String parentId;
     private String userId;
     private String title;
     private String content;

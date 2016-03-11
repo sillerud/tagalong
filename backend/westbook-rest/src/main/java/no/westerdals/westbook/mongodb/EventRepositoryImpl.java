@@ -33,7 +33,7 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
             query.addCriteria(where("tagIds").all(tagIds));
         }
         if (pageId != null) {
-            query.addCriteria(where("pageId").is(pageId));
+            query.addCriteria(where("parentId").is(pageId));
         }
         query.with(pageable);
         return mongoTemplate.find(query, Event.class);

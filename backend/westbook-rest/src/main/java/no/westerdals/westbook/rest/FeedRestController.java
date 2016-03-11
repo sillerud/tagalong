@@ -36,8 +36,7 @@ public class FeedRestController
 
     private final static Sort DATE_SORT = new Sort(Sort.Direction.DESC, "date");
 
-    private final static Comparator<FeedPost> POST_COMPARATOR = (p1, p2) ->
-    {
+    private final static Comparator<FeedPost> POST_COMPARATOR = (p1, p2) -> {
         if (p1.getTime().getTime() > p2.getTime().getTime())
             return 1;
         else if (p1.getTime().getTime() < p2.getTime().getTime())
@@ -47,8 +46,7 @@ public class FeedRestController
     };
 
     @RequestMapping(method=RequestMethod.GET)
-    public List<FeedResult> getFeedCards()
-    {
+    public List<FeedResult> getFeedCards() {
         return feedRepository.findAll(new PageRequest(0, 10))
                 .getContent()
                 .stream()
@@ -57,54 +55,44 @@ public class FeedRestController
     }
 
     @RequestMapping(value="/{feedId}", method=RequestMethod.GET)
-    public FeedResult getFeedPosts(@PathVariable String feedId, @RequestParam(defaultValue = "1") int page) throws Exception
-    {
-        if (true)
-            throw new Exception("Test");
+    public FeedResult getFeedPosts(@PathVariable String feedId, @RequestParam(defaultValue = "1") int page) throws Exception {
         return resolve(feedRepository.findOne(feedId), page);
     }
 
     @RequestMapping(value="/{feedId}", method=RequestMethod.DELETE)
-    public ResultResponse deleteFeed(@PathVariable String feedId)
-    {
+    public ResultResponse deleteFeed(@PathVariable String feedId) {
         feedRepository.delete(feedId);
         return newOkResult(MessageConstant.FEED_DELETED);
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public ResultResponse createFeed(@RequestBody Feed feed)
-    {
+    public ResultResponse createFeed(@RequestBody Feed feed) {
         feed.setId(null);
         Feed result = feedRepository.insert(feed);
         return newOkResult(MessageConstant.FEED_CREATED, result);
     }
 
-    private FeedResult resolve(Feed feed)
-    {
+    private FeedResult resolve(Feed feed) {
         return resolve(feed, 0);
     }
 
-    private FeedResult resolve(Feed feed, int page)
-    {
+    private FeedResult resolve(Feed feed, int page) {
         List<FeedPost> posts = new ArrayList<>();
-        for (PostTag tag : feed.getTags())
-        {
+        for (PostTag tag : feed.getTags()) {
             List<Post> dbPosts = postRepository.getByTagsTagId(tag.getTagId(), new PageRequest(page, 10, DATE_SORT));
             posts.addAll(dbPosts.stream().map(this::resolve).collect(Collectors.toList()));
         }
 
         Collections.sort(posts, POST_COMPARATOR);
 
-        if (posts.size() > 10)
-        {
+        if (posts.size() > 10) {
             posts = posts.subList(0, 10);
         }
 
         return new FeedResult(feed, posts);
     }
 
-    private FeedPost resolve(Post post)
-    {
+    private FeedPost resolve(Post post) {
         User user = userRepository.findOne(post.getUserId());
         user.setEmail(null);
         return new FeedPost(post, user);
