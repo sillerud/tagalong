@@ -8,6 +8,19 @@ function getUploadUrl(uploadId, fallback) {
     }
 }
 
+function genericValueMapping(value, key) {
+    if (key == 'tagIds') {
+        var tagIds = [];
+        value.forEach(function(tag) {
+            tagIds.push(tag.id);
+        });
+        if (tagIds.length > 0)
+            this.tagIds = tagIds;
+    } else {
+        this[key] = value;
+    }
+}
+
 angular.module('tagalong', [
         'ngRoute',
         'ngFileUpload',
@@ -21,6 +34,7 @@ angular.module('tagalong', [
         'cardServices',
         'pageControllers',
         'pageServices',
+        'postServices',
         'postControllers',
         'searchControllers',
         'searchServices',

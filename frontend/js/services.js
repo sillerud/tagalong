@@ -111,6 +111,14 @@ pageServices.factory('Page', ['$resource', function($resource) {
     })
 }]);
 
+postServices.factory('Post', ['$resource', function($resource) {
+    return $resource(url("/posts"), {}, {
+        create: {
+            method: 'POST'
+        }
+    })
+}]);
+
 searchServices.factory('Search', ['$resource', function($resource) {
     return $resource(url("/search"), {}, {
         queryAll: {

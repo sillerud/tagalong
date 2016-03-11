@@ -3,7 +3,6 @@ package no.westerdals.westbook.rest;
 import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.Feed;
 import no.westerdals.westbook.model.Post;
-import no.westerdals.westbook.model.PostTag;
 import no.westerdals.westbook.model.User;
 import no.westerdals.westbook.mongodb.FeedRepository;
 import no.westerdals.westbook.mongodb.PostRepository;
@@ -78,10 +77,8 @@ public class FeedRestController
 
     private FeedResult resolve(Feed feed, int page) {
         List<FeedPost> posts = new ArrayList<>();
-        for (PostTag tag : feed.getTags()) {
-            List<Post> dbPosts = postRepository.getByTagsTagId(tag.getTagId(), new PageRequest(page, 10, DATE_SORT));
-            posts.addAll(dbPosts.stream().map(this::resolve).collect(Collectors.toList()));
-        }
+        List<Post> dbPosts = postRepository.getByTagIds(feed.getTagIds(), new PageRequest(page, 10, DATE_SORT));
+        posts.addAll(dbPosts.stream().map(this::resolve).collect(Collectors.toList()));
 
         Collections.sort(posts, POST_COMPARATOR);
 

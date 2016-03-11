@@ -19,7 +19,7 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
     }
 }]);
 
-userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', function($scope, User, Static, Card) {
+userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 'Post', function($scope, User, Static, Card, Post) {
     $scope.me = User.find(function(data) {
         if (!data.id) {
             redirectLogin();
@@ -49,6 +49,8 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
         };
 
     }, redirectLogin);
+
+    $scope.newpost = {};
 
     $scope.allTags = Static.getAllTags();
     $scope.allTags.getById = function(id) {
@@ -80,6 +82,21 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
         $('.popup').fadeOut();
         $('#darkOverlay').fadeOut();
         $scope.closeShortcuts();
+    };
+    $scope.createPost = function() {
+        console.log($scope.newpost);
+        var newpost = {};
+        angular.forEach($scope.newpost, genericValueMapping, newpost);
+        newpost.parentId = $scope.me.id; // TODO: Select this
+        if (!newpost.content) {
+            console.log("Missing content");
+            return;
+        }
+        if (!newpost.tagIds || newpost.tagIds < 1) {
+            console.log("Missing tags");
+            return;
+        }
+        Post.create(newpost);
     };
 
     var addNewOpen = false;
