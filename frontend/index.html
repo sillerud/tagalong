@@ -61,13 +61,11 @@
     <script src="js/services.js"></script>
     <script src="js/app.js"></script>
     <script src="js/custom.js"></script>
-    <script src="https://use.typekit.net/dtg0waj.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <title>Tag along</title>
 </head>
 <body>
-
+<a ng-click="skipToContent('skipContent')">Skip to content</a>
 <div class="card-shortcut-wrap">
     <div class="container">
         <div class="col-sm-4" ng-repeat="card in cards">
@@ -295,7 +293,12 @@
         </div>
     </div>
 
+
+
+    <div id="skipContent"></div>
     <div ng-view></div>
+
+
 
 </div>
 
