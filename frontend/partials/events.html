@@ -39,7 +39,7 @@
 
             <div ng-repeat="event in events" class="page-preview">
                 <div class="page-preview-image" ng-style="{'background-image': 'url(' + event.coverImageUrl + ')'}">
-                    <div class="event-attending-btn">
+                    <div class="event-attending-btn" ng-style="event.attendingStyle">
                         <i class="fa fa-check"></i>
                         <div class="attending-text">Attending</div>
                     </div>

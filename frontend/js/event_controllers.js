@@ -3,25 +3,32 @@
 var eventControllers = angular.module('eventControllers', []);
 
 eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($scope, Event) {
-    $scope.filter = {
-        order: "recent"
-    };
-    function mapEvent(event) {
-        event.coverImageUrl = getUploadUrl(event.coverImageId);
-        event.tags = [];
-        event.tagIds.forEach(function(tagId) {
-            this.push($scope.allTags.getById(tagId));
-        }, event.tags);
-    }
+    $scope.me.$promise.then(function() {
+        $scope.filter = {
+            order: "recent"
+        };
+        function mapEvent(event) {
+            event.coverImageUrl = getUploadUrl(event.coverImageId);
+            event.tags = [];
+            event.tagIds.forEach(function(tagId) {
+                this.push($scope.allTags.getById(tagId));
+            }, event.tags);
+            if (event.attending && event.attending.length > 0) {
+                event.attendingStyle = {
+                    'background-color': $.inArray($scope.me.id, event.attending) != -1 ? 'green' : '#FFF'
+                }
+            }
+        }
 
-    function mapEvents(events) {
-        events.forEach(mapEvent);
-    }
+        function mapEvents(events) {
+            events.forEach(mapEvent);
+        }
 
-    $scope.events = Event.all(mapEvents);
-    $scope.filterUpdated = function() {
-        $scope.events = Event.all({orderBy: $scope.filter.order}, mapEvents);
-    }
+        $scope.events = Event.all(mapEvents);
+        $scope.filterUpdated = function() {
+            $scope.events = Event.all({orderBy: $scope.filter.order}, mapEvents);
+        }
+    });
 }]);
 
 eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event', function($scope, $routeParams, Event) {
