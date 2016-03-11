@@ -84,7 +84,6 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
         $scope.closeShortcuts();
     };
     $scope.createPost = function() {
-        console.log($scope.newpost);
         var newpost = {};
         angular.forEach($scope.newpost, genericValueMapping, newpost);
         newpost.parentId = $scope.me.id; // TODO: Select this
@@ -224,9 +223,8 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
                 updatedInfo[key] = value;
             }
         });
-        if (dtpData.date() && dtpData.date().utcOffset(120).valueOf() != $scope.me.born) {
-            console.log(dtpData.date().utcOffset(120).valueOf());
-            updatedInfo.born = dtpData.date().utcOffset(120).valueOf();
+        if (dtpData.date() && dtpData.date().valueOf() != $scope.me.born) {
+            updatedInfo.born = dtpData.date().utcOffset();
         }
         if (!$.isEmptyObject(updatedInfo)) {
             User.update(updatedInfo);
@@ -268,7 +266,6 @@ userControllers.controller('UserPostFeed', ['$scope', '$rootScope', 'Post', func
                 });
                 post.user = $scope.user;
             });
-            console.log(data);
         });
     });
 }]);
