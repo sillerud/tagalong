@@ -34,6 +34,7 @@ angular.module('tagalong', [
         'cardServices',
         'pageControllers',
         'pageServices',
+        'postServices',
         'postControllers',
         'searchControllers',
         'searchServices',

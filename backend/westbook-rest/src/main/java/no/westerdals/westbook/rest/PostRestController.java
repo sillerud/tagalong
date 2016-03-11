@@ -2,13 +2,16 @@ package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.Post;
+import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.mongodb.PostRepository;
 import no.westerdals.westbook.responses.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import static no.westerdals.westbook.responses.ResultResponse.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,9 +51,12 @@ public class PostRestController {
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public ResultResponse writePost(@RequestBody Post post) {
+    public ResultResponse writePost(@RequestBody Post post, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         post.setTime(new Date());
         Post result = postRepo.insert(post);
+        // TODO: Check if user has access to post for this page...
+        result.setUserId(userCredentials.getUserId());
         return newOkResult(MessageConstant.POST_CREATED, result);
     }
 }
