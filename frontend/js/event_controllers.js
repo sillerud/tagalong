@@ -17,7 +17,13 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
 }]);
 
 eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event', function($scope, $routeParams, Event) {
-    $scope.event = Event.getById({eventId: $routeParams.id});
+    $scope.event = Event.getById({eventId: $routeParams.id}, function(event) {
+        event.coverImageUrl = getUploadUrl(event.coverImageId);
+        event.tags = [];
+        event.tagIds.forEach(function(tagId) {
+            event.tags.push($scope.allTags.getById(tagId));
+        });
+    });
 }]);
 
 function updateEvent(originalId, $scope, Event, Static, Upload) {
@@ -31,16 +37,17 @@ function updateEvent(originalId, $scope, Event, Static, Upload) {
     endDatePicker = endDatePicker.data("DateTimePicker");
 
     if (originalId) {
-        $scope.event = Event.getById({eventId: originalId}, function(data) {
-            startDatePicker.date(moment(data.startDate));
-            if (data.endDate && data.endDate != 0) {
-                endDatePicker.date(moment(data.endDate));
+        $scope.event = Event.getById({eventId: originalId}, function(event) {
+            console.log(event);
+            startDatePicker.date(moment(event.startDate));
+            if (event.endDate && event.endDate != 0) {
+                endDatePicker.date(moment(event.endDate));
             }
             var tagIds = [];
-            data.tagIds.forEach(function(tag) {
+            event.tagIds.forEach(function(tag) {
                 tagIds.push($scope.allTags.getById(tag));
             });
-            data.tagIds = tagIds;
+            event.tagIds = tagIds;
         });
     } else {
         $scope.event = {};
