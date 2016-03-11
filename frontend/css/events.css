@@ -55,7 +55,7 @@
     width: 40px;
     height: 40px;
     border-radius: 20px;
-    background-color: #333;
+    background-color: #FFF;
     position: absolute;
     left: 0;
     right: 0;
@@ -82,7 +82,7 @@
     top: 11px;
     text-align: center;
     margin: auto;
-    color: #FFF;
+    color: #000;
 }
 .events-attending{
     font-weight: bold;
@@ -147,7 +147,8 @@
     font-size: 1em;
 }
 .events-preview-info-wrap{
-    float: left;   
+    float: left;
+    margin: 5px 0 5px 0;
 }
 .events-preview-date-wrap{
     position: absolute;
