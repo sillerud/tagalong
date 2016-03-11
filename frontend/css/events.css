@@ -131,14 +131,17 @@
 }
 .events-preview-date{
     color:#333;
-    margin: 0;
+    margin: auto;
     padding: 2px 10px;
     font-size: 2em;
-}.events-preview-month{
+    text-align: center;
+}
+.events-preview-month{
     color:#333;
-    margin: 0;
+    margin: auto;
     padding: 2px 10px;
     font-size: 1em;
+    text-align: center;
 }
 .events-preview-info-wrap{
     float: left;
