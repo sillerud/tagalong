@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="tagalong" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="tagalong" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="tagalong" class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="tagalong" class="no-js lt-ie9 lt-ie8 lt-ie7" ng-controller="UserInfoCtrl"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="tagalong" class="no-js lt-ie9 lt-ie8" ng-controller="UserInfoCtrl"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="tagalong" class="no-js lt-ie9" ng-controller="UserInfoCtrl"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="tagalong" class="no-js" ng-controller="UserInfoCtrl"> <!--<![endif]-->
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="img/faneikon_logo.png"/>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="{{stylesheetUrl}}">
+    <link rel="stylesheet" type="text/css" ng-if="styleSheetId" ng-href="css/dynamic_colors_{{ styleSheetId }}.css">
 
     <link rel="stylesheet" type="text/css" href="css/statisk.css">
     <link rel="stylesheet" type="text/css" href="css/menu.css">
@@ -282,12 +282,10 @@
         <div class="box-title"><h3>@Fubar</h3></div>
         <input type="search" id="atcSearch" placeholder="Search for a card...">
         <div class="col-sidebar-cards">
-            <div class="sidebar-card-icon" style="background-image: url(images/profilbilde_2.jpg)"></div>
             <h5>Social</h5>
             <div class="add-btn">Add</div>
         </div>
         <div class="col-sidebar-cards">
-            <div class="sidebar-card-icon" style="background-image: url(images/profilbilde_2.jpg)"></div>
             <h5>Yolo</h5>
             <div class="add-btn">Add</div>
         </div>

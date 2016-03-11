@@ -38,7 +38,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
 
         $scope.changeStylesheet = function(color){
             localStorage.styleColor = color;
-            $scope.stylesheetUrl = 'css/dynamic_colors_' + localStorage.styleColor + '.css';
+            $scope.styleSheetId = localStorage.styleColor;
         };
 
         $scope.changeStylesheet(localStorage.styleColor);
