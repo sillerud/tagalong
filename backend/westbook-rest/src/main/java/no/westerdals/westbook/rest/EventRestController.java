@@ -46,7 +46,7 @@ public class EventRestController {
             case "startDate":
                 return new Sort(Sort.Direction.ASC, "startDate");
             case "peopleAttending":
-                return new Sort(Sort.Direction.DESC, "attending.length");
+                return new Sort(Sort.Direction.DESC, "attending");
             case "tags":
                 return new Sort(Sort.Direction.DESC, "_id"); // TODO: Add order by tagalongs
             default:
