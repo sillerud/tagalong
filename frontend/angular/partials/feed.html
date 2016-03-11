@@ -3,13 +3,16 @@
 
         <div class="col-sm-4">
                 <div ng-repeat="card in cards" id="{{ card.id }}">
-                <div class="card-sidebar-wrap" ng-style="{'background-image': 'url(' + card.backgroundImageUrl + ')'}">
+                <div class="card-sidebar-wrap">
                     <div class="new-post-in-card-icon">
                         5
                     </div>
                     <div class="card-wrap-inner">
 
-                        <h3>{{ card.name | limitTo : 23 }}{{card.name.length > 23 ? '...' : ''}}</h3>
+                        <h3>
+                            <div class="card-sidebar-image" ng-style="{'background-image': 'url(' + card.backgroundImageUrl + ')'}"></div>
+                            YOYO{{ card.name | limitTo : 23 }}{{card.name.length > 23 ? '...' : ''}}
+                        </h3>
 
                         <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                         <div class="card-tag-wrap">

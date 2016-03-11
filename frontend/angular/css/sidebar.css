@@ -1,33 +1,9 @@
-./* Sidebar */
-.inner-sidebar{
-    width: 100%;
-    padding-right: 15px;
+/* Sidebar */
+.card-sidebar-wrap{
+    background-color: #FFF;
 }
- .col-sidebar-cards{
-     width: 100%;
-     background-color: white;
-     clear: both;
-     margin-bottom: 15px;
-     padding-left: 10px;
-     border-radius: 5px;
-     position: relative;
- }
- .sidebar-card-icon{
-    border-radius: 3px 0 0 3px;
-    width: 38px;
-    height: 38px;
-    position: absolute;
-    left: 0;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
- }
-.col-sidebar-cards h5{
-    font-size: 1.2em;
-    padding: 10px 10px;
-    margin: 0;
-    position: relative;
-    left: 30px;
+.card-sidebar-image{
+    background-color: #fd7265;
 }
 /* end sidebar*/
 
