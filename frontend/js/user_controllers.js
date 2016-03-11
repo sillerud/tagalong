@@ -124,7 +124,22 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
             dropdownToggle = false;
         }
     });
-    $scope.cards = Card.all();
+    $scope.cards = Card.all(function(data) {
+        data.forEach(function(card) {
+            card.displayFilters = [];
+            card.filter.forEach(function(value){
+                if (value.charAt(0) == '#') { // Its a tag
+                    card.displayFilters.push('#' + $scope.allTags.getById(value.substring(1)).name);
+                } else { // its a page
+
+                }
+            });
+            if (card.customBackground) {
+            } else {
+                card.backgroundImageUrl = "img/placeholder_big.jpg";
+            }
+        });
+    });
     $scope.openCardShortcuts = function(){
         $('.card-shortcut-wrap').fadeIn();
     };

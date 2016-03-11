@@ -1,9 +1,32 @@
 /* Sidebar */
 .card-sidebar-wrap{
     background-color: #FFF;
+    height: 55px;
+    margin-bottom: 15px;
+    position: relative;
 }
+.card-sidebar-wrap:
 .card-sidebar-image{
     background-color: #fd7265;
+    height: 55px;
+    width: 55px;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    background-size: cover;
+    background-position: center center;
+}
+.card-sidebar-inner h3{
+    display: inline-block;
+    margin: 0;
+    float: left;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.card-sidebar-inner .card-tag-wrap{
+    float: left;
+    margin-left: -5px;
 }
 /* end sidebar*/
 

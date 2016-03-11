@@ -7,17 +7,14 @@
                     <div class="new-post-in-card-icon">
                         5
                     </div>
-                    <div class="card-wrap-inner">
-
-                        <h3>
-                            <div class="card-sidebar-image" ng-style="{'background-image': 'url(' + card.backgroundImageUrl + ')'}"></div>
-                            YOYO{{ card.name | limitTo : 23 }}{{card.name.length > 23 ? '...' : ''}}
-                        </h3>
+                    <div class="card-sidebar-inner">
+                        <div class="card-sidebar-image" ng-style="{'background-image': 'url(' + card.backgroundImageUrl + ')'}"></div>
+                        <h3>{{ card.name | limitTo : 23 }}{{card.name.length > 23 ? '...' : ''}}</h3>
 
                         <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                         <div class="card-tag-wrap">
                             <ul class="card-tag-list">
-                                <li ng-repeat="filter in card.displayFilters">{{ filter }}</li>
+                                <li ng-repeat="filter in card.displayFilters | limitTo:2">{{ filter }}</li>
                             </ul>
                         </div>
                     </div>

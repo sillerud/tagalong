@@ -9,22 +9,6 @@ cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Ca
         $('.edit-card-wrap').fadeIn();
         $('#darkOverlay').fadeIn();
     };
-    $scope.cards = Card.all(function(data) {
-        data.forEach(function(card) {
-            card.displayFilters = [];
-            card.filter.forEach(function(value){
-                if (value.charAt(0) == '#') { // Its a tag
-                    card.displayFilters.push('#' + $scope.allTags.getById(value.substring(1)).name);
-                } else { // its a page
-
-                }
-            });
-            if (card.customBackground) {
-            } else {
-                card.backgroundImageUrl = "img/placeholder_big.jpg";
-            }
-        });
-    });
     // ESC
     $(document).keyup(function(e) {
         if ( e.keyCode == 27) {
