@@ -48,6 +48,8 @@ label{
 }
 .page-preview-header{
     background-color: #FFF;
+    overflow: hidden;
+    position: relative;
 }
 .preview-title{
     color: #333;

@@ -146,6 +146,7 @@
 .events-preview-info-wrap{
     float: left;
     margin: 5px 0 5px 0;
+    
 }
 .events-preview-date-wrap{
     position: absolute;
@@ -153,4 +154,6 @@
     overflow: hidden;
     display: inline-block;
     width: auto;
+    top: 50%;
+    transform: translateY(-50%);
 }
