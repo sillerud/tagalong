@@ -115,6 +115,9 @@ postServices.factory('Post', ['$resource', function($resource) {
     return $resource(url("/posts"), {}, {
         create: {
             method: 'POST'
+        },
+        find: {
+            isArray: true
         }
     })
 }]);

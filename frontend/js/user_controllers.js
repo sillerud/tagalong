@@ -257,3 +257,18 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
         $scope.user.contactInfo.splice($scope.user.contactInfo.indexOf(item), 1);
     };
 }]);
+
+userControllers.controller('UserPostFeed', ['$scope', '$rootScope', 'Post', function($scope, $rootScope, Post) {
+    $scope.user.$promise.then(function() {
+        $scope.posts = Post.find({parentId: $scope.user.id}, function(data) {
+            data.forEach(function(post) {
+                post.tags = [];
+                post.tagIds.forEach(function(tagId) {
+                    post.tags.push($scope.allTags.getById(tagId));
+                });
+                post.user = $scope.user;
+            });
+            console.log(data);
+        });
+    });
+}]);
