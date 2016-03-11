@@ -55,6 +55,7 @@
     <script src="js/card_controllers.js"></script>
     <script src="js/event_controllers.js"></script>
     <script src="js/page_controllers.js"></script>
+    <script src="js/post_controllers.js"></script>
     <script src="js/search_controllers.js"></script>
     <script src="js/user_controllers.js"></script>
     <script src="js/services.js"></script>
@@ -223,7 +224,7 @@
             <div class="menu">
                 <ul>
                     <li><a href="#/" class="active">Home</a></li>
-                    <li><a href="#/person_feed">Feed</a></li>
+                    <li><a href="#/feed">Feed</a></li>
                     <li><a href="#/events">Events</a></li>
                     <li><a href="#/pages">Pages</a></li>
                 </ul>
@@ -259,7 +260,16 @@
                     <br><br>
                     <textarea class="edit-field3" rows="2" placeholder="Whats on your mind?"></textarea>
                     <input type="file" name="" accept="image/*">
-                    <input class="edit-field2" placeholder="Legg til tags" type="search">
+
+                    <ui-select multiple ng-model="newcard.tags">
+                        <ui-select-match placeholder="Select tags...">
+                            {{$item.name}}
+                        </ui-select-match>
+                        <ui-select-choices repeat="tag in (allTags | filter: $select.search) track by tag.id">
+                            <span ng-bind="tag.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+
                 </div><!-- END popup top -->
 
                 <div class="popup-bottom">

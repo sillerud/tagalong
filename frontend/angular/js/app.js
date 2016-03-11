@@ -21,6 +21,7 @@ angular.module('tagalong', [
         'cardServices',
         'pageControllers',
         'pageServices',
+        'postControllers',
         'searchControllers',
         'searchServices',
         'staticServices'
@@ -43,6 +44,10 @@ angular.module('tagalong', [
             .when("/events/:id/edit", {
                 templateUrl: 'partials/edit_event.html',
                 controller: 'EditEventCtrl'
+            })
+            .when("/feed", {
+                templateUrl: 'partials/feed.html',
+                controller: 'FeedCtrl'
             })
             .when("/pages", {
                 templateUrl: 'partials/pages.html',
