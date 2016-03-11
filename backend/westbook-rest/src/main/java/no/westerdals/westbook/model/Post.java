@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 public class Post
 {
-    public Post(String pageId, String userId, String title, String content, PostTag[] tags, Date time) {
+    public Post(String pageId, String userId, String title, String content, String[] tags, Date time) {
         this.parentId = pageId;
         this.userId = userId;
         this.title = title;
@@ -24,6 +24,6 @@ public class Post
     private String title;
     private String content;
     private String shortDescription;
-    private PostTag[] tags;
+    private String[] tags;
     private Date time;
 }
