@@ -150,10 +150,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
 
                 }
             });
-            if (card.customBackground) {
-            } else {
-                card.backgroundImageUrl = "img/placeholder_big.jpg";
-            }
+            card.customBackgroundImageUrl = getUploadUrl(card.customBackgroundImageId);
         });
     });
     $scope.openCardShortcuts = function(){
@@ -265,6 +262,7 @@ userControllers.controller('UserPostFeed', ['$scope', '$rootScope', 'Post', func
                     post.tags.push($scope.allTags.getById(tagId));
                 });
                 post.user = $scope.user;
+                // TODO: Resolve number of people who tagged along...
             });
         });
     });

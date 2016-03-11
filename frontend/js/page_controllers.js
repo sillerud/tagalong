@@ -35,6 +35,8 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
         description = data.description;
         shortDescription = description.length > 100 ? description.substring(0, 100) : description + "...";
         $scope.description = shortDescription;
+        data.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
+        data.coverImageUrl = getUploadUrl(data.coverPictureId);
     });
 
     $('.thumb').each(function() {

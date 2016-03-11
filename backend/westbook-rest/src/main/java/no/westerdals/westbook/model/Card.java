@@ -11,5 +11,6 @@ public class Card {
     private String name;
     private String description;
     private String lastPostSeen;
+    private String customBackgroundImageId;
     private String[] filter;
 }

@@ -2,9 +2,9 @@
 
     <div class="header-image-wrap">
         <!--TODO: Get the header from the database-->
-        <img src="../statisk/images/event_pic.jpg" class="img-responsive" alt="">
+        <img src="{{ page.coverImageUrl }}" class="img-responsive" alt="">
         <div class="event-background-overlay"></div>
-        <div class="page-profile-image" style="background-image: url('../statisk/images/fubar_logo.jpg');">
+        <div class="page-profile-image" ng-style="{'background-image': 'url(' + page.logoPictureUrl + ')'};">
         </div>
 
         <div class="page-name"><h1>@{{ page.name }}</h1></div>
@@ -70,22 +70,22 @@
 
                         <div class="gallery-thumbs-wrap">
                             <div galery-image class="gallery-thumb">
-                                <img class="thumb" src="../statisk/images/ola_nordmann.jpeg" alt="">
+                                <img class="thumb" src="img/ola_nordmann.jpeg" alt="">
                             </div>
                             <div galery-image class="gallery-thumb">
-                                <img class="thumb" src="../statisk/images/ola_nordmann_sidebilde.jpg" alt="">
+                                <img class="thumb" src="img/ola_nordmann_sidebilde.jpg" alt="">
                             </div>
                             <div galery-image class="gallery-thumb">
-                                <img class="thumb" src="../statisk/images/event_pic.jpg" alt="">
+                                <img class="thumb" src="img/event_pic.jpg" alt="">
                             </div>
                             <div galery-image class="gallery-thumb">
-                                <img class="thumb" src="../statisk/images/ola_nordmann_sidebilde.jpg" alt="">
+                                <img class="thumb" src="img/ola_nordmann_sidebilde.jpg" alt="">
                             </div>
                             <div galery-image class="gallery-thumb">
-                                <img class="thumb" src="../statisk/images/profilbilde_jap.jpg" alt="">
+                                <img class="thumb" src="img/profilbilde_jap.jpg" alt="">
                             </div>
                             <div galery-image class="gallery-thumb">
-                                <img class="thumb" src="../statisk/images/ola_nordmann_sidebilde.jpg" alt="">
+                                <img class="thumb" src="img/ola_nordmann_sidebilde.jpg" alt="">
                             </div>
                         </div>
 
