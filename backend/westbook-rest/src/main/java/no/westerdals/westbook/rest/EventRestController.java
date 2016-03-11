@@ -32,12 +32,24 @@ public class EventRestController {
                                     @RequestParam(defaultValue="20", name="entries") int entries,
                                     @RequestParam(defaultValue="0", name="page") int page,
                                     @RequestParam(required=false, name="createdBy") String createdBy,
+                                    @RequestParam(defaultValue="startDate", name="orderBy") String orderBy,
                                     Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         // TODO: Add sort
         if (createdBy != null && createdBy.equals("me"))
             createdBy = userCredentials.getUserId();
-        return eventRepository.filterEvents(createdBy, startDate, endDate, tagIds, pageId, new PageRequest(page, entries));
+        return eventRepository.filterEvents(createdBy, startDate, endDate, tagIds, pageId, new PageRequest(page, entries, getOrder(orderBy)));
+    }
+
+    private Sort getOrder(String orderBy) {
+        switch (orderBy) {
+            case "startDate":
+                return new Sort(Sort.Direction.DESC, "startDate");
+            case "tags":
+                return new Sort(Sort.Direction.DESC, "_id"); // TODO: Add order by tagalongs
+            default:
+                return new Sort(Sort.Direction.DESC, "_id");
+        }
     }
 
     @RequestMapping(value="/{eventId}",method=RequestMethod.GET)
