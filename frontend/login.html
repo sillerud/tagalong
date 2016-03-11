@@ -9,17 +9,17 @@
 
     <title></title>
 </head>
-<body>
+<body ng-app="tagalongLogin">
 
-
+<div ng-controller="LoginCtrl">
     <div id="loginWrap">
         <div id="loginInner">
-            <img id="logo" src="images/logonettsideferdig.png" alt="">
+            <img id="logo" src="img/logonettsideferdig.png" alt="">
             <div class="login-form">
                 <div class="form-info">Login to your account</div>
-                <form action="index.php">
-                    <input id="username" type="text" placeholder="Username">
-                    <input id="password" type="password" placeholder="Password">
+                <form role="form" ng-submit="login()">
+                    <input ng-model="credentials.username" id="username" type="text" placeholder="Username">
+                    <input ng-model="credentials.password" id="password" type="password" placeholder="Password">
                     <div class="comment-button-wrap">
                         <input type="submit" class="add-comment-btn" value="Login">
                         <div class="comment-overlay"></div>
@@ -30,5 +30,13 @@
         </div>
     </div>
 
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+
+<script src="js/services.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>
