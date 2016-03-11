@@ -47,7 +47,7 @@ cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Ca
         });
         Card.create({
             userId: $scope.me.id,
-            name: $scope.newcard.title,
+            name: $scope.newcard.name,
             description: $scope.newcard.description,
             filter: filter
         });
