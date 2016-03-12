@@ -7,6 +7,7 @@ import no.westerdals.westbook.mongodb.PostRepository;
 import no.westerdals.westbook.responses.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import static no.westerdals.westbook.responses.ResultResponse.*;
@@ -29,7 +30,7 @@ public class PostRestController {
                                @RequestParam(defaultValue="0")int pageIndex) {
         if (maxPosts < 0 || pageIndex < 0)
             return null;
-        return postRepo.filterPosts(parentId, tagIds, new PageRequest(pageIndex, maxPosts));
+        return postRepo.filterPosts(parentId, tagIds, new PageRequest(pageIndex, maxPosts, new Sort(Sort.Direction.DESC, "_id")));
     }
 
     @RequestMapping(value="/{postId}", method=RequestMethod.GET)

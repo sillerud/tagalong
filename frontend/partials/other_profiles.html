@@ -16,7 +16,7 @@
     </div><!-- END header-image-wrap -->
 
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-md-4">
             <div class="tabs">
                 <ul class="tab-links">
                     <li class="tabs-item" ng-class="{active: !showContactInfo}"><a ng-click="setShowContactInfo(false)">Info</a></li>
@@ -29,11 +29,11 @@
 
                         <div ng-if="!showContactInfo" id="about-tab" class="tab"><!-- Tab 1 -->
                            
-                           <div class="col-sm-6">
+                           <div class="col-sm-6 col-md-4">
                                 <img class="img-profile-img" src="{{ user.profilePictureUrl }}">
                            </div><!--END col-sm-6-->
                            
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 col-md-8">
                            
                                 <div ng-if="user.age" class="holder">
                                     <p class="info-format age" ><b>Age: </b></p>
@@ -94,7 +94,7 @@
         
         
         </div><!--END col-sm-6-->
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-md-8">
             <ng-include ng-controller="UserPostFeed" src="'partials/person_feed.html'"></ng-include>
         </div><!--person_feed.php END-->
         

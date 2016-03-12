@@ -26,6 +26,7 @@ angular.module('tagalong', [
         'ngFileUpload',
         'ui.select',
         'ngSanitize',
+        'btford.markdown',
         'eventControllers',
         'eventServices',
         'userControllers',
