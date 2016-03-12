@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-4" ng-repeat="card in cards" id="{{ card.id }}">
+        <div class="col-sm-4 col-md-3" ng-repeat="card in cards" id="{{ card.id }}">
             <div class="card-wrap" ng-style="{'background-image': 'url(' + card.customBackgroundImageUrl + ')'}">
                 <div class="card-overlay"></div>
                 <div class="new-post-in-card-icon">
@@ -25,7 +25,7 @@
             </div><!-- END - card-wrap -->
         </div><!-- END col-sm-4 -->
 
-        <div class="col-sm-4">
+        <div class="col-sm-4 col-md-3">
             <div class="card-wrap-add" ng-click="addCard()">
                 <div class="card-add-inner">
                     <i class="fa fa-plus"></i><br>
