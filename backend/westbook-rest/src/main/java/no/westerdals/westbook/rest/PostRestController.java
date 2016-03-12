@@ -38,6 +38,18 @@ public class PostRestController {
         return postRepo.findOne(postId);
     }
 
+    @RequestMapping(value="/{postId}", method=RequestMethod.DELETE)
+    public ResultResponse deletePost(@PathVariable String postId, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
+        Post post = postRepo.findOne(postId);
+        if (post == null)
+            return newErrorResult(MessageConstant.POST_NOT_FOUND);
+        if (!userCredentials.getUserId().equals(post.getUserId()))
+            return newErrorResult(MessageConstant.ACCESS_DENIED, "Cannot delete posts not owned by you.");
+        postRepo.delete(postId);
+        return newOkResult(MessageConstant.POST_DELETED);
+    }
+
     @RequestMapping(value="/by-tags/{tags}", method=RequestMethod.GET)
     public List<Post> getPostsByTag(@PathVariable String[] tags) {
         ArrayList<Post> result = new ArrayList<>();

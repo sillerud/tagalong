@@ -11,6 +11,7 @@ public enum MessageConstant
     // Post
     POST_CREATED,
     POST_NOT_FOUND,
+    POST_DELETED,
 
     // Comment
     COMMENT_CREATED,
