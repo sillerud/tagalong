@@ -52,12 +52,13 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
 
     $scope.newpost = {};
 
-    $scope.allTags = Static.getAllTags();
-    $scope.allTags.getById = function(id) {
-        return this.find(function(element) {
-            return element.id == id;
-        });
-    };
+    $scope.allTags = Static.getAllTags(function(tags) {
+        tags.getById = function(id) {
+            return this.find(function(element) {
+                return element.id == id;
+            });
+        };
+    });
     $scope.studyfields = Static.getAllStudyFields();
     $scope.studyfields.getById = function(id) {
         return this.find(function(element) {

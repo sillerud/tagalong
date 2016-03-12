@@ -67,9 +67,9 @@ public class PostRestController {
     public ResultResponse writePost(@RequestBody Post post, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         post.setTime(new Date());
+        post.setUserId(userCredentials.getUserId());
         Post result = postRepo.insert(post);
         // TODO: Check if user has access to post for this page...
-        result.setUserId(userCredentials.getUserId());
         return newOkResult(MessageConstant.POST_CREATED, result);
     }
 }

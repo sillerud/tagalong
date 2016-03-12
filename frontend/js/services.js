@@ -120,7 +120,7 @@ postServices.factory('Post', ['$resource', function($resource) {
             isArray: true
         },
         remove: {
-            url: url('/posts/{postId}'),
+            url: url('/posts/:postId'),
             method: 'DELETE'
         }
     })
