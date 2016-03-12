@@ -52,12 +52,13 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
 
     $scope.newpost = {};
 
-    $scope.allTags = Static.getAllTags();
-    $scope.allTags.getById = function(id) {
-        return this.find(function(element) {
-            return element.id == id;
-        });
-    };
+    $scope.allTags = Static.getAllTags(function(tags) {
+        tags.getById = function(id) {
+            return this.find(function(element) {
+                return element.id == id;
+            });
+        };
+    });
     $scope.studyfields = Static.getAllStudyFields();
     $scope.studyfields.getById = function(id) {
         return this.find(function(element) {
@@ -253,15 +254,21 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
     };
 }]);
 
-userControllers.controller('UserPostFeed', ['$scope', '$rootScope', 'Post', function($scope, $rootScope, Post) {
-    $scope.user.$promise.then(function() {
+userControllers.controller('UserPostFeed', ['$scope', '$rootScope', '$q', 'Post', function($scope, $rootScope, $q, Post) {
+    $q.all([$scope.user.$promise, $scope.allTags.$promise])
+        .then(function() {
         $scope.posts = Post.find({parentId: $scope.user.id}, function(data) {
             data.forEach(function(post) {
+                post.user = $scope.user;
+                if (post.user.id == $scope.me.id) {
+                    post.delete = function() {
+                        Post.remove({postId: post.id});
+                    };
+                }
                 post.tags = [];
                 post.tagIds.forEach(function(tagId) {
                     post.tags.push($scope.allTags.getById(tagId));
                 });
-                post.user = $scope.user;
                 // TODO: Resolve number of people who tagged along...
             });
         });

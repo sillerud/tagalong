@@ -118,6 +118,10 @@ postServices.factory('Post', ['$resource', function($resource) {
         },
         find: {
             isArray: true
+        },
+        remove: {
+            url: url('/posts/:postId'),
+            method: 'DELETE'
         }
     })
 }]);

@@ -2,7 +2,7 @@
 
     <div class="feed-header">
         <div class="person-image" style="border: 2px solid #fd7265;">
-            <img src="{{ post.user.profilePictureUrl }}" alt="">
+            <img ng-src="{{ post.user.profilePictureUrl }}" alt="">
         </div>
         <h3 class="person-name">{{ post.user.firstname }} {{ post.user.surname }}</h3><br>
         <h4 class="person-studie">{{ post.user.studyFieldId.name }}</h4>
@@ -12,7 +12,7 @@
     </div><!-- END feed-header -->
 
     <div class="feed-content">
-        <div btf-markdown="post.content">**loading**</div>
+        <div markdown-to-html="post.content">**loading**</div>
     </div><!-- END feed-content -->
 
     <div class="card-tag-wrap">
@@ -24,6 +24,7 @@
     <div class="bottom-bar">
         <div class="feed-feedback"><span>10</span> persons tagged along</div>
     </div>
+    <input class="btn btn-sm btn-danger" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
     <div class="feed-comment-wrap">
         <input type="text" class="comment-input" placeholder="Add a comment...">
         <div class="comment-button-wrap">

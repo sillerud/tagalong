@@ -26,7 +26,7 @@ angular.module('tagalong', [
         'ngFileUpload',
         'ui.select',
         'ngSanitize',
-        'btford.markdown',
+        'ng-showdown',
         'eventControllers',
         'eventServices',
         'userControllers',
@@ -41,8 +41,7 @@ angular.module('tagalong', [
         'searchServices',
         'staticServices'
     ])
-
-    .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+    .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when("/events", {
                 templateUrl: 'partials/events.html',
@@ -97,21 +96,21 @@ angular.module('tagalong', [
                 controller: 'ShowUserCtrl'
             });
     }])
-    .directive('galeryImage', function() {
-        return {
-            restrict: "A",
-            link: function(scope, element) {
-                scope.getWidth = function() {
-                    return $(element).width();
-                };
-                scope.$watch(scope.getWidth, function(width) {
-                    $(element).height(width);
-                });
+        .directive('galeryImage', function() {
+            return {
+                restrict: "A",
+                link: function(scope, element) {
+                    scope.getWidth = function() {
+                        return $(element).width();
+                    };
+                    scope.$watch(scope.getWidth, function(width) {
+                        $(element).height(width);
+                    });
+                }
             }
-        }
-    })
-    .filter('capitalize', function() {
-        return function(input) {
-            return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
-        }
-    });
+        })
+        .filter('capitalize', function() {
+            return function(input) {
+                return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+            }
+        });
