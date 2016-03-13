@@ -1,4 +1,4 @@
 <a ng-click="closeCropDialog()">Close</a>
-<img-crop class="image-crop-display" result-image="croppedImage" image="imageToCrop | ngfDataUrl" ng-init="croppedImage = ''">
+<img-crop area-type="square" class="image-crop-display" result-image="croppedImage" image="imageToCrop | ngfDataUrl" ng-init="croppedImage = ''">
 </img-crop>
 <input type="button" value="Upload" ng-click="uploadFile(croppedImage, imageToCrop.name)">
