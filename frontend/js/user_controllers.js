@@ -206,6 +206,14 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
         };
     });
 
+    $scope.openCropDialog = function() {
+        $("#image-crop").modal("show");
+    };
+
+    $scope.closeCropDialog = function () {
+        $("#image-crop").modal("hide");
+    };
+
     $scope.updateProfile = function() {
         var updatedInfo = {};
         //updatedInfo.id = $scope.me.id;
@@ -229,12 +237,12 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
         }
     };
 
-    $scope.uploadFile = function(file) {
+    $scope.uploadFile = function(data, name) {
         Upload.upload({
             url: "/rest/v1/uploads",
             data: {
-                file: file,
-                name: file.name,
+                file: Upload.dataUrltoBlob(data, name),
+                name: name,
                 attachment: false
             }
         }).then(function(result) {

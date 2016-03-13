@@ -5,8 +5,11 @@
         <div class="center-block">
             <div class="edit-profile-profile-pic">
                 <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
-                <div class="pic-overlay" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
+                <div class="pic-overlay" ng-model="imageToCrop" ngf-select="openCropDialog()" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
                     <div class="pic-overlay-text">Click to edit</div>
+                </div>
+                <div class="modal" id="image-crop">
+                    <ng-include src="'partials/image_crop.html'"></ng-include>
                 </div>
             </div>
         </div>

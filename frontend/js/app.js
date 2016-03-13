@@ -25,6 +25,7 @@ angular.module('tagalong', [
         'ngRoute',
         'ngFileUpload',
         'ui.select',
+        'ngImgCrop',
         'ngSanitize',
         'ng-showdown',
         'eventControllers',
