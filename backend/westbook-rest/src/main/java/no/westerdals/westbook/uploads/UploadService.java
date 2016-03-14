@@ -1,5 +1,6 @@
 package no.westerdals.westbook.uploads;
 
+import no.westerdals.westbook.ImageType;
 import no.westerdals.westbook.model.FileMeta;
 
 import java.io.IOException;

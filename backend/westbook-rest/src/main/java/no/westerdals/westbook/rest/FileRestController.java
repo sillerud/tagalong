@@ -1,5 +1,6 @@
 package no.westerdals.westbook.rest;
 
+import no.westerdals.westbook.ImageType;
 import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.uploads.DownloadRequest;
 import no.westerdals.westbook.MessageConstant;
@@ -21,8 +22,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rest/v1/uploads")
-public class FileRestController
-{
+public class FileRestController {
     @Autowired
     UploadService uploadService;
 
@@ -34,12 +34,11 @@ public class FileRestController
 
     @RequestMapping(method=RequestMethod.POST)
     public ResultResponse handleUpload(@RequestParam("name") String name, // Ugly as fuck...
-                                       @RequestParam(value="attachment", defaultValue="false") boolean attachment,
                                        @RequestParam("file") MultipartFile file,
+                                       @RequestParam(required=false, value="imageType") ImageType imageType,
                                        Principal principal) throws IOException {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
-        // TODO: Get user ID from session
-        FileMeta fileMeta = uploadService.uploadFile(new FileMeta(userCredentials.getUserId(), name, attachment, new Date()), file.getInputStream());
+        FileMeta fileMeta = uploadService.uploadFile(new FileMeta(userCredentials.getUserId(), name, imageType, new Date()), file.getInputStream());
         return newOkResult(MessageConstant.FILE_UPLOADED, fileMeta);
     }
 
@@ -59,7 +58,7 @@ public class FileRestController
             return;
         }
         FileMeta fileMeta = downloadRequest.getFileMeta();
-        if (fileMeta.isAttachment())
+        if (fileMeta.getImageType() == null)
         {
             response.setHeader("Content-Disposition", "attachment;filename=\"" + fileMeta.getName() + "\"");
         }

@@ -243,7 +243,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             data: {
                 file: Upload.dataUrltoBlob(data, name),
                 name: name,
-                attachment: false
+                imageType: 'PROFILE_IMAGE'
             }
         }).then(function(result) {
             console.log(result);

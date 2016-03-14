@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import no.westerdals.westbook.ImageType;
 import org.springframework.data.annotation.Id;
 
 import java.util.Date;
@@ -12,13 +13,11 @@ import java.util.Date;
 @ToString
 @Getter
 @Setter
-public class FileMeta
-{
-    public FileMeta(String ownerId, String name, boolean attachment, Date uploadTime)
-    {
+public class FileMeta {
+    public FileMeta(String ownerId, String name, ImageType imageType, Date uploadTime) {
         this.ownerId = ownerId;
         this.name = name;
-        this.attachment = attachment;
+        this.imageType = imageType;
         this.uploadTime = uploadTime;
     }
 
@@ -26,6 +25,6 @@ public class FileMeta
     private String id;
     private String ownerId;
     private String name;
-    private boolean attachment;
+    private ImageType imageType;
     private Date uploadTime;
 }

@@ -1,7 +1,9 @@
 package no.westerdals.westbook.rest;
 
+import no.westerdals.westbook.ImageType;
 import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.Credential;
+import no.westerdals.westbook.model.FileMeta;
 import no.westerdals.westbook.model.User;
 import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.mongodb.CredentialRepository;
@@ -11,6 +13,8 @@ import no.westerdals.westbook.responses.CreateUserRequest;
 import no.westerdals.westbook.responses.ResultResponse;
 import no.westerdals.westbook.responses.UserResponse;
 import static no.westerdals.westbook.responses.ResultResponse.*;
+
+import no.westerdals.westbook.uploads.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -23,8 +27,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/rest/v1/users")
-public class UserRestController
-{
+public class UserRestController {
     @Autowired
     private UserRepository userRepository;
 
@@ -37,6 +40,9 @@ public class UserRestController
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    UploadService uploadService;
+
     @RequestMapping(value="/me", method=RequestMethod.GET)
     public UserResponse getMe(Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication) principal).getPrincipal();
@@ -47,41 +53,26 @@ public class UserRestController
     }
 
     @RequestMapping(value="/{userId}", method=RequestMethod.GET)
-    public UserResponse getById(@PathVariable String userId)
-    {
+    public UserResponse getById(@PathVariable String userId) {
         return resolve(userRepository.findOne(userId));
     }
 
-
-    /*@RequestMapping(method=RequestMethod.PATCH)
-    public UserResponse updateUserInfo(@RequestBody User principal)
-    {
-        // This needs some checks if its sane
-        if (principal.getId() == null)
-            return null;
-        userRepository.updateStudyField(principal.getId(), principal.getStudyFieldId());
-        return resolve(userRepository.findOne(principal.getId()));
-    }*/
-
     @RequestMapping(value="/by-studyfield/{studyField}", method=RequestMethod.GET)
-    public List<UserResponse> getByStudyField(@PathVariable String studyField)
-    {
+    public List<UserResponse> getByStudyField(@PathVariable String studyField) {
         return userRepository.getByStudyFieldId(resolveStudyField(studyField)).stream()
                 .map(this::resolve)
                 .collect(Collectors.toList());
     }
 
     @RequestMapping(value="/by-email/{emailAddress}", method=RequestMethod.GET)
-    public UserResponse getByEmailAddress(@PathVariable String emailAddress)
-    {
+    public UserResponse getByEmailAddress(@PathVariable String emailAddress) {
         return resolve(userRepository.getByEmail(emailAddress.replaceAll("_", ".")));
     }
 
     //!!!!!!!!!!NEED TO CHECK ACCESS LEVEL!!!!!!!!!!!!
     @RequestMapping(value="/{userId}", method=RequestMethod.DELETE)
     public ResultResponse deleteUser(@PathVariable String userId) {
-        if (userRepository.findOne(userId) == null)
-        {
+        if (userRepository.findOne(userId) == null) {
             return newErrorResult(MessageConstant.USER_NOT_FOUND);
         }
         userRepository.delete(userId);
@@ -92,12 +83,26 @@ public class UserRestController
     public ResultResponse updateUser(@RequestBody User user, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         if (user.getId() == null || user.getId().equals(userCredentials.getUserId())) {
+
+            if (user.getProfilePictureId() != null) {
+                if (validate(uploadService.getFileMeta(user.getProfileHeaderPictureId()), ImageType.PROFILE_IMAGE))
+                    return newErrorResult(MessageConstant.ACCESS_DENIED, "Tried to set a invalid header image.");
+            }
+            if (user.getProfileHeaderPictureId() != null) {
+                if (validate(uploadService.getFileMeta(user.getProfileHeaderPictureId()), ImageType.HEADER_IMAGE))
+                    return newErrorResult(MessageConstant.ACCESS_DENIED, "Tried to set a invalid header image.");
+            }
+
             user.setId(userCredentials.getUserId());
             return newOkResult(MessageConstant.USER_UPDATED, userRepository.update(user));
         } else {
             // TODO: Edit other profiles
             return newErrorResult(MessageConstant.NOT_IMPLEMENTED);
         }
+    }
+
+    private boolean validate(FileMeta meta, ImageType imageType) {
+        return meta == null || meta.getImageType() != imageType;
     }
 
     @RequestMapping(method=RequestMethod.POST)
@@ -135,8 +140,7 @@ public class UserRestController
     }
 
     @RequestMapping(method=RequestMethod.GET)
-    public List<UserResponse> getAllUsers()
-    {
+    public List<UserResponse> getAllUsers() {
         return userRepository
                 .findAll()
                 .stream()
@@ -144,8 +148,7 @@ public class UserRestController
                 .collect(Collectors.toList());
     }
 
-    public UserResponse resolve(User user)
-    {
+    public UserResponse resolve(User user) {
         if (user == null || user.getId() == null)
             return null;
         UserResponse userResponse = new UserResponse(user);
@@ -154,8 +157,7 @@ public class UserRestController
         return userResponse;
     }
 
-    private String resolveStudyField(String studyField)
-    {
+    private String resolveStudyField(String studyField) {
         return studyFieldRepository.getByName(studyField).getId();
     }
 }
