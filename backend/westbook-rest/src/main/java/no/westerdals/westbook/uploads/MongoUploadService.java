@@ -2,7 +2,6 @@ package no.westerdals.westbook.uploads;
 
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSFile;
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 import lombok.*;
 import no.westerdals.westbook.ImageType;
 import no.westerdals.westbook.model.FileMeta;
@@ -13,7 +12,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.List;
