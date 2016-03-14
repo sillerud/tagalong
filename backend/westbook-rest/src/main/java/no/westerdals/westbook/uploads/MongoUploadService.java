@@ -47,7 +47,7 @@ public class MongoUploadService implements UploadService {
             if (image.getWidth() > imageType.getMaxWidth() || image.getHeight() > imageType.getMaxHeight())
                 return null;
             ByteArrayOutputStream out = new ByteArrayOutputStream(); // Need to redo this
-            ImageIO.write(image, "jpeg", out);
+            ImageIO.write(image, "jpg", out);
             file = fsTemplate.store(in, meta.getName(), mongoFileMeta);
         }
         return deserialize(file);
