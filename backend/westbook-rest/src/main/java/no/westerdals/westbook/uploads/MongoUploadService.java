@@ -2,7 +2,6 @@ package no.westerdals.westbook.uploads;
 
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSFile;
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 import lombok.*;
 import no.westerdals.westbook.ImageType;
 import no.westerdals.westbook.model.FileMeta;
@@ -13,6 +12,7 @@ import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -46,7 +46,7 @@ public class MongoUploadService implements UploadService {
             BufferedImage image = ImageIO.read(in);
             if (image.getWidth() > imageType.getMaxWidth() || image.getHeight() > imageType.getMaxHeight())
                 return null;
-            ByteOutputStream out = new ByteOutputStream(); // Need to redo this
+            ByteArrayOutputStream out = new ByteArrayOutputStream(); // Need to redo this
             ImageIO.write(image, "jpeg", out);
             file = fsTemplate.store(in, meta.getName(), mongoFileMeta);
         }
