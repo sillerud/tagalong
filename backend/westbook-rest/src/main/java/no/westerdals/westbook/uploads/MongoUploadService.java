@@ -12,10 +12,7 @@ import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,7 +45,7 @@ public class MongoUploadService implements UploadService {
                 return null;
             ByteArrayOutputStream out = new ByteArrayOutputStream(); // Need to redo this
             ImageIO.write(image, "jpg", out);
-            file = fsTemplate.store(in, meta.getName(), mongoFileMeta);
+            file = fsTemplate.store(new ByteArrayInputStream(out.toByteArray()), meta.getName(), mongoFileMeta);
         }
         return deserialize(file);
     }
