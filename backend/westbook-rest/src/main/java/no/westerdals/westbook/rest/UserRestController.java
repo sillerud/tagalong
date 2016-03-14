@@ -87,7 +87,7 @@ public class UserRestController {
         if (user.getId() == null || user.getId().equals(userCredentials.getUserId())) {
 
             if (user.getProfilePictureId() != null) {
-                if (validate(uploadService.getFileMeta(user.getProfileHeaderPictureId()), ImageType.PROFILE_IMAGE))
+                if (validate(uploadService.getFileMeta(user.getProfilePictureId()), ImageType.PROFILE_IMAGE))
                     return newErrorResult(MessageConstant.ACCESS_DENIED, "Tried to set a invalid header image.");
             }
             if (user.getProfileHeaderPictureId() != null) {

@@ -53,6 +53,8 @@ public class MongoUploadService implements UploadService {
     @Override
     public FileMeta getFileMeta(String id) {
         GridFSFile file = fsTemplate.findOne(Query.query(Criteria.where("_id").is(id)));
+        if (file == null)
+            return null;
         return deserialize(file);
     }
 
