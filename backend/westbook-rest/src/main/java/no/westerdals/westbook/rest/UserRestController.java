@@ -1,5 +1,6 @@
 package no.westerdals.westbook.rest;
 
+import no.westerdals.westbook.ImageParameterConverter;
 import no.westerdals.westbook.ImageType;
 import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.Credential;
@@ -19,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -99,6 +101,11 @@ public class UserRestController {
             // TODO: Edit other profiles
             return newErrorResult(MessageConstant.NOT_IMPLEMENTED);
         }
+    }
+
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(ImageType.class, new ImageParameterConverter());
     }
 
     private boolean validate(FileMeta meta, ImageType imageType) {

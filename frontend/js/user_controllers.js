@@ -246,7 +246,6 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
                 imageType: 'PROFILE_IMAGE'
             }
         }).then(function(result) {
-            console.log(result);
             var extra = result.data.extra;
             User.update({profilePictureId: extra.id}, function(result) {
                 console.log(result);
