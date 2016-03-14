@@ -41,12 +41,12 @@ public class MongoUploadService implements UploadService {
         if (imageType == null) {
             file = fsTemplate.store(in, meta.getName(), mongoFileMeta);
         } else {
-            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-            IOUtils.copy(in, bytes);
-            BufferedImage image = ImageIO.read(new ByteArrayInputStream(bytes.toByteArray()));
+            BufferedImage image = ImageIO.read(in);
             if (image.getWidth() > imageType.getMaxWidth() || image.getHeight() > imageType.getMaxHeight())
                 return null;
-            file = fsTemplate.store(new ByteArrayInputStream(bytes.toByteArray()), meta.getName(), mongoFileMeta);
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            ImageIO.write(image, "jpg", out);
+            file = fsTemplate.store(new ByteArrayInputStream(out.toByteArray()), meta.getName(), mongoFileMeta);
         }
         return deserialize(file);
     }
