@@ -63,7 +63,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', '$rootScope', '$q', "User"
         }, redirectLogin);
     };
 
-    $scope.updateCards = function() {
+    $rootScope.updateCards = function() {
         $scope.cards = Card.all(function(data) {
             data.forEach(function(card) {
                 card.displayFilters = [];
@@ -80,7 +80,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', '$rootScope', '$q', "User"
     };
 
     $scope.updateSelf();
-    $scope.updateCards();
+    $rootScope.updateCards();
 
     $scope.newpost = {};
 

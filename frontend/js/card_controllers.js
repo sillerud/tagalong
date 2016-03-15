@@ -22,7 +22,7 @@ cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Ca
     };
 }]);
 
-cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Card) {
+cardControllers.controller("AddCardCtrl", ['$scope', '$rootScope', 'Card', function($scope, $rootScope, Card) {
 
     $scope.createCard = function() {
         var filter = [];
@@ -34,7 +34,7 @@ cardControllers.controller("AddCardCtrl", ['$scope', 'Card', function($scope, Ca
             name: $scope.newcard.name,
             description: $scope.newcard.description,
             filter: filter
-        });
+        }, $rootScope.updateCards);
     }
 }]);
 
