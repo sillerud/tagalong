@@ -8,7 +8,7 @@ import no.westerdals.westbook.MessageConstant;
 @Getter
 @Setter
 @ToString
-public class ResultResponse
+public class ResultResponse<T>
 {
     private static final String OK_STATUS = "OK";
     private static final String ERROR_STATUS = "ERROR";
@@ -19,21 +19,21 @@ public class ResultResponse
 
     public static ResultResponse newOkResult(MessageConstant message)
     {
-        return new ResultResponse(OK_STATUS, message.name(), null);
+        return new ResultResponse<>(OK_STATUS, message.name(), null);
     }
 
-    public static ResultResponse newOkResult(MessageConstant message, Object extra)
+    public static <T>ResultResponse<T> newOkResult(MessageConstant message, T extra)
     {
-        return new ResultResponse(OK_STATUS, message.name(), extra);
+        return new ResultResponse<>(OK_STATUS, message.name(), extra);
     }
 
     public static ResultResponse newErrorResult(MessageConstant message)
     {
-        return new ResultResponse(ERROR_STATUS, message.name(), null);
+        return new ResultResponse<>(ERROR_STATUS, message.name(), null);
     }
 
-    public static ResultResponse newErrorResult(MessageConstant message, String errorId)
+    public static <T>ResultResponse<T> newErrorResult(MessageConstant message, T errorId)
     {
-        return new ResultResponse(ERROR_STATUS, message.name(), errorId);
+        return new ResultResponse<>(ERROR_STATUS, message.name(), errorId);
     }
 }

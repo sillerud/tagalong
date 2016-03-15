@@ -48,6 +48,8 @@ public class UserRepositoryImpl implements UserRepositoryCustom
             update.set("surname", user.getSurname());
         if (user.getInterests() != null)
             update.set("interests", user.getInterests());
+        if (user.getPersonalInfo() != null)
+            update.set("personalInfo", user.getPersonalInfo());
         if (user.getProfilePictureId() != null)
             update.set("profilePictureId", user.getProfilePictureId());
         if (user.getProfileHeaderPictureId() != null)
