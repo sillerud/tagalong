@@ -18,6 +18,7 @@ public class UserResponse
     private String id;
     private String pageId;
     private String email;
+    private String personalInfo;
     private Date born;
     private String studyFieldId;
     private String studyFieldDisplayName;
@@ -41,6 +42,7 @@ public class UserResponse
             this.email = user.getEmail();
         if (user.getBorn() != null)
             this.born = user.getBorn();
+        this.personalInfo = user.getPersonalInfo();
         this.studyFieldId = user.getStudyFieldId();
         this.city = user.getCity();
         this.gender = user.getGender();

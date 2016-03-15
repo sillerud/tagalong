@@ -19,52 +19,70 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
     }
 }]);
 
-userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 'Post', function($scope, User, Static, Card, Post) {
-    $scope.me = User.find(function(data) {
-        if (!data.id) {
-            redirectLogin();
-            return;
-        }
-        data.profilePictureUrl = getUploadUrl(data.profilePictureId, "img/user_placeholder.png");
-        data.profileHeaderPictureUrl = getUploadUrl(data.profileHeaderPictureId);
-
-        if( localStorage.styleColor == null || localStorage.styleColor == 'undefined'){
-            localStorage.styleColor = 'blue';
-        }else{
-
-        }
-        console.log( localStorage.getItem('styleColor') );
-
-
-        $scope.changeStylesheet = function(color){
-            localStorage.styleColor = color;
-            $scope.styleSheetId = localStorage.styleColor;
-        };
-
-        $scope.changeStylesheet(localStorage.styleColor);
-
-        $scope.goToUrl = function(url){
-            $scope.closePopup();
-            window.location = url;
-        };
-
-    }, redirectLogin);
-
-    $scope.newpost = {};
-
-    $scope.allTags = Static.getAllTags(function(tags) {
-        tags.getById = function(id) {
-            return this.find(function(element) {
-                return element.id == id;
-            });
-        };
-    });
+userControllers.controller("UserInfoCtrl", ['$scope', '$rootScope', '$q', "User", 'Static', 'Card', 'Post', function($scope, $rootScope, $q, User, Static, Card, Post) {
+    $rootScope.allTags = Static.getAllTags();
+    $rootScope.allTags.getById = function(id) {
+        return this.find(function(element) {
+            return element.id == id;
+        });
+    };
     $scope.studyfields = Static.getAllStudyFields();
     $scope.studyfields.getById = function(id) {
         return this.find(function(element) {
             return element.id == id;
         });
     };
+
+    $rootScope.updateSelf = function() {
+        $rootScope.me = User.find(function(data) {
+            if (!data.id) {
+                redirectLogin();
+                return;
+            }
+            data.profilePictureUrl = getUploadUrl(data.profilePictureId, "img/user_placeholder.png");
+            data.profileHeaderPictureUrl = getUploadUrl(data.profileHeaderPictureId);
+
+            if(!localStorage.styleColor){
+                localStorage.styleColor = 'blue';
+            }
+
+            $scope.changeStylesheet = function(color){
+                localStorage.styleColor = color;
+                $scope.styleSheetId = localStorage.styleColor;
+            };
+
+            $scope.changeStylesheet(localStorage.styleColor);
+
+            $scope.goToUrl = function(url){
+                $scope.closePopup();
+                window.location = url;
+            };
+            if ($rootScope.afterSelfUpdate) {
+                $q.all([$scope.studyfields.$promise, $rootScope.allTags.$promise]).then($rootScope.afterSelfUpdate);
+            }
+        }, redirectLogin);
+    };
+
+    $scope.updateCards = function() {
+        $scope.cards = Card.all(function(data) {
+            data.forEach(function(card) {
+                card.displayFilters = [];
+                card.filter.forEach(function(value){
+                    if (value.charAt(0) == '#') { // Its a tag
+                        card.displayFilters.push('#' + $rootScope.allTags.getById(value.substring(1)).name);
+                    } else { // its a page
+
+                    }
+                });
+                card.customBackgroundImageUrl = getUploadUrl(card.customBackgroundImageId);
+            });
+        });
+    };
+
+    $scope.updateSelf();
+    $scope.updateCards();
+
+    $scope.newpost = {};
 
     $scope.logout = function() {
         User.logout(redirectLogin);
@@ -141,19 +159,6 @@ userControllers.controller("UserInfoCtrl", ['$scope', "User", 'Static', 'Card', 
             dropdownToggle = false;
         }
     });
-    $scope.cards = Card.all(function(data) {
-        data.forEach(function(card) {
-            card.displayFilters = [];
-            card.filter.forEach(function(value){
-                if (value.charAt(0) == '#') { // Its a tag
-                    card.displayFilters.push('#' + $scope.allTags.getById(value.substring(1)).name);
-                } else { // its a page
-
-                }
-            });
-            card.customBackgroundImageUrl = getUploadUrl(card.customBackgroundImageId);
-        });
-    });
     $scope.openCardShortcuts = function(){
         $('.card-shortcut-wrap').fadeIn();
     };
@@ -177,7 +182,7 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
     }
 }]);
 
-userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', 'User', 'Upload', 'Static', function($scope, $routeParams, $q, User, Upload, Static) {
+userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routeParams', 'User', 'Upload', 'Static', function($scope, $rootScope, $routeParams, User, Upload, Static) {
     var datetimepicker = $('#bornDate');
     var studyStartYear = $('#studyStartYear');
 
@@ -192,8 +197,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
 
     var dtpData = datetimepicker.data("DateTimePicker");
 
-    $q.all([$scope.me.$promise, $scope.studyfields.$promise]).then(function() {
-        //$('#gender-field').val($scope.me.gender);
+    $rootScope.afterSelfUpdate = function() {
         if ($scope.me.born) {
             dtpData.date(moment($scope.me.born));
         }
@@ -201,10 +205,12 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             email: $scope.me.email,
             gender: $scope.me.gender,
             city: $scope.me.city,
+            interests: $scope.me.interests,
+            personalInfo: $scope.me.personalInfo,
             studyFieldId: $scope.studyfields.getById($scope.me.studyFieldId),
             contactInfo: $scope.me.contactInfo.slice(0)
         };
-    });
+    };
 
     $scope.openCropDialog = function() {
         $("#image-crop").modal("show");
@@ -216,7 +222,6 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
 
     $scope.updateProfile = function() {
         var updatedInfo = {};
-        //updatedInfo.id = $scope.me.id;
         angular.forEach($scope.user, function(value, key) {
             if (key == "studyFieldId") {
                 value = value.id;
@@ -233,7 +238,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             updatedInfo.born = dtpData.date().utcOffset();
         }
         if (!$.isEmptyObject(updatedInfo)) {
-            User.update(updatedInfo);
+            User.update(updatedInfo, $scope.updateSelf);
         }
     };
 
@@ -247,9 +252,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
             }
         }).then(function(result) {
             var extra = result.data.extra;
-            User.update({profilePictureId: extra.id}, function(result) {
-                console.log(result);
-            });
+            User.update({profilePictureId: extra.id}, $scope.updateSelf);
         });
     };
 
@@ -262,22 +265,22 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', '$q', '
 }]);
 
 userControllers.controller('UserPostFeed', ['$scope', '$rootScope', '$q', 'Post', function($scope, $rootScope, $q, Post) {
-    $q.all([$scope.user.$promise, $scope.allTags.$promise])
+    $q.all([$scope.user.$promise, $rootScope.allTags.$promise])
         .then(function() {
-        $scope.posts = Post.find({parentId: $scope.user.id}, function(data) {
-            data.forEach(function(post) {
-                post.user = $scope.user;
-                if (post.user.id == $scope.me.id) {
-                    post.delete = function() {
-                        Post.remove({postId: post.id});
-                    };
-                }
-                post.tags = [];
-                post.tagIds.forEach(function(tagId) {
-                    post.tags.push($scope.allTags.getById(tagId));
+            $scope.posts = Post.find({parentId: $scope.user.id}, function(data) {
+                data.forEach(function(post) {
+                    post.user = $scope.user;
+                    if (post.user.id == $scope.me.id) {
+                        post.delete = function() {
+                            Post.remove({postId: post.id});
+                        };
+                    }
+                    post.tags = [];
+                    post.tagIds.forEach(function(tagId) {
+                        post.tags.push($rootScope.allTags.getById(tagId));
+                    });
+                    // TODO: Resolve number of people who tagged along...
                 });
-                // TODO: Resolve number of people who tagged along...
             });
         });
-    });
 }]);
