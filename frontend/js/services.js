@@ -15,6 +15,11 @@ var transform = function(data){
     return $.param(data);
 };
 
+// TODO: Transform post bodies here instead of in each controller
+function transformPost(data) {
+
+}
+
 loginServices.factory('Login', ['$resource', function($resource) {
     return $resource(baseUrl + "/rest/login", {}, {
         login: {

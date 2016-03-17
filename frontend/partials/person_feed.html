@@ -12,7 +12,7 @@
     </div><!-- END feed-header -->
 
     <div class="feed-content">
-        <div markdown-to-html="post.content">**loading**</div>
+        <div markdown-to-html="post.content"></div>
     </div><!-- END feed-content -->
 
     <div class="card-tag-wrap">
@@ -22,7 +22,7 @@
     </div><!-- END - card-wrap -->
 
     <div class="bottom-bar">
-        <div class="feed-feedback"><span>10</span> persons tagged along</div>
+        <div class="feed-feedback"><span>{{ post.tagAlongs == null ? 0 : post.tagAlongs.length }}</span> persons tagged along</div>
     </div>
     <input class="btn btn-sm btn-danger" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
     <div class="feed-comment-wrap">
