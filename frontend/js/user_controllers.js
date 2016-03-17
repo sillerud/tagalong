@@ -71,7 +71,7 @@ userControllers.controller("UserInfoCtrl", ['$scope', '$rootScope', '$q', "User"
                     if (value.charAt(0) == '#') { // Its a tag
                         card.displayFilters.push('#' + $rootScope.allTags.getById(value.substring(1)).name);
                     } else { // its a page
-
+                        card.displayFilters.push(value);
                     }
                 });
                 card.customBackgroundImageUrl = getUploadUrl(card.customBackgroundImageId);

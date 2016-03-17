@@ -7,16 +7,7 @@ import java.util.Date;
 
 @NoArgsConstructor
 @Data
-public class Post
-{
-    public Post(String pageId, String userId, String title, String content, String[] tagIds, Date time) {
-        this.parentId = pageId;
-        this.userId = userId;
-        this.title = title;
-        this.content = content;
-        this.tagIds = tagIds;
-        this.time = time;
-    }
+public class Post {
     @Id
     private String id;
     private String parentId;
@@ -25,5 +16,6 @@ public class Post
     private String content;
     private String shortDescription;
     private String[] tagIds;
+    private TagAlong[] tagAlongs;
     private Date time;
 }
