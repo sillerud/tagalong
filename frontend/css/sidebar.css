@@ -157,6 +157,25 @@
     background-color: transparent;
     padding: 10px;
 }
+.tagalong-like-btn{
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    padding: 3px 8px 4px 5px;
+}
+.tagalong-like-btn img{
+    width: 20px;
+    margin-right: 10px;
+}
+.tagalong-like-btn:hover{
+    color: #1eb6ec;
+}
+.tagalong-like-btn.tagged-along{
+    background-color: #333;
+    color: #FFF;
+    border-radius: 3px;
+}
 
 /* Button effect */
 .comment-button-wrap {

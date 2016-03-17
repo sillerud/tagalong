@@ -22,6 +22,9 @@
     </div><!-- END - card-wrap -->
 
     <div class="bottom-bar">
+        <div class="tagalong-like-btn tagged-along"><!-- Fjern klassen tagged-along når et innlegg ikke er likt -->
+            <img src="/img/tagalongBtn.png" alt="">Tag Along
+        </div><!-- END tagalong-like-button -->
         <div class="feed-feedback"><span>{{ post.tagAlongs == null ? 0 : post.tagAlongs.length }}</span> persons tagged along</div>
     </div>
     <input class="btn btn-sm btn-danger" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
