@@ -5,7 +5,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class TagAlong {
+public class Upvote {
     private String userId;
     private StudyDirection studyDirection;
 }

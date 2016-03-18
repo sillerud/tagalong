@@ -2,8 +2,12 @@ package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.Post;
+import no.westerdals.westbook.model.StudyField;
+import no.westerdals.westbook.model.Upvote;
 import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.mongodb.PostRepository;
+import no.westerdals.westbook.mongodb.StudyFieldRepository;
+import no.westerdals.westbook.mongodb.UserRepository;
 import no.westerdals.westbook.responses.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +27,12 @@ public class PostRestController {
     @Autowired
     private PostRepository postRepo;
 
+    @Autowired
+    private StudyFieldRepository studyFieldRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
     @RequestMapping(method = RequestMethod.GET)
     public List<Post> getPosts(@RequestParam(required=false) String parentId,
                                @RequestParam(required=false) String[] tagIds,
@@ -36,6 +46,13 @@ public class PostRestController {
     @RequestMapping(value="/{postId}", method=RequestMethod.GET)
     public Post getPost(@PathVariable String postId) {
         return postRepo.findOne(postId);
+    }
+
+    @RequestMapping(value="/{postId}/tagalong", method=RequestMethod.POST)
+    public Post upvote(@PathVariable String postId, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
+        StudyField studyField = studyFieldRepository.findOne(userRepository.findOne(userCredentials.getUserId()).getStudyFieldId());
+        return postRepo.tagAlongToPost(postId, new Upvote(userCredentials.getUserId(), studyField.getStudyDirection()));
     }
 
     @RequestMapping(value="/{postId}", method=RequestMethod.DELETE)

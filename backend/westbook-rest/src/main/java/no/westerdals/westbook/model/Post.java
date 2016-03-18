@@ -16,6 +16,6 @@ public class Post {
     private String content;
     private String shortDescription;
     private String[] tagIds;
-    private TagAlong[] tagAlongs;
+    private Upvote[] upvotes;
     private Date time;
 }
