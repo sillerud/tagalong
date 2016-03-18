@@ -38,7 +38,7 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
     @Override
     public Post tagAlongToPost(String postId, Upvote upvote) {
         Update update = new Update();
-        update.push(postId, upvote);
+        update.push("upvotes", upvote);
         return mongoTemplate.findAndModify(query(where("_id").is(new ObjectId(postId))), update, Post.class);
     }
 }
