@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface PostRepositoryCustom {
     List<Post> filterPosts(String parentId, String[] tagIds, Pageable pageable);
-    Post tagAlongToPost(String postId, Upvote upvote);
+    Post upvotePost(String postId, Upvote upvote);
+    Post removePostUpvote(String postId, String userId);
 }

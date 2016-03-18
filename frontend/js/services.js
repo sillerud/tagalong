@@ -117,7 +117,7 @@ pageServices.factory('Page', ['$resource', function($resource) {
 }]);
 
 postServices.factory('Post', ['$resource', function($resource) {
-    return $resource(url("/posts"), {}, {
+    return $resource(url("/posts"), {postId: '@id'}, {
         create: {
             method: 'POST'
         },
@@ -127,6 +127,11 @@ postServices.factory('Post', ['$resource', function($resource) {
         remove: {
             url: url('/posts/:postId'),
             method: 'DELETE'
+        },
+        upvote: {
+            url: url('/posts/:postId/tagalong'),
+            method: 'POST',
+            isArray: false
         }
     })
 }]);

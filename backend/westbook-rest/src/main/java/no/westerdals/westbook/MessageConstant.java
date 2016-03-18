@@ -44,6 +44,11 @@ public enum MessageConstant
     EVENT_UPDATED,
     EVENT_NOT_FOUND,
 
+    //
+    UPVOTED,
+    UPVOTE_REMOVED,
+    ALREADY_UPVOTED,
+
     // General
     NOT_IMPLEMENTED,
     ACCESS_DENIED,

@@ -1,10 +1,6 @@
 package no.westerdals.westbook.rest;
 
-import no.westerdals.westbook.MessageConstant;
-import no.westerdals.westbook.model.Post;
-import no.westerdals.westbook.model.StudyField;
-import no.westerdals.westbook.model.Upvote;
-import no.westerdals.westbook.model.UserCredentials;
+import no.westerdals.westbook.model.*;
 import no.westerdals.westbook.mongodb.PostRepository;
 import no.westerdals.westbook.mongodb.StudyFieldRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
@@ -15,9 +11,11 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import static no.westerdals.westbook.responses.ResultResponse.*;
+import static no.westerdals.westbook.MessageConstant.*;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -48,11 +46,20 @@ public class PostRestController {
         return postRepo.findOne(postId);
     }
 
-    @RequestMapping(value="/{postId}/tagalong", method=RequestMethod.POST)
-    public Post upvote(@PathVariable String postId, Principal principal) {
+    // TODO: Garbo code, please redo
+    @RequestMapping(value="/{postId}/upvote", method=RequestMethod.POST)
+    public ResultResponse<Post> upvote(@PathVariable String postId, @RequestParam(defaultValue="true") boolean upvote, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
-        StudyField studyField = studyFieldRepository.findOne(userRepository.findOne(userCredentials.getUserId()).getStudyFieldId());
-        return postRepo.tagAlongToPost(postId, new Upvote(userCredentials.getUserId(), studyField.getStudyDirection()));
+        if (upvote) {
+            User user = userRepository.findOne(userCredentials.getUserId());
+            StudyField studyField = studyFieldRepository.findOne(user.getStudyFieldId());
+            Post post = postRepo.findOne(postId);
+            if (Arrays.stream(post.getUpvotes()).map(Upvote::getStudyDirection).anyMatch(postId::equals))
+                return newErrorResult(ALREADY_UPVOTED);
+            return newOkResult(UPVOTED, postRepo.upvotePost(postId, new Upvote(userCredentials.getUserId(), studyField.getStudyDirection())));
+        } else {
+            return newOkResult(UPVOTE_REMOVED, postRepo.removePostUpvote(postId, userCredentials.getUserId()));
+        }
     }
 
     @RequestMapping(value="/{postId}", method=RequestMethod.DELETE)
@@ -60,11 +67,11 @@ public class PostRestController {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         Post post = postRepo.findOne(postId);
         if (post == null)
-            return newErrorResult(MessageConstant.POST_NOT_FOUND);
+            return newErrorResult(POST_NOT_FOUND);
         if (!userCredentials.getUserId().equals(post.getUserId()))
-            return newErrorResult(MessageConstant.ACCESS_DENIED, "Cannot delete posts not owned by you.");
+            return newErrorResult(ACCESS_DENIED, "Cannot delete posts not owned by you.");
         postRepo.delete(postId);
-        return newOkResult(MessageConstant.POST_DELETED);
+        return newOkResult(POST_DELETED);
     }
 
     @RequestMapping(value="/by-tags/{tags}", method=RequestMethod.GET)
@@ -87,6 +94,6 @@ public class PostRestController {
         post.setUserId(userCredentials.getUserId());
         Post result = postRepo.insert(post);
         // TODO: Check if user has access to post for this page...
-        return newOkResult(MessageConstant.POST_CREATED, result);
+        return newOkResult(POST_CREATED, result);
     }
 }

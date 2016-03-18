@@ -17,7 +17,7 @@ public class ResultResponse<T>
     private String message;
     private Object extra;
 
-    public static ResultResponse newOkResult(MessageConstant message)
+    public static <T>ResultResponse<T> newOkResult(MessageConstant message)
     {
         return new ResultResponse<>(OK_STATUS, message.name(), null);
     }
@@ -27,7 +27,7 @@ public class ResultResponse<T>
         return new ResultResponse<>(OK_STATUS, message.name(), extra);
     }
 
-    public static ResultResponse newErrorResult(MessageConstant message)
+    public static <T>ResultResponse<T> newErrorResult(MessageConstant message)
     {
         return new ResultResponse<>(ERROR_STATUS, message.name(), null);
     }

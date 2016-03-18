@@ -1,5 +1,7 @@
 package no.westerdals.westbook.mongodb;
 
+import com.mongodb.BasicDBObject;
+import javafx.geometry.Pos;
 import no.westerdals.westbook.model.Post;
 import no.westerdals.westbook.model.Upvote;
 import org.bson.types.ObjectId;
@@ -36,9 +38,16 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
     }
 
     @Override
-    public Post tagAlongToPost(String postId, Upvote upvote) {
+    public Post upvotePost(String postId, Upvote upvote) {
         Update update = new Update();
         update.push("upvotes", upvote);
+        return mongoTemplate.findAndModify(query(where("_id").is(new ObjectId(postId))), update, Post.class);
+    }
+
+    @Override
+    public Post removePostUpvote(String postId, String userId) {
+        Update update = new Update();
+        update.pull("upvotes", new BasicDBObject("userId", userId));
         return mongoTemplate.findAndModify(query(where("_id").is(new ObjectId(postId))), update, Post.class);
     }
 }
