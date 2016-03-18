@@ -265,35 +265,32 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
 }]);
 
 userControllers.controller('UserPostFeed', ['$scope', '$rootScope', '$q', 'Post', function($scope, $rootScope, $q, Post) {
-    $q.all([$scope.me.$promise, $scope.user.$promise, $rootScope.allTags.$promise])
-        .then(function() {
-            $scope.posts = Post.find({parentId: $scope.user.id}, function(data) {
-                data.forEach(function(post) {
-                    post.user = $scope.user;
-                    if (post.user.id == $scope.me.id) {
-                        post.delete = function() {
-                            Post.remove({postId: post.id});
-                        };
-                    }
-                    if (post.upvotes) {
-                        post.upvotes.forEach(function(value) {
-                            if (value.userId == $scope.me.id) {
-                                post.upvoted = "tagged-along";
-                            }
-                        });
-                    }
-                    post.tags = [];
-                    post.tagIds.forEach(function(tagId) {
-                        post.tags.push($rootScope.allTags.getById(tagId));
-                    });
-                    post.upvote = function() {
-                        post.$upvote(function(data) {
-                            post.upvotes = data.upvotes;
-                        });
-                        post.upvoted = "tagged-along";
-                    };
-                    // TODO: Resolve number of people who tagged along...
-                });
+    function mapPost(post) {
+        post.user = $scope.user;
+        if (post.user.id == $scope.me.id) {
+            post.delete = function() {
+                Post.remove({postId: post.id});
+            };
+        }
+        if (post.upvotes) {
+            post.upvotes.forEach(function(value) {
+                if (value.userId == $scope.me.id) {
+                    post.upvoted = "tagged-along";
+                }
             });
+        }
+        post.tags = [];
+        post.tagIds.forEach(function(tagId) {
+            post.tags.push($rootScope.allTags.getById(tagId));
         });
+        post.upvote = function() {
+            post.$upvote({upvote: !post.upvoted}, updatePosts);
+        };
+    }
+    function updatePosts()  {
+        $scope.posts = Post.find({parentId: $scope.user.id}, function(data) {
+            data.forEach(mapPost);
+        });
+    }
+    $q.all([$scope.me.$promise, $scope.user.$promise, $rootScope.allTags.$promise]).then(updatePosts);
 }]);

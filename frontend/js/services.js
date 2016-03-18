@@ -129,7 +129,7 @@ postServices.factory('Post', ['$resource', function($resource) {
             method: 'DELETE'
         },
         upvote: {
-            url: url('/posts/:postId/tagalong'),
+            url: url('/posts/:postId/upvote'),
             method: 'POST',
             isArray: false
         }
