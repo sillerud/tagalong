@@ -33,9 +33,8 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
 eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event', function($scope, $routeParams, Event) {
     $scope.event = Event.getById({eventId: $routeParams.id}, function(event) {
         event.coverImageUrl = getUploadUrl(event.coverImageId);
-        event.tags = [];
-        event.tagIds.forEach(function(tagId) {
-            event.tags.push($scope.allTags.getById(tagId));
+        $scope.allTags.getByIds(event.tagIds).then(function(tags) {
+            $scope.tags = tags;
         });
     });
 }]);
