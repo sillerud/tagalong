@@ -78,7 +78,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
     $scope.updateProfile = function() {
         var updatedInfo = {};
         angular.forEach($scope.user, function(value, key) {
-            if (key == "studyFieldId") {
+            if (key == "studyField") {
                 value = value.id;
             }
             if ($.isArray(value)) {
