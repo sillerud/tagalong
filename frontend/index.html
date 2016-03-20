@@ -253,15 +253,15 @@
     <div class="new-post-wrap edit-fields popup" ng-controller="AddCardCtrl">
         <div class="exit-btn" ng-click="closePopup()"><i class="fa fa-times"></i></div>
         <div class="edit-card">
-            <form ng-submit="createPost()">
+            <form ng-submit="createPost(); closePopup()">
 
                 <div class="popup-top">
                     <strong>Create post</strong>
                     <br><br>
-                    <textarea ng-model="newpost.content" class="edit-field3" rows="2" placeholder="Whats on your mind?"></textarea>
+                    <textarea ng-model="newpost.content" required class="edit-field3" rows="2" placeholder="Whats on your mind?"></textarea>
                     <input type="file" name="" accept="image/*">
 
-                    <ui-select multiple ng-model="newpost.tagIds">
+                    <ui-select multiple ng-model="newpost.tagIds" required>
                         <ui-select-match placeholder="Select tags...">
                             {{$item.name}}
                         </ui-select-match>
@@ -273,7 +273,7 @@
                 </div><!-- END popup top -->
 
                 <div class="popup-bottom">
-                    <input type="submit" class="btn-fill" value="Publish post" ng-click="closePopup()">
+                    <input type="submit" class="btn-fill" value="Publish post">
                 </div><!-- END popup bottom -->
 
             </form>

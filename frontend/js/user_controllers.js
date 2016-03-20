@@ -3,17 +3,19 @@
 var userControllers = angular.module('userControllers', []);
 
 userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope, User) {
-    $scope.roles = "READ_COMMENT,NEW_COMMENT,READ_FEED,NEW_FEED,EDIT_FEED,READ_LINK,NEW_LINK,READ_PAGE,NEW_PAGE,EDIT_PAGE,READ_POST,NEW_POST,EDIT_POST,NEW_STUDYFIELD,READ_STUDYFIELD,READ_UPLOAD,NEW_UPLOAD,READ_ALL_FILES,READ_FILE,READ_SELF,READ_USER,READ_ALL_USERS,READ_USER,NEW_USER,DELETE_USER]";
+    $scope.user = {};
+    $scope.user.roles = "READ_COMMENT,NEW_COMMENT,READ_FEED,NEW_FEED,EDIT_FEED,READ_LINK,NEW_LINK,READ_PAGE,NEW_PAGE,EDIT_PAGE,READ_POST,NEW_POST,EDIT_POST,NEW_STUDYFIELD,READ_STUDYFIELD,READ_UPLOAD,NEW_UPLOAD,READ_ALL_FILES,READ_FILE,READ_SELF,READ_USER,READ_ALL_USERS,READ_USER,NEW_USER,DELETE_USER]";
     $scope.create = function() {
+        var scopeUser = $scope.user;
         var user = {
-            firstname: $scope.user.firstname,
-            surname: $scope.user.surname,
-            email: $scope.user.email,
-            password: $scope.user.password,
-            gender: $scope.user.gender,
+            firstname: scopeUser.firstname,
+            surname: scopeUser.surname,
+            email: scopeUser.email,
+            password: scopeUser.password,
+            gender: scopeUser.gender,
             accountLocked: false,
             enabled: true,
-            authorities: $scope.roles.split(",")
+            authorities: scopeUser.roles.split(",")
         };
         User.create(user);
     }
@@ -36,10 +38,10 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
 }]);
 
 userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routeParams', 'User', 'Upload', 'Static', function($scope, $rootScope, $routeParams, User, Upload, Static) {
-    var datetimepicker = $('#bornDate');
+    var bornDate = $('#bornDate');
     var studyStartYear = $('#studyStartYear');
 
-    datetimepicker.datetimepicker({
+    bornDate.datetimepicker({
         format: 'DD/MM/YYYY'
     });
     studyStartYear.datetimepicker({
@@ -48,49 +50,39 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
         maxDate: moment()
     });
 
-    var dtpData = datetimepicker.data("DateTimePicker");
+    bornDate = bornDate.data("DateTimePicker");
 
-    $rootScope.afterSelfUpdate = function() {
-        if ($scope.me.born) {
-            dtpData.date(moment($scope.me.born));
-        }
-        $scope.user = {
-            email: $scope.me.email,
-            gender: $scope.me.gender,
-            city: $scope.me.city,
-            interests: $scope.me.interests,
-            personalInfo: $scope.me.personalInfo,
-            contactInfo: $scope.me.contactInfo.slice(0)
-        };
+    $scope.me.$promise.then(function() {
+        $scope.user = {};
+        $scope.user = angular.copy($scope.me, $scope.user);
         $scope.studyfields.getByIds([$scope.me.studyFieldId]).then(function(studyFields) {
             $scope.user.studyField = studyFields[0];
         });
-    };
+        if ($scope.me.born) {
+            delete $scope.user.born;
+            bornDate.date(moment($scope.me.born));
+        }
+    });
 
-    $scope.openCropDialog = function() {
-        $("#image-crop").modal("show");
-    };
-
-    $scope.closeCropDialog = function () {
-        $("#image-crop").modal("hide");
+    $scope.cropDialogState = function(state) {
+        $("#image-crop").modal(state);
     };
 
     $scope.updateProfile = function() {
         var updatedInfo = {};
         angular.forEach($scope.user, function(value, key) {
             if (key == "studyField") {
+                key = "studyFieldId";
                 value = value.id;
             }
             if ($.isArray(value)) {
-                if (!($(value).not($scope.me[key]).length === 0 && $($scope.me[key]).not(value).length === 0)) {
-                    updatedInfo[key] = value;
-                }
+                updatedInfo[key] = value; // Disable validation
             } else if ($scope.me[key] != value && key != 'email') {
                 updatedInfo[key] = value;
             }
         });
-        if (dtpData.date() && dtpData.date().valueOf() != $scope.me.born) {
-            updatedInfo.born = dtpData.date().utcOffset();
+        if (bornDate.date() && bornDate.date().valueOf() != $scope.me.born) {
+            updatedInfo.born = bornDate.date();
         }
         if (!$.isEmptyObject(updatedInfo)) {
             User.update(updatedInfo, $scope.updateSelf);
@@ -112,14 +104,14 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
     };
 
     $scope.addItem = function() {
-        $scope.user.contactInfo.push({description: "", value: ""});
+        $scope.user.contactInfo.push({});
     };
     $scope.deleteItem = function(item) {
         $scope.user.contactInfo.splice($scope.user.contactInfo.indexOf(item), 1);
     };
 }]);
 
-userControllers.controller('UserPostFeed', ['$scope', '$q', 'Post', function($scope, $q, Post) {
+userControllers.controller('UserPostFeed', ['$scope', 'Post', function($scope, Post) {
     function mapPost(post) {
         post.user = $scope.user;
         if (post.user.id == $scope.me.id) {
@@ -134,7 +126,6 @@ userControllers.controller('UserPostFeed', ['$scope', '$q', 'Post', function($sc
                 }
             });
         }
-        post.tags = [];
         post.tags = $scope.allTags.getByIds(post.tagIds);
         post.upvote = function() {
             post.$upvote({upvote: !post.upvoted}, updatePosts);
@@ -145,5 +136,5 @@ userControllers.controller('UserPostFeed', ['$scope', '$q', 'Post', function($sc
             data.forEach(mapPost);
         });
     }
-    $q.all([$scope.me.$promise, $scope.user.$promise, $scope.allTags.$promise]).then(updatePosts);
+    $scope.user.$promise.then(updatePosts);
 }]);

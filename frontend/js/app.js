@@ -114,7 +114,7 @@ angular.module('tagalong', [
                 controller: 'ShowUserCtrl'
             });
     }])
-    .run(['$rootScope', 'Static', 'User', 'Card', function($rootScope, Static, User, Card) {
+    .run(['$rootScope', 'Static', 'User', 'Card', 'Post', function($rootScope, Static, User, Card, Post) {
         $rootScope.updateSelf = function() {
             $rootScope.me = User.find(function(user) {
                 if (!user.id) {
@@ -139,9 +139,6 @@ angular.module('tagalong', [
                     $rootScope.closePopup();
                     window.location = url;
                 };
-                if ($rootScope.afterSelfUpdate) {
-                    $rootScope.afterSelfUpdate();
-                }
             }, redirectLogin);
         };
 
@@ -197,20 +194,11 @@ angular.module('tagalong', [
             var newpost = {};
             angular.forEach($rootScope.newpost, genericValueMapping, newpost);
             newpost.parentId = $rootScope.me.id; // TODO: Select this
-            if (!newpost.content) {
-                console.log("Missing content");
-                return;
-            }
-            if (!newpost.tagIds || newpost.tagIds < 1) {
-                console.log("Missing tags");
-                return;
-            }
             Post.create(newpost);
         };
 
         var addNewOpen = false;
         $rootScope.openShortcuts = function(dark){
-
             if( !addNewOpen ){
                 $('#darkOverlay').fadeIn();
                 $('#newPostBtn').stop().animate({'bottom': '60px', 'opacity': '1'}, 300);
@@ -239,7 +227,6 @@ angular.module('tagalong', [
         $rootScope.openNotifications = function() {
             dropdownArrow.fadeIn();
             dropdown.fadeIn();
-
             dropdownToggle = true;
         };
 
