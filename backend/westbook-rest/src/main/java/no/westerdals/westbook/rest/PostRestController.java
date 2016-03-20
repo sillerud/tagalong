@@ -90,6 +90,10 @@ public class PostRestController {
     @RequestMapping(method=RequestMethod.POST)
     public ResultResponse writePost(@RequestBody Post post, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
+        if (post.getContent() == null)
+            return newErrorResult(POST_NO_CONTENT_PROVIDED);
+        if (post.getTagIds() == null || post.getTagIds().length < 1)
+            return newErrorResult(POST_NO_TAGS_PROVIDED);
         post.setTime(new Date());
         post.setUserId(userCredentials.getUserId());
         Post result = postRepo.insert(post);
