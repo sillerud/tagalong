@@ -9,10 +9,9 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
         };
         function mapEvent(event) {
             event.coverImageUrl = getUploadUrl(event.coverImageId);
-            event.tags = [];
-            event.tagIds.forEach(function(tagId) {
-                this.push($scope.allTags.getById(tagId));
-            }, event.tags);
+            $scope.allTags.getByIds(event.tagIds).then(function(tags){
+                event.tags = tags;
+            });
             if (event.attending && event.attending.length > 0) {
                 event.attendingStyle = {
                     'background-color': $.inArray($scope.me.id, event.attending) != -1 ? 'green' : '#FFF'

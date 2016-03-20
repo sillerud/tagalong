@@ -18,7 +18,8 @@
                     <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
                     <div class="card-tag-wrap">
                         <ul class="card-tag-list">
-                            <li ng-repeat="filter in card.displayFilters">{{ filter }}</li>
+                            <li ng-repeat="page in card.pages">{{ page }}</li>
+                            <li ng-repeat="tag in card.tags">#{{ tag.name }}</li>
                         </ul>
                     </div>
                 </div>

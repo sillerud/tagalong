@@ -19,153 +19,6 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
     }
 }]);
 
-userControllers.controller("UserInfoCtrl", ['$scope', '$rootScope', '$q', "User", 'Static', 'Card', 'Post', function($scope, $rootScope, $q, User, Static, Card, Post) {
-    $rootScope.allTags = Static.getAllTags();
-    $rootScope.allTags.getById = function(id) {
-        return this.find(function(element) {
-            return element.id == id;
-        });
-    };
-    $scope.studyfields = Static.getAllStudyFields();
-    $scope.studyfields.getById = function(id) {
-        return this.find(function(element) {
-            return element.id == id;
-        });
-    };
-
-    $rootScope.updateSelf = function() {
-        $rootScope.me = User.find(function(data) {
-            if (!data.id) {
-                redirectLogin();
-                return;
-            }
-            data.profilePictureUrl = getUploadUrl(data.profilePictureId, "img/user_placeholder.png");
-            data.profileHeaderPictureUrl = getUploadUrl(data.profileHeaderPictureId);
-
-            if(!localStorage.styleColor){
-                localStorage.styleColor = 'blue';
-            }
-
-            $scope.changeStylesheet = function(color){
-                localStorage.styleColor = color;
-                $scope.styleSheetId = localStorage.styleColor;
-            };
-
-            $scope.changeStylesheet(localStorage.styleColor);
-
-            $scope.goToUrl = function(url){
-                $scope.closePopup();
-                window.location = url;
-            };
-            if ($rootScope.afterSelfUpdate) {
-                $q.all([$scope.studyfields.$promise, $rootScope.allTags.$promise]).then($rootScope.afterSelfUpdate);
-            }
-        }, redirectLogin);
-    };
-
-    $rootScope.updateCards = function() {
-        $scope.cards = Card.all(function(data) {
-            data.forEach(function(card) {
-                card.displayFilters = [];
-                card.filter.forEach(function(value){
-                    if (value.charAt(0) == '#') { // Its a tag
-                        card.displayFilters.push('#' + $rootScope.allTags.getById(value.substring(1)).name);
-                    } else { // its a page
-                        card.displayFilters.push(value);
-                    }
-                });
-                card.customBackgroundImageUrl = getUploadUrl(card.customBackgroundImageId);
-            });
-        });
-    };
-
-    $scope.updateSelf();
-    $scope.me.$promise.then($rootScope.updateCards);
-
-    $scope.newpost = {};
-
-    $scope.logout = function() {
-        User.logout(redirectLogin);
-    };
-    $scope.addToCard = function(){
-        $('.add-to-card-wrap').fadeIn();
-        $('#darkOverlay').fadeIn();
-    }; // END add to card
-    $scope.openNewPost = function(doo){
-        $('.new-post-wrap').fadeIn();
-        $('#darkOverlay').fadeIn();
-        // Sjekker om shortcuts skal kjøre eller ikke
-        if( doo != 0) $scope.openShortcuts(1);
-    };
-    $scope.closePopup = function(){
-        $('.popup').fadeOut();
-        $('#darkOverlay').fadeOut();
-        $scope.closeShortcuts();
-    };
-    $scope.createPost = function() {
-        var newpost = {};
-        angular.forEach($scope.newpost, genericValueMapping, newpost);
-        newpost.parentId = $scope.me.id; // TODO: Select this
-        if (!newpost.content) {
-            console.log("Missing content");
-            return;
-        }
-        if (!newpost.tagIds || newpost.tagIds < 1) {
-            console.log("Missing tags");
-            return;
-        }
-        Post.create(newpost);
-    };
-
-    var addNewOpen = false;
-    $scope.openShortcuts = function(dark){
-
-        if( !addNewOpen ){
-            $('#darkOverlay').fadeIn();
-            $('#newPostBtn').stop().animate({'bottom': '60px', 'opacity': '1'}, 300);
-            $('#newPageBtn').delay(100).animate({'bottom': '110px', 'opacity': '1'}, 300);
-            $('#newEventBtn').delay(200).animate({'bottom': '160px', 'opacity': '1'}, 300);
-            $('#newSearchBtn').delay(300).animate({'bottom': '210px', 'opacity': '1'}, 300);
-            addNewOpen = true;
-        }else{
-            if( dark != 1) $('#darkOverlay').fadeOut();
-            $scope.closeShortcuts();
-        }
-
-    }; // END openShortcuts
-    $scope.closeShortcuts = function(){
-        $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300);
-        $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300);
-        $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300);
-        $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300);
-        addNewOpen = false;
-    };
-
-
-    var dropdownToggle = false;
-    var dropdown = $('.dropdown-content');
-    var dropdownArrow = $('.arrow-up');
-    $scope.openNotifications = function() {
-        dropdownArrow.fadeIn();
-        dropdown.fadeIn();
-
-        dropdownToggle = true;
-    };
-
-    $(document).mouseup(function (e) {
-        if (dropdownToggle && !dropdown.is(e.target) && dropdown.has(e.target).length === 0) {
-            dropdown.fadeOut();
-            dropdownArrow.fadeOut();
-            dropdownToggle = false;
-        }
-    });
-    $scope.openCardShortcuts = function(){
-        $('.card-shortcut-wrap').fadeIn();
-    };
-
-}]);
-
-
 userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParams', 'User', function($scope, $rootScope, $routeParams, User) {
     if ($routeParams.id) {
         $scope.user = User.find({userId: $routeParams.id}, function(data) {
@@ -207,9 +60,11 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
             city: $scope.me.city,
             interests: $scope.me.interests,
             personalInfo: $scope.me.personalInfo,
-            studyFieldId: $scope.studyfields.getById($scope.me.studyFieldId),
             contactInfo: $scope.me.contactInfo.slice(0)
         };
+        $scope.studyfields.getByIds([$scope.me.studyFieldId]).then(function(studyFields) {
+            $scope.user.studyField = studyFields[0];
+        });
     };
 
     $scope.openCropDialog = function() {
@@ -264,7 +119,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
     };
 }]);
 
-userControllers.controller('UserPostFeed', ['$scope', '$rootScope', '$q', 'Post', function($scope, $rootScope, $q, Post) {
+userControllers.controller('UserPostFeed', ['$scope', '$q', 'Post', function($scope, $q, Post) {
     function mapPost(post) {
         post.user = $scope.user;
         if (post.user.id == $scope.me.id) {
@@ -280,9 +135,7 @@ userControllers.controller('UserPostFeed', ['$scope', '$rootScope', '$q', 'Post'
             });
         }
         post.tags = [];
-        post.tagIds.forEach(function(tagId) {
-            post.tags.push($rootScope.allTags.getById(tagId));
-        });
+        post.tags = $scope.allTags.getByIds(post.tagIds);
         post.upvote = function() {
             post.$upvote({upvote: !post.upvoted}, updatePosts);
         };
@@ -292,5 +145,5 @@ userControllers.controller('UserPostFeed', ['$scope', '$rootScope', '$q', 'Post'
             data.forEach(mapPost);
         });
     }
-    $q.all([$scope.me.$promise, $scope.user.$promise, $rootScope.allTags.$promise]).then(updatePosts);
+    $q.all([$scope.me.$promise, $scope.user.$promise, $scope.allTags.$promise]).then(updatePosts);
 }]);
