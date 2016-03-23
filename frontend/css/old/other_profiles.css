@@ -1,0 +1,132 @@
+.profile-box{
+    width: 100%;
+    height: auto;
+    clear: both;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+.about-me-box{
+    width: auto;
+    height: auto;
+    background-color: white;
+    clear: both;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+.img-profile-img{
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid #1eb6ec; /*blå*/
+    border-radius: 7px;
+}
+.edit-profile-page-link{
+    margin-top: 20px;
+    padding-left: 15px;
+}
+.profile-post-box{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    clear: both;
+    margin-bottom: 300px;
+    padding: 5px;
+}
+.holder{
+    margin-top: 15px;
+}
+.info-holder b{
+    margin-right: 5px;
+}
+.info-holder{
+    margin-left: 200px;
+}
+.info-format{
+    margin-right: 5px;
+    float: left;
+    width: auto;
+}
+.profile-posts{
+    font-size: 18px;
+}
+.post-profile{
+    background-color: lightgrey;
+    margin-left: 52px;
+}
+.inner-feedbar{
+    height:auto;
+}
+@media screen and (max-width: 500px){
+    .profile-pic-holder{
+        width:70px;
+        height: 70px;
+    }
+    .info-holder{
+        margin-left: 100px;
+    }
+}
+
+/*----Skills section----*/
+.skill-section{
+}
+.myProjects{
+}
+
+/*----tabs----*/
+.tabs{
+    overflow: hidden;
+    width: 100%;
+    display:inline-block;
+    margin-bottom: 30px;
+}
+/*----tab links----*/
+/*----clear fix----*/
+.tab-links:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+.tabs ul{
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.tabs-item{
+    display: table-cell;
+}
+.tab-links a{
+    margin:0 0;
+    float:left;
+    list-style:none;
+    display: inline-table;
+    table-layout: fixed;
+    width: 100%;
+    padding: 9px 15px;
+    border-radius: 3px 3px 0 0;
+    background: #e6e1e1;
+    opacity: .5;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4c4c4c;
+    transition: all linear 0.15s;
+}
+.tab-links a:hover{
+    opacity: .8;
+    background:#e6e6e6;
+    text-decoration:none;
+}
+li.active a, li.active a:hover {
+    background:#fff;
+    color:#4c4c4c;
+    opacity: 1;
+}
+/*----- Content of Tabs -----*/
+.tabs-content{
+    padding: 0px;
+    box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+    background:#fff;
+    width: 100%;
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+.tab-content-section{
+    height: 200px;
+}

@@ -1,0 +1,40 @@
+/*
+Spesifikt for edit / create
+Eks: edit profile, edit card, add new card, create new page osv.
+*/
+
+/* PopUp */
+.popup .btn-fill{
+    background-color: #FFF;
+    color: #333;
+    position: relative;
+    float: right;
+}
+.popup .btn-fill:hover{
+    background-color: #333;
+    color: #FFF;
+}
+.popup{
+    display: none;
+}
+@media screen and (max-width: 767px){
+    .popup{
+        top: 50px !important;
+        transform: translateY(0) !important;
+    }
+} /* END maxwidth 767px */
+
+/* New post */
+.new-post-wrap{
+    max-width: 500px;
+    width: 100%;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2000;
+    background-color: #FFF;
+}
+/* END - popUp */

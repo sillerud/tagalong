@@ -1,0 +1,37 @@
+.add-to-card-wrap{
+    position: fixed;
+    max-width: 500px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+    z-index: 2000;
+}
+.add-to-card-wrap #atcSearch{
+    width: 100%;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    padding: 10px 15px;
+    position: relative;
+    margin-bottom: 15px;
+}
+.add-to-card-wrap .box-title{
+    margin-bottom: 15px;
+}
+.exit-btn{
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    font-size: 1.2em;
+    padding: 4px 10px 6px;
+    border-radius: 50%;
+    background-color: #1eb6ec;
+    cursor: pointer;
+}
+.exit-btn:hover{
+    background-color: #333;
+    color: #FFF;
+}

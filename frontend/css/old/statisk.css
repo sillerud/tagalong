@@ -1,0 +1,182 @@
+/* STATISK KODING */
+/*
+Westerdalsfarger
+Blå: #1eb6ec
+Rød: #fd7265
+Grønn: #63caa6
+Lilla: #835581
+Gul: #fed575
+
+*/
+/* Globale elementer */
+body{
+    background-color: #333;
+    font-family: 'Lato', sans-serif;
+}
+#skip{ display: none;}
+.page{
+    background-color: #F2F2EE;
+    padding-bottom: 30px;
+    position: relative;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+.btn-no-fill{
+    background-color: transparent;
+    color: black;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 5px 15px 3px 15px;
+    position: relative;
+    margin-bottom: -10px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+}
+.btn-no-fill:hover{
+     /*se SASS*/
+}
+.btn-fill{
+    color: black;
+    margin-bottom: -10px;
+    padding: 6px 16px 4px 16px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    position: relative;
+    display: inline-block;
+    height: 45px;
+    border-radius: 5%;
+}
+.btn-fill-save{
+        margin-top: 100px;
+}
+.all-feeds-btn{
+    margin-bottom: 20px;
+}
+.popup .btn-fill{
+    background-color: #FFF;
+    color: #333;
+    position: relative;
+    float: right;
+    transition: all 300ms linear;
+}
+.popup .btn-fill:hover{
+    background-color: #333;
+    color: #FFF;
+    transition: all 300ms linear;
+}
+.btn-fill:hover{
+    /* se SASS */
+}
+.box{
+    padding: 15px;
+    background-color: #FFF;
+    margin-bottom: 30px;
+}
+.box-title{
+    border-bottom: 1px solid #d8d8d8;
+    padding-bottom: 10px;
+}
+.box-title h3{
+    margin: 0;
+    font-size: 1.3em;
+}
+.popup{
+    display: none;
+}
+@media screen and (max-width: 767px){
+    .popup{
+        top: 50px !important;
+        transform: translateY(0) !important;
+    }
+} /* END maxwidth 767px */
+/* END - Globale elementer */
+
+/* Search overlay */
+.search-results{
+    position: relative;
+    top: 100px;
+}
+.add-to-card-wrap .add-btn{
+    position: absolute;
+    right: 20px;
+    top: 8px;
+    background-color: #61afca;
+    padding: 0 10px 2px;
+    border-radius: 5px;
+    display: none;
+    cursor: pointer;
+    -webkit-box-shadow: 1px 1px 3px #317b94;
+}
+.add-to-card-wrap .col-sidebar-cards:hover .add-btn{
+    display: block;
+}
+
+/* New post */
+.new-post-wrap{
+    max-width: 500px;
+    width: 100%;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2000;
+    background-color: #FFF;
+}
+/* END post */
+
+.card-shortcut-wrap{
+    display: none;
+    position: fixed;
+    top: 120px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F2F2EE;
+    z-index: 100;
+}
+
+
+/* Card search */
+.ui-select-container{
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    height: auto;
+    -webkit-box-shadow: none;
+}
+.ui-select-container input{ /* Søket etter tags */
+    width: 100% !important;
+    background-color: white;
+    border: 1px solid #DCDCDC;
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.ui-select-container input:focus{
+    outline: none;
+}
+.ui-select-container .ui-select-match-item{ /* Velgte tags span elementer*/
+    margin-right: 10px;
+}
+.ui-select-container .ui-select-choices{ /* Dropdown valg */
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+}
+.ui-select-container .ui-select-choices li a{
+    color: #333;
+}
+.form-group input{
+    margin-bottom: 0 !important;
+}
+.image-crop-display {
+    height: 80%;
+}

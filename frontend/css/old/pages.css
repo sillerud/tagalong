@@ -1,0 +1,85 @@
+.order-by-box, .filter-by-box{
+    margin-bottom: 20px;
+}
+.order-pages-by, .filter-pages-by{
+    padding-top: 5px;
+}
+label{
+    padding-left: 5px;
+    font-weight: normal;
+}
+/*Displying pages style*/
+.page-preview{ /* Wrap rundt et event, upcoming og my event */
+    overflow: hidden;
+    margin-bottom: 30px;
+    background-color: #FFF;
+    position: relative;
+    border: 5px solid #FFF;
+}
+.page-preview-image{
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    z-index: 300;
+    background-color: rgba(0,0,0, 0.1);
+}
+.page-preview-info{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+.page-preview-info .card-tag-list{
+    padding: 10px;
+    margin-bottom: 0;
+}
+.page-preview-info .card-tag-list li{
+    background-color: rgba(0,0,0, 0.3);
+    border-radius: 3px;
+    color: #FFF;
+}
+.page-preview-info .card-tag-list li:hover, .page-preview-info .card-tag-list li:focus{
+    background-color: rgba(0,0,0, 0.6);
+}
+.page-preview-header{
+    background-color: #FFF;
+    overflow: hidden;
+    position: relative;
+}
+.preview-title{
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 1.3em;
+}
+/*Displying pages style END*/
+
+/* Add to card knapp*/
+
+.add-page-to-card-pages{
+    position: absolute;
+    right: 20px;
+}
+
+/* Add to card knapp END*/
+
+/*Checkbox style*/
+.checkbox-style{
+    margin: 0px;
+    position: relative;
+}
+/*Checkbox style END*/
+
+
+  @media screen and (max-width: 500px){
+    .pages-result-profilbilde{
+      width: 50px;
+    }
+}

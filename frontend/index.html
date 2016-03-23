@@ -11,22 +11,31 @@
     <link rel="shortcut icon" type="image/png" href="img/faneikon_logo.png"/>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" ng-if="styleSheetId" ng-href="css/dynamic_colors_{{ styleSheetId }}.css">
-
-    <link rel="stylesheet" type="text/css" href="css/statisk.css">
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
-    <link rel="stylesheet" type="text/css" href="css/forside.css">
-    <link rel="stylesheet" type="text/css" href="css/search.css">
-    <link rel="stylesheet" type="text/css" href="css/sidebar.css">
+    <link rel="stylesheet" type="text/css" ng-if="styleSheetId" ng-href="css/dynamic/dynamic_colors_{{ styleSheetId }}.css">
+    <!-- Ny css -->
+    <link rel="stylesheet" type="text/css" href="css/edit.css">
+    <link rel="stylesheet" type="text/css" href="css/feed.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" type="text/css" href="css/page_fubar.css">
-    <link rel="stylesheet" type="text/css" href="css/pages.css">
-    <link rel="stylesheet" type="text/css" href="css/other_profiles.css">
-    <link rel="stylesheet" type="text/css" href="css/profil_edit.css">
-    <link rel="stylesheet" type="text/css" href="css/events.css">
-    <link rel="stylesheet" type="text/css" href="css/new_event.css">
-    <link rel="stylesheet" type="text/css" href="css/movie_night_page.css">
-    <link rel="stylesheet" type="text/css" href="css/popup.css">
+    <link rel="stylesheet" type="text/css" href="css/frontpage.css">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/profiles.css">
+    <link rel="stylesheet" type="text/css" href="css/search.css">
+
+    <link rel="stylesheet" type="text/css" href="css/old/forside.css">
+    <link rel="stylesheet" type="text/css" href="css/old/statissk.css">
+    <link rel="stylesheet" type="text/css" href="css/old/search.css">
+    <link rel="stylesheet" type="text/css" href="css/old/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="css/old/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/old/page_fubar.css">
+    <link rel="stylesheet" type="text/css" href="css/old/pages.css">
+    <link rel="stylesheet" type="text/css" href="css/old/other_profiles.css">
+    <link rel="stylesheet" type="text/css" href="css/old/profil_edit.css">
+    <link rel="stylesheet" type="text/css" href="css/old/events.css">
+    <link rel="stylesheet" type="text/css" href="css/old/new_event.css">
+    <link rel="stylesheet" type="text/css" href="css/old/movie_night_page.css">
+    <link rel="stylesheet" type="text/css" href="css/old/popup.css">
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css"><!-- Font Awesome ikoner -->
     <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" type="text/css" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css">
@@ -70,34 +79,7 @@
 </head>
 <body>
 <a id="skip" ng-click="skipToContent('skipContent')">Skip to content</a>
-<div class="card-shortcut-wrap">
-    <div class="container">
-        <div class="col-sm-4" ng-repeat="card in cards">
-            <div class="card-wrap" style="background-image: url(img/ola_nordmann_sidebilde.jpg)">
-                <div class="card-overlay"></div>
-                <div class="new-post-in-card-icon">
-                    5
-                </div>
-                <div class="edit-card-icon">
-                    <i class="fa fa-cog"></i>
-                </div>
-                <div class="card-wrap-inner">
 
-                    <h3>{{ card.name | limitTo : 20 }}{{card.name.length > 20 ? '...' : ''}}</h3>
-                    <p>{{ card.description }}</p>
-
-                    <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
-                    <div class="card-tag-wrap">
-                        <ul class="card-tag-list">
-                            <li ng-repeat="tag in card.filter">{{ tag }}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div><!-- END - card-wrap -->
-        </div><!-- END col-sm-4 -->
-    </div>
-
-</div><!-- END card-shortcut-wrap -->
 
 <div class="page">
 <div id="darkOverlay" ng-click="closePopup()"></div>
@@ -121,7 +103,6 @@
                             </div>
                             <input id="quickSearch" type="search" placeholder="Søk her..." ng-model="searchText" ng-keyup="runAutoComplete($event)" ng-change="updateSearchResults()" autofocus>
                             <i class="search-search fa fa-search"></i>
-                            <div class="fast-search-result"></div>
 
 
                             <div class="search-results">
