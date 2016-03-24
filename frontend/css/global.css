@@ -24,20 +24,6 @@ a{ text-decoration: none; }
 a:hover{ text-decoration: underline; }
 
 /* Buttons */
-.btn-no-fill{
-    color: #333;
-    padding: 10px 15px;
-    border: none;
-    text-transform: uppercase;
-    font-size: 13px;
-    position: relative;
-    display: inline-block;
-    border-radius: 5px;
-    background-color: transparent;
-}
-.btn-no-fill:hover{
-     /*se SASS*/
-}
 .btn-fill{
     color: #333;
     padding: 10px 15px;

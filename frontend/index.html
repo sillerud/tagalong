@@ -124,12 +124,16 @@
                 <!-- Person -->
                 <div class="logged-in-person">
 
-                    <a href="#/profile">
+                    <a href="#/profile" id="linkToProfileDesctop">
                         <div class="person-name">
                             <span>{{ me.firstname }} {{ me.surname }}</span>
                             <i class="fa fa-user"></i>
                         </div>
                     </a>
+                    <div class="person-name" id="linkToProfileMobile" ng-click="openPersonDropdown()">
+                        <span>{{ me.firstname }} {{ me.surname }}</span>
+                        <i class="fa fa-user"></i>
+                    </div>
                     <div class="menu-person-dropdown">
                         <a ng-click="openNewPost(0)">
                             <div class="person-list">New post</div>

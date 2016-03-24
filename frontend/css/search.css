@@ -53,111 +53,88 @@ Spesifikt for search / søk
       width: 50px;
     }
 }
-/* END - Search result */
-
-/* Search page */
-.search-page .search-result-title{
+.search-overlay-wrap{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #F2F2EE;
+  z-index: 999;
+  display: none;
+}
+.search-overlay-wrap .search-search{
+  position: absolute;
+  right: 35px;
   font-size: 2em;
+  top: 120px;
+  cursor: pointer;
 }
-/* END - search page */
-
-/* Search people */
-.search-people .search-result-title{
-  padding-bottom: 2px;
+.close-search{
+  float: right;
+  position: relative;
+  top: 20px;
+  right: 55px;
+  font-size: 1.2em;
+  cursor: pointer;
 }
-/* END - search people */
-
-/* Search event */
-.when-where{
+.close-search .exit-search{
+  position: absolute;
+  right: -35px;
+  font-size: 2em;
+  top: -3px;
+  cursor: pointer;
+}
+.search-overlay-wrap input{
+  width: 100%;
+  background-color: #FFF;
+  border: none;
+  border-bottom: 2px solid #1eb6ec;
+  font-size: 3em;
+  position: relative;
+  top: 70px;
+  padding: 10px 20px;
+}
+.search-result-wrap{
+  padding: 10px;
+  background-color: #FFF;
+  margin-bottom: 10px;
+  position: relative;
+}
+.result-image-wrap{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  background-size: cover;
+}
+.search-name{
   font-weight: bold;
+}
+.search-add{
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  height: 100%;
+  color: #333;
+  background-color: #1eb6ec;
+}
+.search-add .fa{
+  position: relative;
+  top: 45%;
+  transform: translateY(-50%);
+}
+.search-name, .search-stud{
+  position: relative;
+  margin-left: 70px;
+}
+.search-result-wrap .search-result{
+  margin-bottom: 0;
   overflow: hidden;
-  margin-bottom: 15px;
 }
-/* END - search event */
-
-/* Search on search page*/
-#search-page-form{
-    overflow: auto;
+.search-overlay-wrap input:focus{
+  outline: none;
 }
-.search-page-wrap{
-    width: 100%;
-    margin-bottom: 90px;
-}
-.search-page-wrap input[type=search]{
-    float: left;
-    width: calc(100% - 100px);
-    border: none;
-    background-color: transparent;
-    border-bottom: 1px solid #FFF;
-    font-size: 20px;
-    padding: 1px 10px 2px 10px;
-}
-.search-page-wrap input[type=search]:focus{
-    outline: none;
-}
-.search-page-wrap button{
-    float: left;
-    width: 40px;
-    border: none;
-    background-color: #FFF;
-    padding: 6px 10px;
-}
-.search-page-wrap input[type=search]::-webkit-input-placeholder{
-    /* se SASS */
-}
-.search-page-wrap input[type=search]:-moz-placeholder{
-    /* se SASS */
-}
-.search-page-wrap input[type=search]::-moz-placeholder{
-    /* se SASS */
-}
-.search-page-wrap input[type=search]:-ms-input-placeholder{
-    /* se SASS */
-}
-/* END - search on search page*/
-
-/* Search Tabs */
-.search-tabs { /**/
-    position: relative;
-    min-height: 200px; /* This part sucks */
-    clear: both;
-    margin: 25px 0;
-}
-.tab-tab{ /* En faktisk tab. eks: Tags; */
-    float: left;
-}
-.tab-tab label {
-    background: transparent;
-    padding: 10px 20px;
-    margin-left: -1px;
-    position: relative;
-    left: 1px;
-    cursor: pointer;
-}
-.tab-tab [type=radio] {
-    display: none;
-}
-.tab-content {
-    position: absolute;
-    height: auto;
-    width: 100%;
-    top: 40px;
-    left: 0;
-    background: white;
-    right: 0;
-    bottom: 0;
-    padding: 20px;
-    display: none;
-    overflow: auto;
-}
-.tab-tab [type=radio]:checked ~ label {
-    background: white;
-    border-bottom: 1px solid white;
-    z-index: 2;
-}
-.tab-tab [type=radio]:checked ~ label ~ .tab-content {
-    z-index: 1;
-    display: table;
-}
-
-/* END - search-tabs */
+/* END - Search result */

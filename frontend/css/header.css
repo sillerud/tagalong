@@ -29,7 +29,6 @@ Spesifikt til header og meny
 }
 .top-header .logo{
     display: inline;
-    margin-right: 30px;
     position: relative;
     bottom: 0;
     color: white;
@@ -40,6 +39,9 @@ Spesifikt til header og meny
 }
 .top-right{
     float: right;
+}
+.top-right .fa{
+  font-size: 1em;
 }
 #searchBtn .fa{
   padding-right: 4px;
@@ -58,95 +60,11 @@ Spesifikt til header og meny
     padding: 3px 3px 1px 3px;
     color: #FFF;
 }
-.search-overlay-wrap{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #F2F2EE;
-  z-index: 999;
-  display: none;
-}
-.search-overlay-wrap .search-search{
-  position: absolute;
-  right: 35px;
-  font-size: 2em;
-  top: 120px;
-  cursor: pointer;
-}
-.close-search{
-  float: right;
-  position: relative;
-  top: 20px;
-  right: 55px;
-  font-size: 1.2em;
-  cursor: pointer;
-}
-.close-search .exit-search{
-  position: absolute;
-  right: -35px;
-  font-size: 2em;
-  top: -3px;
-  cursor: pointer;
-}
-.search-overlay-wrap input{
-  width: 100%;
-  background-color: #FFF;
-  border: none;
-  border-bottom: 2px solid #1eb6ec;
-  font-size: 3em;
-  position: relative;
-  top: 70px;
-  padding: 10px 20px;
-}
-.search-result-wrap{
-  padding: 10px;
-  background-color: #FFF;
-  margin-bottom: 10px;
-  position: relative;
-}
-.result-image-wrap{
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 60px;
-  background-size: cover;
-}
-.search-name{
-  font-weight: bold;
-}
-.search-add{
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 10px;
-  height: 100%;
-  color: #333;
-  background-color: #1eb6ec;
-}
-.search-add .fa{
-  position: relative;
-  top: 45%;
-  transform: translateY(-50%);
-}
-.search-name, .search-stud{
-  position: relative;
-  margin-left: 70px;
-}
-.search-result-wrap .search-result{
-  margin-bottom: 0;
-  overflow: hidden;
-}
-.search-overlay-wrap input:focus{
-  outline: none;
-}
 .logged-in-person{
     display: inline-block;
     position: relative;
     float: left;
-    margin-left: 20px;
+    margin-left: 10px;
     padding: 3px 5px 5px 5px;
     color: #FFF;
     cursor: pointer;
@@ -190,6 +108,8 @@ Spesifikt til header og meny
   background-color: #000;
   border-radius: 3px;
 }
+#linkToProfileDesctop{ display: inline-block;}
+#linkToProfileMobile{ display: none;}
 
 @media screen and (min-width: 401px){
     .arrow-up{
@@ -201,9 +121,6 @@ Spesifikt til header og meny
 
 }
 @media screen and (max-width: 400px){
-    .notification-title{
-        display: none;
-    }
     .arrow-up{
         left: 0px;
     }
@@ -251,7 +168,6 @@ Spesifikt til header og meny
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-
 .dropdown-content a {
     margin: 0 0px;
     width: auto;
@@ -260,9 +176,7 @@ Spesifikt til header og meny
     text-decoration: none;
     display: block;
 }
-
 .dropdown-content a:hover{background-color: #E1F4FA}
-
 .arrow-up{
     display: none;
     z-index: 90000;
@@ -274,6 +188,9 @@ Spesifikt til header og meny
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-bottom: 10px solid #8fc6d9;
+}
+.notification div{
+  pointer-events: none;
 }
 .notification-img{
     padding: 10px 10px 10px 10px;
@@ -452,8 +369,44 @@ Spesifikt til header og meny
   top: 8px;
   z-index: 800;
 }
-@media screen and (max-width: 600px){
-  .person-name span, #searchBtn span{
+@media screen and (max-width: 670px){
+  .person-name span, #searchBtn span, .notification-title{
     display: none;
   }
+  .top-right{
+    margin-top: 17px;
+  }
+  .top-right .fa{
+    font-size: 1.4em;
+    margin-top: 5px;
+  }
+  .logged-in-person{
+    position: static;
+  }
+  .logged-in-person .fa{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .logged-in-person:hover .person-name{
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  .menu-person-dropdown-mobile{
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+    top: 69px;
+    border-radius: 0;
+    padding: 5px;
+    background-color: #333;
+    border-bottom: 2px solid blue;
+    display: none;
+  }
+  .menu-person-dropdown-mobile .person-list{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  #linkToProfileDesctop{ display: none;}
+  #linkToProfileMobile{ display: inline-block;}
 } /* END max 400px */

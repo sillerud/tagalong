@@ -225,21 +225,44 @@ angular.module('tagalong', [
         var dropdown = $('.dropdown-content');
         var dropdownArrow = $('.arrow-up');
         $rootScope.openNotifications = function() {
-            dropdownArrow.fadeIn();
-            dropdown.fadeIn();
-            dropdownToggle = true;
-        };
-
-        $(document).mouseup(function (e) {
-            if (dropdownToggle && !dropdown.is(e.target) && dropdown.has(e.target).length === 0) {
+            if(dropdownToggle == false){
+                dropdownArrow.fadeIn();
+                dropdown.fadeIn();
+                dropdownToggle = true;
+                console.log('open');
+            }else{
                 dropdown.fadeOut();
                 dropdownArrow.fadeOut();
                 dropdownToggle = false;
+                console.log('close');
+            }
+        };
+
+        $(document).mouseup(function (e) {
+            var whatIs = $(e.target).attr('class');
+            console.log(whatIs);
+            if (dropdownToggle == true && whatIs != 'notification') {
+                dropdown.fadeOut();
+                dropdownArrow.fadeOut();
+                dropdownToggle = false;
+            }
+            if (whatIs == 'person-list') {
+                $rootScope.openPersonDropdown();
             }
         });
         $rootScope.openCardShortcuts = function(){
             $('.card-shortcut-wrap').fadeIn();
         };
+        var personDrop = false;
+        $rootScope.openPersonDropdown = function(){
+            if( personDrop == false ){
+                $('.menu-person-dropdown-mobile').fadeIn(300);
+                personDrop = true;
+            }else{
+                $('.menu-person-dropdown-mobile').fadeOut(300);
+                personDrop = false;
+            }
+        }
     }])
     .directive('galeryImage', function() {
         return {

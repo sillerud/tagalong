@@ -37,8 +37,8 @@
         </div><!-- col-sm-5 END-->
         <div class="col-sm-7 col-md-8">
 
-            <div ng-repeat="event in events" class="page-preview">
-                <div class="page-preview-image" ng-style="{'background-image': 'url(' + event.coverImageUrl + ')'}">
+            <div ng-repeat="event in events" class="preview">
+                <div class="preview-image" ng-style="{'background-image': 'url(' + event.coverImageUrl + ')'}">
                     <div class="event-attending-btn" ng-style="event.attendingStyle">
                         <i class="fa fa-check"></i>
                         <div class="attending-text">Attending</div>
@@ -50,7 +50,7 @@
                         </div>
                     </div><!-- END add page to card -->
 
-                    <div class="page-preview-info">
+                    <div class="preview-info">
                         <ul class="card-tag-list">
                             <li ng-repeat="tag in event.tags">#{{ tag.name }}</li>
                         </ul><!--card-tag-list END-->
@@ -58,7 +58,7 @@
 
                 </div><!--page-preview-image END-->
                 <a ng-href="#/events/{{ event.id }}">
-                    <div class="page-preview-header">
+                    <div class="preview-header">
                         <div class="events-preview-info-wrap">
                             <h3 class="events-preview-title">{{ event.title }}</h3>
                             <h4 class="events-preview-location">Location: {{ event.location }}</h4>

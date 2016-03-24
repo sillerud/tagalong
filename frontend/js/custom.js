@@ -1,9 +1,13 @@
 $(document).ready(function () {
 
+    var bodyWidth = $(document).outerWidth();
     // Kjører hver gang vinduet endrer størrelse
     $(window).resize(function() {
         //createThumbnails();
         $('.sidebar-all-card').removeAttr('style');
+        bodyWidth = $('body').outerWidth();
+
+        mobileSettingsDropdown();
     });
 
     var personFeed = function(){
@@ -196,6 +200,25 @@ $('.burger-wrap').on("click", function(){
 });
 // END hamburgerikon animasjon
 
+// Person menu dropdown for mobil
+var linkAdded = false;
+function mobileSettingsDropdown(){
+
+    if( linkAdded == false && bodyWidth < 654 ){
+        $('.menu-person-dropdown').prepend('<a id="mobilePerson" href="#/profile/"><div class="person-list">Your profile</div></a>');
+        linkAdded = true;
+        $('.menu-person-dropdown')
+            .addClass('menu-person-dropdown-mobile')
+            .removeClass('menu-person-dropdown');
+    }else if( bodyWidth >= 654 ){
+        $('.menu-person-dropdown-mobile')
+            .addClass('menu-person-dropdown')
+            .removeClass('menu-person-dropdown-mobile');
+        $('.menu-person-dropdown').find('#mobilePerson').remove();
+        linkAdded = false;
+    }
+};
+mobileSettingsDropdown();
 
 }); // END DOM
 
