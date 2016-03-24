@@ -38,3 +38,307 @@ Eks: edit profile, edit card, add new card, create new page osv.
     background-color: #FFF;
 }
 /* END - popUp */
+
+/* Edit new card pop-up */
+.edit-card-wrap{
+    max-width: 500px;
+    width: calc(100% - 20px);
+    height: auto;
+    background-color: #FFF;
+    margin: auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 2000;
+}
+.popup-top{
+    padding: 50px 50px 20px;
+}
+.popup-bottom{
+    padding: 40px 50px;
+    background-color: #61afca;
+    overflow: hidden;
+    -webkit-box-shadow: inset 0px 5px 5px -5px #333;
+}
+#darkOverlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+    height: 100%;
+    z-index: 1000;
+    cursor: zoom-out;
+}
+/* Edit new card pop-up */
+
+/* Add new buttons */
+.add-new-btn-wrap{
+  position: fixed;
+  width: 50px;
+  height: auto;
+  right: 30px;
+  bottom: 40px;
+  z-index: 3000;
+}
+.add-new-btn{
+  border-radius: 50%;
+  background-color: #FFF;
+  width: 40px;
+  height: 40px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-box-shadow: 2px 2px 3px #848484;
+}
+.add-new-btn .fa{
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  top: 10px;
+  left: 0;
+  right: 0;
+  color: #333;
+}
+#addNew{ /* Knapp for å få opp panelet med new post, søk osv */
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+  opacity: 1;
+}
+#addNew .fa{
+  top: 15px;
+  font-size: 1.3em;
+  color: #FFF;
+}
+#newPostBtn{
+  bottom: 50px;
+}
+#newPostBtn:before, #newPageBtn:before, #newEventBtn:before, #newSearchBtn:before{
+  background-color: #FFF;
+  padding: 0 5px 2px 5px;
+  border-radius: 3px;
+  top: 7px;
+  border: 1px solid #61afca;
+}
+#newPostBtn:before{
+  content: 'Add new post';
+  position: absolute;
+  left: -105px;
+}
+#newPageBtn{
+  bottom: 100px;
+}
+#newPageBtn:before{
+  content: 'Add new page';
+  position: absolute;
+  left: -110px;
+}
+#newEventBtn{
+  bottom: 150px;
+}
+#newEventBtn:before{
+  content: 'Add new event';
+  position: absolute;
+  left: -115px;
+}
+#newSearchBtn{
+  bottom: 200px;
+}
+#newSearchBtn:before{
+  content: 'Search';
+  position: absolute;
+  left: -65px;
+}
+/* END add new buttons */
+
+/* Add to card popup */
+.add-to-card-wrap{
+    position: fixed;
+    max-width: 500px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+    z-index: 2000;
+}
+.add-to-card-wrap #atcSearch{
+    width: 100%;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    padding: 10px 15px;
+    position: relative;
+    margin-bottom: 15px;
+}
+.add-to-card-wrap .box-title{
+    margin-bottom: 15px;
+}
+.exit-btn{
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    font-size: 1.2em;
+    padding: 4px 10px 6px;
+    border-radius: 50%;
+    background-color: #1eb6ec;
+    cursor: pointer;
+}
+.exit-btn:hover{
+    background-color: #333;
+    color: #FFF;
+}
+/* END - add to card popup */
+
+.edit-profile-profile-pic{
+    width: 128px;
+    height: 128px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    position: relative;
+}
+.pic-overlay {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, .6);
+    transition: opacity 300ms linear;
+    cursor: pointer;
+}
+.edit-profile-profile-pic:hover .pic-overlay {
+    opacity: 1;
+    transition: opacity 300ms linear;
+}
+.edit-profile-profile-pic {
+    display: block;
+}
+.pic-overlay {
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: #FFF;
+}
+.pic-overlay-text {
+    text-align: center;
+    margin: auto;
+    margin-bottom: -30px;
+    position: relative;
+}
+.group-description {
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+.edit-field-group {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.edit-this-title, .delete-this-link{
+    float: left;
+}
+.delete-this-link{
+    padding-top: 20px;
+    padding-left: 725px;
+}
+.edit-fields .edit-field2{
+    width: 100%;
+    background-color: white;
+    border: 1px solid #DCDCDC;
+    border-radius: 3px;
+}
+.edit-field3{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid #DCDCDC;
+    padding: 10px;
+    border-radius: 3px;
+}
+.edit-fields .edit-field1:focus, .edit-fields .edit-field2:focus, .edit-fields .edit-field3:focus{
+    outline: none;
+}
+.edit-fields label{
+     /* se SASS */
+}
+.edit-fields .edit-field1{
+    padding: 10px;
+}
+.edit-fields .edit-field2{
+    padding: 8px 10px 10px;
+    font-size: 1em;
+    margin-bottom: 30px;
+}
+/* Placeholder tekst */
+.edit-fields ::-webkit-input-placeholder {
+       color: #333;
+       opacity: .8;
+}
+    .edit-fields :-moz-placeholder { /* Firefox 18- */
+       color: #333;
+       opacity: .8;
+    }
+    .edit-fields ::-moz-placeholder {  /* Firefox 19+ */
+       color: #333;
+       opacity: .8;
+    }
+    .edit-fields :-ms-input-placeholder {
+       color: #333;
+       opacity: .8;
+    }
+
+.edit-event-date-icon, .edit-event-location-icon{
+    padding-right: 10px;
+}
+.center-input {
+    text-align: center;
+}
+.center-input input {
+    display: inline-block;
+}
+.center-input div {
+    display: inline-block;
+}
+.new-event.holder{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    clear: both;
+    margin-bottom: 15px;
+    padding: 10px
+}
+
+.edit-event-pic{
+    margin-bottom: 20px;
+}
+.name-event{
+    background-color: transparent;
+}
+.invite-container{
+    margin-top: 20px;
+    width: auto;
+    height: auto;
+    overflow: auto;
+}
+.invite-people{
+    float: left;
+}
+.invite-checkbox{
+    float: left;
+    padding-right: 100px;
+}
+/* END - Placeholder tekst */
+
+/* END - Edit profil */

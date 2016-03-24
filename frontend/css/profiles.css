@@ -6,12 +6,326 @@ Eks: Fubar, Ola Nordmann og events
 /* Person */
 .btn-fill-save-profile{ margin-top: 100px; }
 /* END - person */
+.profile-box{
+    width: 100%;
+    height: auto;
+    clear: both;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+.about-me-box{
+    width: auto;
+    height: auto;
+    background-color: white;
+    clear: both;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+.img-profile-img{
+    width: 100%;
+    margin-top: 20px;
+    border: 2px solid #1eb6ec; /*blå*/
+    border-radius: 7px;
+}
+.edit-profile-page-link{
+    margin-top: 20px;
+    padding-left: 15px;
+}
+.profile-post-box{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    clear: both;
+    margin-bottom: 300px;
+    padding: 5px;
+}
+.holder{
+    margin-top: 15px;
+}
+.info-holder b{
+    margin-right: 5px;
+}
+.info-holder{
+    margin-left: 200px;
+}
+.info-format{
+    margin-right: 5px;
+    float: left;
+    width: auto;
+}
+.profile-posts{
+    font-size: 18px;
+}
+.post-profile{
+    background-color: lightgrey;
+    margin-left: 52px;
+}
+.inner-feedbar{
+    height:auto;
+}
+@media screen and (max-width: 500px){
+    .profile-pic-holder{
+        width:70px;
+        height: 70px;
+    }
+    .info-holder{
+        margin-left: 100px;
+    }
+}
 
+/*----Skills section----*/
+.skill-section{
+}
+.myProjects{
+}
+
+/*----tabs----*/
+.tabs{
+    overflow: hidden;
+    width: 100%;
+    display:inline-block;
+    margin-bottom: 30px;
+}
+/*----tab links----*/
+/*----clear fix----*/
+.tab-links:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+.tabs ul{
+    margin-bottom: 0;
+    padding-left: 0;
+}
+.tabs-item{
+    display: table-cell;
+}
+.tab-links a{
+    margin:0 0;
+    float:left;
+    list-style:none;
+    display: inline-table;
+    table-layout: fixed;
+    width: 100%;
+    padding: 9px 15px;
+    border-radius: 3px 3px 0 0;
+    background: #e6e1e1;
+    opacity: .5;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4c4c4c;
+    transition: all linear 0.15s;
+}
+.tab-links a:hover{
+    opacity: .8;
+    background:#e6e6e6;
+    text-decoration:none;
+}
+li.active a, li.active a:hover {
+    background:#fff;
+    color:#4c4c4c;
+    opacity: 1;
+}
+/*----- Content of Tabs -----*/
+.tabs-content{
+    padding: 0px;
+    box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+    background:#fff;
+    width: 100%;
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+.tab-content-section{
+    height: 200px;
+}
 /* Page */
+#breads{
+    display: none;
+}
+.header-image-wrap{
+    position: relative;
+    top: -20px;
+}
+.event-background-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+1,000000+100&0+79,0.74+100 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 1%, rgba(0,0,0,0) 79%, rgba(0,0,0,0.74) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 1%,rgba(0,0,0,0) 79%,rgba(0,0,0,0.74) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 1%,rgba(0,0,0,0) 79%,rgba(0,0,0,0.74) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bd000000',GradientType=0 ); /* IE6-9 */
 
+}
+.page-profile-image{
+    width: 140px;
+    height: 140px;
+    background-position: top;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    border: 4px solid #333;
+    border-radius: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 0 0 10px #333;
+}
+.page-name{ /* Navnet på pagen */
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    color: #FFF;
+}
+/* Add to card btn */
+.add-page-to-card{
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+}
+.add-page-to-card-btn{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    float: left;
+    cursor: pointer;
+}
+.add-page-to-card-btn .fa{
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+.add-page-to-card-text{
+    position: relative;
+    float: left;
+    padding: 0 5px 2px 5px;
+    right: 5px;
+    top: 3px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+}
+
+/* Shout out box */
+
+.shout-out-box{
+    /* Se SASS-fila */
+}
+.shout-out-text{
+    margin-top: 10px;
+}
+.fa-bullhorn{
+   padding-right: 10px;
+}
+.shout-out-box:hover .quick-edit{
+    display: block;
+}
+.quick-edit{
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    background-color: #1eb6ec;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+}
+/* END shout out */
+
+/* About  */
+.about-box{
+}
+.about-box-text{
+    margin-top: 10px;
+}
+.about-read-more{
+    padding-top: 0px;
+    color: #333;
+}
+.about-read-more span{
+    cursor: pointer;
+}
+/* END about*/
+
+/* Gallery */
+.gallery-thumbs-wrap{
+    overflow: auto;
+    margin: 10px 0;
+}
+.gallery-thumb{
+    width: 25%;
+    overflow: hidden;
+    float: left;
+    box-sizing: border-box;
+    border: 2px solid #FFF;
+}
+.view-gallery{
+    padding-top: 0px;
+    color: #333;
+}
+.view-gallery span{
+    cursor: pointer;
+}
+
+.about-n-gallery{
+    overflow: auto;
+    display: none;
+}
+.about-n-gallery .box-title{
+    width: 50%;
+    float: left;
+    border: none;
+    padding-bottom: 0;
+    text-align: center;
+}
+.about-n-gallery a{
+    color: #333;
+}
+.about-n-gallery .box-title:last-of-type{
+    border-left: 2px solid #d8d8d8;
+}
+@media screen and (max-width: 767px){
+    .about-box, .gallery-box {
+        display: none;
+    }
+    .about-n-gallery{
+        display: block;
+    }
+} /* Max-width 767px */
 /* END - page */
 
 /* Event */
-
+.fa-bullhorn{
+   padding-right: 10px;
+}
+.event-time-icon, .event-time, .event-date, .event-date-icon, .event-place, .event-place-icon{
+    padding: 5px;
+}
+.event-time-icon, .event-date-icon, .event-place-icon{
+    padding-right: 10px;
+}
+.event-time-area, .event-date-area, .event-place-area{
+    width: 100%;
+    padding: 10px;
+}
+.event-text{
+    padding-top: 20px;
+}
+.attending-box{
+    overflow: hidden;
+}
+.about-element {
+    display: block;
+}
+.attending-thumbs-wrap{
+    margin-top: 15px;
+}
 /* END - event */
 

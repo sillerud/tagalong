@@ -2,3 +2,501 @@
 Spesifikt for en feed
 Eks: Tag-feed, all pages, all events, person-feed
 */
+
+/* Sidebars */
+.order-by-box, .filter-by-box{
+    margin-bottom: 20px;
+}
+.order-pages-by, .filter-pages-by{
+    padding-top: 5px;
+}
+label{
+    padding-left: 5px;
+    font-weight: normal;
+}
+/* Card sidebar */
+.card-sidebar-wrap{
+    background-color: #FFF;
+    height: 55px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.sidebar-card-info{
+    overflow: hidden;
+}
+.sidebar-card:nth-child(2) .card-sidebar-inner:after{
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #FFF;
+}
+.card-sidebar-image{
+    background-color: #fd7265;
+    height: 55px;
+    width: 55px;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    background-size: cover;
+    background-position: center center;
+}
+.card-sidebar-inner h3{
+    display: inline-block;
+    margin: 0;
+    float: left;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.card-sidebar-inner .card-tag-wrap{
+    float: left;
+    margin-left: -5px;
+    clear: both;
+}
+.sidebar-mobile{
+    display: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    padding: 10px;
+    background-color: #FFF;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+.sidebar-all-card{
+    display: block;
+}
+@media screen and (max-width: 767px){
+    .sidebar-mobile{
+        display: block;
+    }
+    .sidebar-all-card{
+        display: none;
+    }
+}
+/* END - card sidebar */
+/* END - sidebars */
+
+/* Feed */
+.person-feed-boks{ /* wrap */
+    width: 100%;
+    height: auto;
+}
+.person-feed-boks .feed-header{ /* Om personen, dato osv */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.person-image{
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    float: left;
+    margin-right: 15px;
+}
+.feed-header .person-image img{
+    width: 100%;
+}
+.feed-header .person-name{ /* H2 Navnet */
+    float: left;
+    margin: 0;
+    width: calc(100% - 95px);
+    font-size: 1.3em;
+}
+.feed-header .person-studie{ /* H4 studieretning */
+    float: left;
+    margin: 0;
+    font-size: 12px;
+    margin-top: 7px;
+    width: calc(100% - 95px);
+}
+.feed-header .feed-date{
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+.feed-header .feed-star{
+    position: absolute;
+    right: 15px;
+    top: 0px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.feed-header .feed-star:hover{
+    font-size: 18px;
+    top: -2px;
+}
+.person-feed-boks .feed-content{ /* Innhold */
+    clear: both;
+}
+.person-feed-boks .card-tag-wrap{
+    width: 100%;
+}
+.person-feed-boks .card-tag-wrap ul{
+
+}
+.person-feed-boks .card-tag-wrap ul > li:first-of-type{
+
+}
+.bottom-bar{
+    width: 100%;
+    border-top: 1px solid #F2F2EE;
+    margin-top: 10px;
+    padding: 5px 0 15px 0;
+}
+.bottom-bar .feed-feedback span{
+    /* Se SASS */
+}
+.feed-comment-wrap{
+    width: 100%;
+}
+.feed-comment-wrap input{
+    padding: 11px;
+    border-radius: 5px;
+}
+.feed-comment-wrap input.comment-input{
+    width: calc( 100% - 140px);
+    border: 1px solid #848484;
+}
+.feed-comment-wrap input.comment-input:focus{
+    outline: none;
+}
+.feed-comment-wrap input.add-comment-btn{
+    width: 120px;
+    background-color: transparent;
+    padding: 10px;
+}
+.tagalong-like-btn{
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    padding: 3px 8px 4px 5px;
+}
+.tagalong-like-btn img{
+    width: 20px;
+    margin-right: 10px;
+}
+.tagalong-like-btn:hover{
+    color: #1eb6ec;
+}
+.tagalong-like-btn.tagged-along{
+    background-color: #333;
+    color: #FFF;
+    border-radius: 3px;
+}
+
+/* Button effect */
+.comment-button-wrap {
+    width: 120px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+    pointer-events: none;
+    opacity: 0.7;
+    border-radius: 5px;
+}
+
+.comment-button-wrap .add-comment-btn {
+    display: inline-block;
+
+    width: 120px;
+    height: 44px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #c4c4c4;
+    transition: color .5s;
+    color: #333;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: all 300ms linear;
+    border-radius: 5px;
+}
+.comment-button-wrap .border-color{
+    transition: all 300ms linear;
+    border-radius: 5px;
+}
+.comment-button-wrap .comment-overlay{
+    position: absolute;
+    top: 0;
+    display: inline-block;
+
+    width: 120px;
+    height: 44px;
+    position: relative;
+    overflow: hidden;
+    transition: color .5s;
+    color: #FFF;
+    border-radius: 5px;
+}
+.comment-button-wrap .comment-overlay:before{
+    content: "";
+    position: absolute;
+    z-index: 0;
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+}
+.comment-button-wrap .comment-overlay:hover{
+    color: #fff;
+}
+.comment-button-wrap .comment-overlay:before{
+    top: 0;
+    left: -200%;
+    transition: all .7s;
+}
+.comment-button-wrap .comment-overlay:hover:before{
+    top: -30px;
+    left: -30px;
+}
+/* END button effect */
+@media screen and (max-width: 400px){
+    .feed-header .feed-date{
+        top: 45px;
+    }
+}
+/* end feed*/
+
+/*Displying pages style*/
+.page-preview{ /* Wrap rundt et event, upcoming og my event */
+    overflow: hidden;
+    margin-bottom: 30px;
+    background-color: #FFF;
+    position: relative;
+    border: 5px solid #FFF;
+}
+.page-preview-image{
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    z-index: 300;
+    background-color: rgba(0,0,0, 0.1);
+}
+.page-preview-info{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+.page-preview-info .card-tag-list{
+    padding: 10px;
+    margin-bottom: 0;
+}
+.page-preview-info .card-tag-list li{
+    background-color: rgba(0,0,0, 0.3);
+    border-radius: 3px;
+    color: #FFF;
+}
+.page-preview-info .card-tag-list li:hover, .page-preview-info .card-tag-list li:focus{
+    background-color: rgba(0,0,0, 0.6);
+}
+.page-preview-header{
+    background-color: #FFF;
+    overflow: hidden;
+    position: relative;
+}
+.preview-title{
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 1.3em;
+}
+/*Displying pages style END*/
+
+/* Add to card knapp*/
+.add-page-to-card-pages{
+    position: absolute;
+    right: 20px;
+}
+/* Add to card knapp END*/
+
+/*Checkbox style*/
+.checkbox-style{
+    margin: 0px;
+    position: relative;
+}
+/*Checkbox style END*/
+
+
+@media screen and (max-width: 500px){
+    .pages-result-profilbilde{
+      width: 50px;
+    }
+}
+
+/* Events */
+.events-feed-wrap h3{
+    color: #000;
+    text-transform: uppercase;
+}
+.an-event-wrap{ /* Wrap rundt et event, upcoming og my event */
+    overflow: hidden;
+    margin: 20px 0;
+    background-color: #FFF;
+    position: relative;
+    border-radius: 10px;
+}
+.attending-checked{ /* Når man har trykket attending */
+    background-color: #bcbcbc; /* gray */
+}
+.event-image-wrap{
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 10px;
+    z-index: 300;
+}
+.event-image-wrap .event-title{
+    margin: auto;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 15px;
+    font-weight: bold;
+    font-size: 1.7em;
+    color: #FFF;
+    display: inline;
+    pointer-events: none;
+}
+.event-image-wrap a{
+    color: #FFF;
+}
+.event-image-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,000000+0,000000+100&0+69,0.67+100 */
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 69%, rgba(0,0,0,0.67) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 69%,rgba(0,0,0,0.67) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 69%,rgba(0,0,0,0.67) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#ab000000',GradientType=0 ); /* IE6-9 */
+
+}
+.event-attending-btn{ /* Knapp for å delta */
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 45px;
+    margin: auto;
+    opacity: 0.4;
+    color: #FFF;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 400;
+    transition: background-color 200ms linear;
+}
+.attending-text{ /* Tekst inne i knappen */
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    display: none;
+}
+.event-attending-btn .fa{ /* Ikonet i knappen */
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 11px;
+    text-align: center;
+    margin: auto;
+    color: #000;
+}
+.events-attending{
+    font-weight: bold;
+}
+.events-about{ /* Info om eventet */
+    padding: 15px;
+}
+.an-event-wrap .card-tag-wrap{
+    margin-top: 15px;
+}
+.an-event-wrap .event-info{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: -35px;
+    bottom: -35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.an-event-wrap .event-info .fa{
+    position: absolute;
+    left: 22px;
+    top: 18px;
+    font-size: 1.3em;
+}
+.events-preview-title {
+    color: #333;
+    text-align: left;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 1.3em;
+}
+.events-preview-location{
+    color:#333;
+    text-align: left;
+    margin: 0;
+    padding: 2px 10px;
+    font-size: 0.9em;
+}
+.events-preview-attending{
+    color:#333;
+    text-align: left;
+    margin: 0;
+    padding: 2px 10px;
+    font-size: 0.9em;
+}
+.events-preview-date{
+    color:#333;
+    margin: auto;
+    padding: 2px 10px;
+    font-size: 2em;
+    text-align: center;
+}
+.events-preview-month{
+    color:#333;
+    margin: auto;
+    padding: 2px 10px;
+    font-size: 1em;
+    text-align: center;
+}
+.events-preview-info-wrap{
+    float: left;
+    margin: 5px 0 5px 0;
+
+}
+.events-preview-date-wrap{
+    position: absolute;
+    right: 10px;
+    overflow: hidden;
+    display: inline-block;
+    width: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* END - events */
