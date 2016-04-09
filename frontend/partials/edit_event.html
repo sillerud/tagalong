@@ -1,21 +1,25 @@
-<div class="container edit-profile-wrap edit-fields">
+<div class="container edit-profile-wrap edit-fields" id="editEvent">
     <ng-form>
         <div class="center-input"><h1>{{ title }}</h1></div>
 
         <div class="col-sm-12">
-            <div class="edit-cover-piv" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
-                <img src="img/event_pic.jpg" class="img-responsive" alt="">
-                <div class="pic-overlay"><b>Click to edit</b></div>
+            <div class="row">
+                <div class="edit-cover-piv edit-pic" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
+                    <img src="img/event_pic.jpg" class="img-responsive" alt="">
+                    <div class="pic-overlay">
+                        <div class="pic-overlay-text">Click to edit</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <h3 class="edit-this-title">Title</h3>
-                <h4 ng-if="edit" class="delete-this-link"><a href="#">Delete event</a></h4>
-                <input ng-model="event.title" class="edit-field2" placeholder="Title of the event">
-                <textarea ng-model="event.description" rows="6" class="edit-field3" placeholder="About the event"></textarea>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="edit-this-title">Title</h3>
+                    <h4 ng-if="edit" class="delete-this-link"><a href="#">Delete event</a></h4>
+                    <input ng-model="event.title" class="edit-field2" placeholder="Title of the event">
+                    <textarea ng-model="event.description" rows="6" class="edit-field3" placeholder="About the event"></textarea>
+                </div>
             </div>
-        </div>
+        </div><!-- END col 12 -->
 
         <div class="row">
             <div class="col-sm-6">

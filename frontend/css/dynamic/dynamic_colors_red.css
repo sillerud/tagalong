@@ -1,3 +1,9 @@
+.owner-col-6 {
+  background-color: #ff7061; }
+
+.owner-col-6:hover {
+  background-color: #ff422e; }
+
 .an-event-wrap .event-info {
   background-color: #ff7061; }
 
@@ -14,10 +20,10 @@
   background-color: #61afca; }
 
 #two {
-  background-color: #7ec59d; }
+  background-color: #795580; }
 
 #two:before {
-  border-right: 8px solid #7ec59d; }
+  border-right: 8px solid #795580; }
 
 #three {
   background-color: #ff7061; }
@@ -32,10 +38,10 @@
   border-right: 8px solid #ffd066; }
 
 #five {
-  background-color: #795580; }
+  background-color: #7ec59d; }
 
 #five:before {
-  border-right: 8px solid #795580; }
+  border-right: 8px solid #7ec59d; }
 
 .menu-wrap {
   background-color: #ff7061; }

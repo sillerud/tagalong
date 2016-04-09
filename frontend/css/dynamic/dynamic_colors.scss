@@ -1,10 +1,13 @@
-$color: rgb(97,175,202); // Blue
-$color2: rgb(121,85,128); // Purple
+$color2: rgb(97,175,202); // Blue
+$color3: rgb(121,85,128); // Purple
 $color5: rgb(126,197,157); // Green
-$color3: rgb(255,208,102); // Yellow
-$color4: rgb(255,112,97); // Red
+$color4: rgb(255,208,102); // Yellow
+$color: rgb(255,112,97); // Red
 
 
+// Profiles.css
+.owner-col-6{ background-color: $color; }
+.owner-col-6:hover{ background-color: darken($color, 10%); }
 // Events.css
 .an-event-wrap .event-info{ background-color: $color; }
 

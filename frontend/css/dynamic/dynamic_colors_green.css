@@ -1,2 +1,139 @@
-.an-event-wrap .event-info{background-color:#7ec59d}.card-wrap{border-bottom:5px solid #7ec59d}.new-post-in-card-icon{background-color:#7ec59d}.edit-card-icon{color:#7ec59d}#one{background-color:#61afca}#two{background-color:#ffd066}#two:before{border-right:8px solid #ffd066}#three{background-color:#7ec59d}#three:before{border-right:8px solid #7ec59d}#four{background-color:#ff7061}#four:before{border-right:8px solid #ff7061}#five{background-color:#795580}#five:before{border-right:8px solid #795580}.menu-wrap{background-color:#7ec59d}.menu{background-color:#7ec59d}.add-new-btn{border:2px solid #7ec59d}#addNew{background-color:#7ec59d}.invite-text{border-bottom:1px solid #7ec59d}.add-page-to-card-btn{background-color:#7ec59d}.shout-out-box{border-left:4px solid #7ec59d}.edit-fields .edit-field1,.edit-fields .edit-field2{border-bottom:1px solid #7ec59d}.edit-field3{border:1px solid #7ec59d}.edit-fields label{color:#7ec59d}.search-people .search-result-title{border-bottom:2px solid #7ec59d}.search-page-wrap input[type=search]{color:#7ec59d}.search-page-wrap input[type=search]::-webkit-input-placeholder{color:#7ec59d}.search-page-wrap input[type=search]:-moz-placeholder{color:#7ec59d}.search-page-wrap input[type=search]::-moz-placeholder{color:#7ec59d}.search-page-wrap input[type=search]:-ms-input-placeholder{color:#7ec59d}.col-sidebar-cards{border-right:2px solid #7ec59d}.sidebar-card-icon{background-color:#7ec59d}.feed-header .feed-star:hover{color:#7ec59d}.bottom-bar .feed-feedback span{color:#7ec59d}.feed-comment-wrap input.comment-input:focus{border:1px solid #7ec59d}.comment-button-wrap .border-color{border:2px solid #7ec59d}.comment-button-wrap .comment-overlay{border:2px solid #7ec59d}.comment-button-wrap .comment-overlay:before{background:#7ec59d}.btn-no-fill{border:2px solid #7ec59d}.btn-no-fill:hover{background-color:#7ec59d}.btn-fill{background-color:#7ec59d}.btn-fill:hover{background-color:#7ec59d}
+.owner-col-6 {
+  background-color: #7ec59d; }
+
+.owner-col-6:hover {
+  background-color: #5bb582; }
+
+.an-event-wrap .event-info {
+  background-color: #7ec59d; }
+
+.card-wrap {
+  border-bottom: 5px solid #7ec59d; }
+
+.new-post-in-card-icon {
+  background-color: #7ec59d; }
+
+.edit-card-icon {
+  color: #7ec59d; }
+
+#one {
+  background-color: #795580; }
+
+#two {
+  background-color: #ffd066; }
+
+#two:before {
+  border-right: 8px solid #ffd066; }
+
+#three {
+  background-color: #7ec59d; }
+
+#three:before {
+  border-right: 8px solid #7ec59d; }
+
+#four {
+  background-color: #ff7061; }
+
+#four:before {
+  border-right: 8px solid #ff7061; }
+
+#five {
+  background-color: #61afca; }
+
+#five:before {
+  border-right: 8px solid #61afca; }
+
+.menu-wrap {
+  background-color: #7ec59d; }
+
+.menu {
+  background-color: #7ec59d; }
+
+.add-new-btn {
+  border: 2px solid #7ec59d; }
+
+#addNew {
+  background-color: #7ec59d; }
+
+.invite-text {
+  border-bottom: 1px solid #7ec59d; }
+
+.add-page-to-card-btn {
+  background-color: #7ec59d; }
+
+.shout-out-box {
+  border-left: 4px solid #7ec59d; }
+
+.edit-fields .edit-field1, .edit-fields .edit-field2 {
+  border-bottom: 1px solid #7ec59d; }
+
+.edit-field3 {
+  border: 1px solid #7ec59d; }
+
+.edit-fields label {
+  color: #7ec59d; }
+
+.search-people .search-result-title {
+  border-bottom: 2px solid #7ec59d; }
+
+.search-page-wrap input[type=search] {
+  color: #7ec59d; }
+
+.search-page-wrap input[type=search]::-webkit-input-placeholder {
+  color: #7ec59d; }
+
+.search-page-wrap input[type=search]:-moz-placeholder {
+  color: #7ec59d; }
+
+.search-page-wrap input[type=search]::-moz-placeholder {
+  color: #7ec59d; }
+
+.search-page-wrap input[type=search]:-ms-input-placeholder {
+  color: #7ec59d; }
+
+.col-sidebar-cards {
+  border-right: 2px solid #7ec59d; }
+
+.sidebar-card-icon {
+  background-color: #7ec59d; }
+
+.feed-header .feed-star:hover {
+  color: #7ec59d; }
+
+.bottom-bar .feed-feedback span {
+  color: #7ec59d; }
+
+.feed-comment-wrap input.comment-input:focus {
+  border: 1px solid #7ec59d; }
+
+.comment-button-wrap .border-color {
+  border: 2px solid #7ec59d; }
+
+.comment-button-wrap .comment-overlay {
+  border: 2px solid #7ec59d; }
+
+.comment-button-wrap .comment-overlay:before {
+  background: #7ec59d; }
+
+.btn-no-fill {
+  border: 2px solid #7ec59d; }
+
+.btn-no-fill:hover {
+  background-color: #7ec59d; }
+
+.btn-fill {
+  background-color: #7ec59d; }
+
+.btn-fill:hover {
+  background-color: #7ec59d; }
+
+/* --- LEGG TIL ---
+Linje i varselboks: .varsel-panel{border-bottom:2px solid #61afca}
++ se linje 31 i denne fila
+
+saved-edited-profile-btn: background-color:
+
+img-profile-img: border: dynamisk
+*/
+
 /*# sourceMappingURL=dynamic_colors_green.css.map */

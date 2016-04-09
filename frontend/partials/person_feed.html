@@ -25,7 +25,7 @@
         <div class="tagalong-like-btn" ng-class="post.upvoted" ng-if="post.upvote" ng-click="post.upvote()"><!-- Fjern klassen tagged-along når et innlegg ikke er likt -->
             <img src="img/tagalongBtn.png" alt="">Tag Along
         </div><!-- END tagalong-like-button -->
-        <div class="feed-feedback"><span>{{ post.upvotes == null ? 0 : post.upvotes.length }}</span> persons tagged along</div>
+        <div class="feed-feedback"><span>{{ post.upvotes == null ? 0 : post.upvotes.length }}</span> people tagged along</div>
     </div>
     <input class="btn btn-sm btn-danger" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
     <div class="feed-comment-wrap">

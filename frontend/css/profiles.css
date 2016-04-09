@@ -3,6 +3,27 @@ Spesifikt til profiler
 Eks: Fubar, Ola Nordmann og events
 */
 
+.owner-menu{
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.owner-col-6{
+    width: 50%;
+    padding: 10px 5px;
+    text-align: center;
+    float: left;
+    display: block;
+    color: #333;
+}
+.owner-col-6:hover{
+    color: #333;
+    text-decoration: none;
+}
+.owner-col-6:first-of-type{
+    border-right: 2px solid #F2F2EE;
+}
+
 /* Person */
 .btn-fill-save-profile{ margin-top: 100px; }
 /* END - person */
@@ -241,9 +262,10 @@ li.active a, li.active a:hover {
 
 /* About  */
 .about-box{
+    overflow: hidden;
 }
 .about-box-text{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .about-read-more{
     padding-top: 0px;

@@ -190,6 +190,14 @@ Eks: edit profile, edit card, add new card, create new page osv.
 .edit-profile-profile-pic {
   display: block;
 }
+.edit-pic{
+  position: relative;
+}
+.edit-pic .pic-overlay .pic-overlay-text{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .pic-overlay {
   position: absolute;
   display: block;
@@ -198,12 +206,18 @@ Eks: edit profile, edit card, add new card, create new page osv.
   top: 0;
   bottom: 0;
   color: #FFF;
+  height: 100%;
+}
+.pic-overlay:hover{
+  opacity: 1;
 }
 .pic-overlay-text {
   text-align: center;
   margin: auto;
-  margin-bottom: -30px;
   position: relative;
+}
+#editEvent .pic-overlay-text{
+  font-size: 2em;
 }
 .group-description {
   margin-bottom: 30px;
