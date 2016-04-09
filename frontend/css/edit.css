@@ -90,6 +90,7 @@ Eks: edit profile, edit card, add new card, create new page osv.
   position: absolute;
   cursor: pointer;
   opacity: 0;
+  display: none;
   -webkit-box-shadow: 2px 2px 3px #848484;
 }
 .add-new-btn .fa{
@@ -106,6 +107,7 @@ Eks: edit profile, edit card, add new card, create new page osv.
   height: 50px;
   bottom: 0;
   opacity: 1;
+  display: block;
 }
 #addNew .fa{
   top: 15px;

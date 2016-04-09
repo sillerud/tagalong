@@ -112,18 +112,19 @@ $(document).ready(function () {
         });
         var addNewOpen = false;
         $('#addNew').on('click', function(){
+            var speed = 300;
 
             if( !addNewOpen ){
-                $('#newPostBtn').stop().animate({'bottom': '60px', 'opacity': '1'}, 300);
-                $('#newPageBtn').delay(100).animate({'bottom': '110px', 'opacity': '1'}, 300);
-                $('#newEventBtn').delay(200).animate({'bottom': '160px', 'opacity': '1'}, 300);
-                $('#newSearchBtn').delay(300).animate({'bottom': '210px', 'opacity': '1'}, 300);
+                $('#newPostBtn').stop().css('display', 'block').animate({'bottom': '60px', 'opacity': '1'}, speed);
+                $('#newPageBtn').delay(100).css('display', 'block').animate({'bottom': '110px', 'opacity': '1'}, speed);
+                $('#newEventBtn').delay(200).css('display', 'block').animate({'bottom': '160px', 'opacity': '1'}, speed);
+                $('#newSearchBtn').delay(300).css('display', 'block').animate({'bottom': '210px', 'opacity': '1'}, speed);
                 addNewOpen = true;
             }else{
-                $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300);
-                $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300);
-                $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300);
-                $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300);
+                $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, speed, function(){ $(this).css('display', 'none'); } );
+                $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, speed, function(){ $(this).css('display', 'none'); } );
+                $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, speed, function(){ $(this).css('display', 'none'); });
+                $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, speed, function(){ $(this).css('display', 'none'); });
                 addNewOpen = false;
             }
         });
