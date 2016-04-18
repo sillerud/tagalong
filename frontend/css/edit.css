@@ -79,6 +79,35 @@ Eks: edit profile, edit card, add new card, create new page osv.
     z-index: 1000;
     cursor: zoom-out;
 }
+.upload-btn-wrap{
+  max-width: 500px;
+  width: auto;
+  margin: auto;
+  margin-top: 10px;
+  overflow: hidden;
+  color: #FFF;
+}
+.upload-btn-wrap a{
+  color: #FFF;
+}
+.upload-btn-wrap a:hover{
+  text-decoration: none;
+}
+.upload-btn{
+  width: 49%;
+  float: left;
+  text-align: center;
+  background-color: #1eb6ec;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.upload-btn:hover{
+  background-color: #333;
+}
+.upload-btn:first-of-type{
+  margin-right: 1%;
+}
 /* END - popup*/
 
 /* Add new buttons */
@@ -89,6 +118,11 @@ Eks: edit profile, edit card, add new card, create new page osv.
   right: 30px;
   bottom: 40px;
   z-index: 3000;
+}
+@media screen and (max-width: 767px){
+  .add-new-btn-wrap{
+    right: 15px;
+  }
 }
 .add-new-btn{
   border-radius: 50%;

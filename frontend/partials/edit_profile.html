@@ -8,11 +8,13 @@
                 <div class="pic-overlay" ng-model="imageToCrop" ngf-select="cropDialogState('show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
                     <div class="pic-overlay-text">Click to edit</div>
                 </div>
-                <div class="modal" id="image-crop">
-                    <a ng-click="cropDialogState('hide')">Close</a>
+                <div class="modal" id="image-crop" data-backdrop="static">
                     <img-crop area-type="square" class="image-crop-display" result-image-format="image/jpeg" result-image-size="1000" result-image="croppedImage" image="imageToCrop | ngfDataUrl" ng-init="croppedImage = ''">
                     </img-crop>
-                    <input type="button" value="Upload" ng-click="uploadFile(croppedImage, imageToCrop.name)">
+                    <div class="upload-btn-wrap">
+                        <input type="button" class="upload-btn" value="Upload" ng-click="uploadFile(croppedImage, imageToCrop.name)">
+                        <a class="upload-btn" ng-click="cropDialogState('hide')">Close</a>
+                    </div><!-- END upload-btn-wrap -->
                 </div>
             </div>
         </div>

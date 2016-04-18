@@ -46,7 +46,7 @@ Eks: Fubar, Ola Nordmann og events
     width: 100%;
     margin-top: 20px;
     border: 2px solid #1eb6ec; /*blå*/
-    border-radius: 7px;
+    border-radius: 5px;
 }
 .edit-profile-page-link{
     margin-top: 20px;
@@ -71,6 +71,7 @@ Eks: Fubar, Ola Nordmann og events
 }
 .info-format{
     margin-right: 5px;
+    margin-bottom: 0px;
     float: left;
     width: auto;
 }

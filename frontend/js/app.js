@@ -8,6 +8,10 @@ function getUploadUrl(uploadId, fallback) {
     }
 }
 
+function skipToContent(skipId){
+
+}
+
 function genericValueMapping(value, key) {
     if (key == 'tagIds') {
         var tagIds = [];

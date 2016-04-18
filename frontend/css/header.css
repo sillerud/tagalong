@@ -73,7 +73,7 @@ Spesifikt til header og meny
 .logged-in-person a:hover{ text-decoration: none;}
 .logged-in-person:hover{
   background-color: #222;
-  border-radius: 5px 5px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 .logged-in-person i{
     margin-left: 10px;
@@ -93,7 +93,7 @@ Spesifikt til header og meny
   left: 0;
   right: 0;
   padding: 5px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 4px 4px;
   background-color: #222;
   z-index: 2;
   display: none;
