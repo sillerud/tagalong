@@ -10,6 +10,7 @@ var userServices = angular.module('userServices', ['ngResource']);
 var searchServices = angular.module('searchServices', ['ngResource']);
 var uploadsServices = angular.module('uploadServices', ['ngResource']);
 var staticServices = angular.module('staticServices', ['ngResource']);
+var commentServices = angular.module('commentServices', ['ngResource']);
 
 var transform = function(data){
     return $.param(data);
@@ -89,6 +90,20 @@ cardServices.factory('Card', ['$resource', function($resource) {
             method: 'GET',
             isArray: false,
             url: url('/cards/:cardId')
+        }
+    })
+}]);
+
+commentServices.factory('Comment', ['$resource', function ($resource) {
+    return $resource(url('/comments'), {}, {
+        create: {
+            method: 'POST',
+            isArray: false
+        },
+        getByPost: {
+            url: url('/comments/by-post/:postId'),
+            isArray: true,
+            method: 'GET'
         }
     })
 }]);

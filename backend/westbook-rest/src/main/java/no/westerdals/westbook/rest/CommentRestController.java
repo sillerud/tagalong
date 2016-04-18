@@ -2,13 +2,16 @@ package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.model.Comment;
+import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.mongodb.CommentRepository;
 import no.westerdals.westbook.mongodb.PostRepository;
 import no.westerdals.westbook.responses.ResultResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 
@@ -26,12 +29,13 @@ public class CommentRestController
 
     @PreAuthorize("hasRole('COMMENT')")
     @RequestMapping(method=RequestMethod.POST)
-    public ResultResponse createComment(@RequestBody Comment comment)
-    {
+    public ResultResponse createComment(@RequestBody Comment comment, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication) principal).getPrincipal();
         if (postRepository.findOne(comment.getParentId()) == null)
             return newErrorResult(MessageConstant.POST_NOT_FOUND);
         // TODO: check if the user can access this post
         comment.setId(null);
+        comment.setUserId(userCredentials.getUserId());
         comment.setTimestamp(new Date());
         Comment result = commentRepository.insert(comment);
         return newOkResult(MessageConstant.COMMENT_CREATED, result);

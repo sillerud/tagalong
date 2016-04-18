@@ -61,7 +61,7 @@ public class UserRestController {
 
     @RequestMapping(value="/by-studyfield/{studyField}", method=RequestMethod.GET)
     public List<UserResponse> getByStudyField(@PathVariable String studyField) {
-        return userRepository.getByStudyFieldId(resolveStudyField(studyField)).stream()
+        return userRepository.findByStudyFieldId(resolveStudyField(studyField)).stream()
                 .map(this::resolve)
                 .collect(Collectors.toList());
     }

@@ -14,7 +14,6 @@ public class Comment
     public Comment(String userId, String parentId, String title,
                    String content, Date timestamp)
     {
-        this.title = title;
         this.userId = userId;
         this.parentId = parentId;
         this.content = content;
@@ -25,7 +24,6 @@ public class Comment
     private String id;
     private String userId;
     private String parentId;
-    private String title;
     private String content;
     private Date timestamp;
 }
