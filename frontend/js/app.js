@@ -189,6 +189,9 @@ angular.module('tagalong', [
             // Sjekker om shortcuts skal kjøre eller ikke
             if( doo != 0) $rootScope.openShortcuts(1);
         };
+        $rootScope.scrollToPopup = function(){
+            $('body').animate({scrollTop: 0}, 300);
+        };
         $rootScope.closePopup = function(){
             $('.popup').fadeOut();
             $('#darkOverlay').fadeOut();

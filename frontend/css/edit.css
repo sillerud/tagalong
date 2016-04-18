@@ -38,7 +38,10 @@ Eks: edit profile, edit card, add new card, create new page osv.
 @media screen and (max-width: 767px){
     .popup{
         top: 50px !important;
-        transform: translateY(0) !important;
+    }
+    .exit-btn{
+      right: 5px !important;
+      top: 5px !important;
     }
 } /* END maxwidth 767px */
 .exit-btn{
