@@ -1,13 +1,19 @@
 $color3: rgb(97,175,202); // Blue
-$color: rgb(121,85,128); // Purple
-$color5: rgb(126,197,157); // Green
-$color4: rgb(255,208,102); // Yellow
-$color2: rgb(255,112,97); // Red
-
+$color2: rgb(121,85,128); // Purple
+$color4: rgb(126,197,157); // Green
+$color5: rgb(255,208,102); // Yellow - Svart tekst
+$color: rgb(255,112,97); // Red
+$dark: rgb(51,51,51); // #333 - Mørk går nesten svart
+$white: rgb(255,255,255); // Hvit
+$fontcolor: rgb(10,10,10); // Svart til de fleste farger
+$fontcolorX: rgb(255,255,255); // Hvit til noen farger
 
 // Profiles.css
-.owner-col-6{ background-color: $color; }
+.owner-col-6{ background-color: $color; color: $fontcolor;}
 .owner-col-6:hover{ background-color: darken($color, 10%); }
+.quick-edit{ background-color: $color; color: $fontcolor;}
+.add-page-to-card-btn .fa{ color: $fontcolor; }
+
 // Events.css
 .an-event-wrap .event-info{ background-color: $color; }
 
@@ -16,11 +22,16 @@ $color2: rgb(255,112,97); // Red
 .new-post-in-card-icon{ background-color: $color; }
 .edit-card-icon{ color: $color; }
 
+// search.css
+.search-overlay-wrap input{ border-bottom: 2px solid $color !important; }
+
+// ===========================
+
 // forside.css
 
 // login.css
 
-// menu.css
+// header.css
 #one{ background-color: $color2; }
 #two{ background-color: $color3; }
 #two:before{ border-right: 8px solid $color3; }
@@ -33,6 +44,7 @@ $color2: rgb(255,112,97); // Red
 
 .menu-wrap{ background-color: $color; }
 .menu{ background-color: $color; }
+.menu ul li a{ color: $fontcolor;}
 .add-new-btn{ border: 2px solid $color; }
 #addNew{ background-color: $color; }
 
@@ -44,7 +56,7 @@ $color2: rgb(255,112,97); // Red
 // other_profiles.css
 
 // page_fubar.css
-.add-page-to-card-btn{ background-color: $color; }
+.add-page-to-card-btn{ background-color: $color; color: $fontcolor;}
 .shout-out-box{ border-left: 4px solid $color; }
 
 // pages.css
@@ -72,11 +84,26 @@ $color2: rgb(255,112,97); // Red
 .comment-button-wrap .comment-overlay{ border: 2px solid $color; }
 .comment-button-wrap .comment-overlay:before{ background: $color; }
 
-// statisk.css
+// global.css
 .btn-no-fill{ border: 2px solid $color; }
 .btn-no-fill:hover{ background-color: $color; }
-.btn-fill{ background-color: $color; }
-.btn-fill:hover{ background-color: $color; }
+.btn-fill{ background-color: $color; color: $fontcolor; }
+.btn-fill:hover{ background-color: $dark; color: $white !important; }
+
+// edit.css
+#addNew .fa{ color: $fontcolor;}
+#newPostBtn:before,
+#newPageBtn:before,
+#newEventBtn:before,
+#newSearchBtn:before{ border: 1px solid $color; }
+.menu ul li a:hover{ text-shadow: 0 0 15px $white; }
+.exit-btn{ background-color: $color; }
+.exit-btn:hover{
+    background-color: $dark;
+    color: $white;
+}
+.popup-bottom{ background-color: $color; }
+
 
 /* --- LEGG TIL ---
 Linje i varselboks: .varsel-panel{border-bottom:2px solid #61afca}

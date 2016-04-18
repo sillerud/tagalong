@@ -28,7 +28,6 @@ a:hover{ text-decoration: underline; }
 
 /* Buttons */
 .btn-fill{
-    color: #333;
     padding: 10px 15px;
     border: none;
     text-transform: uppercase;
@@ -41,6 +40,15 @@ a:hover{ text-decoration: underline; }
 .btn-fill:hover{
     transition: all 300ms linear;
     /* SE SASS */
+}
+.btn-small{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.delete-btn{
+    padding: 5px 10px 6px;
+    float: right;
+    text-transform: none;
 }
 .all-feeds-btn{ /* ?? */
     margin-bottom: 20px;

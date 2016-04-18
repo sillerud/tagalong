@@ -1,8 +1,16 @@
 .owner-col-6 {
-  background-color: #7ec59d; }
+  background-color: #7ec59d;
+  color: #0a0a0a; }
 
 .owner-col-6:hover {
   background-color: #5bb582; }
+
+.quick-edit {
+  background-color: #7ec59d;
+  color: #0a0a0a; }
+
+.add-page-to-card-btn .fa {
+  color: #0a0a0a; }
 
 .an-event-wrap .event-info {
   background-color: #7ec59d; }
@@ -16,14 +24,17 @@
 .edit-card-icon {
   color: #7ec59d; }
 
+.search-overlay-wrap input {
+  border-bottom: 2px solid #7ec59d !important; }
+
 #one {
-  background-color: #795580; }
+  background-color: #61afca; }
 
 #two {
-  background-color: #ffd066; }
+  background-color: #ff7061; }
 
 #two:before {
-  border-right: 8px solid #ffd066; }
+  border-right: 8px solid #ff7061; }
 
 #three {
   background-color: #7ec59d; }
@@ -32,22 +43,25 @@
   border-right: 8px solid #7ec59d; }
 
 #four {
-  background-color: #ff7061; }
+  background-color: #ffd066; }
 
 #four:before {
-  border-right: 8px solid #ff7061; }
+  border-right: 8px solid #ffd066; }
 
 #five {
-  background-color: #61afca; }
+  background-color: #795580; }
 
 #five:before {
-  border-right: 8px solid #61afca; }
+  border-right: 8px solid #795580; }
 
 .menu-wrap {
   background-color: #7ec59d; }
 
 .menu {
   background-color: #7ec59d; }
+
+.menu ul li a {
+  color: #0a0a0a; }
 
 .add-new-btn {
   border: 2px solid #7ec59d; }
@@ -59,7 +73,8 @@
   border-bottom: 1px solid #7ec59d; }
 
 .add-page-to-card-btn {
-  background-color: #7ec59d; }
+  background-color: #7ec59d;
+  color: #0a0a0a; }
 
 .shout-out-box {
   border-left: 4px solid #7ec59d; }
@@ -122,9 +137,33 @@
   background-color: #7ec59d; }
 
 .btn-fill {
-  background-color: #7ec59d; }
+  background-color: #7ec59d;
+  color: #0a0a0a; }
 
 .btn-fill:hover {
+  background-color: #333333;
+  color: white !important; }
+
+#addNew .fa {
+  color: #0a0a0a; }
+
+#newPostBtn:before,
+#newPageBtn:before,
+#newEventBtn:before,
+#newSearchBtn:before {
+  border: 1px solid #7ec59d; }
+
+.menu ul li a:hover {
+  text-shadow: 0 0 15px white; }
+
+.exit-btn {
+  background-color: #7ec59d; }
+
+.exit-btn:hover {
+  background-color: #333333;
+  color: white; }
+
+.popup-bottom {
   background-color: #7ec59d; }
 
 /* --- LEGG TIL ---

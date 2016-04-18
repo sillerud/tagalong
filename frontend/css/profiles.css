@@ -14,7 +14,6 @@ Eks: Fubar, Ola Nordmann og events
     text-align: center;
     float: left;
     display: block;
-    color: #333;
 }
 .owner-col-6:hover{
     color: #333;
@@ -212,6 +211,14 @@ li.active a, li.active a:hover {
     right: 20px;
     bottom: 15px;
 }
+@media screen and (max-width: 767px){
+    .add-page-to-card{
+        top: 15px !important;
+    }
+    .page-name h1{
+        font-size: 1.4em !important;
+    }
+}
 .add-page-to-card-btn{
     position: relative;
     width: 30px;
@@ -254,7 +261,6 @@ li.active a, li.active a:hover {
     position: absolute;
     top: 15px;
     right: 30px;
-    background-color: #1eb6ec;
     display: inline-block;
     border-radius: 5px;
     padding: 3px 5px;

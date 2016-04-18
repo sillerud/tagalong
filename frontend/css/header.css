@@ -264,16 +264,11 @@ Spesifikt til header og meny
 }
 .menu ul li a{
   display: inline-block;
-  color: #FFF;
   padding: 8px 5px 9px 5px;
   text-transform: uppercase;
   text-decoration: none;
 }
-.menu ul li a:hover{
-  color: #333;
-}
 .menu ul li a.active{ /* Siden personen er på */
-  color: #FFF;
   font-weight: bold;
 }
 @media screen and (min-width: 768px){

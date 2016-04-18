@@ -31,7 +31,6 @@ Eks: edit profile, edit card, add new card, create new page osv.
 }
 .popup-bottom{
     padding: 40px 50px;
-    background-color: #61afca;
     overflow: hidden;
     -webkit-box-shadow: inset 0px 5px 5px -5px #333;
 }
@@ -51,12 +50,7 @@ Eks: edit profile, edit card, add new card, create new page osv.
     font-size: 1.2em;
     padding: 4px 10px 6px;
     border-radius: 50%;
-    background-color: #1eb6ec;
     cursor: pointer;
-}
-.exit-btn:hover{
-    background-color: #333;
-    color: #FFF;
 }
 #transparent-overlay{
   display: none;
@@ -159,7 +153,6 @@ Eks: edit profile, edit card, add new card, create new page osv.
 #addNew .fa{
   top: 15px;
   font-size: 1.3em;
-  color: #FFF;
 }
 #newPostBtn{
   bottom: 50px;
