@@ -281,7 +281,6 @@ angular.module('tagalong', [
 
         $(document).mouseup(function (e) {
             var whatIs = $(e.target).attr('id');
-            console.log(whatIs);
             if (whatIs == 'transparent-overlay') {
                 dropdown.fadeOut();
                 dropdownArrow.fadeOut();

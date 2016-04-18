@@ -37,6 +37,7 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
         return mongoTemplate.find(query, Post.class);
     }
 
+    // TODO: Use returnNew so we can reload just one post, and without a extra request
     @Override
     public Post upvotePost(String postId, Upvote upvote) {
         Update update = new Update();

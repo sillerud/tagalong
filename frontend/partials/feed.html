@@ -7,8 +7,8 @@
             </div>
             <div class="sidebar-all-card">
 
-                <div class="sidebar-card" ng-repeat="card in cards" id="{{ card.id }}">
-                    <div class="card-sidebar-wrap">
+                <div class="sidebar-card" ng-repeat="card in cards" id="{{ card.id }}" ng-click="selectCard(card)">
+                    <div class="card-sidebar-wrap" ng-class="card.selected">
                         <div class="new-post-in-card-icon">
                             5
                         </div>

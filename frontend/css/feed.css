@@ -198,6 +198,10 @@ Eks: Tag-feed, all pages, all events, person-feed
     border-radius: 3px;
 }
 
+.card-selected {
+    background-color: lightskyblue;
+}
+
 /* Button effect */
 .comment-button-wrap {
     width: 120px;
