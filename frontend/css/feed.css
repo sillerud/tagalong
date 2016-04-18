@@ -266,6 +266,12 @@ Eks: Tag-feed, all pages, all events, person-feed
     top: -30px;
     left: -30px;
 }
+/* TODO: Please make this look better */
+.comment {
+    border-radius: 5px;
+    border: 1px gray solid;
+    margin: 10px;
+}
 /* END button effect */
 @media screen and (max-width: 400px){
     .feed-header .feed-date{

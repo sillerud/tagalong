@@ -5,9 +5,9 @@
             <img ng-src="{{ post.user.profilePictureUrl }}" alt="">
         </div>
         <h3 class="person-name">{{ post.user.firstname }} {{ post.user.surname }}</h3><br>
-        <h4 class="person-studie">{{ post.user.studyFieldId.name }}</h4>
+        <h4 class="person-studie">{{ post.user.studyField.name }}</h4>
 
-        <div class="feed-date"> {{ post.time | date: 'hh:mm - dd.MM.yyyy' }}</div>
+        <div class="feed-date"> {{ post.time | date: 'HH:mm - dd.MM.yyyy' }}</div>
         <div class="feed-star"><i class="fa fa-star"></i></div>
     </div><!-- END feed-header -->
 
@@ -26,12 +26,27 @@
             <img src="img/tagalongBtn.png" alt="">Tag Along
         </div><!-- END tagalong-like-button -->
         <div class="feed-feedback"><span>{{ post.upvotes == null ? 0 : post.upvotes.length }}</span> people tagged along</div>
+
+        <div class="comments">
+            <div class="comment" ng-repeat="comment in post.comments">
+                <div class="comment-header">
+                    <div class="person-image" style="border: 2px solid #fd7265;">
+                        <img ng-src="{{ comment.user.profilePictureUrl }}" alt="">
+                    </div>
+                    <h3 class="person-name">{{ comment.user.firstname }} {{ comment.user.surname }}</h3><br>
+                    <h4 class="person-studie">{{ comment.user.studyField.name }}</h4>
+
+                    <div class="feed-date"> {{ comment.timestamp | date: 'HH:mm - dd.MM.yyyy' }}</div>
+                    <div class="comment-content" markdown-to-html="comment.content"></div>
+                </div><!-- END feed-header -->
+            </div>
+        </div>
     </div>
     <input class="btn btn-sm btn-danger" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
-    <div class="feed-comment-wrap">
-        <input type="text" class="comment-input" placeholder="Add a comment...">
-        <div class="comment-button-wrap">
-            <input type="submit" class="add-comment-btn" value="Add comment" disabled>
+    <div class="feed-comment-wrap" ng-if="post.comment">
+        <input type="text" class="comment-input" placeholder="Add a comment..." ng-model="post.comment_body">
+        <div> <!--class="comment-button-wrap"-->
+            <input type="button" class="add-comment-btn" value="Add comment" ng-click="post.comment()">
             <div class="comment-overlay"></div>
         </div>
     </div>

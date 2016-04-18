@@ -2,10 +2,13 @@
 
 var postControllers = angular.module('postControllers', []);
 
-postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', function($scope, Post, User) {
+postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', function($scope, Post, User, Comment) {
     var filteredTags = [];
     var filteredPages = [];
     function mapPost(post) {
+        post.comment = function() {
+            Comment.create({parentId: post.id, content: post.comment_body});
+        };
         if (post.upvotes) {
             post.upvotes.forEach(function(value) {
                 if (value.userId == $scope.me.id) {
@@ -19,6 +22,14 @@ postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', function($scop
                 $scope.selectCard($scope.currentCard);
             });
         };
+        post.comments = Comment.getByPost({postId: post.id}, function(comments) {
+            comments.forEach(function(comment) {
+                User.find({userId: comment.userId}, function(user) {
+                    user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                    comment.user = user;
+                });
+            });
+        });
     }
     $scope.selectCard = function(card) {
         filteredTags = [];

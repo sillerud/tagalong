@@ -55,6 +55,7 @@ angular.module('tagalong', [
         'userServices',
         'cardControllers',
         'cardServices',
+        'commentServices',
         'pageControllers',
         'pageServices',
         'postServices',

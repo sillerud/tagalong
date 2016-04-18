@@ -10,25 +10,6 @@ $(document).ready(function () {
         mobileSettingsDropdown();
     });
 
-    var personFeed = function(){
-
-        $(".comment-input").keyup(function() {
-            var length = $(this).val().length;
-            var obj = $(this).siblings('.comment-button-wrap');
-            if(length > 0){
-                obj
-                    .animate({'opacity': '1'}, 300)
-                    .css('pointer-events', 'auto');
-                obj.find('.add-comment-btn').addClass('border-color');
-            }else{
-                obj
-                    .animate({'opacity': '0.8'}, 300)
-                    .css('pointer-events', 'none');
-                obj.find('.add-comment-btn').removeClass('border-color');
-            }
-        });
-    }();
-
     var fixedMenu = function(){
         var topOffset = $(document).scrollTop();
         $(window).scroll(function() {
