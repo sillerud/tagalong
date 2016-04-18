@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface StudyFieldRepository extends MongoRepository<StudyField, String> {
     StudyField getByName(String name);
-    List<StudyField> getByNameIgnoreCase(String name);
+    List<StudyField> getByNameIgnoreCaseLike(String name);
 }

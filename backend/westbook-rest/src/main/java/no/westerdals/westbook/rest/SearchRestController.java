@@ -91,7 +91,7 @@ public class SearchRestController {
     }
 
     private List<SearchResult<User>> searchStudyField(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
-        return studyFieldRepository.getByNameIgnoreCase(query)
+        return studyFieldRepository.getByNameIgnoreCaseLike(query)
                 .stream()
                 .flatMap(studyField -> userRepository.findByStudyFieldId(studyField.getId()).stream())
                 .map(user -> new SearchResult<>("user", user))
