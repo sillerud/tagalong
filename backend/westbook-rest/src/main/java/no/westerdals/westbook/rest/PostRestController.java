@@ -54,7 +54,9 @@ public class PostRestController {
             User user = userRepository.findOne(userCredentials.getUserId());
             StudyField studyField = studyFieldRepository.findOne(user.getStudyFieldId());
             Post post = postRepo.findOne(postId);
-            if (Arrays.stream(post.getUpvotes()).map(Upvote::getUserId).anyMatch(userId -> userCredentials.getUserId().equals(userId)))
+            if (post.getUpvotes() != null && Arrays.stream(post.getUpvotes())
+                    .map(Upvote::getUserId)
+                    .anyMatch(userId -> userCredentials.getUserId().equals(userId)))
                 return newErrorResult(ALREADY_UPVOTED);
             return newOkResult(UPVOTED, postRepo.upvotePost(postId, new Upvote(userCredentials.getUserId(), studyField.getStudyDirection())));
         } else {
