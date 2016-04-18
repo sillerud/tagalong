@@ -77,7 +77,7 @@ public class FeedRestController
 
     private FeedResult resolve(Feed feed, int page) {
         List<FeedPost> posts = new ArrayList<>();
-        List<Post> dbPosts = postRepository.getByTagIds(feed.getTagIds(), new PageRequest(page, 10, DATE_SORT));
+        List<Post> dbPosts = postRepository.getByTagIdsIn(feed.getTagIds(), new PageRequest(page, 10, DATE_SORT));
         posts.addAll(dbPosts.stream().map(this::resolve).collect(Collectors.toList()));
 
         Collections.sort(posts, POST_COMPARATOR);
