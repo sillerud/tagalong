@@ -18,12 +18,11 @@ Eks: edit profile, edit card, add new card, create new page osv.
     display: none;
     max-width: 500px;
     width: calc(100% - 20px);
-    position: fixed;
+    position: absolute;
     margin: auto;
     left: 0;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 70px;
     z-index: 2000;
     background-color: #FFF;
 }

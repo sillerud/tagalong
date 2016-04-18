@@ -192,7 +192,7 @@ angular.module('tagalong', [
         $rootScope.closePopup = function(){
             $('.popup').fadeOut();
             $('#darkOverlay').fadeOut();
-            $rootScope.openShortcuts(1);
+            $rootScope.closeShortcuts();
             $('#transparent-overlay').css('display', 'none');
             console.log('Close all');
         };
@@ -242,15 +242,19 @@ angular.module('tagalong', [
             }else{
                 console.log('close');
                 if( dark != 1) $('#darkOverlay').fadeOut();
-                addNewOpen = false;
-                $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
-                $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
-                $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
-                $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
-                return;
+                $rootScope.closeShortcuts();
             }
 
         }; // END openShortcuts
+
+        $rootScope.closeShortcuts = function(){
+            addNewOpen = false;
+            $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
+            $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
+            $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
+            $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
+            return;
+        };
 
         var dropdownToggle = false;
         var dropdown = $('.dropdown-content');
