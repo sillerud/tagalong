@@ -56,6 +56,17 @@ Eks: edit profile, edit card, add new card, create new page osv.
     background-color: #333;
     color: #FFF;
 }
+#transparent-overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  height: 100%;
+  z-index: 8000;
+}
 #darkOverlay{
     display: none;
     position: fixed;

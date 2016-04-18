@@ -189,6 +189,7 @@ angular.module('tagalong', [
             $('.popup').fadeOut();
             $('#darkOverlay').fadeOut();
             $rootScope.closeShortcuts();
+            $('#transparent-overlay').css('display', 'none');
         };
         $rootScope.createPost = function() {
             var newpost = {};
@@ -229,19 +230,22 @@ angular.module('tagalong', [
                 dropdownArrow.fadeIn();
                 dropdown.fadeIn();
                 dropdownToggle = true;
+                $('#transparent-overlay').css('display', 'block');
                 console.log('open');
             }else{
                 dropdown.fadeOut();
                 dropdownArrow.fadeOut();
                 dropdownToggle = false;
+                $('#transparent-overlay').css('display', 'none');
                 console.log('close');
+
             }
         };
 
         $(document).mouseup(function (e) {
-            var whatIs = $(e.target).attr('class');
+            var whatIs = $(e.target).attr('id');
             console.log(whatIs);
-            if (dropdownToggle == true && whatIs != 'notification') {
+            if (whatIs == 'transparent-overlay') {
                 dropdown.fadeOut();
                 dropdownArrow.fadeOut();
                 dropdownToggle = false;
