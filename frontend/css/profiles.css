@@ -166,6 +166,9 @@ li.active a, li.active a:hover {
 .header-image-wrap{
     position: relative;
     top: -20px;
+    max-height: 400px;
+    height: auto;
+    overflow: hidden;
 }
 .event-background-overlay{
     position: absolute;
