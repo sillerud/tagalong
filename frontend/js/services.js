@@ -132,6 +132,11 @@ postServices.factory('Post', ['$resource', function($resource) {
             url: url('/posts/:postId/upvote'),
             method: 'POST',
             isArray: false
+        },
+        getByTags: {
+            url: url('/posts/by-tags/:tags'),
+            method: 'GET',
+            isArray: true
         }
     })
 }]);
