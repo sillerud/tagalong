@@ -119,7 +119,7 @@ public class UserRestController {
         userRepository.save(user);
         User inserted = userRepository.save(user);
         String hashedPassword = passwordEncoder.encode(userCredentials.getPassword());
-        Credential credential = new Credential(inserted.getId(), hashedPassword, !userCredentials.isAccountLocked(), userCredentials.getAuthorities());
+        Credential credential = new Credential(inserted.getId(), hashedPassword, userCredentials.isAccountLocked(), userCredentials.getAuthorities());
         credentialRepository.save(credential);
         return newOkResult(MessageConstant.USER_CREATED, inserted);
     }
