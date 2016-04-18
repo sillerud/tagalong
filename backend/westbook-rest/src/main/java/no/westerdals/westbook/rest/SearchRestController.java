@@ -1,9 +1,11 @@
 package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.model.Page;
+import no.westerdals.westbook.model.StudyField;
 import no.westerdals.westbook.model.Tag;
 import no.westerdals.westbook.model.User;
 import no.westerdals.westbook.mongodb.PageRepository;
+import no.westerdals.westbook.mongodb.StudyFieldRepository;
 import no.westerdals.westbook.mongodb.TagRepository;
 import no.westerdals.westbook.mongodb.UserRepository;
 import no.westerdals.westbook.responses.ResolvedTag;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -29,12 +32,15 @@ public class SearchRestController {
     private PageRepository pageRepository;
     @Autowired
     private TagRepository tagRepository;
+    @Autowired
+    private StudyFieldRepository studyFieldRepository;
 
     @RequestMapping(method=RequestMethod.GET)
     public List<SearchResult> searchAll(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
         ArrayList<SearchResult> results = new ArrayList<>(searchUsers(query.split(" "), maxResults));
-        results.addAll(searchPages(query, maxResults));
-        results.addAll(searchTags(query, maxResults));
+        results.addAll(searchPages(query, maxResults - results.size()));
+        results.addAll(searchTags(query, maxResults - results.size()));
+        results.addAll(searchStudyField(query, maxResults - results.size()));
         return results;
     }
 
@@ -81,6 +87,14 @@ public class SearchRestController {
                 .distinct()
                 .map(this::resolve)
                 .map(tag -> new SearchResult<>("tag", tag))
+                .collect(Collectors.toList());
+    }
+
+    private List<SearchResult<User>> searchStudyField(@RequestParam String query, @RequestParam(name="maxResults",defaultValue="20") int maxResults) {
+        return studyFieldRepository.getByNameIgnoreCase(query)
+                .stream()
+                .flatMap(studyField -> userRepository.findByStudyFieldId(studyField.getId()).stream())
+                .map(user -> new SearchResult<>("user", user))
                 .collect(Collectors.toList());
     }
 
