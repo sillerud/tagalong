@@ -110,6 +110,7 @@ $(document).ready(function () {
         $('.exit-search').on('click', function(){ // Lukke
             closeOverlay('.search-overlay-wrap');
         });
+/*
         var addNewOpen = false;
         $('#addNew').on('click', function(){
             var speed = 300;
@@ -127,7 +128,7 @@ $(document).ready(function () {
                 $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, speed, function(){ $(this).css('display', 'none'); });
                 addNewOpen = false;
             }
-        });
+        });*/
 
         $(document).keydown(function(e){
             if(e.keyCode == 27){
@@ -138,7 +139,7 @@ $(document).ready(function () {
         });
 
         function closeOverlay(thatClass){
-            $(thatClass).fadeOut();
+            //$(thatClass).fadeOut();
         };
 
     }(); // END open close overlays
@@ -177,6 +178,7 @@ $(document).ready(function () {
 
 
 // Hamburgerikon animasjon
+/*
 var menuOpen = false;
 $('.burger-wrap').on("click", function(){
   if(menuOpen == false){
@@ -198,7 +200,7 @@ $('.burger-wrap').on("click", function(){
     $('.bar3').fadeIn();
     menuOpen = false;
   }
-});
+});*/
 // END hamburgerikon animasjon
 
 // Person menu dropdown for mobil
