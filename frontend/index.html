@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" type="text/css" ng-if="styleSheetId" ng-href="css/dynamic/dynamic_colors_{{ styleSheetId }}.css">
     <!-- Ny css -->
+    <link rel="stylesheet" type="text/css" href="css/comments.css">
     <link rel="stylesheet" type="text/css" href="css/edit.css">
     <link rel="stylesheet" type="text/css" href="css/feed.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
@@ -59,9 +60,9 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="bower_components/ng-showdown/dist/ng-showdown.min.js"></script>
     <script>
-      document.createElement('ui-select');
-      document.createElement('ui-select-match');
-      document.createElement('ui-select-choices');
+        document.createElement('ui-select');
+        document.createElement('ui-select-match');
+        document.createElement('ui-select-choices');
     </script>
 
     <script src="js/card_controllers.js"></script>
@@ -81,7 +82,7 @@
 
 
 <div class="page">
-<div id="darkOverlay" ng-click="closePopup()"></div>
+    <div id="darkOverlay" ng-click="closePopup()"></div>
 
     <div class="top-header">
         <div class="container">
@@ -157,30 +158,30 @@
                         <i class="fa fa-bell"></i>
                         <i class="fa fa-bell-o"></i>
                     </div>
-                        <div class="arrow-up"></div><!--END arrow-up-->
-                      <div id="myDropdown" class="dropdown-content">
+                    <div class="arrow-up"></div><!--END arrow-up-->
+                    <div id="myDropdown" class="dropdown-content">
 
 
-                          <div class="header-notification-tab">
+                        <div class="header-notification-tab">
                             <h3>Notifications</h3>
-                          </div>
+                        </div>
 
-                            <a ng-href="#OleChristian">
-                                <img class="notification-img" src="img/profilbilde_jap.jpg">
-                                <p class="notification-name">{{me.firstname}} {{me.surname}}</p>
-                                <p class="notification-time">33 min</p>
-                                <p class="notification-text">Ate shit and puked on you!</p>
-                            </a>
+                        <a ng-href="#OleChristian">
+                            <img class="notification-img" src="img/profilbilde_jap.jpg">
+                            <p class="notification-name">{{me.firstname}} {{me.surname}}</p>
+                            <p class="notification-time">33 min</p>
+                            <p class="notification-text">Ate shit and puked on you!</p>
+                        </a>
 
 
-                            <a ng-href="#OleChristian">
-                                <img class="notification-img" src="img/profilbilde_2.jpg">
-                                <p class="notification-name">{{me.firstname}} {{me.surname}}</p>
-                                <p class="notification-time">2 hours</p>
-                                <p class="notification-text">Has tagged along to your post</p>
-                            </a>
+                        <a ng-href="#OleChristian">
+                            <img class="notification-img" src="img/profilbilde_2.jpg">
+                            <p class="notification-name">{{me.firstname}} {{me.surname}}</p>
+                            <p class="notification-time">2 hours</p>
+                            <p class="notification-text">Has tagged along to your post</p>
+                        </a>
 
-                        </div><!--END -->
+                    </div><!--END -->
                 </div><!--end notification-->
                 <!-- END notifications -->
 

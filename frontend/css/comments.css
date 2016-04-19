@@ -1,0 +1,17 @@
+.comment-content img {
+    width: 10%;
+}
+.comment .person-image {
+    height: 50px;
+    width: 50px;
+    border: 2px solid #fd7265;
+}
+.comment .comment-content {
+    border-top: 1px gray solid;
+}
+/* TODO: Please make this look better */
+.comment {
+    border-radius: 5px;
+    border: 1px gray solid;
+    margin: 10px;
+}

@@ -31,13 +31,13 @@ public class CommentRestController
     @RequestMapping(method=RequestMethod.POST)
     public ResultResponse createComment(@RequestBody Comment comment, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication) principal).getPrincipal();
-        if (postRepository.findOne(comment.getParentId()) == null)
+        if (comment.getParentId() == null || postRepository.findOne(comment.getParentId()) == null)
             return newErrorResult(MessageConstant.POST_NOT_FOUND);
         // TODO: check if the user can access this post
         comment.setId(null);
         comment.setUserId(userCredentials.getUserId());
         comment.setTimestamp(new Date());
-        Comment result = commentRepository.insert(comment);
+        Comment result = commentRepository.save(comment);
         return newOkResult(MessageConstant.COMMENT_CREATED, result);
     }
 

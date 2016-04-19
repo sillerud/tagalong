@@ -31,15 +31,16 @@
         <div class="comments">
             <div class="comment" ng-repeat="comment in post.comments">
                 <div class="comment-header">
-                    <div class="person-image" style="border: 2px solid #fd7265;">
+                    <div class="person-image">
                         <img ng-src="{{ comment.user.profilePictureUrl }}" alt="">
                     </div>
-                    <h3 class="person-name">{{ comment.user.firstname }} {{ comment.user.surname }}</h3><br>
-                    <h4 class="person-studie">{{ comment.user.studyField.name }}</h4>
-
-                    <div class="feed-date"> {{ comment.timestamp | date: 'HH:mm - dd.MM.yyyy' }}</div>
-                    <div class="comment-content" markdown-to-html="comment.content"></div>
+                    <div class="comment-info">
+                        <h3 class="person-name">{{ comment.user.firstname }} {{ comment.user.surname }}</h3>
+                        <h4 class="person-studie">{{ comment.user.studyField.name }}</h4>
+                        <div class="feed-date"> {{ comment.timestamp | date: 'HH:mm - dd.MM.yyyy' }}</div>
+                    </div>
                 </div><!-- END feed-header -->
+                <div class="comment-content" markdown-to-html="comment.content"></div>
             </div>
         </div>
     </div>
