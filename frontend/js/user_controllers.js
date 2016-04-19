@@ -62,6 +62,9 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
             delete $scope.user.born;
             bornDate.date(moment($scope.me.born));
         }
+        if (!$scope.user.contactInfo) {
+            $scope.user.contactInfo = [];
+        }
     });
 
     $scope.cropDialogState = function(state) {
