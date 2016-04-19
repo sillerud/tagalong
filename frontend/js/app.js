@@ -219,6 +219,7 @@ angular.module('tagalong', [
             });
         }
         $rootScope.toggleMobileMenu = function(cl){
+            $(cl).fadeOut();
             if (menuOpen) {
                 $('body').css('overflow', 'auto');
                 $('.menu').fadeOut();
