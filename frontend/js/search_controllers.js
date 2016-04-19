@@ -49,6 +49,7 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
     }
 
     $scope.openSearch = function(){ // Åpne
+        console.log('yyooyoy');
         $scope.closePopup();
         $('.search-overlay-wrap').fadeIn();
         searchField.focus();
