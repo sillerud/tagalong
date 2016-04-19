@@ -211,7 +211,7 @@ angular.module('tagalong', [
         $rootScope.mobileMenu = function(thatClass){
             $(thatClass).fadeOut();
             if(menuOpen == false){
-                $('body').css('overflow', 'hidden');
+                //$('body').css('overflow', 'hidden');
                 $('.menu').fadeIn();
                 $('.bar1').css({ transform: 'rotate(' + 45 + 'deg)' });
                 $('.bar1').css('top', '10px');
@@ -220,7 +220,7 @@ angular.module('tagalong', [
                 $('.bar3').fadeOut();
                 menuOpen = true;
             }else if(menuOpen == true){
-                $('body').css('overflow', 'auto');
+                //$('body').css('overflow', 'auto');
                 $('.menu').fadeOut();
                 $('.bar1').css({ transform: 'rotate(' + 0 + 'deg)' });
                 $('.bar1').css('top', '0px');

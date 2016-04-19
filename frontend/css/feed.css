@@ -155,28 +155,29 @@ Eks: Tag-feed, all pages, all events, person-feed
     border-top: 1px solid #F2F2EE;
     margin-top: 10px;
     padding: 5px 0 15px 0;
+    border-bottom: 2px solid #FF7061;
 }
 .bottom-bar .feed-feedback span{
     /* Se SASS */
 }
 .feed-comment-wrap{
     width: 100%;
+    margin-top: 15px;
 }
 .feed-comment-wrap input{
     padding: 11px;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 .feed-comment-wrap input.comment-input{
-    width: calc( 100% - 140px);
+    width: calc( 100% - 100px);
     border: 1px solid #848484;
 }
 .feed-comment-wrap input.comment-input:focus{
     outline: none;
 }
 .feed-comment-wrap input.add-comment-btn{
-    width: 120px;
-    background-color: transparent;
-    padding: 10px;
+    width: 90px;
+    padding: 13px 10px;
 }
 .tagalong-like-btn{
     margin-bottom: 10px;
@@ -202,71 +203,6 @@ Eks: Tag-feed, all pages, all events, person-feed
     background-color: lightskyblue;
 }
 
-/* Button effect */
-.comment-button-wrap {
-    width: 120px;
-    position: relative;
-    float: right;
-    cursor: pointer;
-    pointer-events: none;
-    opacity: 0.7;
-    border-radius: 5px;
-}
-.comment-button-wrap .add-comment-btn {
-    display: inline-block;
-
-    width: 120px;
-    height: 44px;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid #c4c4c4;
-    transition: color .5s;
-    color: #333;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-    pointer-events: none;
-    transition: all 300ms linear;
-    border-radius: 5px;
-}
-.comment-button-wrap .border-color{
-    transition: all 300ms linear;
-    border-radius: 5px;
-}
-.comment-button-wrap .comment-overlay{
-    position: absolute;
-    top: 0;
-    display: inline-block;
-
-    width: 120px;
-    height: 44px;
-    position: relative;
-    overflow: hidden;
-    transition: color .5s;
-    color: #FFF;
-    border-radius: 5px;
-}
-.comment-button-wrap .comment-overlay:before{
-    content: "";
-    position: absolute;
-    z-index: 0;
-    height: 150px;
-    width: 200px;
-    border-radius: 50%;
-}
-.comment-button-wrap .comment-overlay:hover{
-    color: #fff;
-}
-.comment-button-wrap .comment-overlay:before{
-    top: 0;
-    left: -200%;
-    transition: all .7s;
-}
-.comment-button-wrap .comment-overlay:hover:before{
-    top: -30px;
-    left: -30px;
-}
-/* END button effect */
 @media screen and (max-width: 400px){
     .feed-header .feed-date{
         top: 45px;

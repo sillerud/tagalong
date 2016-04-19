@@ -28,6 +28,7 @@
         <input class="delete-btn btn-fill" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
         <div class="feed-feedback"><span>{{ post.upvotes == null ? 0 : post.upvotes.length }}</span> people tagged along</div>
 
+    </div>
         <div class="comments">
             <div class="comment" ng-repeat="comment in post.comments">
                 <div class="comment-header">
@@ -43,15 +44,10 @@
                 <div class="comment-content" markdown-to-html="comment.content"></div>
             </div>
         </div>
-    </div>
 
-    <input class="btn btn-sm btn-danger" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
     <div class="feed-comment-wrap" ng-if="post.comment">
         <input type="text" class="comment-input" placeholder="Add a comment..." ng-model="post.comment_body">
-        <div> <!--class="comment-button-wrap"-->
-            <input type="button" class="add-comment-btn" value="Add comment" ng-click="post.comment()">
-            <div class="comment-overlay"></div>
-        </div>
+        <input type="button" class="btn-fill add-comment-btn" value="Add" ng-click="post.comment()">
     </div>
 
 </div><!-- END person-feed-boks -->

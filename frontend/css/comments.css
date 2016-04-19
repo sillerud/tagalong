@@ -1,17 +1,26 @@
 .comment-content img {
-    width: 10%;
+    width: auto;
+    max-width: 300px;
 }
 .comment .person-image {
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     border: 2px solid #fd7265;
 }
+.comment .person-name{
+    font-size: 1.2em;
+}
+.comment .feed-date{
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
 .comment .comment-content {
-    border-top: 1px gray solid;
+    padding-left: 55px;
 }
 /* TODO: Please make this look better */
 .comment {
-    border-radius: 5px;
-    border: 1px gray solid;
-    margin: 10px;
+    border-bottom: 1px solid #DADADA;
+    position: relative;
 }
