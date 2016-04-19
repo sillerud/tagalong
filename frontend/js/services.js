@@ -104,6 +104,11 @@ commentServices.factory('Comment', ['$resource', function ($resource) {
             url: url('/comments/by-post/:postId'),
             isArray: true,
             method: 'GET'
+        },
+        deleteComment: {
+            url: url("/comments/:commentId"),
+            method: 'DELETE',
+            isArray: false
         }
     })
 }]);
@@ -147,11 +152,6 @@ postServices.factory('Post', ['$resource', function($resource) {
             url: url('/posts/:postId/upvote'),
             method: 'POST',
             isArray: false
-        },
-        getByTags: {
-            url: url('/posts/by-tags/:tags'),
-            method: 'GET',
-            isArray: true
         }
     })
 }]);

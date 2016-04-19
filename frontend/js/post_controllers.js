@@ -19,7 +19,7 @@ postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', fun
         post.tags = $scope.allTags.getByIds(post.tagIds);
         post.upvote = function() {
             post.$upvote({upvote: !post.upvoted}, function() {
-                $scope.selectCard($scope.currentCard);
+                refresh(); 
             });
         };
         post.comments = Comment.getByPost({postId: post.id}, function(comments) {
@@ -27,10 +27,20 @@ postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', fun
                 User.find({userId: comment.userId}, function(user) {
                     user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
                     comment.user = user;
+                    if (comment.userId == $scope.me.id) {
+                        comment.delete = function() {
+                            Comment.deleteComment({commentId: comment.id}, refresh);
+                        }
+                    }
                 });
             });
         });
     }
+    
+    function refresh() {
+        $scope.selectCard($scope.currentCard);
+    }
+    
     $scope.selectCard = function(card) {
         filteredTags = [];
         filteredPages = [];
@@ -49,7 +59,7 @@ postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', fun
                 filteredTags.push(filter.substring(1));
             }
         });
-        Post.getByTags({tags: filteredTags.join()}, function(posts) {
+        Post.find({tags: filteredTags.join()}, function(posts) {
             posts.forEach(function(post) {
                 User.find({userId: post.userId}, function(user) {
                     user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");

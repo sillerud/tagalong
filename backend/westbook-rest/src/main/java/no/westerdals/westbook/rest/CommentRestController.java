@@ -19,8 +19,7 @@ import static no.westerdals.westbook.responses.ResultResponse.*;
 
 @RestController
 @RequestMapping("/rest/v1/comments")
-public class CommentRestController
-{
+public class CommentRestController {
 
     @Autowired
     private CommentRepository commentRepository;
@@ -48,14 +47,23 @@ public class CommentRestController
     }
 
     @RequestMapping(value="/by-post/{postId}", method=RequestMethod.GET)
-    public List<Comment> getCommentByPost(@PathVariable String postId)
-    {
+    public List<Comment> getCommentByPost(@PathVariable String postId) {
         return commentRepository.findByParentId(postId);
     }
 
     @RequestMapping(value="/by-user/{userId}", method=RequestMethod.GET)
-    public List<Comment> getCommentsByUser(@PathVariable String userId)
-    {
+    public List<Comment> getCommentsByUser(@PathVariable String userId) {
         return commentRepository.findByUserId(userId);
     }
+
+    @RequestMapping(value="/{commentId}", method=RequestMethod.DELETE)
+    public ResultResponse deleteComment(@PathVariable String commentId, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication) principal).getPrincipal();
+        Comment comment = commentRepository.findOne(commentId);
+        if (comment == null || !comment.getUserId().equals(userCredentials.getUserId()))
+            return newErrorResult(MessageConstant.ACCESS_DENIED);
+        commentRepository.delete(comment);
+        return newOkResult(MessageConstant.COMMENT_DELETED);
+    }
+
 }

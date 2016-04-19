@@ -17,6 +17,7 @@ public enum MessageConstant
 
     // Comment
     COMMENT_CREATED,
+    COMMENT_DELETED,
 
     // File
     FILE_UPLOADED,
