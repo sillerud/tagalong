@@ -18,9 +18,7 @@ postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', fun
         }
         post.tags = $scope.allTags.getByIds(post.tagIds);
         post.upvote = function() {
-            post.$upvote({upvote: !post.upvoted}, function() {
-                refresh(); 
-            });
+            post.$upvote({upvote: !post.upvoted}, refresh);
         };
         post.comments = Comment.getByPost({postId: post.id}, function(comments) {
             comments.forEach(function(comment) {
@@ -65,7 +63,7 @@ postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', fun
                     user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
                     if (user.id == $scope.me.id) {
                         post.delete = function() {
-                            Post.remove({postId: post.id});
+                            Post.remove({postId: post.id}, refresh);
                         };
                     }
                     post.user = user;

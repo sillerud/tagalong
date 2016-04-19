@@ -119,7 +119,7 @@ userControllers.controller('UserPostFeed', ['$scope', 'Post', function($scope, P
         post.user = $scope.user;
         if (post.user.id == $scope.me.id) {
             post.delete = function() {
-                Post.remove({postId: post.id});
+                Post.remove({postId: post.id}, updatePosts);
             };
         }
         if (post.upvotes) {
