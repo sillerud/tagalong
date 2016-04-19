@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum ImageType {
-    HEADER_IMAGE(1920, 450),
+    HEADER_IMAGE(1920, 1080),
     PROFILE_IMAGE(1000, 1000),
     CARD_IMAGE(600, 600),
     OTHER(1920, 1080);
