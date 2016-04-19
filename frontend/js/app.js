@@ -208,26 +208,34 @@ angular.module('tagalong', [
         };
 
         var menuOpen = false;
-        $rootScope.mobileMenu = function(thatClass){
-            $(thatClass).fadeOut();
-            if(menuOpen == false){
-                //$('body').css('overflow', 'hidden');
-                $('.menu').fadeIn();
-                $('.bar1').css({ transform: 'rotate(' + 45 + 'deg)' });
-                $('.bar1').css('top', '10px');
-                $('.bar2').css({ transform: 'rotate(' + -45 + 'deg)' });
-                $('.bar2').css('top', '10px');
-                $('.bar3').fadeOut();
-                menuOpen = true;
-            }else if(menuOpen == true){
-                //$('body').css('overflow', 'auto');
+        function transformBar(rotation, gap1, gap2) {
+            $('.bar1').css({
+                transform: 'rotate(' + rotation + 'deg)',
+                top: gap1
+            });
+            $('.bar2').css({
+                transform: 'rotate(-' + rotation + 'deg)',
+                top: gap2
+            });
+        }
+        $rootScope.toggleMobileMenu = function(cl){
+            if (menuOpen) {
+                $('body').css('overflow', 'auto');
                 $('.menu').fadeOut();
-                $('.bar1').css({ transform: 'rotate(' + 0 + 'deg)' });
-                $('.bar1').css('top', '0px');
-                $('.bar2').css({ transform: 'rotate(' + 0 + 'deg)' });
-                $('.bar2').css('top', '20px');
+                transformBar(0, '0px', '20px');
                 $('.bar3').fadeIn();
                 menuOpen = false;
+            } else {
+                $('body').css('overflow', 'hidden');
+                $('.menu').fadeIn();
+                transformBar(45, '10px', '10px');
+                $('.bar3').fadeOut();
+                menuOpen = true;
+            }
+        };
+        $rootScope.closeMobileMenu = function(cl) {
+            if (menuOpen) {
+                $rootScope.toggleMobileMenu(cl)
             }
         };
 
@@ -242,7 +250,6 @@ angular.module('tagalong', [
                 $('#newEventBtn').delay(200).css('display', 'block').animate({'bottom': '160px', 'opacity': '1'}, 300);
                 $('#newSearchBtn').delay(300).css('display', 'block').animate({'bottom': '210px', 'opacity': '1'}, 300);
                 addNewOpen = true;
-                return;
             }else{
                 console.log('close');
                 if( dark != 1) $('#darkOverlay').fadeOut();
@@ -257,7 +264,6 @@ angular.module('tagalong', [
             $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
             $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
             $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
-            return;
         };
 
         var dropdownToggle = false;

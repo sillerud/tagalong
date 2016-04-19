@@ -42,7 +42,7 @@
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/moment/min/moment.min.js"></script>
     <script src="bower_components/moment/locale/nb.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -201,18 +201,18 @@
         <div class="container" id="inner-menu">
 
 
-            <div class="burger-wrap" ng-click="mobileMenu()"><!-- Hamburgermenyen -->
+            <div class="burger-wrap" ng-click="toggleMobileMenu(this)"><!-- Hamburgermenyen -->
                 <div class="bar bar1"></div>
                 <div class="bar bar3"></div>
                 <div class="bar bar2"></div>
             </div><!-- END hamburgermeny -->
 
             <div class="menu">
-                <ul>
-                    <li><a ng-click="mobileMenu()" href="#/" class="active">Home</a></li>
-                    <li><a ng-click="mobileMenu()" href="#/feed">Feed</a></li>
-                    <li><a ng-click="mobileMenu()" href="#/events">Events</a></li>
-                    <li><a ng-click="mobileMenu()" href="#/pages">Pages</a></li>
+                <ul ng-click="closeMobileMenu(this)">
+                    <li><a href="#/" class="active">Home</a></li>
+                    <li><a href="#/feed">Feed</a></li>
+                    <li><a href="#/events">Events</a></li>
+                    <li><a href="#/pages">Pages</a></li>
                 </ul>
             </div><!-- END menu inner-->
         </div><!-- END container -->
