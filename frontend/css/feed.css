@@ -327,6 +327,21 @@ Eks: Tag-feed, all pages, all events, person-feed
 .events-attending{
     font-weight: bold;
 }
+.attend-event-btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 100px;
+    width: auto;
+    text-align: center;
+    padding: 5px 15px;
+    background-color: #FF7061;
+    display: inline;
+    cursor: pointer;
+    border-radius: 0 0 3px 3px;
+}
 .events-about{ /* Info om eventet */
     padding: 15px;
 }

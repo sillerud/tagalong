@@ -39,10 +39,13 @@
 
             <div ng-repeat="event in events" class="preview">
                 <div class="preview-image" ng-style="{'background-image': 'url(' + event.coverImageUrl + ')'}">
+
+                    <!--
                     <div class="event-attending-btn" ng-style="event.attendingStyle">
                         <i class="fa fa-check"></i>
                         <div class="attending-text">Attending</div>
-                    </div>
+                    </div>-->
+                    <div class="attend-event-btn">Attend</div>
                     <div class="add-page-to-card-pages" ng-click="addToCard()">
                         <div class="add-page-to-card-text">Add to card</div>
                         <div class="add-page-to-card-btn">
