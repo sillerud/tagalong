@@ -67,8 +67,8 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
         }
     });
 
-    $scope.cropDialogState = function(state) {
-        $("#image-crop").modal(state);
+    $scope.cropDialogState = function(cropId, state) {
+        $(cropId).modal(state);
     };
 
     $scope.updateProfile = function() {
@@ -92,17 +92,21 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
         }
     };
 
-    $scope.uploadFile = function(data, name) {
+    $scope.uploadFile = function(data, name, type) {
         Upload.upload({
             url: "/rest/v1/uploads",
             data: {
                 file: Upload.dataUrltoBlob(data, name),
                 name: name,
-                imageType: 'PROFILE_IMAGE'
+                imageType: type 
             }
         }).then(function(result) {
             var extra = result.data.extra;
-            User.update({profilePictureId: extra.id}, $scope.updateSelf);
+            if (type == 'PROFILE_IMAGE') {
+                User.update({profilePictureId: extra.id}, $scope.updateSelf);
+            } else {
+                User.update({profileHeaderPictureId: extra.id}, $scope.updateSelf);
+            }
         });
     };
 

@@ -4,16 +4,30 @@
 
         <div class="center-block">
             <div class="edit-profile-profile-pic edit-pic">
-                <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
-                <div class="pic-overlay" ng-model="imageToCrop" ngf-select="cropDialogState('show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
+                <img class="img-responsive" ng-src="{{ me.profileHeaderPictureUrl }}">
+                <div class="pic-overlay" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
                     <div class="pic-overlay-text">Click to edit</div>
                 </div>
-                <div class="modal" id="image-crop" data-backdrop="static">
-                    <img-crop area-type="square" class="image-crop-display" result-image-format="image/jpeg" result-image-size="1000" result-image="croppedImage" image="imageToCrop | ngfDataUrl" ng-init="croppedImage = ''">
+                <div class="modal" id="header-image-crop" data-backdrop="static">
+                    <img-crop area-type="rectangle" class="image-crop-display" result-image-format="'image/jpeg'" result-image-size="{w: 1920, h: 1010}" aspect-ratio="1.9" result-image="croppedHeaderImage" image="headerImageSrc | ngfDataUrl" ng-init="croppedHeaderImage = ''">
                     </img-crop>
                     <div class="upload-btn-wrap">
-                        <input type="button" class="upload-btn" value="Upload" ng-click="uploadFile(croppedImage, imageToCrop.name)">
-                        <a class="upload-btn" ng-click="cropDialogState('hide')">Close</a>
+                        <input type="button" class="upload-btn" value="Upload" ng-click="uploadFile(croppedHeaderImage, headerImageSrc.name, 'HEADER_IMAGE')">
+                        <a class="upload-btn" ng-click="cropDialogState('#header-image-crop', 'hide')">Close</a>
+                    </div><!-- END upload-btn-wrap -->
+                </div>
+            </div>
+            <div class="edit-profile-profile-pic edit-pic">
+                <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
+                <div class="pic-overlay" ng-model="profilePictureSrc" ngf-select="cropDialogState('#profile-picture-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
+                    <div class="pic-overlay-text">Click to edit</div>
+                </div>
+                <div class="modal" id="profile-picture-crop" data-backdrop="static">
+                    <img-crop area-type="square" class="image-crop-display" result-image-format="'image/jpeg'" result-image-size="1000" result-image="croppedProfileImage" image="profilePictureSrc | ngfDataUrl" ng-init="croppedProfileImage = ''">
+                    </img-crop>
+                    <div class="upload-btn-wrap">
+                        <input type="button" class="upload-btn" value="Upload" ng-click="uploadFile(croppedProfileImage, profilePictureSrc.name, 'PROFILE_IMAGE')">
+                        <a class="upload-btn" ng-click="cropDialogState('#profile-picture-crop', 'hide')">Close</a>
                     </div><!-- END upload-btn-wrap -->
                 </div>
             </div>
