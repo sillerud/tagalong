@@ -76,13 +76,6 @@ public class PostRestController {
         return newOkResult(POST_DELETED);
     }
 
-    @RequestMapping(value="/by-tags/{tags}", method=RequestMethod.GET)
-    public List<Post> getPostsByTag(@PathVariable String[] tags) {
-        ArrayList<Post> result = new ArrayList<>();
-        result.addAll(postRepo.getByTagIdsIn(tags));
-        return result;
-    }
-
     @RequestMapping(value="/by-user/{userId}", method=RequestMethod.GET)
     public List<Post> getPostsByUser(@PathVariable String userId)
     {

@@ -7,7 +7,7 @@ postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', fun
     var filteredPages = [];
     function mapPost(post) {
         post.comment = function() {
-            Comment.create({parentId: post.id, content: post.comment_body});
+            Comment.create({parentId: post.id, content: post.comment_body}, refresh);
         };
         if (post.upvotes) {
             post.upvotes.forEach(function(value) {
