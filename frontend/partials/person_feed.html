@@ -35,7 +35,6 @@
                     <div class="person-image">
                         <img ng-src="{{ comment.user.profilePictureUrl }}" alt="">
                     </div>
-                    <a ng-if="comment.delete" class="btn btn-danger" ng-click="comment.delete()">Delete</a>
                     <div class="comment-info">
                         <h3 class="person-name">{{ comment.user.firstname }} {{ comment.user.surname }}</h3>
                         <h4 class="person-studie">{{ comment.user.studyField.name }}</h4>
@@ -43,6 +42,7 @@
                     </div>
                 </div><!-- END feed-header -->
                 <div class="comment-content" markdown-to-html="comment.content"></div>
+                <div class="delete-comment"><a ng-if="comment.delete" class="delete-btn btn-fill" ng-click="comment.delete()">Delete</a></div>
             </div>
         </div>
 

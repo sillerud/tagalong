@@ -18,9 +18,28 @@
 }
 .comment .comment-content {
     padding-left: 55px;
+    padding-bottom: 15px;
 }
 /* TODO: Please make this look better */
 .comment {
     border-bottom: 1px solid #DADADA;
     position: relative;
+}
+.comment .delete-btn{
+    padding-top: 3px;
+    padding-bottom: 4px;
+    float: right;
+    position: relative;
+    right: 0;
+    margin-bottom: 10px;
+    bottom: 0;
+    cursor: pointer;
+}
+.delete-comment{
+    width: 100%;
+    position: relative;
+    overflow: auto;
+}
+.comment .delete-btn:hover{
+    text-decoration: none;
 }

@@ -360,3 +360,9 @@ Eks: edit profile, edit card, add new card, create new page osv.
 /* END - Placeholder tekst */
 
 /* END - Edit profil */
+
+.add-to-card-wrap .col-sidebar-cards{
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
