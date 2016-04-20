@@ -39,10 +39,10 @@
                         <h3 class="person-name">{{ comment.user.firstname }} {{ comment.user.surname }}</h3>
                         <h4 class="person-studie">{{ comment.user.studyField.name }}</h4>
                         <div class="feed-date"> {{ comment.timestamp | date: 'HH:mm - dd.MM.yyyy' }}</div>
+                        <div class="delete-comment"><a ng-if="comment.delete" class="delete-btn btn-fill" ng-click="comment.delete()">Delete</a></div>
                     </div>
                 </div><!-- END feed-header -->
                 <div class="comment-content" markdown-to-html="comment.content | stripHtml"></div>
-                <div class="delete-comment"><a ng-if="comment.delete" class="delete-btn btn-fill" ng-click="comment.delete()">Delete</a></div>
             </div>
         </div>
 

@@ -64,6 +64,9 @@ Eks: Tag-feed, all pages, all events, person-feed
 .sidebar-all-card{
     display: block;
 }
+.sidebar-all-card .owner-menu{
+    margin-bottom: 15px;
+}
 @media screen and (max-width: 767px){
     .sidebar-mobile{
         display: block;
@@ -76,6 +79,11 @@ Eks: Tag-feed, all pages, all events, person-feed
 /* END - sidebars */
 
 /* Feed */
+.feed-tags{
+    background-color: #FFF;
+    padding: 15px;
+    margin-bottom: 15px;
+}
 .person-feed-boks{ /* wrap */
     width: 100%;
     height: auto;
@@ -145,6 +153,7 @@ Eks: Tag-feed, all pages, all events, person-feed
     margin-top: 10px;
     padding: 5px 0 15px 0;
     border-bottom: 2px solid #FF7061;
+    overflow: hidden;
 }
 .bottom-bar .feed-feedback span{
     /* Se SASS */
@@ -174,6 +183,7 @@ Eks: Tag-feed, all pages, all events, person-feed
     position: relative;
     display: inline-block;
     padding: 3px 8px 4px 5px;
+    float: left;
 }
 .tagalong-like-btn img{
     width: 20px;
@@ -187,7 +197,11 @@ Eks: Tag-feed, all pages, all events, person-feed
     color: #FFF;
     border-radius: 3px;
 }
-
+.feed-feedback{
+    float: left;
+    margin-top: 4px;
+    margin-left: 10px;
+}
 .card-selected{
     border-right: 4px solid #fd7265;
 }

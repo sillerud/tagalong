@@ -1,3 +1,6 @@
+.comment-header{
+    height: 45px;
+}
 .comment-content img {
     width: auto;
     max-width: 300px;
@@ -36,10 +39,17 @@
     cursor: pointer;
 }
 .delete-comment{
-    width: 100%;
+    width: auto;
     position: relative;
     overflow: auto;
+    display: inline-block;
+    top: -10px;
+    float: right;
+}
+.comment .delete-btn{
+    background-color: transparent !important;
+    padding: 0;
 }
 .comment .delete-btn:hover{
-    text-decoration: none;
+    color: #fd7265 !important; /* red rød*/
 }
