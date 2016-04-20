@@ -28,17 +28,6 @@ Eks: Tag-feed, all pages, all events, person-feed
 .sidebar-card-info{
     overflow: hidden;
 }
-.sidebar-card:nth-child(2) .card-sidebar-inner:after{
-    content: '';
-    position: absolute;
-    top: 18px;
-    right: -10px;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid #FFF;
-}
 .card-sidebar-image{
     background-color: #fd7265;
     height: 55px;
@@ -199,9 +188,21 @@ Eks: Tag-feed, all pages, all events, person-feed
     border-radius: 3px;
 }
 
-.card-selected {
-    background-color: lightskyblue;
+.card-selected{
+    border-right: 4px solid #fd7265;
 }
+.card-selected:after{
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #fd7265;
+}
+
 
 @media screen and (max-width: 400px){
     .feed-header .feed-date{
