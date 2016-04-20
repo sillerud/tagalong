@@ -2,7 +2,7 @@
 
 var postControllers = angular.module('postControllers', []);
 
-postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', function($scope, Post, User, Comment) {
+postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User', 'Comment', function($scope, $routeParams, Post, User, Comment) {
     var filteredTags = [];
     var filteredPages = [];
     function mapPost(post) {
@@ -36,7 +36,11 @@ postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', fun
     }
     
     function refresh() {
-        $scope.selectCard($scope.currentCard);
+        if ($routeParams.tagId) {
+            $scope.selectCard({filter: [$routeParams.tagId]});
+        } else {
+            $scope.selectCard($scope.currentCard);
+        }
     }
     
     $scope.selectCard = function(card) {
@@ -57,7 +61,7 @@ postControllers.controller("FeedCtrl", ['$scope', 'Post', 'User', 'Comment', fun
                 filteredTags.push(filter.substring(1));
             }
         });
-        Post.find({tags: filteredTags.join()}, function(posts) {
+        Post.find({tagIds: filteredTags.join()}, function(posts) {
             posts.forEach(function(post) {
                 User.find({userId: post.userId}, function(user) {
                     user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");

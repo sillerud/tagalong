@@ -88,6 +88,10 @@ angular.module('tagalong', [
                 templateUrl: 'partials/feed.html',
                 controller: 'FeedCtrl'
             })
+            .when("/feed/:tagId", {
+                templateUrl: 'partials/feed.html',
+                controller: 'FeedCtrl'
+            })
             .when("/pages", {
                 templateUrl: 'partials/pages.html',
                 controller: 'ShowPagesController'

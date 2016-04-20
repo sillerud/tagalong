@@ -26,7 +26,7 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
     public List<Post> filterPosts(String parentId, String[] tagIds, Pageable pageable) {
         Query query = new Query();
         if (tagIds != null && tagIds.length > 0) {
-            query.addCriteria(where("tags").in((Object[]) tagIds));
+            query.addCriteria(where("tagIds").in((Object[]) tagIds));
         }
         if (parentId != null) {
             query.addCriteria(where("parentId").is(parentId));
