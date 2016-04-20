@@ -4,10 +4,15 @@
 
         <div class="col-sm-12">
             <div class="row">
-                <div class="edit-cover-piv edit-pic" ngf-select="uploadFile($file)" ngf-drop="uploadFile($file)" ngf-pattern="'image/*'">
-                    <img src="img/event_pic.jpg" class="img-responsive" alt="">
-                    <div class="pic-overlay">
-                        <div class="pic-overlay-text">Click to edit</div>
+                <div class="edit-cover-piv edit-pic">
+                    <img class="img-responsive" ng-src="{{ event.coverImageUrl }}" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
+                    <div class="modal" id="header-image-crop" data-backdrop="static">
+                        <img-crop area-type="rectangle" class="image-crop-display" result-image-format="'image/jpeg'" result-image-size="{w: 1920, h: 1010}" aspect-ratio="1.9" result-image="croppedHeaderImage" image="headerImageSrc | ngfDataUrl" ng-init="croppedHeaderImage = ''">
+                        </img-crop>
+                        <div class="upload-btn-wrap">
+                            <input type="button" class="upload-btn" value="Upload" ng-click="uploadFile(croppedHeaderImage, headerImageSrc.name)">
+                            <a class="upload-btn" ng-click="cropDialogState('#header-image-crop', 'hide')">Close</a>
+                        </div><!-- END upload-btn-wrap -->
                     </div>
                 </div>
             </div>
@@ -57,7 +62,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h3>Tags for event</h3>
-                <ui-select multiple ng-model="event.tagIds">
+                <ui-select multiple ng-model="event.tags">
                     <ui-select-match placeholder="Select tag...">
                         {{$item.name}}
                     </ui-select-match>

@@ -39,31 +39,49 @@ eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event',
     });
 }]);
 
-function updateEvent(originalId, $scope, Event, Static, Upload) {
-    $scope.title = "Create event";
-
+function updateEvent(originalId, $scope, Event, Upload) {
     var startDatePicker = $('#eventStartDate');
     startDatePicker.datetimepicker();
     var endDatePicker = $('#eventEndDate');
     endDatePicker.datetimepicker();
     startDatePicker = startDatePicker.data("DateTimePicker");
+
     endDatePicker = endDatePicker.data("DateTimePicker");
+
+    $scope.cropDialogState = function(cropId, state) {
+        $(cropId).modal(state);
+    };
+
+    $scope.uploadFile = function(data, name) {
+        Upload.upload({
+            url: "/rest/v1/uploads",
+            data: {
+                file: Upload.dataUrltoBlob(data, name),
+                name: name,
+                imageType: 'HEADER_IMAGE'
+            }
+        }).then(function(result) {
+            console.log(result);
+            $scope.event.coverImageId = result.data.extra.id;
+            $scope.event.coverImageUrl = getUploadUrl($scope.event.coverImageId);
+            $scope.cropDialogState('#header-image-crop', 'hide');
+        });
+    };
 
     if (originalId) {
         $scope.event = Event.getById({eventId: originalId}, function(event) {
-            console.log(event);
             startDatePicker.date(moment(event.startDate));
             if (event.endDate && event.endDate != 0) {
                 endDatePicker.date(moment(event.endDate));
             }
-            var tagIds = [];
-            event.tagIds.forEach(function(tag) {
-                tagIds.push($scope.allTags.getById(tag));
+            $scope.allTags.getByIds(event.tagIds).then(function(tags) {
+                event.tags = tags;
             });
-            event.tagIds = tagIds;
+            event.coverImageUrl = getUploadUrl(event.coverImageId);
         });
     } else {
         $scope.event = {};
+        $scope.event.coverImageUrl = getUploadUrl($scope.event.coverImageId);
     }
 
     $scope.createEvent = function() {
@@ -102,10 +120,12 @@ function updateEvent(originalId, $scope, Event, Static, Upload) {
     };
 }
 
-eventControllers.controller('EditEventCtrl', ['$scope', '$routeParams', 'Event', 'Static', 'Upload', function($scope, $routeParams, Event, Static, Upload) {
-    updateEvent($routeParams.id, $scope, Event, Static, Upload)
+eventControllers.controller('EditEventCtrl', ['$scope', '$routeParams', 'Event', 'Upload', function($scope, $routeParams, Event, Upload) {
+    $scope.title = "Edit event";
+    updateEvent($routeParams.id, $scope, Event, Upload);
 }]);
 
-eventControllers.controller('NewEventCtrl', ['$scope', 'Event', 'Static', 'Upload', function($scope, Event, Static, Upload) {
-    updateEvent(null, $scope, Event, Static, Upload);
+eventControllers.controller('NewEventCtrl', ['$scope', 'Event', 'Upload', function($scope, Event, Upload) {
+    $scope.title = "New event";
+    updateEvent(null, $scope, Event, Upload);
 }]);

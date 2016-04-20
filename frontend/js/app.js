@@ -13,13 +13,16 @@ function skipToContent(skipId){
 }
 
 function genericValueMapping(value, key) {
-    if (key == 'tagIds') {
+    console.log(key);
+    if (key == 'tags') {
         var tagIds = [];
-        value.forEach(function(tag) {
+        value.forEach(function (tag) {
             tagIds.push(tag.id);
         });
         if (tagIds.length > 0)
             this.tagIds = tagIds;
+    } else if (key == 'tagIds' || key.startsWith('$')) {
+        // Ignore
     } else {
         this[key] = value;
     }

@@ -135,7 +135,7 @@ userControllers.controller('UserPostFeed', ['$scope', 'Post', function($scope, P
         }
         post.tags = $scope.allTags.getByIds(post.tagIds);
         post.upvote = function() {
-            post.$upvote({upvote: !post.upvoted}, updatePosts);
+            Post.upvote({postId: post.id}, {upvote: !post.upvoted}, updatePosts);
         };
     }
     function updatePosts()  {
