@@ -2,7 +2,7 @@
 
     <div class="feed-header">
         <div class="person-image" style="border: 2px solid #fd7265;">
-            <img ng-src="{{ post.user.profilePictureUrl }}" alt="">
+            <img ng-src="{{ post.user.profilePictureUrl }}" alt="Profile picture">
         </div>
         <h3 class="person-name">{{ post.user.firstname }} {{ post.user.surname }}</h3><br>
         <h4 class="person-studie" style="color: #fd7265;">{{ post.user.studyField.description }}</h4>
@@ -23,7 +23,7 @@
 
     <div class="bottom-bar">
         <div class="tagalong-like-btn" ng-class="post.upvoted" ng-if="post.upvote" ng-click="post.upvote()"><!-- Fjern klassen tagged-along når et innlegg ikke er likt -->
-            <img src="img/tagalongBtn.png" alt="">Tag Along
+            <img src="img/tagalongBtn.png" alt="Like button">Tag Along
         </div><!-- END tagalong-like-button -->
         <input class="delete-btn btn-fill" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
         <div class="feed-feedback"><span>{{ post.upvotes == null ? 0 : post.upvotes.length }}</span> people tagged along</div>
@@ -33,7 +33,7 @@
             <div class="comment" ng-repeat="comment in post.comments">
                 <div class="comment-header">
                     <div class="person-image">
-                        <img ng-src="{{ comment.user.profilePictureUrl }}" alt="">
+                        <img ng-src="{{ comment.user.profilePictureUrl }}" alt="Profile picture">
                     </div>
                     <div class="comment-info">
                         <h3 class="person-name">{{ comment.user.firstname }} {{ comment.user.surname }}</h3>

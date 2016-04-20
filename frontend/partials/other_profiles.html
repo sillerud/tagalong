@@ -2,7 +2,7 @@
     <!-- Kode her -->
     <div a href="#" class="logo"></div>
     <div class="header-image-wrap">
-        <img ng-src="{{ user.profileHeaderPictureUrl }}" class="img-responsive" alt="">
+        <img ng-src="{{ user.profileHeaderPictureUrl }}" class="img-responsive" alt="Profile picture">
         <div class="event-background-overlay"></div>
 
         <div class="page-name"><h1>{{ user.firstname }} {{ user.surname }}</h1></div>
@@ -30,7 +30,7 @@
                         <div ng-if="!showContactInfo" id="about-tab" class="tab"><!-- Tab 1 -->
 
                            <div class="col-sm-6 col-xs-4">
-                                <img class="img-profile-img" ng-src="{{ user.profilePictureUrl }}">
+                                <img class="img-profile-img" ng-src="{{ user.profilePictureUrl }}" alt="Profile picture">
                            </div><!--END col-sm-6-->
 
                             <div class="col-sm-6 col-xs-8">
