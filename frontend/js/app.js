@@ -126,6 +126,7 @@ angular.module('tagalong', [
     }])
     .config(['$showdownProvider', function($showdownProvider) {
         $showdownProvider.loadExtension('youtube');
+        $showdownProvider.loadExtension('imgur-webm');
     }])
     .run(['$rootScope', 'Static', 'User', 'Card', 'Post', function($rootScope, Static, User, Card, Post) {
         $rootScope.updateSelf = function() {

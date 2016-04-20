@@ -5,6 +5,12 @@
     width: auto;
     max-width: 300px;
 }
+
+.comment-content video {
+    width: auto;
+    max-width: 300px;
+}
+
 .comment .person-image {
     height: 40px;
     width: 40px;
