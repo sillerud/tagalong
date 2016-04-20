@@ -114,7 +114,7 @@ commentServices.factory('Comment', ['$resource', function ($resource) {
 }]);
 
 pageServices.factory('Page', ['$resource', function($resource) {
-    return $resource(url('/pages'), {}, {
+    return $resource(url('/pages'), {pageId: '@id'}, {
         create: {
             method: 'POST',
             isArray: false

@@ -60,19 +60,47 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
 pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($scope, Page) {
     $scope.pages = Page.all(function(data) {
         data.forEach(function(page) {
-            page.coverPictureUrl = getUploadUrl(page.coverPictureUrl);
+            page.coverPictureUrl = getUploadUrl(page.coverPictureId);
             console.log(page);
         });
     });
 }]);
 
-pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', function($scope, $routeParams, Page) {
+pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', 'Upload', function($scope, $routeParams, Page, Upload) {
     var originalPage = null;
-    Page.query({pageId: $routeParams.id}, function(data) {
-        $scope.page = data;
-        originalPage = $.extend({}, data);
-    });
+    $scope.update = function() {
+        Page.query({pageId: $routeParams.id}, function(data) {
+            $scope.page = data;
+            originalPage = $.extend({}, data);
+            data.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
+            data.coverImageUrl = getUploadUrl(data.coverPictureId);
+        });
+    };
 
+    $scope.update();
+
+    $scope.cropDialogState = function(cropId, state) {
+        $(cropId).modal(state);
+    };
+
+    $scope.uploadFile = function(data, name, type) {
+        Upload.upload({
+            url: "/rest/v1/uploads",
+            data: {
+                file: Upload.dataUrltoBlob(data, name),
+                name: name,
+                imageType: type
+            }
+        }).then(function(result) {
+            var extra = result.data.extra;
+            if (type == 'PROFILE_IMAGE') {
+                Page.update({pageId: originalPage.id}, {logoPictureId: extra.id}, $scope.update);
+            } else {
+                Page.update({pageId: originalPage.id}, {coverPictureId: extra.id}, $scope.update);
+            }
+        });
+    };
+    
     $scope.updatePage = function() {
         if (originalPage == null)
             return;
