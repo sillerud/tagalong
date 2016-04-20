@@ -2,7 +2,7 @@
 
     <div class="header-image-wrap">
         <!--TODO: Get the header from the database-->
-        <img src="{{ page.coverImageUrl }}" class="img-responsive" alt="">
+        <img ng-src="{{ page.coverPictureUrl }}" class="img-responsive" alt="">
             <div class="event-background-overlay"></div>
 
 
@@ -109,7 +109,7 @@
                 <div class="page-right-column">
                     <div class="owner-menu"><!-- Synes kun for eier av side/profil/event -->
                         <a class="owner-col-6">Add new post</a>
-                        <a href="edit" class="owner-col-6">Edit page</a>
+                        <a ng-href="#/pages/{{ page.id }}/edit" class="owner-col-6">Edit page</a>
                     </div>
                     <ng-include src="'partials/person_feed.html'">
                     <!-- TODO

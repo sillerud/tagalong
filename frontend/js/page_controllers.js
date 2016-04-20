@@ -73,7 +73,7 @@ pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', 'U
             $scope.page = data;
             originalPage = $.extend({}, data);
             data.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
-            data.coverImageUrl = getUploadUrl(data.coverPictureId);
+            data.coverPictureUrl = getUploadUrl(data.coverPictureId);
         });
     };
 
