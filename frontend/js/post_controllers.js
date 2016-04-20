@@ -3,8 +3,8 @@
 var postControllers = angular.module('postControllers', []);
 
 postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User', 'Comment', function($scope, $routeParams, Post, User, Comment) {
-    var filteredTags = [];
-    var filteredPages = [];
+    $scope.filteredTags = [];
+    $scope.filteredPages = [];
     function mapPost(post) {
         post.comment = function() {
             Comment.create({parentId: post.id, content: post.comment_body}, refresh);
@@ -46,10 +46,9 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
     }
     
     $scope.selectCard = function(card) {
-        filteredTags = [];
-        filteredPages = [];
+        $scope.filteredTags = [];
+        $scope.filteredPages = [];
         $scope.currentCard = card;
-        console.log(card);
         $scope.cards.forEach(function(card) {
             if (card == $scope.currentCard)  {
                 card.selected = "card-selected"
@@ -57,13 +56,19 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
                 card.selected = "";
             }
         });
-        console.log($scope.currentCard);
         card.filter.forEach(function(filter) {
             if (filter.startsWith('#')) {
-                filteredTags.push(filter.substring(1));
+                $scope.filteredTags.push(filter.substring(1));
             }
         });
-        Post.find({tagIds: filteredTags.join()}, function(posts) {
+
+        console.log($scope.filteredTags);
+        $scope.allTags.getByIds($scope.filteredTags).then(function(tags) {
+            $scope.displayTags = tags;
+        });
+        console.log($scope.displayTags);
+
+        Post.find({tagIds: $scope.filteredTags.join()}, function(posts) {
             posts.forEach(function(post) {
                 User.find({userId: post.userId}, function(user) {
                     user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
