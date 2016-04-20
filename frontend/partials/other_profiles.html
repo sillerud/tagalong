@@ -47,9 +47,9 @@
                                     <p class="info-format city"><b>City of residence: </b></p>
                                     <p class="city-c">{{ user.city }}</p>
                                 </div>
-                                <div ng-if="user.studyFieldDisplayName" class="holder">
+                                <div ng-if="user.data.studyField" class="holder">
                                     <p class="info-format field-of-study"><b>Field of study: </b></p>
-                                    <p class="field-of-study-c">{{ user.studyFieldDisplayName }}</p>
+                                    <p class="field-of-study-c">{{ user.data.studyField.description }}</p>
                                 </div>
                                 <div ng-if="user.interests" class="holder">
                                     <p class="info-format interests"><b>Interests: </b></p>

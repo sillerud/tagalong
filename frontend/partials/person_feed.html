@@ -5,7 +5,7 @@
             <img ng-src="{{ post.user.profilePictureUrl }}" alt="">
         </div>
         <h3 class="person-name">{{ post.user.firstname }} {{ post.user.surname }}</h3><br>
-        <h4 class="person-studie" style="color: #fd7265;">{{ post.user.studyFieldDisplayName }}</h4>
+        <h4 class="person-studie" style="color: #fd7265;">{{ post.user.studyField.description }}</h4>
 
         <div class="feed-date"> {{ post.time | date: 'HH:mm - dd.MM.yyyy' }}</div>
         <div class="feed-star"><i class="fa fa-tag"></i></div>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="comment-info">
                         <h3 class="person-name">{{ comment.user.firstname }} {{ comment.user.surname }}</h3>
-                        <h4 class="person-studie" style="color: #fd7265;">{{ comment.user.studyFieldDisplayName }}</h4>
+                        <h4 class="person-studie" style="color: #fd7265;">{{ comment.user.studyField.description }}</h4>
                         <div class="feed-date"> {{ comment.timestamp | date: 'HH:mm - dd.MM.yyyy' }}</div>
                         <div class="delete-comment"><a ng-if="comment.delete" class="delete-btn btn-fill" ng-click="comment.delete()">Delete</a></div>
                     </div>
