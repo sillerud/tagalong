@@ -16,7 +16,9 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
                 }
             });
         }
-        post.tags = $scope.allTags.getByIds(post.tagIds);
+        $scope.allTags.getByIds(post.tagIds).then(function (tags) {
+            post.tags = tags;
+        });
         post.upvote = function() {
             post.$upvote({upvote: !post.upvoted}, refresh);
         };
