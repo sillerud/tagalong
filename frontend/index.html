@@ -271,14 +271,26 @@
         <div class="exit-btn" ng-click="closePopup()"><i class="fa fa-times"></i></div>
         <div class="box-title"><h3>@Fubar</h3></div>
         <input type="search" id="atcSearch" placeholder="Search for a card...">
-        <div class="col-sidebar-cards">
-            <h5>Social</h5>
-            <div class="add-btn">Add</div>
-        </div>
-        <div class="col-sidebar-cards">
-            <h5>Yolo</h5>
-            <div class="add-btn">Add</div>
-        </div>
+        <div class="sidebar-card" ng-repeat="card in cards" id="{{ card.id }}" ng-click="selectCard(card)">
+                    <div class="card-sidebar-wrap" ng-class="card.selected">
+                        <div class="new-post-in-card-icon">
+                            5
+                        </div>
+                        <div class="card-sidebar-inner">
+                            <div class="card-sidebar-image" ng-style="{'background-image': 'url(' + card.backgroundImageUrl + ')'}"></div>
+                            <div class="sidebar-card-info">
+                                <h3>{{ card.name | limitTo : 23 }}{{card.name.length > 23 ? '...' : ''}}</h3>
+
+                                <!-- Viser kun 3 tags, kan sepsifisere hvilke det er i edit card -->
+                                <div class="card-tag-wrap">
+                                    <ul class="card-tag-list">
+                                        <li ng-repeat="filter in card.displayFilters | limitTo:2">{{ filter }}</li>
+                                    </ul>
+                                </div>
+                            </div><!-- END sidebar-card-info -->
+                        </div>
+                    </div><!-- END - card-wrap -->
+                </div>
     </div>
 
 
