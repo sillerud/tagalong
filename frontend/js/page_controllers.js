@@ -112,7 +112,9 @@ pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', 'U
         });
 
         if (!$.isEmptyObject(updatedPage)) {
-            Page.update({pageId: originalPage.id}, updatedPage)
+            Page.update({pageId: originalPage.id}, updatedPage, function (result) {
+                window.location = "#/pages/" + result.extra.id;
+            });
         }
     }
 

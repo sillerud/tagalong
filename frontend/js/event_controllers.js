@@ -113,9 +113,13 @@ function updateEvent(originalId, $scope, Event, Upload) {
             return;
         }
         if (originalId) {
-            Event.update(event);
+            Event.update(event, function(data) {
+                window.location = "#/events/" + data.extra.id
+            });
         } else {
-            Event.create(event);
+            Event.create(event, function(data) {
+                window.location = "#/events/" + data.extra.id
+            });
         }
     };
 }
