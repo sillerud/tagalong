@@ -41,7 +41,6 @@ function mapCard(card) {
     this.getByIds(tagIds).then(function(data) {
         card.tags = data;
     });
-    card.customBackgroundImageUrl = getUploadUrl(card.customBackgroundImageId);
 }
 
 
