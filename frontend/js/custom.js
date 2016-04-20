@@ -10,26 +10,6 @@ $(document).ready(function () {
         mobileSettingsDropdown();
     });
 
-    var setCustomColors = function(){
-        console.log(':)');
-        $(window).load(function(){
-            console.log('loaded');
-            $('.feed-header, .comment-header').each(function(){
-                var studie = $(this).find('.person-studie').text();
-
-                if( studie == '3D Graphics'){
-                    $(this).find('.person-image')
-                        .removeAttr('style')
-                        .css('border', '2px solid #1eb6ec');
-                    $(this).find('.person-studie')
-                        .removeAttr('style')
-                        .css('color', '#1eb6ec');
-                }
-            });
-        });
-
-    }();
-
     var fixedMenu = function(){
         var topOffset = $(document).scrollTop();
         $(window).scroll(function() {
