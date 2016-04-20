@@ -19,7 +19,7 @@
                     <div class="card-tag-wrap">
                         <ul class="card-tag-list">
                             <li ng-repeat="page in card.pages">{{ page }}</li>
-                            <li ng-repeat="tag in card.tags">#{{ tag.name }}</li>
+                            <a ng-repeat="tag in card.tags" ng-href="#/feed/{{ tag.id }}"><li>#{{ tag.name }}</li></a>
                         </ul>
                     </div>
                 </div>

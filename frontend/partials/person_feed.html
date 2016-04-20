@@ -15,18 +15,21 @@
         <div markdown-to-html="post.content | stripHtml"></div>
     </div><!-- END feed-content -->
 
-    <div class="card-tag-wrap">
-        <ul class="card-tag-list">
-            <li ng-repeat="tag in post.tags">#{{ tag.name }}</li>
-        </ul>
-    </div><!-- END - card-wrap -->
-
     <div class="bottom-bar">
         <div class="tagalong-like-btn" ng-class="post.upvoted" ng-if="post.upvote" ng-click="post.upvote()"><!-- Fjern klassen tagged-along når et innlegg ikke er likt -->
             <img src="img/tagalongBtn.png" alt="Like button">Tag Along
         </div><!-- END tagalong-like-button -->
         <input class="delete-btn btn-fill" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
         <div class="feed-feedback"><span>{{ post.upvotes == null ? 0 : post.upvotes.length }}</span> people tagged along</div>
+
+        <div class="post-tags">
+            <div class="card-tag-wrap">
+                <ul class="card-tag-list">
+                    <li ng-repeat="page in filteredPages">{{ post }}</li>
+                    <a ng-repeat="tag in displayTags" ng-href="#/feed/{{ tag.id }}"><li>#{{ tag.name }}</li></a>
+                </ul>
+            </div>
+        </div><!-- END post-tags -->
 
     </div>
         <div class="comments" ng-if="post.comments.length > 0">
