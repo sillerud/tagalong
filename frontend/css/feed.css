@@ -287,6 +287,22 @@ Eks: Tag-feed, all pages, all events, person-feed
     position: absolute;
     right: 20px;
 }
+.add-to-card-wrap .sidebar-card{
+    border-right: 0px solid #fd7265;
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+.add-to-card-wrap .sidebar-card:hover{
+    border-right: 4px solid #fd7265; /* rød red color */
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
 /* Add to card knapp END*/
 
 

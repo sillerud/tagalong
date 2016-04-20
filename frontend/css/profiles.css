@@ -14,6 +14,7 @@ Eks: Fubar, Ola Nordmann og events
     text-align: center;
     float: left;
     display: block;
+    cursor: pointer;
 }
 .owner-col-6:hover{
     color: #333;
@@ -120,6 +121,7 @@ Eks: Fubar, Ola Nordmann og events
 }
 .tabs-item{
     display: table-cell;
+    cursor: pointer;
 }
 .tab-links a{
     margin:0 0;
@@ -157,7 +159,7 @@ li.active a, li.active a:hover {
     overflow: hidden;
 }
 .tab-content-section{
-    height: 200px;
+    height: auto;
 }
 /* Page */
 #breads{

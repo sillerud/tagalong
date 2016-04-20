@@ -7,7 +7,7 @@
 
         <div class="page-name"><h1>{{ user.firstname }} {{ user.surname }}</h1></div>
 
-        <div class="add-page-to-card">
+        <div class="add-page-to-card" ng-click="addToCard(); scrollToPopup();">
             <div class="add-page-to-card-text">Add to card</div>
             <div class="add-page-to-card-btn">
                 <i class="fa fa-plus"></i>
@@ -60,14 +60,15 @@
                         </div><!--about-tab END-->
 
                         <div ng-if="showContactInfo" id="contact-tab" class="tab"><!-- Tab 2 -->
-                            <div ng-repeat="contactInfo in user.contactInfo" class="holder">
-                                <a href="{{ contactInfo.value }}">{{ contactInfo.description }}</a>
-                            </div><!--END holder-->
+                            <div class="col-xs-12">
+                                <div ng-repeat="contactInfo in user.contactInfo" class="holder">
+                                    <a href="{{ contactInfo.value }}">{{ contactInfo.description }}</a>
+                                </div><!--END holder-->
+                            </div><!-- END col 12 -->
                         </div><!--END contact-tab-->
 
                     </div><!--END tabs-content-->
 
-                    <a href="#/profile/edit" ng-if="user.id == me.id" class="edit-profile-page-link">Edit</a> <!--edit button-->
                 </div><!--END tabs-content-->
             </div><!-- END  tabs-->
 
@@ -95,7 +96,7 @@
         </div><!--END col-sm-6-->
         <div class="col-sm-6 col-md-8">
             <div class="owner-menu"><!-- Synes kun for eier av side/profil/event -->
-                <a class="owner-col-6" ng-click="openNewPost(0);">Add new post</a>
+                <a class="owner-col-6" ng-click="openNewPost(0); scrollToPopup();">Add new post</a>
                 <a class="owner-col-6" href="#/profile/edit" ng-if="user.id == me.id">Edit profile</a>
             </div>
             <ng-include ng-controller="UserPostFeed" src="'partials/person_feed.html'"></ng-include>
