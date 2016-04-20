@@ -160,7 +160,7 @@ public class UserRestController {
             return null;
         UserResponse userResponse = new UserResponse(user);
         if (user.getStudyFieldId() != null)
-            userResponse.setStudyFieldDisplayName(studyFieldRepository.findOne(user.getStudyFieldId()).getDescription());
+            userResponse.setStudyField(studyFieldRepository.findOne(user.getStudyFieldId()));
         return userResponse;
     }
 
