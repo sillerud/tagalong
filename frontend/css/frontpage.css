@@ -37,7 +37,8 @@ Spesifikt for forsiden
 .edit-card-icon{
     position: absolute;
     top: 30px;
-    right: 10px;
+    right: 5px;
+    font-size: 22px;
 }
 .card-wrap h3{ /* Tittel på card */
     margin-top: 0;
