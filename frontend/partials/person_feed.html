@@ -12,7 +12,7 @@
     </div><!-- END feed-header -->
 
     <div class="feed-content">
-        <div markdown-to-html="post.content"></div>
+        <div markdown-to-html="post.content | stripHtml"></div>
     </div><!-- END feed-content -->
 
     <div class="card-tag-wrap">
@@ -41,7 +41,7 @@
                         <div class="feed-date"> {{ comment.timestamp | date: 'HH:mm - dd.MM.yyyy' }}</div>
                     </div>
                 </div><!-- END feed-header -->
-                <div class="comment-content" markdown-to-html="comment.content"></div>
+                <div class="comment-content" markdown-to-html="comment.content | stripHtml"></div>
                 <div class="delete-comment"><a ng-if="comment.delete" class="delete-btn btn-fill" ng-click="comment.delete()">Delete</a></div>
             </div>
         </div>
