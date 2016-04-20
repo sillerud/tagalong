@@ -32,6 +32,7 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
     var shortDescription = "";
     var description = "";
     $scope.page = Page.query({ pageId: $routeParams.id }, function(data) {
+        $scope.setTitle(data.name);
         description = data.description;
         shortDescription = description.length > 100 ? description.substring(0, 100) : description + "...";
         $scope.description = shortDescription;
@@ -58,6 +59,7 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
 ]);
 
 pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($scope, Page) {
+    $scope.setTitle("Pages");
     $scope.pages = Page.all(function(data) {
         data.forEach(function(page) {
             page.coverPictureUrl = getUploadUrl(page.coverPictureId);

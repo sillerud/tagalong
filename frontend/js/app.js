@@ -13,7 +13,6 @@ function skipToContent(skipId){
 }
 
 function genericValueMapping(value, key) {
-    console.log(key);
     if (key == 'tags') {
         var tagIds = [];
         value.forEach(function (tag) {
@@ -130,6 +129,12 @@ angular.module('tagalong', [
     }])
     .run(['$rootScope', 'Static', 'User', 'Card', 'Post', function($rootScope, Static, User, Card, Post) {
         $rootScope.updateSelf = function() {
+            $rootScope.title = 'Tag along'; 
+            
+            $rootScope.setTitle = function(title) {
+                $rootScope.title = 'Tag along' + (title ? ' - ' + title : '');
+            };
+            
             $rootScope.me = User.find(function(user) {
                 if (!user.id) {
                     redirectLogin();

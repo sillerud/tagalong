@@ -3,6 +3,7 @@
 var eventControllers = angular.module('eventControllers', []);
 
 eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($scope, Event) {
+    $scope.setTitle('Events');
     $scope.me.$promise.then(function() {
         $scope.filter = {
             order: "recent"
@@ -33,6 +34,7 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
 eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event', function($scope, $routeParams, Event) {
     $scope.event = Event.getById({eventId: $routeParams.id}, function(event) {
         event.coverImageUrl = getUploadUrl(event.coverImageId);
+        $scope.setTitle(event.title);
         $scope.allTags.getByIds(event.tagIds).then(function(tags) {
             $scope.tags = tags;
         });
@@ -40,6 +42,7 @@ eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event',
 }]);
 
 function updateEvent(originalId, $scope, Event, Upload) {
+    $scope.setTitle(originalId ? 'Edit event' : 'Create event');
     var startDatePicker = $('#eventStartDate');
     startDatePicker.datetimepicker();
     var endDatePicker = $('#eventEndDate');

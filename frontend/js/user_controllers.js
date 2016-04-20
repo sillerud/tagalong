@@ -30,6 +30,11 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
     } else {
         $scope.user = $scope.me; // avoid showing your own name before loading the other person's name
     }
+
+    $scope.user.$promise.then(function (user) {
+        $scope.setTitle(user.firstname + " " + user.surname);
+    });
+
     $rootScope.breadcrumb = {name: "Profile", url: "#/profile"};
 
     $scope.setShowContactInfo = function(val) {
@@ -38,6 +43,7 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
 }]);
 
 userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routeParams', 'User', 'Upload', 'Static', function($scope, $rootScope, $routeParams, User, Upload, Static) {
+    $scope.setTitle("Edit profile");
     var bornDate = $('#bornDate');
     var studyStartYear = $('#studyStartYear');
 
