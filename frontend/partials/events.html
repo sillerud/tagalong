@@ -58,7 +58,7 @@
 
                     <div class="preview-info">
                         <ul class="card-tag-list">
-                            <li ng-repeat="tag in event.tags">#{{ tag.name }}</li>
+                            <a ng-repeat="tag in event.tags" ng-href="#/feed/{{ tag.id }}"><li>#{{ tag.name }}</li></a>
                         </ul><!--card-tag-list END-->
                     </div><!--page-preview-info END-->
                 </div><!--page-preview-image END-->
