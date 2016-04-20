@@ -324,58 +324,20 @@ Eks: Tag-feed, all pages, all events, person-feed
     position: relative;
     border-radius: 10px;
 }
-.attending-checked{ /* Når man har trykket attending */
-    background-color: #bcbcbc; /* gray */
-}
-.event-attending-btn{ /* Knapp for å delta */
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 45px;
-    margin: auto;
-    opacity: 0.4;
-    color: #FFF;
-    overflow: hidden;
-    cursor: pointer;
-    z-index: 400;
-    transition: background-color 200ms linear;
-}
-.attending-text{ /* Tekst inne i knappen */
-    position: absolute;
-    top: 8px;
-    right: 15px;
-    display: none;
-}
-.event-attending-btn .fa{ /* Ikonet i knappen */
-    font-size: 1.2em;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 11px;
-    text-align: center;
-    margin: auto;
-    color: #000;
-}
-.events-attending{
-    font-weight: bold;
-}
-.attend-event-btn{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    max-width: 100px;
-    width: auto;
-    text-align: center;
-    padding: 5px 15px;
-    background-color: #FF7061;
+
+.attend-btn{
     display: inline;
-    cursor: pointer;
-    border-radius: 0 0 3px 3px;
+    background-color: #333;
+    padding: 1px 5px;
+    border-radius: 2px;
+    color: #FFF;
+    margin-right: 5px;
+}
+.attend-btn:hover{
+    background-color: #fd7265;
+}
+.attend-btn i{
+    margin-right: 5px;
 }
 .events-about{ /* Info om eventet */
     padding: 15px;
@@ -405,6 +367,9 @@ Eks: Tag-feed, all pages, all events, person-feed
     padding: 5px 10px;
     font-size: 1.3em;
 }
+.events-preview-title a{
+    color: #fd7265; /* red rød color */
+}
 .events-preview-location{
     color:#333;
     text-align: left;
@@ -418,6 +383,7 @@ Eks: Tag-feed, all pages, all events, person-feed
     margin: 0;
     padding: 2px 10px;
     font-size: 0.9em;
+    margin-top: 5px;
 }
 .events-preview-date{
     color:#333;

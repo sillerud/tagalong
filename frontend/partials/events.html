@@ -45,7 +45,6 @@
                         <i class="fa fa-check"></i>
                         <div class="attending-text">Attending</div>
                     </div>-->
-                    <div class="attend-event-btn">Attend</div>
                     <div class="add-page-to-card-pages" ng-click="addToCard()">
                         <div class="add-page-to-card-text">Add to card</div>
                         <div class="add-page-to-card-btn">
@@ -58,21 +57,27 @@
                             <li ng-repeat="tag in event.tags">#{{ tag.name }}</li>
                         </ul><!--card-tag-list END-->
                     </div><!--page-preview-info END-->
-
                 </div><!--page-preview-image END-->
-                <a ng-href="#/events/{{ event.id }}">
+
                     <div class="preview-header">
                         <div class="events-preview-info-wrap">
-                            <h3 class="events-preview-title">{{ event.title }}</h3>
+                            <h3 class="events-preview-title">
+                                <a ng-href="#/events/{{ event.id }}">
+                                    {{ event.title }}
+                                </a>
+                            </h3><!-- END tittel -->
                             <h4 class="events-preview-location">Location: {{ event.location }}</h4>
-                            <h4 class="events-preview-attending">{{ event.attending.length }} people attending</h4>
+                            <h4 class="events-preview-attending">
+                                <div class="attend-btn"><i class="fa fa-check" aria-hidden="true"></i>Attend</div>
+                                {{ event.attending.length }} people attending
+                            </h4>
                         </div>
                         <div class="events-preview-date-wrap">
                             <h3 class="events-preview-date">{{ event.startDate | date: 'dd' }}</h3>
                             <h3 class="events-preview-month">{{ event.startDate | date: 'MMMM' }}</h3>
                         </div>
                     </div>
-                </a>
+
             </div><!--page-preview END-->
         </div><!-- col-sm-8 END-->
     </div><!-- END row -->
