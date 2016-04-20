@@ -10,6 +10,9 @@ Eks: Tag-feed, all pages, all events, person-feed
 .order-pages-by, .filter-pages-by{
     padding-top: 5px;
 }
+.filter-pages{
+    margin-bottom: 15px !important;
+}
 .checkbox-style{
     margin: 0px;
     position: relative;

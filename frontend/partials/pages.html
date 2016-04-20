@@ -8,7 +8,6 @@
         <div class="row">
             <div class="col-sm-5 col-md-4">
                 <div class="filter-pages box">
-                    <input type="submit" class="btn-fill btn-small all-feeds-btn" value="Unfiltered">
 
                     <div class="order-by-box">
                         <div class="box-title">
@@ -18,6 +17,7 @@
                         <div class="input-group checkbox-style order-pages-by">
                             <input type="radio" ng-change="filterUpdated()" ng-model="filter.order" value="recent" name="mostRecentCheck" id="mostRecentCheck"><label for="mostRecentCheck">Most recent</label><br>
                             <input type="radio" ng-change="filterUpdated()" ng-model="filter.order" value="tags" name="mostTaggedAlongCheck" id="mostTaggedAlongCheck"><label for="mostTaggedAlongCheck">Most people tagged along</label><br>
+                            <input type="radio" ng-model="filter.order" ><label>Your pages</label><br>
                         </div><!--checkbox-style boxD-->
                     </div><!--END order-by-box-->
 
@@ -34,8 +34,10 @@
                             <input type="checkbox" name="managementCheck" id="managementCheck" value="management"><label for="managementCheck">Management </label><br>
                         </form>
                     </div><!--END filter-by-box-->
-                    <a href="#/" class="btn-fill btn-small creat-page-btn">+ Create page</a>
                 </div><!--END filter-pages box-->
+                <div class="owner-menu">
+                    <a href="#/pages/new" class="owner-col-6 owner-col-12">+ Create page</a>
+                </div>
             </div><!-- col-sm-5 END-->
 
             <div class="col-sm-7 col-md-8">
