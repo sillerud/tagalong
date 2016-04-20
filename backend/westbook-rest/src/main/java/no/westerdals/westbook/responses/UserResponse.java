@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import no.westerdals.westbook.model.StudyField;
 import no.westerdals.westbook.model.ValueDescription;
 import no.westerdals.westbook.model.User;
 
@@ -21,7 +22,7 @@ public class UserResponse
     private String personalInfo;
     private Date born;
     private String studyFieldId;
-    private String studyFieldDisplayName;
+    private StudyField studyField;
     private String city;
     private String gender;
     private String firstname;
