@@ -119,6 +119,9 @@ angular.module('tagalong', [
                 controller: 'ShowUserCtrl'
             });
     }])
+    .config(['$showdownProvider', function($showdownProvider) {
+        $showdownProvider.loadExtension('youtube');
+    }])
     .run(['$rootScope', 'Static', 'User', 'Card', 'Post', function($rootScope, Static, User, Card, Post) {
         $rootScope.updateSelf = function() {
             $rootScope.me = User.find(function(user) {
