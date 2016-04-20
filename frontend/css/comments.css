@@ -19,8 +19,10 @@
     right: 0;
     top: 0;
 }
+.comments{ /* Wrap rundt alle comments */
+    border-top: 2px solid #FF7061; /* red rød color*/
+}
 .comment .comment-content {
-    padding-left: 55px;
     padding-bottom: 15px;
 }
 /* TODO: Please make this look better */
@@ -49,6 +51,7 @@
 .comment .delete-btn{
     background-color: transparent !important;
     padding: 0;
+    font-size: 12px;
 }
 .comment .delete-btn:hover{
     color: #fd7265 !important; /* red rød*/

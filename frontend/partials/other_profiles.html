@@ -61,8 +61,7 @@
 
                         <div ng-if="showContactInfo" id="contact-tab" class="tab"><!-- Tab 2 -->
                             <div ng-repeat="contactInfo in user.contactInfo" class="holder">
-                                <p class="info-format email"><b>{{ contactInfo.description }}:</b></p>
-                                <p class="">{{ contactInfo.value }}</p>
+                                <a href="{{ contactInfo.value }}">{{ contactInfo.description }}</a>
                             </div><!--END holder-->
                         </div><!--END contact-tab-->
 

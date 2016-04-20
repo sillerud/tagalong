@@ -110,12 +110,17 @@ Eks: Tag-feed, all pages, all events, person-feed
     width: calc(100% - 95px);
     font-size: 1.3em;
 }
-.feed-header .person-studie{ /* H4 studieretning */
+.feed-header .person-studie, .comment .person-studie{ /* H4 studieretning */
     float: left;
     margin: 0;
     font-size: 12px;
     margin-top: 7px;
     width: calc(100% - 95px);
+}
+.comment .person-studie{
+    position: relative;
+    top: -5px;
+    margin-top: 0px;
 }
 .feed-header .feed-date{
     position: absolute;
@@ -152,7 +157,6 @@ Eks: Tag-feed, all pages, all events, person-feed
     border-top: 1px solid #F2F2EE;
     margin-top: 10px;
     padding: 5px 0 15px 0;
-    border-bottom: 2px solid #FF7061;
     overflow: hidden;
 }
 .bottom-bar .feed-feedback span{
