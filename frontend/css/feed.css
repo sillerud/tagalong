@@ -332,9 +332,10 @@ Eks: Tag-feed, all pages, all events, person-feed
     border-radius: 2px;
     color: #FFF;
     margin-right: 5px;
+    cursor: pointer;
 }
 .attend-btn:hover{
-    background-color: #fd7265;
+    background-color: #43be28;
 }
 .attend-btn i{
     margin-right: 5px;
