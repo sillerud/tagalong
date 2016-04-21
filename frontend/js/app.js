@@ -27,6 +27,35 @@ function genericValueMapping(value, key) {
     }
 }
 
+function canWrite(accessLevel) {
+    switch (accessLevel) {
+        case 'WRITE':
+            return true;
+        default:
+            return canEdit(accessLevel);
+    }
+}
+
+function canEdit(accessLevel) {
+    switch (accessLevel) {
+        case 'EDIT':
+            return true;
+        default:
+            return canDelete(accessLevel);
+    }
+}
+
+function canDelete(accessLevel) {
+    switch (accessLevel) {
+        case 'DELETE':
+            return true;
+        case 'ALL':
+            return true;
+        default:
+            return false;
+    }
+}
+
 function mapCard(card) {
     card.pages = [];
     var tagIds = [];

@@ -34,6 +34,7 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
 eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event', function($scope, $routeParams, Event) {
     $scope.event = Event.getById({eventId: $routeParams.id}, function(event) {
         event.coverImageUrl = getUploadUrl(event.coverImageId);
+        event.canEdit = canEdit(event.accessLevel);
         $scope.setTitle(event.title);
         $scope.allTags.getByIds(event.tagIds).then(function(tags) {
             $scope.tags = tags;

@@ -38,6 +38,8 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
         $scope.description = shortDescription;
         data.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
         data.coverImageUrl = getUploadUrl(data.coverPictureId);
+        data.canEdit = canEdit(data.accessLevel);
+        data.canWrite = canWrite(data.accessLevel);
     });
 
     $('.thumb').each(function() {
