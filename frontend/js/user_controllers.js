@@ -124,9 +124,10 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
     };
 }]);
 
-userControllers.controller('UserPostFeed', ['$scope', 'Post', function($scope, Post) {
+userControllers.controller('UserPostFeed', ['$scope', 'Post', 'Comment', 'User', function($scope, Post, Comment, User) {
     function mapPost(post) {
         post.user = $scope.user;
+        mapPostColors($scope.user);
         if (post.user.id == $scope.me.id) {
             post.delete = function() {
                 Post.remove({postId: post.id}, updatePosts);
@@ -143,6 +144,20 @@ userControllers.controller('UserPostFeed', ['$scope', 'Post', function($scope, P
         post.upvote = function() {
             Post.upvote({postId: post.id}, {upvote: !post.upvoted}, updatePosts);
         };
+        post.comments = Comment.getByPost({postId: post.id}, function(comments) {
+            comments.forEach(function(comment) {
+                User.find({userId: comment.userId}, function(user) {
+                    mapPostColors(user);
+                    user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                    comment.user = user;
+                    if (comment.userId == $scope.me.id) {
+                        comment.delete = function() {
+                            Comment.deleteComment({commentId: comment.id}, refresh);
+                        }
+                    }
+                });
+            });
+        });
     }
     function updatePosts()  {
         $scope.posts = Post.find({parentId: $scope.user.id}, function(data) {

@@ -26,6 +26,7 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
             comments.forEach(function(comment) {
                 User.find({userId: comment.userId}, function(user) {
                     user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                    mapPostColors(user);
                     comment.user = user;
                     if (comment.userId == $scope.me.id) {
                         comment.delete = function() {
@@ -79,6 +80,7 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
                             Post.remove({postId: post.id}, refresh);
                         };
                     }
+                    mapPostColors(user);
                     post.user = user;
                 });
                 mapPost(post);

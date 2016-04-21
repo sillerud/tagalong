@@ -16,7 +16,6 @@
 .comment .person-image {
     height: 40px;
     width: 40px;
-    border: 2px solid #fd7265;
 }
 .comment .person-name{
     font-size: 1.2em;

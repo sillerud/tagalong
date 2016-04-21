@@ -12,6 +12,28 @@ function skipToContent(skipId){
 
 }
 
+function mapPostColors(user) {
+    var colorMap = {
+        TECHNOLOGY_IT: '#1eb6ec',
+        COMMUNICATION: '#fed575',
+        MANAGEMENT: '#835581',
+        ARTS: '#63caa6',
+        FILM_TV_GAMEDESIGN: '#fd7265'
+    };
+    var color = colorMap.TECHNOLOGY_IT;
+    if (user.studyField) {
+        color = colorMap[user.studyField.studyDirection];
+    }
+    user.userStyle = {
+        profilePictureBorder: {
+            border: '2px solid ' + color 
+        },
+        studyFieldInfo: {
+            color: color
+        }
+    };
+}
+
 function genericValueMapping(value, key) {
     if (key == 'tags') {
         var tagIds = [];
