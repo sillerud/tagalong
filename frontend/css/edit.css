@@ -162,7 +162,6 @@ Eks: edit profile, edit card, add new card, create new page osv.
   padding: 0 5px 2px 5px;
   border-radius: 3px;
   top: 7px;
-  border: 1px solid #61afca;
 }
 #newPostBtn:before{
   content: 'Add new post';

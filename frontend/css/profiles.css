@@ -17,7 +17,6 @@ Eks: Fubar, Ola Nordmann og events
     cursor: pointer;
 }
 .owner-col-6:hover{
-    color: #333;
     text-decoration: none;
 }
 .owner-col-6:first-of-type{

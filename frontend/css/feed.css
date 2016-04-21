@@ -32,7 +32,6 @@ Eks: Tag-feed, all pages, all events, person-feed
     overflow: hidden;
 }
 .card-sidebar-image{
-    background-color: #fd7265;
     height: 55px;
     width: 55px;
     display: inline-block;
@@ -213,9 +212,6 @@ Eks: Tag-feed, all pages, all events, person-feed
     margin-top: 4px;
     margin-left: 10px;
 }
-.card-selected{
-    border-right: 4px solid #fd7265;
-}
 .card-selected:after{
     content: '';
     position: absolute;
@@ -225,7 +221,6 @@ Eks: Tag-feed, all pages, all events, person-feed
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    border-left: 10px solid #fd7265;
 }
 
 
@@ -295,7 +290,6 @@ Eks: Tag-feed, all pages, all events, person-feed
     right: 20px;
 }
 .add-to-card-wrap .sidebar-card{
-    border-right: 0px solid #fd7265;
     -webkit-transition: all 200ms linear;
     -moz-transition: all 200ms linear;
     -ms-transition: all 200ms linear;
@@ -303,7 +297,6 @@ Eks: Tag-feed, all pages, all events, person-feed
     transition: all 200ms linear;
 }
 .add-to-card-wrap .sidebar-card:hover{
-    border-right: 4px solid #fd7265; /* rød red color */
     -webkit-transition: all 200ms linear;
     -moz-transition: all 200ms linear;
     -ms-transition: all 200ms linear;
@@ -374,9 +367,6 @@ Eks: Tag-feed, all pages, all events, person-feed
     margin: 0;
     padding: 5px 10px;
     font-size: 1.3em;
-}
-.events-preview-title a{
-    color: #fd7265; /* red rød color */
 }
 .events-preview-location{
     color:#333;

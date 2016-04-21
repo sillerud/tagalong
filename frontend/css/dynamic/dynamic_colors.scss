@@ -1,8 +1,8 @@
-$color3: rgb(97,175,202); // Blue
-$color2: rgb(121,85,128); // Purple
-$color4: rgb(126,197,157); // Green
-$color5: rgb(255,208,102); // Yellow - Svart tekst
-$color: rgb(255,112,97); // Red
+$color5: rgb(97,175,202); // Blue
+$color: rgb(121,85,128); // Purple
+$color2: rgb(126,197,157); // Green
+$color3: rgb(255,208,102); // Yellow - Svart tekst
+$color4: rgb(255,112,97); // Red
 $dark: rgb(51,51,51); // #333 - Mørk går nesten svart
 $white: rgb(255,255,255); // Hvit
 $fontcolor: rgb(10,10,10); // Svart til de fleste farger
@@ -24,6 +24,19 @@ $fontcolorX: rgb(255,255,255); // Hvit til noen farger
 
 // search.css
 .search-overlay-wrap input{ border-bottom: 2px solid $color !important; }
+.search-add{ background-color: $color; }
+.search-add .fa{ color: $fontcolor; }
+.result-image-wrap{ border-right: 3px solid $color; }
+.search-result-wrap a{ color: $color; }
+
+// feed.css
+.card-sidebar-image{ background-color: $color; }
+.card-selected{ border-right: 4px solid $color; }
+.card-selected:after{ border-left: 10px solid $color; }
+.comments{ border-top: 2px solid $color; }
+.events-preview-title a{ color: $color; }
+.add-to-card-wrap .sidebar-card{ border-right: 0px solid $color; }
+.add-to-card-wrap .sidebar-card:hover{ border-right: 4px solid $color; }
 
 // ===========================
 

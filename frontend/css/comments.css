@@ -25,9 +25,6 @@
     right: 0;
     top: 0;
 }
-.comments{ /* Wrap rundt alle comments */
-    border-top: 2px solid #FF7061; /* red rød color*/
-}
 .comment .comment-content {
     padding-bottom: 15px;
 }
