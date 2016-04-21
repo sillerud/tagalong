@@ -224,7 +224,6 @@ mobileSettingsDropdown();
                             return '<video class="embedded-video" loop="true" autoplay="true" muted="true" src="https://' + m[1] + '.webm"></video>'
                         } else if ((m = gfycatRegex.exec(url))) {
                             var webmUrl; // This is pretty ugly but it has to be async :/
-                            console.log('https://gfycat.com/cajax/get/' + m[1]);
                             $.ajax({
                                 url: 'https://gfycat.com/cajax/get/' + m[1],
                                 async: false,

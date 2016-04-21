@@ -37,7 +37,7 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
         shortDescription = description.length > 100 ? description.substring(0, 100) : description + "...";
         $scope.description = shortDescription;
         data.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
-        data.coverImageUrl = getUploadUrl(data.coverPictureId);
+        data.coverPictureUrl = getUploadUrl(data.coverPictureId);
         data.canEdit = canEdit(data.accessLevel);
         data.canWrite = canWrite(data.accessLevel);
     });
