@@ -63,7 +63,6 @@ pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($s
     $scope.pages = Page.all(function(data) {
         data.forEach(function(page) {
             page.coverPictureUrl = getUploadUrl(page.coverPictureId);
-            console.log(page);
         });
     });
 }]);

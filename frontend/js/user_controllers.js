@@ -35,14 +35,14 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
         $scope.setTitle(user.firstname + " " + user.surname);
     });
 
-    $rootScope.breadcrumb = {name: "Profile", url: "#/profile"};
+    $scope.setBreadcrumb("Profile", "#/profile");
 
     $scope.setShowContactInfo = function(val) {
         $scope.showContactInfo = val;
     }
 }]);
 
-userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routeParams', 'User', 'Upload', 'Static', function($scope, $rootScope, $routeParams, User, Upload, Static) {
+userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', 'validateSession', function($scope, $routeParams, User, Upload, validateSession) {
     $scope.setTitle("Edit profile");
     var bornDate = $('#bornDate');
     var studyStartYear = $('#studyStartYear');
@@ -94,7 +94,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
             updatedInfo.born = bornDate.date();
         }
         if (!$.isEmptyObject(updatedInfo)) {
-            User.update(updatedInfo, $scope.updateSelf);
+            User.update(updatedInfo, validateSession);
         }
     };
 
@@ -109,9 +109,9 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$rootScope', '$routePa
         }).then(function(result) {
             var extra = result.data.extra;
             if (type == 'PROFILE_IMAGE') {
-                User.update({profilePictureId: extra.id}, $scope.updateSelf);
+                User.update({profilePictureId: extra.id}, validateSession);
             } else {
-                User.update({profileHeaderPictureId: extra.id}, $scope.updateSelf);
+                User.update({profileHeaderPictureId: extra.id}, validateSession);
             }
         });
     };
