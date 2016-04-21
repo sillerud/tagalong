@@ -48,9 +48,10 @@ public class PageRestController
     public Page getPageById(@PathVariable String pageId, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication) principal).getPrincipal();
         Page result = pageRepository.findByCustomUrl(pageId);
-        result.setAccessLevel(getAccessLevel(result, userCredentials.getUserId()));
         if (result == null)
             result = pageRepository.findOne(pageId);
+        if (result != null)
+            result.setAccessLevel(getAccessLevel(result, userCredentials.getUserId()));
         return result;
     }
 
