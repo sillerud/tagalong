@@ -213,6 +213,7 @@ mobileSettingsDropdown();
         var imgRegex = /(?:<p>)?<img.*?src="(.+?)"(.*?)\/?>(?:<\/p>)?/gi;
         var gyazoRegex = /(?:https?:\/\/)?(?:i\.|embedded\.)(gyazo.com\/.+)\.(?:gif|mp4)/;
         var imgurRegex = /(?:https?:\/\/)?((?:i\.)?imgur.com\/.+)\.(?:gif|gifv|webm)/;
+        var gfycatRegex = /(?:https?\/\/)?(?:.+\.)?(gfycat.com\/.+)(?:\.(?:webm|gif|mp4))?/;
         var m;
         return [
             {
@@ -221,6 +222,8 @@ mobileSettingsDropdown();
                     return text.replace(imgRegex, function(match, url) {
                         if ((m = imgurRegex.exec(url))) {
                             return '<video loop="true" autoplay="true" muted="true" src="https://' + m[1] + '.webm"></video>'
+                        } else if ((m = gfycatRegex.exec(url))) {
+                            return '<video loop="true" autoplay="true" muted="true" src="https://giant.' + m[1] + '.webm"></video>'
                         } else if ((m = gyazoRegex.exec(url))) {
                             return '<video loop="true" autoplay="true" muted="true" src="https://embed.' + m[1] + '.mp4"></video>'
                         } else {
