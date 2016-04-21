@@ -167,7 +167,7 @@ angular.module('tagalong', [
         $rootScope.setTitle = function(title) {
             $rootScope.title = 'Tag along' + (title ? ' - ' + title : '');
         };
-        
+
         $rootScope.setBreadcrumb = function(name, url) {
             $rootScope.breadcrumb = {name: name, url: url};
         };
@@ -220,7 +220,7 @@ angular.module('tagalong', [
         $rootScope.closePopup = function(){
             $('.popup').fadeOut();
             $('#darkOverlay').fadeOut();
-            $rootScope.closeShortcuts();
+            $rootScope.closeShortcuts(1);
             $('#transparent-overlay').css('display', 'none');
             console.log('Close all');
         };
@@ -289,6 +289,7 @@ angular.module('tagalong', [
             $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
             $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
             $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
+            $('#darkOverlay').fadeOut();
         };
 
         var dropdownToggle = false;
