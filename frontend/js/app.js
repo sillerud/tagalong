@@ -343,6 +343,18 @@ angular.module('tagalong', [
             },
             validate: function() {
                 $rootScope.me = User.find(function(user) {
+                    var colorMap = {
+                        TECHNOLOGY_IT: 'blue',
+                        COMMUNICATION: 'yellow',
+                        MANAGEMENT: 'purple',
+                        ARTS: 'green',
+                        FILM_TV_GAMEDESIGN: 'red'
+                    };
+                    function getColorByStudyDirection(studyDirection) {
+                        var color = colorMap[studyDirection];
+                        console.log(studyDirection);
+                        return color ? color : "blue";
+                    }
                     if (!user.id) {
                         redirectLogin();
                         return;
@@ -350,16 +362,7 @@ angular.module('tagalong', [
                     user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
                     user.profileHeaderPictureUrl = getUploadUrl(user.profileHeaderPictureId);
 
-                    if(!localStorage.styleColor){
-                        localStorage.styleColor = 'blue';
-                    }
-
-                    $rootScope.changeStylesheet = function(color){
-                        localStorage.styleColor = color;
-                        $rootScope.styleSheetId = localStorage.styleColor;
-                    };
-
-                    $rootScope.changeStylesheet(localStorage.styleColor);
+                    $rootScope.styleSheetId = getColorByStudyDirection(user.studyField.studyDirection);
 
                     $rootScope.goToUrl = function(url){
                         $rootScope.closePopup();
