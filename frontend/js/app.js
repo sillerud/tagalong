@@ -128,7 +128,7 @@ angular.module('tagalong', [
         $showdownProvider.loadExtension('youtube');
         $showdownProvider.loadExtension('imgur-webm');
     }])
-    .run(['$rootScope', 'Static', 'Card', 'Post', 'validateSession', function($rootScope, Static, Card, Post, validateSession) {
+    .run(['$rootScope', 'Static', 'Card', 'Post', 'sessionFactory', function($rootScope, Static, Card, Post, sessionFactory) {
         $rootScope.title = 'Tag along';
 
         $rootScope.setTitle = function(title) {
@@ -158,9 +158,7 @@ angular.module('tagalong', [
             });
         };
 
-        $rootScope.$on('$routeChangeStart', function () {
-            validateSession();
-        });
+        $rootScope.$on('$routeChangeStart', sessionFactory.validate);
 
         $rootScope.updateCards = function() {
             $rootScope.cards = Card.all(function(data) {
@@ -171,9 +169,8 @@ angular.module('tagalong', [
 
         $rootScope.newpost = {};
 
-        $rootScope.logout = function() {
-            User.logout(redirectLogin);
-        };
+        $rootScope.logout = sessionFactory.invalidate;
+
         $rootScope.addToCard = function(){
             $('.add-to-card-wrap').fadeIn();
             $('#darkOverlay').fadeIn();
@@ -306,32 +303,37 @@ angular.module('tagalong', [
             }
         }
     }])
-    .factory('validateSession', ['User', '$rootScope', function(User, $rootScope) {
-        return function() {
-            $rootScope.me = User.find(function(user) {
-                if (!user.id) {
-                    redirectLogin();
-                    return;
-                }
-                user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
-                user.profileHeaderPictureUrl = getUploadUrl(user.profileHeaderPictureId);
+    .factory('sessionFactory', ['User', '$rootScope', function(User, $rootScope) {
+        return {
+            invalidate: function () {
+                User.logout(redirectLogin);
+            },
+            validate: function() {
+                $rootScope.me = User.find(function(user) {
+                    if (!user.id) {
+                        redirectLogin();
+                        return;
+                    }
+                    user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                    user.profileHeaderPictureUrl = getUploadUrl(user.profileHeaderPictureId);
 
-                if(!localStorage.styleColor){
-                    localStorage.styleColor = 'blue';
-                }
+                    if(!localStorage.styleColor){
+                        localStorage.styleColor = 'blue';
+                    }
 
-                $rootScope.changeStylesheet = function(color){
-                    localStorage.styleColor = color;
-                    $rootScope.styleSheetId = localStorage.styleColor;
-                };
+                    $rootScope.changeStylesheet = function(color){
+                        localStorage.styleColor = color;
+                        $rootScope.styleSheetId = localStorage.styleColor;
+                    };
 
-                $rootScope.changeStylesheet(localStorage.styleColor);
+                    $rootScope.changeStylesheet(localStorage.styleColor);
 
-                $rootScope.goToUrl = function(url){
-                    $rootScope.closePopup();
-                    window.location = url;
-                };
-            }, redirectLogin);
+                    $rootScope.goToUrl = function(url){
+                        $rootScope.closePopup();
+                        window.location = url;
+                    };
+                }, redirectLogin);
+            }
         };
     }])
     .directive('galeryImage', function() {

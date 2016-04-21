@@ -42,7 +42,7 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
     }
 }]);
 
-userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', 'validateSession', function($scope, $routeParams, User, Upload, validateSession) {
+userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User', 'Upload', 'sessionFactory', function($scope, $routeParams, User, Upload, sessionFactory) {
     $scope.setTitle("Edit profile");
     var bornDate = $('#bornDate');
     var studyStartYear = $('#studyStartYear');
@@ -94,7 +94,7 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
             updatedInfo.born = bornDate.date();
         }
         if (!$.isEmptyObject(updatedInfo)) {
-            User.update(updatedInfo, validateSession);
+            User.update(updatedInfo, sessionFactory.validate);
         }
     };
 
@@ -109,9 +109,9 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
         }).then(function(result) {
             var extra = result.data.extra;
             if (type == 'PROFILE_IMAGE') {
-                User.update({profilePictureId: extra.id}, validateSession);
+                User.update({profilePictureId: extra.id}, sessionFactory.validate);
             } else {
-                User.update({profileHeaderPictureId: extra.id}, validateSession);
+                User.update({profileHeaderPictureId: extra.id}, sessionFactory.validate);
             }
         });
     };
