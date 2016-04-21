@@ -159,6 +159,10 @@ Eks: Tag-feed, all pages, all events, person-feed
 .person-feed-boks .card-tag-wrap ul > li:first-of-type{
 
 }
+.feed-content img{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .bottom-bar{
     width: 100%;
     border-top: 1px solid #F2F2EE;
