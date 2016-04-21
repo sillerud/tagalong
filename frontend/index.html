@@ -82,7 +82,7 @@
 <a id="skip" ng-click="skipToContent('skipContent')">Skip to content</a>
 
 
-<div class="page">
+<div class="page" ng-controller="QuickSearchCtrl">
     <div id="darkOverlay" ng-click="closePopup()"></div>
 
     <div class="top-header">
@@ -93,7 +93,7 @@
 
             <div class="top-right">
 
-                <div class="fast-search" ng-controller="QuickSearchCtrl">
+                <div class="fast-search">
                     <button id="searchBtn" ng-click="openSearch()"><i class="fa fa-search"></i> <span>Search</span></button>
 
                     <div class="search-overlay-wrap">
