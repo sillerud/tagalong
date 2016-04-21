@@ -71,6 +71,25 @@ ul.card-tag-list > a > li:hover{
     background-color: #DBDBDB; /* Lysegrå */
     transition: all 200ms linear;
 }
+
+.card-extra{ /* Wrap rundt antall nye poster og settings på et card */
+    width: 25px;
+    height: 100%;
+    float: right;
+}
+.number-of-new-posts, .card-settings{
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    padding-top: 3px;
+    position: relative;
+}
+.number-of-new-posts{
+    border-bottom: 2px solid #FFF;
+}
+.card-settings{
+    cursor: pointer;
+}
 /* END - Cards */
 
 /* New Card */

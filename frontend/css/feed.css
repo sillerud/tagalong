@@ -27,6 +27,7 @@ Eks: Tag-feed, all pages, all events, person-feed
     height: 55px;
     margin-bottom: 15px;
     position: relative;
+    cursor: pointer;
 }
 .sidebar-card-info{
     overflow: hidden;
@@ -212,17 +213,18 @@ Eks: Tag-feed, all pages, all events, person-feed
     margin-top: 4px;
     margin-left: 10px;
 }
+/*
 .card-selected:after{
     content: '';
     position: absolute;
-    top: 18px;
+    top: 3px;
     right: -10px;
     width: 0;
     height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    border-top: 8px solid transparent;
+    border-bottom: px solid transparent;
 }
-
+*/
 
 @media screen and (max-width: 400px){
     .feed-header .feed-date{

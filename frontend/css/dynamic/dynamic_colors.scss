@@ -1,5 +1,5 @@
-$color5: rgb(97,175,202); // Blue
-$color: rgb(121,85,128); // Purple
+$color: rgb(97,175,202); // Blue
+$color5: rgb(121,85,128); // Purple
 $color2: rgb(126,197,157); // Green
 $color3: rgb(255,208,102); // Yellow - Svart tekst
 $color4: rgb(255,112,97); // Red
@@ -21,6 +21,9 @@ $fontcolorX: rgb(255,255,255); // Hvit til noen farger
 .card-wrap{ border-bottom: 5px solid $color; }
 .new-post-in-card-icon{ background-color: $color; }
 .edit-card-icon{ color: $color; }
+.card-extra{ background-color: $color; }
+.card-settings{ color: $fontcolor; }
+.card-settings:hover{ color: $fontcolorX; }
 
 // search.css
 .search-overlay-wrap input{ border-bottom: 2px solid $color !important; }
@@ -31,7 +34,8 @@ $fontcolorX: rgb(255,255,255); // Hvit til noen farger
 
 // feed.css
 .card-sidebar-image{ background-color: $color; }
-.card-selected{ border-right: 4px solid $color; }
+//.card-selected{ border-right: 4px solid $color; }
+.card-selected{ box-shadow: 0 0 0 4px rgba(#61AFCA, 0.5); }
 .card-selected:after{ border-left: 10px solid $color; }
 .comments{ border-top: 2px solid $color; }
 .events-preview-title a{ color: $color; }
