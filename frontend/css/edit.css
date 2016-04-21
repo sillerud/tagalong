@@ -232,7 +232,8 @@ Eks: edit profile, edit card, add new card, create new page osv.
 .edit-pic{
   position: relative;
 }
-.edit-pic .pic-overlay .pic-overlay-text{
+.pic-overlay-text{
+  font-size: 1.3em !important;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -355,6 +356,11 @@ Eks: edit profile, edit card, add new card, create new page osv.
 .invite-checkbox{
   float: left;
   padding-right: 100px;
+}
+.edit-cover{
+  width: 100%;
+  max-width: 500px;
+  height: auto;
 }
 /* END - Placeholder tekst */
 

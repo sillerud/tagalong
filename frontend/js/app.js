@@ -234,7 +234,9 @@ angular.module('tagalong', [
             $('.new-post-wrap').fadeIn();
             $('#darkOverlay').fadeIn();
             // Sjekker om shortcuts skal kjøre eller ikke
-            if( doo != 0) $rootScope.openShortcuts(1);
+            if( doo == 1) $rootScope.closeShortcuts(1);
+            else if( doo != 0) $rootScope.openShortcuts(1);
+            console.log('open new post')
         };
         $rootScope.scrollToPopup = function(){
             $('body').animate({scrollTop: 0}, 300);
@@ -287,7 +289,7 @@ angular.module('tagalong', [
         };
 
         var addNewOpen = false;
-        $rootScope.openShortcuts = function(dark){
+        $rootScope.openShortcuts = function(dark, doo){
             console.log('yolo');
             if( !addNewOpen ){
                 console.log('openShortcuts');
@@ -300,18 +302,19 @@ angular.module('tagalong', [
             }else{
                 console.log('close');
                 if( dark != 1) $('#darkOverlay').fadeOut();
-                $rootScope.closeShortcuts();
+                if( doo != 1) $rootScope.closeShortcuts();
+                if( doo == 1) $rootScope.closeShortcuts(1);
             }
 
         }; // END openShortcuts
 
-        $rootScope.closeShortcuts = function(){
+        $rootScope.closeShortcuts = function(doo){
             addNewOpen = false;
             $('#newSearchBtn').animate({'bottom': '200px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
             $('#newEventBtn').delay(100).animate({'bottom': '150px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
             $('#newPageBtn').delay(200).animate({'bottom': '100px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
             $('#newPostBtn').delay(300).animate({'bottom': '50px', 'opacity': '0'}, 300, function(){ $(this).css('display', 'none'); });
-            $('#darkOverlay').fadeOut();
+            if( doo != 1) $('#darkOverlay').fadeOut();
         };
 
         var dropdownToggle = false;

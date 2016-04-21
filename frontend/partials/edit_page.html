@@ -4,8 +4,11 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <div>
+                <div class="edit-profile-profile-pic edit-cover">
                     <img class="img-responsive" ng-src="{{ coverPictureUrl }}" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
+                    <div class="pic-overlay" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
+                        <div class="pic-overlay-text">Click to edit</div>
+                    </div>
                     <div class="modal" id="header-image-crop" data-backdrop="static">
                         <img-crop area-type="rectangle" class="image-crop-display" result-image-format="'image/jpeg'" result-image-size="{w: 1920, h: 1010}" aspect-ratio="1.9" result-image="croppedHeaderImage" image="headerImageSrc | ngfDataUrl" ng-init="croppedHeaderImage = ''">
                         </img-crop>
