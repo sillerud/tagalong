@@ -25,6 +25,9 @@ Eks: Fubar, Ola Nordmann og events
 .owner-col-12{
     width: 100%;
 }
+.header-image-wrap{
+    margin-top: 30px;
+}
 
 /* Person */
 .btn-fill-save-profile{ margin-top: 100px; }

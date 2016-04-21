@@ -57,7 +57,8 @@
     background-color: transparent !important;
     padding: 0;
     font-size: 12px;
+    color: #333 !important;
 }
 .comment .delete-btn:hover{
-    color: #fd7265 !important; /* red rød*/
+    color: #be3e28 !important; /* red rød*/
 }
