@@ -223,7 +223,7 @@ mobileSettingsDropdown();
                         if ((m = imgurRegex.exec(url))) {
                             return '<video loop="true" autoplay="true" muted="true" src="https://' + m[1] + '.webm"></video>'
                         } else if ((m = gfycatRegex.exec(url))) {
-                            return '<video loop="true" autoplay="true" muted="true" src="https://giant.' + m[1] + '.webm"></video>'
+                            return '<video loop="true" autoplay="true" muted="true" src="https://zippy.' + m[1] + '.webm"></video>'
                         } else if ((m = gyazoRegex.exec(url))) {
                             return '<video loop="true" autoplay="true" muted="true" src="https://embed.' + m[1] + '.mp4"></video>'
                         } else {
