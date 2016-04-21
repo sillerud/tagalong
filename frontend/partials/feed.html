@@ -9,7 +9,7 @@
 
                 <div class="owner-menu">
                     <div class="owner-col-6">Add new card</div>
-                    <div class="owner-col-6">Add new post</div>
+                    <div class="owner-col-6" ng-click="openNewPost(0); scrollToPopup()">Add new post</div>
                 </div>
 
                 <div class="sidebar-card" ng-repeat="card in cards" id="{{ card.id }}" ng-click="selectCard(card)">
