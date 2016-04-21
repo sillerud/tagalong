@@ -1,11 +1,11 @@
 <div class="container edit-profile-wrap edit-fields">
-    <form>
+    <form ng-submit="savePage()">
         <center><h1>Create/edit page</h1></center>
 
         <div class="row">
             <div class="col-sm-12">
                 <div>
-                    <img class="img-responsive" ng-src="{{ page.coverPictureUrl }}" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
+                    <img class="img-responsive" ng-src="{{ coverPictureUrl }}" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
                     <div class="modal" id="header-image-crop" data-backdrop="static">
                         <img-crop area-type="rectangle" class="image-crop-display" result-image-format="'image/jpeg'" result-image-size="{w: 1920, h: 1010}" aspect-ratio="1.9" result-image="croppedHeaderImage" image="headerImageSrc | ngfDataUrl" ng-init="croppedHeaderImage = ''">
                         </img-crop>
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="edit-profile-profile-pic edit-pic">
-                    <img class="img-responsive" ng-src="{{ page.logoPictureUrl }}">
+                    <img class="img-responsive" ng-src="{{ logoPictureUrl }}">
                     <div class="pic-overlay" ng-model="profilePictureSrc" ngf-select="cropDialogState('#profile-picture-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
                         <div class="pic-overlay-text">Click to edit</div>
                     </div>
@@ -36,12 +36,12 @@
             <div class="col-sm-12">
                 <h3 class="edit-this-title">Title</h3>
                 <h4 class="delete-this-link"><a href="#">Delete page</a></h4>
-                <input class="edit-field2" placeholder="Find a title for your page" ng-model="page.name">
+                <input class="edit-field2" placeholder="Find a title for your page" ng-model="page.name" required>
                 <h3>Custom URL</h3>
                 <input class="edit-field2" placeholder="Add a custom url for your page" ng-model="page.customUrl">
 
                 <h3>About</h3>
-                <textarea rows="6" class="edit-field2" placeholder="Write about your page" ng-model="page.description"></textarea>
+                <textarea rows="6" class="edit-field2" placeholder="Write about your page" ng-model="page.description" required></textarea>
 
                 <ui-select multiple ng-model="selected.value">
                     <ui-select-match placeholder="Select person...">
@@ -55,6 +55,6 @@
 
             </div><!--END col-sm-12-->
         </div><!--END row-->
-        <div class="center-input"><input type="button" ng-click="updatePage()" class="btn-fill btn-fill-save" value="Save changes"></div>
+        <div class="center-input"><input type="submit" class="btn-fill btn-fill-save" value="Save changes"></div>
     </form>
 </div><!-- END - container -->

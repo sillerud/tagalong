@@ -70,17 +70,31 @@ pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($s
 }]);
 
 pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', 'Upload', function($scope, $routeParams, Page, Upload) {
+    function isEdit() {
+        return $routeParams.id;
+    }
     var originalPage = null;
     $scope.update = function() {
         Page.query({pageId: $routeParams.id}, function(data) {
+            if (!data.administrators) {
+                data.administrators = [];
+            }
             $scope.page = data;
             originalPage = $.extend({}, data);
-            data.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
-            data.coverPictureUrl = getUploadUrl(data.coverPictureId);
+            $scope.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
+            $scope.coverPictureUrl = getUploadUrl(data.coverPictureId);
         });
     };
 
-    $scope.update();
+    if (isEdit()) {
+        $scope.update();
+    } else {
+        $scope.page = {
+            administrators: []
+        };
+        $scope.logoPictureUrl = "img/placeholder_thumb.jpg";
+        $scope.coverPictureUrl = "img/placeholder_big.jpg";
+    }
 
     $scope.cropDialogState = function(cropId, state) {
         $(cropId).modal(state);
@@ -96,28 +110,46 @@ pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', 'U
             }
         }).then(function(result) {
             var extra = result.data.extra;
-            if (type == 'PROFILE_IMAGE') {
-                Page.update({pageId: originalPage.id}, {logoPictureId: extra.id}, $scope.update);
+            if (isEdit()) {
+                if (type == 'PROFILE_IMAGE') {
+                    Page.update({pageId: originalPage.id}, {logoPictureId: extra.id}, $scope.update);
+                } else {
+                    Page.update({pageId: originalPage.id}, {coverPictureId: extra.id}, $scope.update);
+                }
             } else {
-                Page.update({pageId: originalPage.id}, {coverPictureId: extra.id}, $scope.update);
+                if (type == 'PROFILE_IMAGE') {
+                    $scope.page.logoPictureId = extra.id;
+                    $scope.logoPictureUrl = getUploadUrl(extra.id, "img/placeholder_thumb.jpg");
+                } else {
+                    $scope.page.coverPictureId = extra.id;
+                    $scope.coverPictureUrl = getUploadUrl(extra.id);
+                }
             }
+            $scope.cropDialogState('#profile-picture-crop', 'hide');
+            $scope.cropDialogState('#header-image-crop', 'hide');
         });
     };
-    
-    $scope.updatePage = function() {
-        if (originalPage == null)
-            return;
-        var updatedPage = {};
-        angular.forEach($scope.page, function(value, key) {
-            if (value != originalPage[key]) {
-                updatedPage[key] = value;
-            }
-        });
 
-        if (!$.isEmptyObject(updatedPage)) {
-            Page.update({pageId: originalPage.id}, updatedPage, function (result) {
-                window.location = "#/pages/" + result.extra.id;
+    $scope.savePage = function() {
+        function redirectToPage(result) {
+            window.location = "#/pages/" + result.extra.id;
+        }
+        if (isEdit()) {
+            if (originalPage == null)
+                return;
+            var updatedPage = {};
+            angular.forEach($scope.page, function(value, key) {
+                if (value != originalPage[key]) {
+                    updatedPage[key] = value;
+                }
             });
+
+            if (!$.isEmptyObject(updatedPage)) {
+                Page.update({pageId: originalPage.id}, updatedPage, redirectToPage);
+            }
+        } else {
+            $scope.page.administrators.push({userId: $scope.me.id, accessLevel: "ALL"});
+            Page.save($scope.page, redirectToPage);
         }
     }
 

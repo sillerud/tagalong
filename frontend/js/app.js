@@ -124,6 +124,10 @@ angular.module('tagalong', [
                 templateUrl: 'partials/pages.html',
                 controller: 'ShowPagesController'
             })
+            .when("/pages/new", {
+                templateUrl: 'partials/edit_page.html',
+                controller: 'EditPageCtrl'
+            })
             .when("/pages/:id", {
                 templateUrl: 'partials/page.html',
                 controller: 'PageCtrl'
