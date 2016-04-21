@@ -382,6 +382,16 @@ angular.module('tagalong', [
             }
         }
     })
+    .directive('gfyId', ['$http', function($http) { // Not currently doing anything
+        return {
+            restrict: 'A',
+            link: function(scope, element, attributes) {
+                $http.get('https://gfycat.com/cajax/get/' + attributes.gfyId).then(function(result) {
+                    element.attr("src", result.data.gfyItem.webmUrl)
+                });
+            }
+        }
+    }])
     .filter('capitalize', function() {
         return function(input) {
             return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';

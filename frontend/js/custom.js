@@ -213,7 +213,7 @@ mobileSettingsDropdown();
         var imgRegex = /(?:<p>)?<img.*?src="(.+?)"(.*?)\/?>(?:<\/p>)?/gi;
         var gyazoRegex = /(?:https?:\/\/)?(?:i\.|embedded\.)(gyazo.com\/.+)\.(?:gif|mp4)/;
         var imgurRegex = /(?:https?:\/\/)?((?:i\.)?imgur.com\/.+)\.(?:gif|gifv|webm)/;
-        var gfycatRegex = /(?:https?\/\/)?(?:.+\.)?(gfycat.com\/.+)(?:\.(?:webm|gif|mp4))?/;
+        var gfycatRegex = /(?:https?\/\/)?(?:.+\.)?gfycat.com\/(.+)(?:\.(?:webm|gif|mp4))?/;
         var m;
         return [
             {
@@ -221,11 +221,21 @@ mobileSettingsDropdown();
                 filter: function (text) {
                     return text.replace(imgRegex, function(match, url) {
                         if ((m = imgurRegex.exec(url))) {
-                            return '<video loop="true" autoplay="true" muted="true" src="https://' + m[1] + '.webm"></video>'
+                            return '<video class="embedded-video" loop="true" autoplay="true" muted="true" src="https://' + m[1] + '.webm"></video>'
                         } else if ((m = gfycatRegex.exec(url))) {
-                            return '<video loop="true" autoplay="true" muted="true" src="https://zippy.' + m[1] + '.webm"></video>'
+                            var webmUrl; // This is pretty ugly but it has to be async :/
+                            console.log('https://gfycat.com/cajax/get/' + m[1]);
+                            $.ajax({
+                                url: 'https://gfycat.com/cajax/get/' + m[1],
+                                async: false,
+                                success: function (result) {
+                                    webmUrl = result.gfyItem.webmUrl;
+                                }
+                            });
+                            return '<video class="embedded-video" loop="true" autoplay="true" muted="true" src="' + webmUrl + '"></video>'
+                            //return '<video loop="true" autoplay="true" muted="true" src="https://zippy.' + m[1] + '.webm"></video>'
                         } else if ((m = gyazoRegex.exec(url))) {
-                            return '<video loop="true" autoplay="true" muted="true" src="https://embed.' + m[1] + '.mp4"></video>'
+                            return '<video class="embedded-video" loop="true" autoplay="true" muted="true" src="https://embed.' + m[1] + '.mp4"></video>'
                         } else {
                             return match;
                         }

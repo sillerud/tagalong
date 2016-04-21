@@ -23,9 +23,11 @@ body{
 img{
     max-width: 100%;
 }
-video {
-    max-width: 100%;
+
+.embedded-video {
+
 }
+
 a{ text-decoration: none; }
 a:hover{ text-decoration: underline; }
 
