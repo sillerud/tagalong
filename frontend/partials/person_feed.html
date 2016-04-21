@@ -25,8 +25,7 @@
         <div class="post-tags">
             <div class="card-tag-wrap">
                 <ul class="card-tag-list">
-                    <li ng-repeat="page in filteredPages">{{ post }}</li>
-                    <a ng-repeat="tag in displayTags" ng-href="#/feed/{{ tag.id }}"><li>#{{ tag.name }}</li></a>
+                    <a ng-repeat="tag in post.tags" ng-href="#/feed/{{ tag.id }}"><li>#{{ tag.name }}</li></a>
                 </ul>
             </div>
         </div><!-- END post-tags -->
