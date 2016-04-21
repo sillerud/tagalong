@@ -24,6 +24,18 @@
 .edit-card-icon {
   color: #ffd066; }
 
+.card-extra {
+  background-color: #ffd066; }
+
+.card-settings {
+  color: #0a0a0a; }
+
+.card-settings:hover {
+  color: white; }
+
+.number-of-new-posts {
+  color: #0a0a0a; }
+
 .search-overlay-wrap input {
   border-bottom: 2px solid #ffd066 !important; }
 
@@ -31,7 +43,7 @@
   background-color: #ffd066; }
 
 .search-add .fa {
-  color: fontcolor; }
+  color: #0a0a0a; }
 
 .result-image-wrap {
   border-right: 3px solid #ffd066; }
@@ -43,7 +55,7 @@
   background-color: #ffd066; }
 
 .card-selected {
-  border-right: 4px solid #ffd066; }
+  box-shadow: 0 0 0 4px rgba(255, 208, 102, 0.5); }
 
 .card-selected:after {
   border-left: 10px solid #ffd066; }
@@ -61,13 +73,13 @@
   border-right: 4px solid #ffd066; }
 
 #one {
-  background-color: #7ec59d; }
+  background-color: #795580; }
 
 #two {
-  background-color: #ff7061; }
+  background-color: #61afca; }
 
 #two:before {
-  border-right: 8px solid #ff7061; }
+  border-right: 8px solid #61afca; }
 
 #three {
   background-color: #ffd066; }
@@ -76,16 +88,16 @@
   border-right: 8px solid #ffd066; }
 
 #four {
-  background-color: #61afca; }
+  background-color: #7ec59d; }
 
 #four:before {
-  border-right: 8px solid #61afca; }
+  border-right: 8px solid #7ec59d; }
 
 #five {
-  background-color: #795580; }
+  background-color: #ff7061; }
 
 #five:before {
-  border-right: 8px solid #795580; }
+  border-right: 8px solid #ff7061; }
 
 .menu-wrap {
   background-color: #ffd066; }

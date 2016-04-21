@@ -1,8 +1,8 @@
-$color: rgb(97,175,202); // Blue
+$color3: rgb(97,175,202); // Blue
 $color5: rgb(121,85,128); // Purple
-$color2: rgb(126,197,157); // Green
-$color3: rgb(255,208,102); // Yellow - Svart tekst
-$color4: rgb(255,112,97); // Red
+$color4: rgb(126,197,157); // Green
+$color2: rgb(255,208,102); // Yellow - Svart tekst
+$color: rgb(255,112,97); // Red
 $dark: rgb(51,51,51); // #333 - Mørk går nesten svart
 $white: rgb(255,255,255); // Hvit
 $fontcolor: rgb(10,10,10); // Svart til de fleste farger
@@ -24,7 +24,7 @@ $fontcolorX: rgb(255,255,255); // Hvit til noen farger
 .card-extra{ background-color: $color; }
 .card-settings{ color: $fontcolor; }
 .card-settings:hover{ color: $fontcolorX; }
-
+.number-of-new-posts{ color: $fontcolor; }
 // search.css
 .search-overlay-wrap input{ border-bottom: 2px solid $color !important; }
 .search-add{ background-color: $color; }
@@ -35,7 +35,7 @@ $fontcolorX: rgb(255,255,255); // Hvit til noen farger
 // feed.css
 .card-sidebar-image{ background-color: $color; }
 //.card-selected{ border-right: 4px solid $color; }
-.card-selected{ box-shadow: 0 0 0 4px rgba(#61AFCA, 0.5); }
+.card-selected{ box-shadow: 0 0 0 4px rgba($color, 0.5); }
 .card-selected:after{ border-left: 10px solid $color; }
 .comments{ border-top: 2px solid $color; }
 .events-preview-title a{ color: $color; }

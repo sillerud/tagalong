@@ -24,6 +24,18 @@
 .edit-card-icon {
   color: #ff7061; }
 
+.card-extra {
+  background-color: #ff7061; }
+
+.card-settings {
+  color: #0a0a0a; }
+
+.card-settings:hover {
+  color: white; }
+
+.number-of-new-posts {
+  color: #0a0a0a; }
+
 .search-overlay-wrap input {
   border-bottom: 2px solid #ff7061 !important; }
 
@@ -31,7 +43,7 @@
   background-color: #ff7061; }
 
 .search-add .fa {
-  color: fontcolor; }
+  color: #0a0a0a; }
 
 .result-image-wrap {
   border-right: 3px solid #ff7061; }
@@ -43,7 +55,7 @@
   background-color: #ff7061; }
 
 .card-selected {
-  border-right: 4px solid #ff7061; }
+  box-shadow: 0 0 0 4px rgba(255, 112, 97, 0.5); }
 
 .card-selected:after {
   border-left: 10px solid #ff7061; }
@@ -61,13 +73,13 @@
   border-right: 4px solid #ff7061; }
 
 #one {
-  background-color: #795580; }
+  background-color: #ffd066; }
 
 #two {
-  background-color: #7ec59d; }
+  background-color: #61afca; }
 
 #two:before {
-  border-right: 8px solid #7ec59d; }
+  border-right: 8px solid #61afca; }
 
 #three {
   background-color: #ff7061; }
@@ -76,16 +88,16 @@
   border-right: 8px solid #ff7061; }
 
 #four {
-  background-color: #ffd066; }
+  background-color: #7ec59d; }
 
 #four:before {
-  border-right: 8px solid #ffd066; }
+  border-right: 8px solid #7ec59d; }
 
 #five {
-  background-color: #61afca; }
+  background-color: #795580; }
 
 #five:before {
-  border-right: 8px solid #61afca; }
+  border-right: 8px solid #795580; }
 
 .menu-wrap {
   background-color: #ff7061; }

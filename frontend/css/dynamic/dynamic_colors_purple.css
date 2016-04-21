@@ -24,6 +24,18 @@
 .edit-card-icon {
   color: #795580; }
 
+.card-extra {
+  background-color: #795580; }
+
+.card-settings {
+  color: white; }
+
+.card-settings:hover {
+  color: #0a0a0a; }
+
+.number-of-new-posts {
+  color: white; }
+
 .search-overlay-wrap input {
   border-bottom: 2px solid #795580 !important; }
 
@@ -43,7 +55,7 @@
   background-color: #795580; }
 
 .card-selected {
-  border-right: 4px solid #795580; }
+  box-shadow: 0 0 0 4px rgba(121, 85, 128, 0.5); }
 
 .card-selected:after {
   border-left: 10px solid #795580; }
@@ -61,7 +73,7 @@
   border-right: 4px solid #795580; }
 
 #one {
-  background-color: #7ec59d; }
+  background-color: #61afca; }
 
 #two {
   background-color: #ffd066; }
@@ -82,10 +94,10 @@
   border-right: 8px solid #ff7061; }
 
 #five {
-  background-color: #61afca; }
+  background-color: #7ec59d; }
 
 #five:before {
-  border-right: 8px solid #61afca; }
+  border-right: 8px solid #7ec59d; }
 
 .menu-wrap {
   background-color: #795580; }
