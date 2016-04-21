@@ -128,7 +128,7 @@ angular.module('tagalong', [
         $showdownProvider.loadExtension('youtube');
         $showdownProvider.loadExtension('imgur-webm');
     }])
-    .run(['$rootScope', 'Static', 'User', 'Card', 'Post', 'validateSession', function($rootScope, Static, User, Card, Post, validateSession) {
+    .run(['$rootScope', 'Static', 'Card', 'Post', 'validateSession', function($rootScope, Static, Card, Post, validateSession) {
         $rootScope.title = 'Tag along';
 
         $rootScope.setTitle = function(title) {
