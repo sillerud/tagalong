@@ -98,7 +98,7 @@ public class UserRestController {
             user.setId(userCredentials.getUserId());
             return newOkResult(MessageConstant.USER_UPDATED, userRepository.update(user));
         } else {
-            // TODO: Edit other profiles
+            // TODO: EDIT other profiles
             return newErrorResult(MessageConstant.NOT_IMPLEMENTED);
         }
     }

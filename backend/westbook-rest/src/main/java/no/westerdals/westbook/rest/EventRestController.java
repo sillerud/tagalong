@@ -2,6 +2,7 @@ package no.westerdals.westbook.rest;
 
 import no.westerdals.westbook.MessageConstant;
 import no.westerdals.westbook.ModelHelper;
+import no.westerdals.westbook.model.AccessLevel;
 import no.westerdals.westbook.model.Event;
 import no.westerdals.westbook.model.UserCredentials;
 import no.westerdals.westbook.mongodb.EventRepository;
@@ -55,8 +56,11 @@ public class EventRestController {
     }
 
     @RequestMapping(value="/{eventId}",method=RequestMethod.GET)
-    public Event getEventById(@PathVariable String eventId) {
-        return eventRepository.findOne(eventId);
+    public Event getEventById(@PathVariable String eventId, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
+        Event event = eventRepository.findOne(eventId);
+        event.setAccessLevel(getAccessLevel(event, userCredentials.getUserId()));
+        return event;
     }
 
     @RequestMapping(method=RequestMethod.POST)
@@ -77,5 +81,9 @@ public class EventRestController {
         if (!original.getOwnerId().equals(userCredentials.getUserId()))
             return newErrorResult(MessageConstant.ACCESS_DENIED, "You do not have access to modify this event.");
         return newOkResult(MessageConstant.EVENT_UPDATED, eventRepository.save(ModelHelper.mapObjects(original, event, Event.class)));
+    }
+
+    private AccessLevel getAccessLevel(Event event, String userId) {
+        return userId.equals(event.getOwnerId()) ? AccessLevel.ALL : AccessLevel.READ;
     }
 }

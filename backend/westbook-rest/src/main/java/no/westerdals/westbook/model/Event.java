@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 
 import java.util.Date;
 
@@ -25,4 +26,8 @@ public class Event {
     private String[] tagIds;
     private String[] attending;
     private String[] galleryImages;
+
+    // Ignored, for html purposes only
+    @Transient
+    private AccessLevel accessLevel = AccessLevel.READ;
 }

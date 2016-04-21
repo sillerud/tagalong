@@ -1,9 +1,5 @@
 package no.westerdals.westbook.aop;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 import java.util.Arrays;

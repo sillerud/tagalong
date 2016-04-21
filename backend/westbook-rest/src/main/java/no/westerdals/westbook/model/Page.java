@@ -2,6 +2,7 @@ package no.westerdals.westbook.model;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 
 @NoArgsConstructor
 @Getter
@@ -22,15 +23,15 @@ public class Page {
     private PageAdministrator[] administrators;
     private ValueDescription[] links;
 
+    // Ignored, for html purposes only
+    @Transient
+    private AccessLevel accessLevel = AccessLevel.READ;
+
     @AllArgsConstructor
     @Data
     @NoArgsConstructor
     public static class PageAdministrator {
         private String userId;
         private AccessLevel accessLevel;
-    }
-
-    public enum AccessLevel {
-        ALL
     }
 }
