@@ -132,7 +132,7 @@ Eks: Tag-feed, all pages, all events, person-feed
 .feed-header .feed-date{
     position: absolute;
     right: 15px;
-    top: 25px;
+    top: 0px;
     font-size: 12px;
     opacity: 0.8;
 }
@@ -142,6 +142,7 @@ Eks: Tag-feed, all pages, all events, person-feed
     top: 0px;
     font-size: 16px;
     cursor: pointer;
+    display: none;
 }
 .feed-header .feed-star:hover{
     font-size: 18px;
@@ -162,6 +163,10 @@ Eks: Tag-feed, all pages, all events, person-feed
 .feed-content img{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+.embedded-video{
+    max-width: 100%;
+    width: auto;
 }
 .bottom-bar{
     width: 100%;
