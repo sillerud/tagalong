@@ -291,7 +291,7 @@ Spesifikt til header og meny
         height: 100%;
         overflow: hidden;
         position: fixed;
-        z-index: 900;
+        z-index: 600;
         scroll: no-scroll;
         vertical-align: middle;
     }
@@ -323,7 +323,7 @@ Spesifikt til header og meny
         display: block;
         float: right;
         cursor: pointer;
-        z-index: 1000;
+        z-index: 700;
     }
     .burger-wrap .bar{
         width: 30px;

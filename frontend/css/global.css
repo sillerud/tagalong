@@ -19,6 +19,7 @@ body{
     background-color: #F2F2EE;
     padding-bottom: 30px;
     position: relative;
+    overflow-x: hidden;
 }
 img{
     max-width: 100%;
