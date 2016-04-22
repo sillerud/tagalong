@@ -28,11 +28,16 @@
 
                         <div class="box-title shout-out-title">
                             <h3><i class="fa fa-bullhorn"></i> {{ page.name }} Shout out</h3>
-                            <div class="quick-edit"><i class="fa fa-pencil"></i> Quick edit</div>
+                            <div class="quick-edit" ng-if="page.canWrite" ng-click="toggleShoutOutEdit()"><i class="fa fa-pencil"></i> Quick edit</div>
                         </div>
                         <div class="shout-out-text">
-                            <textarea class="edit-field3" name="" id="" cols="30" rows="5"></textarea>
-                            <input class="btn-fill" type="submit">
+                            <div ng-if="shoutOutEditVisible">
+                                <form ng-submit="updateShoutOut()">
+                                    <textarea ng-model="page.shoutOutEdited" class="edit-field3" name="" id="" cols="30" rows="5"></textarea>
+                                    <input class="btn-fill" type="submit" value="Save">
+                                </form>
+                            </div>
+                            <div ng-if="!shoutOutEditVisible" ng-bind="page.shoutOut"></div>
                         </div>
                     </div><!-- END shout out box -->
 

@@ -24,6 +24,10 @@ function mapPostColors(user) {
     if (user.studyField) {
         color = colorMap[user.studyField.studyDirection];
     }
+    // Markus forced me...
+    if (user.id == "56dd40c3e986dcbb1e8b76e7") {
+        color = colorMap.TECHNOLOGY_IT;
+    }
     user.userStyle = {
         profilePictureBorder: {
             border: '2px solid ' + color 
@@ -379,7 +383,10 @@ angular.module('tagalong', [
                     };
                     function getColorByStudyDirection(studyDirection) {
                         var color = colorMap[studyDirection];
-                        console.log(studyDirection);
+                        // Markus forced me...
+                        if (user.id == "56dd40c3e986dcbb1e8b76e7") {
+                            color = colorMap.TECHNOLOGY_IT;
+                        }
                         return color ? color : "blue";
                     }
                     if (!user.id) {

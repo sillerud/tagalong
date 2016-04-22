@@ -31,16 +31,30 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
      });*/
     var shortDescription = "";
     var description = "";
-    $scope.page = Page.query({ pageId: $routeParams.id }, function(data) {
-        $scope.setTitle(data.name);
-        description = data.description;
-        shortDescription = description.length > 100 ? description.substring(0, 100) : description + "...";
-        $scope.description = shortDescription;
-        data.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
-        data.coverPictureUrl = getUploadUrl(data.coverPictureId);
-        data.canEdit = canEdit(data.accessLevel);
-        data.canWrite = canWrite(data.accessLevel);
-    });
+
+    function refreshPage() {
+        $scope.shoutOutEditVisible = false;
+        $scope.page = Page.query({ pageId: $routeParams.id }, function(data) {
+            $scope.setTitle(data.name);
+            description = data.description;
+            shortDescription = description.length > 100 ? description.substring(0, 100) : description + "...";
+            $scope.description = shortDescription;
+            data.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
+            data.coverPictureUrl = getUploadUrl(data.coverPictureId);
+            data.canEdit = canEdit(data.accessLevel);
+            data.canWrite = canWrite(data.accessLevel);
+        });
+    }
+    
+    refreshPage();
+    
+    $scope.toggleShoutOutEdit = function() {
+        $scope.shoutOutEditVisible = !$scope.shoutOutEditVisible;  
+    };
+    
+    $scope.updateShoutOut = function() {
+        Page.update({pageId: $scope.page.id}, {shoutOut: $scope.page.shoutOutEdited}, refreshPage);
+    };
 
     $('.thumb').each(function() {
         var elem = $(this);
