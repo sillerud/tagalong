@@ -301,7 +301,10 @@ Eks: edit profile, edit card, add new card, create new page osv.
 .edit-fields .edit-field2{
   padding: 8px 10px 10px;
   font-size: 1em;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+}
+#studyStartYearInput{
+  margin-bottom: 0px;
 }
 /* Placeholder tekst */
 .edit-fields ::-webkit-input-placeholder {
