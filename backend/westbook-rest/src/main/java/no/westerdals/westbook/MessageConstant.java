@@ -38,6 +38,7 @@ public enum MessageConstant
     PAGE_UPDATED,
     PAGE_URL_ALREADY_EXISTS_ERROR,
     PAGE_NOT_FOUND,
+    PAGE_DELETED,
 
     // Cards
     CARD_CREATED,
@@ -46,6 +47,7 @@ public enum MessageConstant
     EVENT_CREATED,
     EVENT_UPDATED,
     EVENT_NOT_FOUND,
+    EVENT_DELETED,
 
     //
     UPVOTED,

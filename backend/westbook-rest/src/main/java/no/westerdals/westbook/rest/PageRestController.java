@@ -55,6 +55,18 @@ public class PageRestController
         return result;
     }
 
+    @RequestMapping(value="/{pageId}", method=RequestMethod.DELETE)
+    public ResultResponse deletePage(@PathVariable String pageId, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication) principal).getPrincipal();
+        Page result = pageRepository.findOne(pageId);
+        if (result == null)
+            return newErrorResult(MessageConstant.PAGE_NOT_FOUND);
+        if (getAccessLevel(result, userCredentials.getUserId()).LEVEL < AccessLevel.DELETE.LEVEL)
+            return newErrorResult(MessageConstant.ACCESS_DENIED);
+        pageRepository.delete(pageId);
+        return newOkResult(MessageConstant.PAGE_DELETED);
+    }
+
     @RequestMapping(value="/by-name/{name}", method=RequestMethod.GET)
     public List<Page> getPagesByName(@PathVariable String name) {
         return pageRepository.findByNameLikeIgnoreCase(name, new PageRequest(0, 20));

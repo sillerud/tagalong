@@ -17,6 +17,7 @@ public class Page {
     private String name;
     private String description;
     private String userId;
+    private String shoutOut;
     private boolean pagePublic;
     private ValueDescription[] contactInfo;
     private String[] tags;

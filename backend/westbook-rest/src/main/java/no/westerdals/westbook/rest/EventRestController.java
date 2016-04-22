@@ -83,6 +83,18 @@ public class EventRestController {
         return newOkResult(MessageConstant.EVENT_UPDATED, eventRepository.save(ModelHelper.mapObjects(original, event, Event.class)));
     }
 
+    @RequestMapping(value="/{eventId}", method=RequestMethod.DELETE)
+    public ResultResponse deleteEvent(@PathVariable String eventId, Principal principal) {
+        UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
+        Event event = eventRepository.findOne(eventId);
+        if (event == null)
+            return newErrorResult(MessageConstant.EVENT_NOT_FOUND);
+        if (getAccessLevel(event, userCredentials.getUserId()).LEVEL < AccessLevel.DELETE.LEVEL)
+            return newErrorResult(MessageConstant.ACCESS_DENIED);
+        eventRepository.delete(eventId);
+        return newOkResult(MessageConstant.EVENT_DELETED);
+    }
+
     private AccessLevel getAccessLevel(Event event, String userId) {
         return userId.equals(event.getOwnerId()) ? AccessLevel.ALL : AccessLevel.READ;
     }
