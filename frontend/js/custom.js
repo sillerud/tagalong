@@ -240,12 +240,10 @@ function getBestFittingSupportedFormat() {
                                 url: 'https://gfycat.com/cajax/get/' + m[1],
                                 async: false,
                                 success: function (result) {
-                                    if (bestFitting == 'webm') {
-                                        srcUrl = result.gfyItem.webmUrl
-                                    } else if (bestFitting == 'mp4') {
-                                        srcUrl = result.gfyItem.mp4Url;
+                                    if (bestFitting == 'webm' || bestFitting == 'mp4') {
+                                        srcUrl = result.gfyItem[bestFitting] + 'Url';
                                     } else {
-                                        return '<img src="' + srcUrl + '">';
+                                        return '<img src="' + result.gfyItem.gifUrl + '">';
                                     }
                                 }
                             });
