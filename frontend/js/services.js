@@ -52,8 +52,9 @@ eventServices.factory('Event', ['$resource', function($resource) {
     });
 }]);
 
-userServices.factory('User', ['$resource', function($resource) {
-    return $resource(url("/users/:userId"), {}, {
+userServices.factory('User', ['$resource', '$cacheFactory', function($resource, $cacheFactory) {
+    var cache = $cacheFactory("userId");
+    var User = $resource(url("/users/:userId"), {}, {
         update: {
             url: url("/users"),
             method: 'PATCH',
@@ -67,13 +68,18 @@ userServices.factory('User', ['$resource', function($resource) {
         find: {
             method: 'GET',
             isArray: false,
-            params: {userId: 'me'}
+            params: {userId: 'me'},
+            cache: cache
         },
         logout: {
             url: baseUrl + "/rest/logout",
             method: 'POST'
         }
-    })
+    });
+    User.clearCache = function() {
+        cache.removeAll();
+    };
+    return User;
 }]);
 
 cardServices.factory('Card', ['$resource', function($resource) {

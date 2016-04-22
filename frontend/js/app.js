@@ -368,6 +368,7 @@ angular.module('tagalong', [
                 User.logout(redirectLogin);
             },
             validate: function() {
+                User.clearCache();
                 $rootScope.me = User.find(function(user) {
                     var colorMap = {
                         TECHNOLOGY_IT: 'blue',
