@@ -206,6 +206,16 @@ mobileSettingsDropdown();
 
 }); // END DOM
 
+function getBestFittingSupportedFormat() {
+    var v = document.createElement('video');
+    if (v.canPlayType('video/webm; codecs="vp8"') || v.canPlayType('video/webm; codecs="vp9"')) {
+        return 'webm';
+    } else if (v.canPlayType('video/mp4; codecs="avc1.42E01E"')) {
+        return 'mp4';
+    } else {
+        return 'gif';
+    }
+}
 (function (extension) {
     extension(showdown)
 }(function (showdown) {
@@ -219,22 +229,30 @@ mobileSettingsDropdown();
             {
                 type: 'output',
                 filter: function (text) {
+                    var bestFitting = getBestFittingSupportedFormat();
                     return text.replace(imgRegex, function(match, url) {
+
                         if ((m = imgurRegex.exec(url))) {
-                            return '<video class="embedded-video" loop autoplay controls muted="true" src="https://' + m[1] + '.webm" poster="img/placeholder_big.jpg"></video>'
+                            return '<video class="embedded-video" loop autoplay controls muted="true" src="https://' + m[1] + '.' + bestFitting + '" poster="img/placeholder_big.jpg"></video>'
                         } else if ((m = gfycatRegex.exec(url))) {
-                            var webmUrl; // This is pretty ugly but it has to be async :/
+                            var srcUrl; // This is pretty ugly but it has to be async :/
                             $.ajax({
                                 url: 'https://gfycat.com/cajax/get/' + m[1],
                                 async: false,
                                 success: function (result) {
-                                    webmUrl = result.gfyItem.webmUrl;
+                                    if (bestFitting == 'webm') {
+                                        srcUrl = result.gfyItem.webmUrl
+                                    } else if (bestFitting == 'mp4') {
+                                        srcUrl = result.gfyItem.mp4Url;
+                                    } else {
+                                        return '<img src="' + srcUrl + '">';
+                                    }
                                 }
                             });
-                            return '<video class="embedded-video" loop autoplay controls muted="true" src="' + webmUrl + '" poster="img/placeholder_big.jpg"></video>';
+                            return '<video class="embedded-video" loop autoplay controls muted="true" src="' + srcUrl + '" poster="img/placeholder_big.jpg"></video>';
                             //return '<video loop="true" autoplay="true" muted="true" src="https://zippy.' + m[1] + '.webm"></video>'
                         } else if ((m = gyazoRegex.exec(url))) {
-                            return '<video class="embedded-video" loop autoplay controls muted="true" src="https://embed.' + m[1] + '.mp4" poster="img/placeholder_big.jpg"></video>'
+                            return '<video class="embedded-video" loop autoplay controls muted="true" src="https://embed.' + m[1] + '.' + bestFitting + '" poster="img/placeholder_big.jpg"></video>'
                         } else {
                             return match;
                         }
