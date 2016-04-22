@@ -16,10 +16,10 @@
                     <div class="card-sidebar-wrap" ng-class="card.selected">
                         <div class="card-extra">
                             <!--div class="number-of-new-posts">40</div-->
-                            <div class="card-settings" ng-click="card.toggleDeleteDialog(true);"><i class="fa fa-trash" aria-hidden="true"></i></div>
+                            <div class="card-settings" ng-click="card.toggleDeleteDialog(true, $event);"><i class="fa fa-trash" aria-hidden="true"></i></div>
 
                         </div>
-                        <div class="delete-card" ng-if="card.deleteDialog">Delete this card?<span ng-click="card.deleteCard()">Yes</span><span ng-click="card.toggleDeleteDialog(false)">No</span></div>
+                        <div class="delete-card" ng-if="card.deleteDialog">Delete this card?<span ng-click="card.deleteCard($event)">Yes</span><span ng-click="card.toggleDeleteDialog(false, $event)">No</span></div>
                         <div class="card-sidebar-inner">
                             <div class="card-sidebar-image" ng-style="{'background-image': 'url(' + card.backgroundImageUrl + ')'}"></div>
                             <div class="sidebar-card-info">

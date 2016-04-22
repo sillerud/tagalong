@@ -96,6 +96,11 @@ cardServices.factory('Card', ['$resource', function($resource) {
             method: 'GET',
             isArray: false,
             url: url('/cards/:cardId')
+        },
+        delete: {
+            method: 'DELETE',
+            isArray: false,
+            url: url('/cards/:cardId')
         }
     })
 }]);

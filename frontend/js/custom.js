@@ -233,7 +233,7 @@ function getBestFittingSupportedFormat() {
                     return text.replace(imgRegex, function(match, url) {
 
                         if ((m = imgurRegex.exec(url))) {
-                            return '<video class="embedded-video" controls muted="true" src="https://' + m[1] + '.' + bestFitting + '" poster="img/placeholder_big.jpg"></video>'
+                                return '<video class="embedded-video" controls muted="true" src="https://' + m[1] + '.' + bestFitting + '" poster="img/placeholder_big.jpg"></video>'
                         } else if ((m = gfycatRegex.exec(url))) {
                             var srcUrl; // This is pretty ugly but it has to be async :/
                             $.ajax({

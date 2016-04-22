@@ -181,6 +181,9 @@ angular.module('tagalong', [
             .when("/profile/:id", {
                 templateUrl: 'partials/other_profiles.html',
                 controller: 'ShowUserCtrl'
+            })
+            .when("/faq", {
+                templateUrl: 'partials/good_to_know.html'
             });
     }])
     .config(['$showdownProvider', function($showdownProvider) {
@@ -224,13 +227,16 @@ angular.module('tagalong', [
             $rootScope.cards = Card.all(function(data) {
                 data.forEach(mapCard, $rootScope.allTags);
                 data.forEach(function(card) {
-                    card.toggleDeleteDialog = function(toggle) {
+                    card.toggleDeleteDialog = function(toggle, $event) {
+                        if ($event)
+                            $event.stopPropagation();
                         card.deleteDialog = toggle;
                     };
 
-                    card.deleteCard = function(){
-                        console.log(card);
-                //$(this).parent().next('.delete-card').fadeIn();
+                    card.deleteCard = function($event){
+                        if ($event)
+                            $event.stopPropagation();
+                        Card.delete({cardId: card.id}, $rootScope.updateCards);
                     };
                 });
             });
