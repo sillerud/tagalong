@@ -38,7 +38,7 @@ public class CardRestController {
         Card card = cardRepository.findOne(cardId);
         if (card == null)
             return newErrorResult(MessageConstant.CARD_NOT_FOUND);
-        if (card.getUserId().equals(user.getUserId()))
+        if (!card.getUserId().equals(user.getUserId()))
             return newErrorResult(MessageConstant.ACCESS_DENIED);
         cardRepository.delete(cardId);
         return newOkResult(MessageConstant.CARD_DELETED);
