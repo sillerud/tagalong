@@ -240,15 +240,12 @@ function getBestFittingSupportedFormat() {
                                 url: 'https://gfycat.com/cajax/get/' + m[1],
                                 async: false,
                                 success: function (result) {
-                                    if (bestFitting == 'webm' || bestFitting == 'mp4') {
-                                        srcUrl = result.gfyItem[bestFitting] + 'Url';
-                                    } else {
-                                        return '<img src="' + result.gfyItem.gifUrl + '">';
-                                    }
+                                    srcUrl = result.gfyItem[bestFitting + 'Url'];
                                 }
                             });
+                            if (srcUrl.endsWith('.gif'))
+                                return '<img src="' + result.gfyItem.gifUrl + '">';
                             return '<video class="embedded-video" loop autoplay controls muted="true" src="' + srcUrl + '" poster="img/placeholder_big.jpg"></video>';
-                            //return '<video loop="true" autoplay="true" muted="true" src="https://zippy.' + m[1] + '.webm"></video>'
                         } else if ((m = gyazoRegex.exec(url))) {
                             return '<video class="embedded-video" loop autoplay controls muted="true" src="https://embed.' + m[1] + '.' + bestFitting + '" poster="img/placeholder_big.jpg"></video>'
                         } else {
