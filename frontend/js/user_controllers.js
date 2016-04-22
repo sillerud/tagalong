@@ -94,7 +94,9 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
             updatedInfo.born = bornDate.date();
         }
         if (!$.isEmptyObject(updatedInfo)) {
-            User.update(updatedInfo, sessionFactory.validate);
+            User.update(updatedInfo, function() {
+                $scope.goToUrl('#/profile/' + $scope.user.id);
+            });
         }
     };
 
