@@ -35,6 +35,7 @@ eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event',
     $scope.event = Event.getById({eventId: $routeParams.id}, function(event) {
         event.coverImageUrl = getUploadUrl(event.coverImageId);
         event.canEdit = canEdit(event.accessLevel);
+        event.canWrite = canWrite(event.accessLevel);
         $scope.setTitle(event.title);
         $scope.allTags.getByIds(event.tagIds).then(function(tags) {
             $scope.tags = tags;
@@ -43,7 +44,10 @@ eventControllers.controller('ViewEventCtrl', ['$scope', '$routeParams', 'Event',
 }]);
 
 function updateEvent(originalId, $scope, Event, Upload) {
-    $scope.setTitle(originalId ? 'Edit event' : 'Create event');
+    $scope.isEdit = function() {
+        return originalId ? true : false;
+    };
+    $scope.setTitle($scope.isEdit() ? 'Edit event' : 'Create event');
     var startDatePicker = $('#eventStartDate');
     startDatePicker.datetimepicker();
     var endDatePicker = $('#eventEndDate');
@@ -87,6 +91,12 @@ function updateEvent(originalId, $scope, Event, Upload) {
         $scope.event = {};
         $scope.event.coverImageUrl = getUploadUrl($scope.event.coverImageId);
     }
+    
+    $scope.deleteEvent = function() {
+        Event.deleteEvent({eventId: $scope.event.id}, function() {
+            $scope.goToUrl("#/events");
+        });
+    };
 
     $scope.createEvent = function() {
         var event = {};

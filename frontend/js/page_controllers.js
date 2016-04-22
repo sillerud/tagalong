@@ -89,6 +89,9 @@ pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', 'U
     function isEdit() {
         return $routeParams.id;
     }
+    
+    $scope.isEdit = isEdit;
+    
     var originalPage = null;
     $scope.update = function() {
         Page.query({pageId: $routeParams.id}, function(data) {
@@ -99,6 +102,12 @@ pageControllers.controller('EditPageCtrl', ['$scope', '$routeParams', 'Page', 'U
             originalPage = $.extend({}, data);
             $scope.logoPictureUrl = getUploadUrl(data.logoPictureId, "img/placeholder_thumb.jpg");
             $scope.coverPictureUrl = getUploadUrl(data.coverPictureId);
+        });
+    };
+    
+    $scope.deletePage = function() {
+        Page.deletePage({pageId: $scope.page.id}, function() {
+            $scope.goToUrl('#/pages/');
         });
     };
 

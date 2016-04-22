@@ -54,10 +54,10 @@
                         <span ng-bind="item.name"></span>
                     </ui-select-choices>
                 </ui-select-->
-                <button type="button" class="btn-fill" data-toggle="collapse" data-target="#demo">Delete this page?</button>
+                <button type="button" class="btn-fill" data-toggle="collapse" data-target="#demo" ng-if="isEdit()">Delete this page?</button>
                   <div id="demo" class="collapse">
                     <br>
-                    <input type="button" value="Delete" class="btn-fill btn-small">
+                    <input type="button" value="Delete" class="btn-fill btn-small" ng-click="deletePage()">
                   </div>
 
             </div><!--END col-sm-12-->

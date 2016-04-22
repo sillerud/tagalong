@@ -48,6 +48,11 @@ eventServices.factory('Event', ['$resource', function($resource) {
             method: 'GET',
             isArray: false,
             url: url('/events/:eventId')
+        },
+        deleteEvent: {
+            method: 'DELETE',
+            isArray: false,
+            url: url('/events/:eventId')
         }
     });
 }]);
@@ -142,6 +147,11 @@ pageServices.factory('Page', ['$resource', function($resource) {
         update: {
             url: url("/pages/:pageId"),
             method: 'PATCH',
+            isArray: false
+        },
+        deletePage: {
+            url: url('/pages/:pageId'),
+            method: 'DELETE',
             isArray: false
         }
     })

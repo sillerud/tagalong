@@ -149,7 +149,7 @@
                 <div class="page-right-column">
                     <div ng-if="event.canWrite" class="owner-menu"><!-- Synes kun for eier av side/profil/event -->
                         <a class="owner-col-6">Add new post</a>
-                        <a ng-href="#/events/{{ event.id }}/edit" class="owner-col-6">Edit event</a>
+                        <a ng-if="event.canEdit" ng-href="#/events/{{ event.id }}/edit" class="owner-col-6">Edit event</a>
                     </div>
                     <!-- TODO
                     <?php include 'person_feed.php' ?>

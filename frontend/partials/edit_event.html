@@ -62,7 +62,7 @@
             </div><!--END col-sm-4-->
         </div><!--END rows-->
 
-        <!--div class="row">
+        <div class="row">
             <div class="col-sm-12">
                 <h3>Tags for event</h3>
                 <ui-select multiple ng-model="event.tags">
@@ -73,12 +73,12 @@
                         <span ng-bind="tag.name"></span>
                     </ui-select-choices>
                 </ui-select>
-            </div><END col-sm-12>
-        </div--><!--END rows-->
-        <button type="button" class="btn-fill" data-toggle="collapse" data-target="#demo">Delete this event?</button>
+            </div><!--END col-sm-12-->
+        </div><!--END rows-->
+        <button type="button" class="btn-fill" data-toggle="collapse" data-target="#demo" ng-if="isEdit()">Delete this event?</button>
           <div id="demo" class="collapse">
             <br>
-            <input type="button" value="Delete" class="btn-fill btn-small">
+            <input type="button" value="Delete" class="btn-fill btn-small" ng-click="deleteEvent()">
           </div>
 
         <div class="center-input"><input type="button" ng-click="createEvent()" class="btn-fill btn-fill-save" value="Save changes"></div>
