@@ -1,6 +1,6 @@
 <div class="container" >
     <div class="row">
-
+<ng-include src="'partials/edit_card.html'"></ng-include>
         <div class="col-sm-5 col-md-4">
             <div class="sidebar-mobile" ng-click="sidebarFeed()">
                 Show your cards
@@ -8,7 +8,7 @@
             <div class="sidebar-all-card">
 
                 <div class="owner-menu">
-                    <div class="owner-col-6">Add new card</div>
+                    <div class="owner-col-6" ng-click="addCard(); scrollToPopup()">Add new card</div>
                     <div class="owner-col-6" ng-click="openNewPost(0); scrollToPopup()">Add new post</div>
                 </div>
 

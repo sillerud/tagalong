@@ -290,8 +290,7 @@ Eks: Tag-feed, all pages, all events, person-feed
     text-align: center;
     font-weight: bold;
     margin: 0;
-    padding: 5px 10px;
-    font-size: 1.3em;
+    padding: 15px 10px;
 }
 /*Displying pages style END*/
 
@@ -371,6 +370,9 @@ Eks: Tag-feed, all pages, all events, person-feed
     left: 22px;
     top: 18px;
     font-size: 1.3em;
+}
+.preview a:hover{
+    text-decoration: none;
 }
 .events-preview-title {
     color: #333;

@@ -204,6 +204,7 @@ angular.module('tagalong', [
             });
         }
 
+
         $rootScope.allTags = Static.getAllTags();
         $rootScope.allTags.getByIds = function(ids) {
             return $rootScope.allTags.$promise.then(function(allTags) {
@@ -321,6 +322,11 @@ angular.module('tagalong', [
             }
 
         }; // END openShortcuts
+        $rootScope.addCard = function() {
+            $('.popup').fadeOut();
+            $('.edit-card-wrap').fadeIn();
+            $('#darkOverlay').fadeIn();
+        };
 
         $rootScope.closeShortcuts = function(doo){
             addNewOpen = false;
