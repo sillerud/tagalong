@@ -1,16 +1,16 @@
 .owner-col-6 {
   background-color: #61afca;
-  color: white; }
+  color: #0a0a0a; }
 
 .owner-col-6:hover {
   background-color: #3e9aba; }
 
 .quick-edit {
   background-color: #61afca;
-  color: white; }
+  color: #0a0a0a; }
 
 .add-page-to-card-btn .fa {
-  color: white; }
+  color: #0a0a0a; }
 
 .an-event-wrap .event-info {
   background-color: #61afca; }
@@ -28,13 +28,13 @@
   background-color: #61afca; }
 
 .card-settings {
-  color: white; }
-
-.card-settings:hover {
   color: #0a0a0a; }
 
-.number-of-new-posts {
+.card-settings:hover {
   color: white; }
+
+.number-of-new-posts {
+  color: #0a0a0a; }
 
 .search-overlay-wrap input {
   border-bottom: 2px solid #61afca !important; }
@@ -43,7 +43,7 @@
   background-color: #61afca; }
 
 .search-add .fa {
-  color: white; }
+  color: #0a0a0a; }
 
 .result-image-wrap {
   border-right: 3px solid #61afca; }
@@ -76,10 +76,10 @@
   background-color: #ffd066; }
 
 #two {
-  background-color: #795580; }
+  background-color: #ff7061; }
 
 #two:before {
-  border-right: 8px solid #795580; }
+  border-right: 8px solid #ff7061; }
 
 #three {
   background-color: #61afca; }
@@ -88,16 +88,16 @@
   border-right: 8px solid #61afca; }
 
 #four {
-  background-color: #ff7061; }
-
-#four:before {
-  border-right: 8px solid #ff7061; }
-
-#five {
   background-color: #7ec59d; }
 
-#five:before {
+#four:before {
   border-right: 8px solid #7ec59d; }
+
+#five {
+  background-color: #795580; }
+
+#five:before {
+  border-right: 8px solid #795580; }
 
 .menu-wrap {
   background-color: #61afca; }
@@ -106,7 +106,7 @@
   background-color: #61afca; }
 
 .menu ul li a {
-  color: white; }
+  color: #0a0a0a; }
 
 .add-new-btn {
   border: 2px solid #61afca; }
@@ -119,7 +119,7 @@
 
 .add-page-to-card-btn {
   background-color: #61afca;
-  color: white; }
+  color: #0a0a0a; }
 
 .shout-out-box {
   border-left: 4px solid #61afca; }
@@ -183,14 +183,14 @@
 
 .btn-fill {
   background-color: #61afca;
-  color: white; }
+  color: #0a0a0a; }
 
 .btn-fill:hover {
   background-color: #333333;
   color: white !important; }
 
 #addNew .fa {
-  color: white; }
+  color: #0a0a0a; }
 
 #newPostBtn:before,
 #newPageBtn:before,
