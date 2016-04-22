@@ -453,7 +453,6 @@ Eks: Tag-feed, all pages, all events, person-feed
     position: absolute;
     bottom: 2px;
     right: 2px;
-    display: none;
 }
 .delete-card span{
     background-color: #eee;

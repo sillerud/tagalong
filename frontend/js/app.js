@@ -30,7 +30,7 @@ function mapPostColors(user) {
     }
     user.userStyle = {
         profilePictureBorder: {
-            border: '2px solid ' + color 
+            border: '2px solid ' + color
         },
         studyFieldInfo: {
             color: color
@@ -222,6 +222,16 @@ angular.module('tagalong', [
         $rootScope.updateCards = function() {
             $rootScope.cards = Card.all(function(data) {
                 data.forEach(mapCard, $rootScope.allTags);
+                data.forEach(function(card) {
+                    card.toggleDeleteDialog = function(toggle) {
+                        card.deleteDialog = toggle;
+                    };
+
+                    card.deleteCard = function(){
+                        console.log(card);
+                //$(this).parent().next('.delete-card').fadeIn();
+                    };
+                });
             });
         };
         $rootScope.updateCards();
