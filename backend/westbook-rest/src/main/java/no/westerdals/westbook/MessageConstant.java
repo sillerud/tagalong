@@ -42,6 +42,8 @@ public enum MessageConstant
 
     // Cards
     CARD_CREATED,
+    CARD_NOT_FOUND,
+    CARD_DELETED,
 
     // Events
     EVENT_CREATED,

@@ -32,6 +32,18 @@ public class CardRestController {
         return cardRepository.findOne(cardId);
     }
 
+    @RequestMapping(value="/{cardId}", method=RequestMethod.DELETE)
+    public ResultResponse deleteCard(@PathVariable String cardId, Principal principal) {
+        UserCredentials user = ((UserCredentials) ((Authentication)principal).getPrincipal());
+        Card card = cardRepository.findOne(cardId);
+        if (card == null)
+            return newErrorResult(MessageConstant.CARD_NOT_FOUND);
+        if (card.getUserId().equals(user.getUserId()))
+            return newErrorResult(MessageConstant.ACCESS_DENIED);
+        cardRepository.delete(cardId);
+        return newOkResult(MessageConstant.CARD_DELETED);
+    }
+
     @RequestMapping(method=RequestMethod.POST)
     public ResultResponse createCard(@RequestBody  Card card) {
         card.setId(null);
