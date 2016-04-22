@@ -152,7 +152,7 @@ userControllers.controller('UserPostFeed', ['$scope', 'Post', 'Comment', 'User',
                     comment.user = user;
                     if (comment.userId == $scope.me.id) {
                         comment.delete = function() {
-                            Comment.deleteComment({commentId: comment.id}, refresh);
+                            Comment.deleteComment({commentId: comment.id}, updatePosts);
                         }
                     }
                 });
