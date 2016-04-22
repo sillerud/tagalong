@@ -76,6 +76,7 @@ ul.card-tag-list > a > li:hover{
     width: 25px;
     height: 100%;
     float: right;
+    background-color: transparent !important;
 }
 .number-of-new-posts, .card-settings{
     width: 100%;
@@ -89,6 +90,10 @@ ul.card-tag-list > a > li:hover{
 }
 .card-settings{
     cursor: pointer;
+    color: #333;
+}
+.card-settings:hover{
+    font-size: 1.2em;
 }
 /* END - Cards */
 

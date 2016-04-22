@@ -15,8 +15,8 @@
                 <div class="sidebar-card" ng-repeat="card in cards" id="{{ card.id }}" ng-click="selectCard(card)">
                     <div class="card-sidebar-wrap" ng-class="card.selected">
                         <div class="card-extra">
-                            <div class="number-of-new-posts">40</div>
-                            <div class="card-settings"><i class="fa fa-cog" aria-hidden="true"></i></div>
+                            <!--div class="number-of-new-posts">40</div-->
+                            <div class="card-settings delete-card"><i class="fa fa-trash" aria-hidden="true"></i></div>
                         </div>
                         <div class="card-sidebar-inner">
                             <div class="card-sidebar-image" ng-style="{'background-image': 'url(' + card.backgroundImageUrl + ')'}"></div>
