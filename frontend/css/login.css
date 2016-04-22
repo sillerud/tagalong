@@ -24,6 +24,12 @@ html,body{
     color: #FFF;
     transform: translateY(-50%);
 }
+@media screen and (max-width: 500px){
+    #loginWrap{
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
 .login-form{
     background-color: #FFF;
 }
