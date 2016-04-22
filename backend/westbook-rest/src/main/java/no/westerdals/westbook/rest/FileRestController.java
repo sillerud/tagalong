@@ -52,18 +52,15 @@ public class FileRestController {
     public void getUpload(@PathVariable String fileId, HttpServletResponse response) throws IOException
     {
         DownloadRequest downloadRequest = uploadService.downloadFile(fileId, response.getOutputStream());
-        if (downloadRequest == null || downloadRequest.getFileMeta() == null)
-        {
+        if (downloadRequest == null || downloadRequest.getFileMeta() == null) {
             response.sendError(404);
             return;
         }
         FileMeta fileMeta = downloadRequest.getFileMeta();
-        if (fileMeta.getImageType() == null)
-        {
+        if (fileMeta.getImageType() == null) {
             response.setHeader("Content-Disposition", "attachment;filename=\"" + fileMeta.getName() + "\"");
-        }
-        else
-        {
+        } else {
+            response.setHeader("Content-Type", "image/jpeg");
             response.setHeader("Content-Disposition", "filename=\"" + fileMeta.getName() + "\"");
         }
         downloadRequest.redirect();
