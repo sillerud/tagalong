@@ -134,9 +134,9 @@ angular.module('tagalong', [
                 templateUrl: 'partials/edit_event.html',
                 controller: 'EditEventCtrl'
             })
-            .when("/feed", {
-                templateUrl: 'partials/feed.html',
-                controller: 'FeedCtrl'
+            .when("/cards", {
+                templateUrl: 'partials/cards.html',
+                controller: 'AllCardCtrl'
             })
             .when("/feed/:tagId", {
                 templateUrl: 'partials/feed.html',
@@ -159,8 +159,8 @@ angular.module('tagalong', [
                 controller: "EditPageCtrl"
             })
             .when("/", {
-                templateUrl: 'partials/cards.html',
-                controller: 'AllCardCtrl'
+                templateUrl: 'partials/feed.html',
+                controller: 'FeedCtrl'
             })
             .when("/cards/:id/edit", {
                 templateUrl: 'partials/edit_card.html',
