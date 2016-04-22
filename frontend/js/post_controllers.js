@@ -108,5 +108,6 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
           $('.sidebar-mobile').text('Hide your cards');
         }
     }; // END sidebarFeed
+    $scope.hooks.postCreated.push(refresh);
 
 }]); // END postControllers

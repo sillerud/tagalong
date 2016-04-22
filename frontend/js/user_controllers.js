@@ -166,5 +166,10 @@ userControllers.controller('UserPostFeed', ['$scope', 'Post', 'Comment', 'User',
             data.forEach(mapPost);
         });
     }
-    $scope.user.$promise.then(updatePosts);
+    $scope.user.$promise.then(function() {
+        updatePosts();
+        if ($scope.user.id == $scope.me.id) {
+            $scope.hooks.postCreated.push(updatePosts);
+        }
+    });
 }]);

@@ -47,6 +47,8 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
     }
     
     refreshPage();
+
+    $scope.hooks.postCreated.push(refreshPage);
     
     $scope.toggleShoutOutEdit = function() {
         $scope.shoutOutEditVisible = !$scope.shoutOutEditVisible;  

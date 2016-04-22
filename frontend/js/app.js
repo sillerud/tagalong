@@ -221,7 +221,12 @@ angular.module('tagalong', [
             });
         };
 
-        $rootScope.$on('$routeChangeStart', sessionFactory.validate);
+        $rootScope.$on('$routeChangeStart', function() {
+            $rootScope.hooks = {
+                postCreated: []
+            };
+            sessionFactory.validate();
+        });
 
         $rootScope.updateCards = function() {
             $rootScope.cards = Card.all(function(data) {
@@ -257,7 +262,6 @@ angular.module('tagalong', [
             // Sjekker om shortcuts skal kjøre eller ikke
             if( doo == 1) $rootScope.closeShortcuts(1);
             else if( doo != 0) $rootScope.openShortcuts(1);
-            console.log('open new post')
         };
         $rootScope.scrollToPopup = function(){
             $('body').animate({scrollTop: 0}, 300);
@@ -267,13 +271,16 @@ angular.module('tagalong', [
             $('#darkOverlay').fadeOut();
             $rootScope.closeShortcuts(1);
             $('#transparent-overlay').css('display', 'none');
-            console.log('Close all');
         };
         $rootScope.createPost = function() {
             var newpost = {};
             angular.forEach($rootScope.newpost, genericValueMapping, newpost);
             newpost.parentId = $rootScope.me.id; // TODO: Select this
-            Post.create(newpost);
+            Post.create(newpost, function() {
+                $rootScope.hooks.postCreated.forEach(function(updateMethod) {
+                    updateMethod();
+                });
+            });
         };
 
         var menuOpen = false;
