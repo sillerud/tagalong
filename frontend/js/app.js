@@ -359,13 +359,11 @@ angular.module('tagalong', [
                 dropdown.fadeIn();
                 dropdownToggle = true;
                 $('#transparent-overlay').css('display', 'block');
-                console.log('open');
             }else{
                 dropdown.fadeOut();
                 dropdownArrow.fadeOut();
                 dropdownToggle = false;
                 $('#transparent-overlay').css('display', 'none');
-                console.log('close');
 
             }
         };
