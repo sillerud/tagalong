@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <mongo:mongo host="127.0.0.1" port="27017" />
+    <mongo:db-factory dbname="development" />
+    <bean class="no.westerdals.tagalong.aop.ExceptionHandler" id="exceptionHandler" />
+    <!--<bean class="no.westerdals.tagalong.aop.PerformanceTester" id="performanceTester" />-->
+
+    <bean class="no.westerdals.tagalong.uploads.MongoUploadService">
+        <constructor-arg index="0" ref="gridFsTemplate" />
+        <constructor-arg index="1" ref="mappingMongoConverter" />
+    </bean>
+
+    <!--<bean class="no.westerdals.tagalong.MongodbUserDetailService" id="userDetailService" />-->
+    <bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" id="passwordEncoder" />
+    <!--<bean class="no.westerdals.tagalong.uploads.FileUploadService">
+        <property name="path" value="/tmp/uploads" />
+    </bean>-->
+
+    <!--<aop:config>
+        <aop:pointcut id="restControllers" expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)" />
+        <aop:aspect id="exceptions" ref="performanceTester">
+            <aop:around method="testPerformance" pointcut-ref="restControllers" />
+        </aop:aspect>
+    </aop:config>-->
+    <!--<aop:config>
+        <aop:pointcut id="restControllers" expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)" />
+        <aop:aspect id="exceptions" ref="exceptionHandler">
+            <aop:around method="runUnsafe" pointcut-ref="restControllers" />
+        </aop:aspect>
+    </aop:config>-->
+</beans>
