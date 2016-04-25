@@ -22,13 +22,13 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
     private MongoTemplate mongoTemplate;
 
     @Override
-    public List<Post> filterPosts(String parentId, String[] tagIds, Pageable pageable) {
+    public List<Post> filterPosts(String[] parentIds, String[] tagIds, Pageable pageable) {
         Query query = new Query();
         if (tagIds != null && tagIds.length > 0) {
             query.addCriteria(where("tagIds").in((Object[]) tagIds));
         }
-        if (parentId != null) {
-            query.addCriteria(where("parentId").is(parentId));
+        if (parentIds != null) {
+            query.addCriteria(where("parentId").all(parentIds));
         }
         if (pageable != null) {
             query.with(pageable);

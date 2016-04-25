@@ -31,13 +31,13 @@ public class PostRestController {
     private UserRepository userRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Post> getPosts(@RequestParam(required=false) String parentId,
+    public List<Post> getPosts(@RequestParam(required=false) String[] parentIds,
                                @RequestParam(required=false) String[] tagIds,
                                @RequestParam(defaultValue="20")int maxPosts,
                                @RequestParam(defaultValue="0")int pageIndex) {
         if (maxPosts < 0 || pageIndex < 0)
             return null;
-        return postRepo.filterPosts(parentId, tagIds, new PageRequest(pageIndex, maxPosts, new Sort(Sort.Direction.DESC, "_id")));
+        return postRepo.filterPosts(parentIds, tagIds, new PageRequest(pageIndex, maxPosts, new Sort(Sort.Direction.DESC, "_id")));
     }
 
     @RequestMapping(value="/{postId}", method=RequestMethod.GET)

@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface PostRepositoryCustom {
-    List<Post> filterPosts(String parentId, String[] tagIds, Pageable pageable);
+    List<Post> filterPosts(String[] parentIds, String[] tagIds, Pageable pageable);
     Post upvotePost(String postId, Upvote upvote);
     Post removePostUpvote(String postId, String userId);
 }
