@@ -35,7 +35,11 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
 
         $scope.events = Event.all(mapEvents);
         $scope.filterUpdated = function() {
-            Event.all({orderBy: $scope.filter.order}, mapEvents);
+            var order = {orderBy: $scope.filter.order};
+            if ($scope.filter.myEvents) {
+                order.createdBy = $scope.me.id;
+            }
+            Event.all(order, mapEvents);
         }
     });
 }]);
