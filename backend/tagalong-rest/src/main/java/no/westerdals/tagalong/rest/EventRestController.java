@@ -95,7 +95,7 @@ public class EventRestController {
         return newOkResult(MessageConstant.EVENT_DELETED);
     }
 
-    @RequestMapping(value="/{eventId}/attend")
+    @RequestMapping(value="/{eventId}/attend", method=RequestMethod.PATCH)
     public ResultResponse attendToEvent(@PathVariable String eventId, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         Event event = eventRepository.findOne(eventId);

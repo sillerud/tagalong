@@ -18,6 +18,9 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
                     'background-color': $.inArray($scope.me.id, event.attending) != -1 ? 'green' : '#FFF'
                 }
             }
+            event.attend = function() {
+                Event.attendEvent({eventId: event.id}, $scope.filterUpdated);
+            };
         }
 
         function mapEvents(events) {
