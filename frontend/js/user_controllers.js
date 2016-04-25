@@ -126,50 +126,8 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
     };
 }]);
 
-userControllers.controller('UserPostFeed', ['$scope', 'Post', 'Comment', 'User', function($scope, Post, Comment, User) {
-    function mapPost(post) {
-        post.user = $scope.user;
-        mapPostColors($scope.user);
-        if (post.user.id == $scope.me.id) {
-            post.delete = function() {
-                Post.remove({postId: post.id}, updatePosts);
-            };
-        }
-        if (post.upvotes) {
-            post.upvotes.forEach(function(value) {
-                if (value.userId == $scope.me.id) {
-                    post.upvoted = "tagged-along";
-                }
-            });
-        }
-        post.tags = $scope.allTags.getByIds(post.tagIds);
-        post.upvote = function() {
-            Post.upvote({postId: post.id, upvote: !post.upvoted}, {}, updatePosts);
-        };
-        post.comments = Comment.getByPost({postId: post.id}, function(comments) {
-            comments.forEach(function(comment) {
-                User.find({userId: comment.userId}, function(user) {
-                    mapPostColors(user);
-                    user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
-                    comment.user = user;
-                    if (comment.userId == $scope.me.id) {
-                        comment.delete = function() {
-                            Comment.deleteComment({commentId: comment.id}, updatePosts);
-                        }
-                    }
-                });
-            });
-        });
-    }
-    function updatePosts()  {
-        $scope.posts = Post.find({parentId: $scope.user.id}, function(data) {
-            data.forEach(mapPost);
-        });
-    }
+userControllers.controller('UserPostFeed', ['$scope', 'feedHelper', function($scope, feedHelper) {
     $scope.user.$promise.then(function() {
-        updatePosts();
-        if ($scope.user.id == $scope.me.id) {
-            $scope.hooks.postCreated.push(updatePosts);
-        }
+         feedHelper.updatePosts($scope.user.id, $scope);
     });
 }]);
