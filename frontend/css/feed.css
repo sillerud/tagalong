@@ -132,6 +132,8 @@ Eks: Tag-feed, all pages, all events, person-feed
     position: relative;
     top: -5px;
     margin-top: 0px;
+    display: inline-block;
+    width: auto;
 }
 .feed-header .feed-date{
     position: absolute;

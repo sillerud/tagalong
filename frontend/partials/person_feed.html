@@ -16,12 +16,12 @@
         <div markdown-to-html="post.content | stripHtml"></div>
     </div><!-- END feed-content -->
 
-    
+
     <div class="bottom-bar">
         <div class="tagalong-like-btn" ng-class="post.upvoted" ng-if="post.upvote" ng-click="post.upvote()"><!-- Fjern klassen tagged-along når et innlegg ikke er likt -->
             <img src="img/tagalongBtn.png" alt="Like button">Tag Along
         </div><!-- END tagalong-like-button -->
-        <input class="delete-btn btn-fill" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete">
+        <input class="delete-btn btn-fill" type="button" ng-if="post.delete" ng-click="post.delete()" value="Delete post">
         <div class="feed-feedback"><span>{{ post.upvotes == null ? 0 : post.upvotes.length }}</span> people tagged along</div>
 
         <div class="post-tags">
@@ -36,17 +36,17 @@
         <div class="comments" ng-if="post.comments.length > 0">
             <div class="comment" ng-repeat="comment in post.comments">
                 <div class="comment-header">
-                    <a ng-href="#/profile/{{comment.user.id}}">
-                        <div class="person-image" ng-style="comment.user.userStyle.profilePictureBorder">
-                            <img ng-src="{{ comment.user.profilePictureUrl }}" alt="Profile picture">
-                        </div>
-                        <div class="comment-info">
-                            <h3 class="person-name">{{ comment.user.firstname }} {{ comment.user.surname }}</h3>
-                            <h4 class="person-studie" ng-style="comment.user.userStyle.studyFieldInfo">{{ comment.user.studyField.description }}</h4>
-                            <div class="feed-date"> {{ comment.timestamp | date: 'HH:mm - dd.MM.yyyy' }}</div>
-                            <div class="delete-comment"><a ng-if="comment.delete" class="delete-btn btn-fill" ng-click="comment.delete()">Delete</a></div>
-                        </div>
-                    </a>
+
+                    <div class="person-image" ng-style="comment.user.userStyle.profilePictureBorder">
+                        <img ng-src="{{ comment.user.profilePictureUrl }}" alt="Profile picture">
+                    </div>
+                    <div class="comment-info">
+                        <h3 class="person-name"><a ng-href="#/profile/{{comment.user.id}}">{{ comment.user.firstname }} {{ comment.user.surname }}</a></h3>
+                        <h4 class="person-studie" ng-style="comment.user.userStyle.studyFieldInfo">{{ comment.user.studyField.description }}</h4>
+                        <div class="feed-date"> {{ comment.timestamp | date: 'HH:mm - dd.MM.yyyy' }}</div>
+                        <div class="delete-comment"><a ng-if="comment.delete" class="delete-btn btn-fill" ng-click="comment.delete()">Delete comment</a></div>
+                    </div>
+
                 </div><!-- END feed-header -->
                 <div class="comment-content" markdown-to-html="comment.content | stripHtml"></div>
             </div>
