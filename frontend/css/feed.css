@@ -24,10 +24,14 @@ Eks: Tag-feed, all pages, all events, person-feed
 /* Card sidebar */
 .card-sidebar-wrap{
     background-color: #FFF;
-    height: 55px;
+    min-height: 55px;
+    height: auto;
     margin-bottom: 15px;
     position: relative;
     cursor: pointer;
+}
+.description{
+    clear: both;
 }
 .sidebar-card-info{
     overflow: hidden;
@@ -455,6 +459,7 @@ Eks: Tag-feed, all pages, all events, person-feed
     position: absolute;
     bottom: 2px;
     right: 2px;
+    background-color: #FFF;
 }
 .delete-card span{
     background-color: #eee;

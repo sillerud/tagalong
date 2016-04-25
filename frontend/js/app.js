@@ -194,7 +194,7 @@ angular.module('tagalong', [
         $rootScope.title = 'Tag along';
 
         $rootScope.setTitle = function(title) {
-            $rootScope.title = 'Tag along' + (title ? ' - ' + title : '');
+            $rootScope.title = (title ? '' + title : '') + ' - Tag Along';
         };
 
         $rootScope.setBreadcrumb = function(name, url) {
