@@ -43,10 +43,14 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
     }
 
     @Override
-    public Event attendEvent(String eventId, String userId) {
+    public Event attendEvent(String eventId, String userId, boolean attend) {
         Query query = Query.query(where("_id").is(new ObjectId(eventId)));
         Update update = new Update();
-        update.push("attending", userId);
+        if (attend) {
+            update.push("attending", userId);
+        } else {
+            update.pull("attending", userId);
+        }
         return mongoTemplate.findAndModify(query, update, new FindAndModifyOptions().returnNew(true), Event.class);
     }
 

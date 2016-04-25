@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -96,12 +97,18 @@ public class EventRestController {
     }
 
     @RequestMapping(value="/{eventId}/attend", method=RequestMethod.PATCH)
-    public ResultResponse attendToEvent(@PathVariable String eventId, Principal principal) {
+    public ResultResponse attendToEvent(@PathVariable String eventId, @RequestParam(defaultValue="false") boolean attend, Principal principal) {
         UserCredentials userCredentials = (UserCredentials) ((Authentication)principal).getPrincipal();
         Event event = eventRepository.findOne(eventId);
         if (event == null)
             return newErrorResult(MessageConstant.EVENT_NOT_FOUND);
-        return newOkResult(MessageConstant.EVENT_UPDATED, eventRepository.attendEvent(event.getId(), userCredentials.getUserId()));
+        if (event.getAttending() != null || Arrays.stream(event.getAttending())
+                .filter(userCredentials.getUserId()::equals)
+                .findAny()
+                .isPresent() == attend) {
+            return newErrorResult(MessageConstant.ACCESS_DENIED);
+        }
+        return newOkResult(MessageConstant.EVENT_UPDATED, eventRepository.attendEvent(event.getId(), userCredentials.getUserId(), attend));
     }
 
     private AccessLevel getAccessLevel(Event event, String userId) {
