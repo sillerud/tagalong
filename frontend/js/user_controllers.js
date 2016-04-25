@@ -24,7 +24,7 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
 userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParams', 'User', 'feedHelper', function($scope, $rootScope, $routeParams, User, feedHelper) {
     if ($routeParams.id) {
         $scope.user = User.find({userId: $routeParams.id}, function(data) {
-            data.profilePictureUrl = getUploadUrl(data.profilePictureId, "img/user_placeholder.png");
+            data.profilePictureUrl = getUploadUrl(data.profilePictureId, "img/placeholder_thumb.jpg");
             data.profileHeaderPictureUrl = getUploadUrl(data.profileHeaderPictureId);
         });
     } else {

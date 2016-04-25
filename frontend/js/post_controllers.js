@@ -7,7 +7,7 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
     $scope.filteredPages = [];
     function mapPost(post) {
         User.find({userId: post.userId}, function(user) {
-            user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+            user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/placeholder_thumb.jpg");
             if (user.id == $scope.me.id) {
                 post.delete = function() {
                     Post.remove({postId: post.id}, refresh);
@@ -35,7 +35,7 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
         post.comments = Comment.getByPost({postId: post.id}, function(comments) {
             comments.forEach(function(comment) {
                 User.find({userId: comment.userId}, function(user) {
-                    user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                    user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/placeholder_thumb.jpg");
                     mapPostColors(user);
                     comment.user = user;
                     if (comment.userId == $scope.me.id) {

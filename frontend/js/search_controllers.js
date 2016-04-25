@@ -24,7 +24,7 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
         if (result.type == "user") {
             result.url = "profile/" + result.data.id;
             result.name = result.data.firstname + " " + result.data.surname;
-            result.thumbnailUrl = getUploadUrl(result.data.profilePictureId, "img/user_placeholder.png");
+            result.thumbnailUrl = getUploadUrl(result.data.profilePictureId, "img/placeholder_thumb.jpg");
             if (result.data.studyFieldId) {
                 $scope.studyfields.getByIds([result.data.studyFieldId]).then(function(studyfields) {
                     result.studyField = studyfields[0];

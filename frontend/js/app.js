@@ -432,7 +432,7 @@ angular.module('tagalong', [
                         redirectLogin();
                         return;
                     }
-                    user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                    user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/placeholder_thumb.jpg");
                     user.profileHeaderPictureUrl = getUploadUrl(user.profileHeaderPictureId);
 
                     $rootScope.styleSheetId = getColorByStudyDirection(user.studyField.studyDirection);
@@ -450,7 +450,7 @@ angular.module('tagalong', [
             updatePosts: function(id, $scope) {
                 function mapPost(post) {
                     User.find({userId: post.userId}, function(user) {
-                        user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                        user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/placeholder_thumb.jpg");
                         if (user.id == $scope.me.id) {
                             post.delete = function() {
                                 Post.remove({postId: post.id}, refresh);
@@ -479,7 +479,7 @@ angular.module('tagalong', [
                         comments.forEach(function(comment) {
                             User.find({userId: comment.userId}, function(user) {
                                 mapPostColors(user);
-                                user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                                user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/placeholder_thumb.jpg");
                                 comment.user = user;
                                 if (comment.userId == $scope.me.id) {
                                     comment.delete = function() {
