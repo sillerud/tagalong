@@ -463,9 +463,11 @@ Eks: Tag-feed, all pages, all events, person-feed
     border-radius: 2px;
 }
 .delete-card span:first-of-type:hover{
-    background-color: #e93f33; /* custom red */
+    background-color: #333;
+    color: #FFF;
 }
 .delete-card span:last-of-type:hover{
-    background-color: #5fcb37; /* custom green */
+    background-color: #333;
+    color: #FFF;
 }
 /* END cards */
