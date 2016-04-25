@@ -78,7 +78,7 @@ public class PostRestController {
     @RequestMapping(value="/by-user/{userId}", method=RequestMethod.GET)
     public List<Post> getPostsByUser(@PathVariable String userId)
     {
-        return postRepo.getByUserId(userId);
+        return postRepo.getByParentId(userId);
     }
 
     @RequestMapping(method=RequestMethod.POST)
@@ -88,6 +88,8 @@ public class PostRestController {
             return newErrorResult(POST_NO_CONTENT_PROVIDED);
         if (post.getTagIds() == null || post.getTagIds().length < 1)
             return newErrorResult(POST_NO_TAGS_PROVIDED);
+        if (post.getParentId() == null)
+            post.setParentId(userCredentials.getUserId());
         post.setTime(new Date());
         post.setUserId(userCredentials.getUserId());
         Post result = postRepo.insert(post);
