@@ -46,8 +46,8 @@
             <div class="feed-tags">
                 <div class="card-tag-wrap">
                         <ul class="card-tag-list">
-                            <strong>Tags in this feed:</strong>
-                            <li ng-repeat="page in filteredPages">{{ page }}</li>
+                            <strong>Filters for this feed:</strong>
+                            <a ng-repeat="page in displayPages"><li>@{{ page.name }}</li></a>
                             <a ng-repeat="tag in displayTags" ng-href="#/feed/{{ tag.id }}"><li>#{{ tag.name }}</li></a>
                         </ul>
                     </div>

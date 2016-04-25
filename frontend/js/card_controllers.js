@@ -2,7 +2,7 @@
 
 var cardControllers = angular.module('cardControllers', []);
 
-cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Card) {
+cardControllers.controller("AllCardCtrl", ['$scope', function($scope) {
     $scope.setTitle("Cards");
     // Åpne og lukke edit/add new card
     $scope.addCard = function() {
@@ -23,19 +23,34 @@ cardControllers.controller("AllCardCtrl", ['$scope', 'Card', function($scope, Ca
     };
 }]);
 
-cardControllers.controller("AddCardCtrl", ['$scope', '$rootScope', 'Card', function($scope, $rootScope, Card) {
-
+cardControllers.controller("AddCardCtrl", ['$scope', 'Card', 'Page', function($scope, Card, Page) {
+    Page.all({maxResults: 1000}, function(pages) {
+        $scope.allPages = pages;
+    });
     $scope.createCard = function() {
         var filter = [];
-        $scope.newcard.tags.forEach(function(tag) {
-            filter.push("#" + tag.id);
-        });
+        if ($scope.newcard.tags) {
+            $scope.newcard.tags.forEach(function (tag) {
+                filter.push("#" + tag.id);
+            });
+        }
+        if ($scope.newcard.pages) {
+            $scope.newcard.pages.forEach(function(page){
+                filter.push('@' + page.id);
+            });
+        }
+        if (filter.length < 1) {
+            alert("You need either a tag or page to create a card.");
+        }
         Card.create({
             userId: $scope.me.id,
             name: $scope.newcard.name,
             description: $scope.newcard.description,
             filter: filter
-        }, $rootScope.updateCards);
+        }, function() {
+            $scope.updateCards();
+            $scope.closePopup();
+        });
     }
 }]);
 

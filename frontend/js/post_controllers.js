@@ -2,7 +2,7 @@
 
 var postControllers = angular.module('postControllers', []);
 
-postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User', 'Comment', function($scope, $routeParams, Post, User, Comment) {
+postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User', 'Comment', 'Page', function($scope, $routeParams, Post, User, Comment, Page) {
     $scope.filteredTags = [];
     $scope.filteredPages = [];
     function mapPost(post) {
@@ -69,9 +69,14 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
                 card.selected = "";
             }
         });
+        $scope.displayPages = [];
         card.filter.forEach(function(filter) {
             if (filter.startsWith('#')) {
                 $scope.filteredTags.push(filter.substring(1));
+            } else if (filter.startsWith('@')) {
+                var pageId = filter.substring(1);
+                $scope.filteredPages.push(pageId);
+                $scope.displayPages.push(Page.query({pageId: pageId}));
             }
         });
 
@@ -81,7 +86,15 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
         });
         console.log($scope.displayTags);
 
-        Post.find({tagIds: $scope.filteredTags.join()}, function(posts) {
+        var filter = {};
+        if ($scope.filteredTags.length > 0) {
+            filter.tagIds = $scope.filteredTags.join();
+        }
+        if ($scope.filteredPages.length > 0) {
+            filter.parentIds = $scope.filteredPages.join();
+        }
+
+        Post.find(filter, function(posts) {
             posts.forEach(function(post) {
                 mapPost(post);
             });

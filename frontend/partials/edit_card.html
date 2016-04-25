@@ -6,10 +6,17 @@
 
                 <strong>Add a card</strong>
                 <br><br>
-                <input ng-model="newcard.name" class="edit-field2" placeholder="Title to card" type="text">
+                <input ng-model="newcard.name" class="edit-field2" placeholder="Title to card" type="text" required>
 
-                <textarea ng-model="newcard.description" class="edit-field3" rows="2" placeholder="Card description"></textarea>
-
+                <textarea ng-model="newcard.description" class="edit-field3" rows="2" placeholder="Card description" required></textarea>
+                <ui-select multiple ng-model="newcard.pages">
+                    <ui-select-match placeholder="Select pages...">
+                        {{$item.name}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="page in (allPages | filter: $select.search) track by page.id">
+                        <span ng-bind="page.name"></span>
+                    </ui-select-choices>
+                </ui-select>
                 <ui-select multiple ng-model="newcard.tags">
                     <ui-select-match placeholder="Select tags...">
                         {{$item.name}}
@@ -22,7 +29,7 @@
             </div><!-- END popup top -->
 
             <div class="popup-bottom">
-                <input id="saveCard" type="submit" class="btn-fill" value="Save card" ng-click="closePopup()">
+                <input id="saveCard" type="submit" class="btn-fill" value="Save card">
             </div><!-- END popu-bottom -->
         </form>
     </div><!-- END edit-card -->
