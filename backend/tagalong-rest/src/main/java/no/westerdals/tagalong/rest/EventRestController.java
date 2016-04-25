@@ -102,7 +102,7 @@ public class EventRestController {
         Event event = eventRepository.findOne(eventId);
         if (event == null)
             return newErrorResult(MessageConstant.EVENT_NOT_FOUND);
-        if (event.getAttending() != null || Arrays.stream(event.getAttending())
+        if (event.getAttending() != null && Arrays.stream(event.getAttending())
                 .filter(userCredentials.getUserId()::equals)
                 .findAny()
                 .isPresent() == attend) {

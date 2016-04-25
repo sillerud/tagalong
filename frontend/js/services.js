@@ -53,6 +53,11 @@ eventServices.factory('Event', ['$resource', function($resource) {
             method: 'DELETE',
             isArray: false,
             url: url('/events/:eventId')
+        },
+        attendEvent: {
+            method: 'PATCH',
+            isArray: false,
+            url: url('/events/:eventId/attend')
         }
     });
 }]);

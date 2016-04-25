@@ -14,12 +14,14 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
                 event.tags = tags;
             });
             if (event.attending && event.attending.length > 0) {
+                event.selfAttending = $.inArray($scope.me.id, event.attending) != -1;
                 event.attendingStyle = {
-                    'background-color': $.inArray($scope.me.id, event.attending) != -1 ? 'green' : '#FFF'
+                    'background-color': event.selfAttending ? 'green' : '#FFF'
                 }
             }
             event.attend = function() {
-                Event.attendEvent({eventId: event.id}, $scope.filterUpdated);
+                console.log({eventId: event.id, attend: !event.selfAttending});
+                Event.attendEvent({eventId: event.id, attend: !event.selfAttending}, {}, $scope.filterUpdated);
             };
         }
 
