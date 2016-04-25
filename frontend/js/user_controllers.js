@@ -144,7 +144,7 @@ userControllers.controller('UserPostFeed', ['$scope', 'Post', 'Comment', 'User',
         }
         post.tags = $scope.allTags.getByIds(post.tagIds);
         post.upvote = function() {
-            Post.upvote({postId: post.id}, {upvote: !post.upvoted}, updatePosts);
+            Post.upvote({postId: post.id, upvote: !post.upvoted}, {}, updatePosts);
         };
         post.comments = Comment.getByPost({postId: post.id}, function(comments) {
             comments.forEach(function(comment) {
