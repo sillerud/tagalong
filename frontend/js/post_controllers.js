@@ -52,6 +52,11 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
         if ($routeParams.tagId) {
             $scope.selectCard({filter: ['#' + $routeParams.tagId]});
             $scope.setTitle('Tag feed');
+        } else if ($routeParams.feedId) {
+            $scope.selectCard($scope.cards.find(function (card) {
+                return card.id == $routeParams.feedId;
+            }));
+            $scope.setTitle('Card feed');
         } else {
             $scope.selectCard($scope.currentCard);
             $scope.setTitle('Card feed');
@@ -80,11 +85,9 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
             }
         });
 
-        console.log($scope.filteredTags);
         $scope.allTags.getByIds($scope.filteredTags).then(function(tags) {
             $scope.displayTags = tags;
         });
-        console.log($scope.displayTags);
 
         var filter = {};
         if ($scope.filteredTags.length > 0) {

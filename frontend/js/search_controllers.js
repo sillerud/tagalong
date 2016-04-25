@@ -35,7 +35,7 @@ searchControllers.controller("QuickSearchCtrl", ['$scope', 'Search', function($s
             result.name = result.data.name;
         } else if (result.type == "tag") {
             var current = result.data;
-            result.url = "feed/" + result.data.id;
+            result.url = "feed/tag/" + result.data.id;
             result.name = "";
             while (current) {
                 result.name = "/#" + current.name + result.name;

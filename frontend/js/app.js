@@ -142,7 +142,15 @@ angular.module('tagalong', [
                 templateUrl: 'partials/cards.html',
                 controller: 'AllCardCtrl'
             })
-            .when("/feed/:tagId", {
+            .when("/feed/tag/:tagId", {
+                templateUrl: 'partials/feed.html',
+                controller: 'FeedCtrl'
+            })
+            .when('/feed/:feedId', {
+                templateUrl: 'partials/feed.html',
+                controller: 'FeedCtrl'
+            })
+            .when('/feed/page/:pageId', {
                 templateUrl: 'partials/feed.html',
                 controller: 'FeedCtrl'
             })

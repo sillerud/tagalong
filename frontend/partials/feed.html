@@ -12,7 +12,7 @@
                     <div class="owner-col-6" ng-click="openNewPost(0); scrollToPopup()">Add new post</div>
                 </div>
 
-                <div class="sidebar-card" ng-repeat="card in cards" id="{{ card.id }}" ng-click="selectCard(card)">
+                <div class="sidebar-card" ng-repeat="card in cards" id="{{ card.id }}" ng-click="goToUrl('#/feed/' + card.id)">
                     <div class="card-sidebar-wrap" ng-class="card.selected">
                         <div class="card-extra">
                             <!--div class="number-of-new-posts">40</div-->
@@ -48,7 +48,7 @@
                         <ul class="card-tag-list">
                             <strong>Filters for this feed:</strong>
                             <a ng-repeat="page in displayPages"><li>@{{ page.name }}</li></a>
-                            <a ng-repeat="tag in displayTags" ng-href="#/feed/{{ tag.id }}"><li>#{{ tag.name }}</li></a>
+                            <a ng-repeat="tag in displayTags" ng-href="#/feed/tag/{{ tag.id }}"><li>#{{ tag.name }}</li></a>
                         </ul>
                     </div>
             </div>
