@@ -491,7 +491,7 @@ angular.module('tagalong', [
                     });
                 }
                 function updatePosts()  {
-                    $scope.posts = Post.find({parentId: id}, {}, function(data) {
+                    $scope.posts = Post.find({parentIds: id}, {}, function(data) {
                         data.forEach(mapPost);
                     });
                 }
