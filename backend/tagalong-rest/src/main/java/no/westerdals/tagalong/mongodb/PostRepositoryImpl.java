@@ -28,7 +28,7 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
             query.addCriteria(where("tagIds").in((Object[]) tagIds));
         }
         if (parentIds != null) {
-            query.addCriteria(where("parentId").all(parentIds));
+            query.addCriteria(where("parentId").in((Object[]) parentIds));
         }
         if (pageable != null) {
             query.with(pageable);
