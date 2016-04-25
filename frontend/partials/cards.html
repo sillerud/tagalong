@@ -1,15 +1,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-4 col-md-3" ng-repeat="card in cards" id="{{ card.id }}">
+        <div class="col-sm-4 col-md-3" ng-repeat="card in cards" id="{{ card.id }}" ng-click="selectCard(card)">
             <div class="card-wrap" ng-style="{'background-image': 'url(' + card.customBackgroundImageUrl + ')'}">
                 <div class="card-overlay"></div>
-                <div class="new-post-in-card-icon">
-                    5
-                </div>
-                <div class="edit-card-icon">
-                    <i class="fa fa-cog "></i>
-                </div>
+
                 <div class="card-wrap-inner">
 
                     <h3>{{ card.name | limitTo : 23 }}{{card.name.length > 20 ? '...' : ''}}</h3>
