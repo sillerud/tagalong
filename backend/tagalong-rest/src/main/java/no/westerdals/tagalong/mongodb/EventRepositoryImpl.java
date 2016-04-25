@@ -1,10 +1,13 @@
 package no.westerdals.tagalong.mongodb;
 
 import no.westerdals.tagalong.model.Event;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -30,7 +33,7 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
             query.addCriteria(where("endDate").lt(endDate));
         }
         if (tagIds != null && tagIds.length > 0) {
-            query.addCriteria(where("tagIds").all(tagIds));
+            query.addCriteria(where("tagIds").all((Object[]) tagIds));
         }
         if (pageId != null) {
             query.addCriteria(where("parentId").is(pageId));
@@ -38,4 +41,14 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
         query.with(pageable);
         return mongoTemplate.find(query, Event.class);
     }
+
+    @Override
+    public Event attendEvent(String eventId, String userId) {
+        Query query = Query.query(where("_id").is(new ObjectId(eventId)));
+        Update update = new Update();
+        update.push("attending", userId);
+        return mongoTemplate.findAndModify(query, update, new FindAndModifyOptions().returnNew(true), Event.class);
+    }
+
+
 }
