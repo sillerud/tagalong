@@ -337,7 +337,7 @@ Eks: Tag-feed, all pages, all events, person-feed
 
 .attend-btn{
     display: inline;
-    background-color: #333;
+    /*background-color: #333;*/
     padding: 1px 5px;
     border-radius: 2px;
     color: #FFF;

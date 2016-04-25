@@ -72,7 +72,7 @@
                             </h3><!-- END tittel -->
                             <h4 class="events-preview-location">Location: {{ event.location }}</h4>
                             <h4 class="events-preview-attending">
-                                <div class="attend-btn" ng-click="event.attend()"><i class="fa fa-check" aria-hidden="true"></i>Attend</div>
+                                <div class="attend-btn" ng-click="event.attend()" ng-style="event.attendingStyle"><i class="fa fa-check" aria-hidden="true"></i>Attend</div>
                                 {{ event.attending.length }} people attending
                             </h4>
                         </div>

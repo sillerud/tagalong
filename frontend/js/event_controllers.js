@@ -16,7 +16,7 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
             if (event.attending && event.attending.length > 0) {
                 event.selfAttending = $.inArray($scope.me.id, event.attending) != -1;
                 event.attendingStyle = {
-                    'background-color': event.selfAttending ? 'green' : '#FFF'
+                    'background-color': event.selfAttending ? 'green' : '#333'
                 }
             }
             event.attend = function() {
@@ -27,11 +27,12 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
 
         function mapEvents(events) {
             events.forEach(mapEvent);
+            $scope.events = events;
         }
 
         $scope.events = Event.all(mapEvents);
         $scope.filterUpdated = function() {
-            $scope.events = Event.all({orderBy: $scope.filter.order}, mapEvents);
+            Event.all({orderBy: $scope.filter.order}, mapEvents);
         }
     });
 }]);
