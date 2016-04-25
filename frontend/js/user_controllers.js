@@ -21,7 +21,7 @@ userControllers.controller("CreateUserCtrl", ['$scope', 'User', function($scope,
     }
 }]);
 
-userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParams', 'User', function($scope, $rootScope, $routeParams, User) {
+userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParams', 'User', 'feedHelper', function($scope, $rootScope, $routeParams, User, feedHelper) {
     if ($routeParams.id) {
         $scope.user = User.find({userId: $routeParams.id}, function(data) {
             data.profilePictureUrl = getUploadUrl(data.profilePictureId, "img/user_placeholder.png");
@@ -33,6 +33,7 @@ userControllers.controller("ShowUserCtrl", ['$scope', '$rootScope', '$routeParam
 
     $scope.user.$promise.then(function (user) {
         $scope.setTitle(user.firstname + " " + user.surname);
+        feedHelper.updatePosts($scope.user.id, $scope);
     });
 
     $scope.setBreadcrumb("Profile", "#/profile");
@@ -124,10 +125,4 @@ userControllers.controller("EditProfileCtrl", ['$scope', '$routeParams', 'User',
     $scope.deleteItem = function(item) {
         $scope.user.contactInfo.splice($scope.user.contactInfo.indexOf(item), 1);
     };
-}]);
-
-userControllers.controller('UserPostFeed', ['$scope', 'feedHelper', function($scope, feedHelper) {
-    $scope.user.$promise.then(function() {
-         feedHelper.updatePosts($scope.user.id, $scope);
-    });
 }]);

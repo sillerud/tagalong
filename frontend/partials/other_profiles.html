@@ -99,7 +99,7 @@
                 <a class="owner-col-6" ng-click="openNewPost(0); scrollToPopup();">Add new post</a>
                 <a class="owner-col-6" href="#/profile/edit" ng-if="user.id == me.id">Edit profile</a>
             </div>
-            <ng-include ng-controller="UserPostFeed" src="'partials/person_feed.html'"></ng-include>
+            <ng-include src="'partials/person_feed.html'"></ng-include>
         </div><!--person_feed.php END-->
 
 
