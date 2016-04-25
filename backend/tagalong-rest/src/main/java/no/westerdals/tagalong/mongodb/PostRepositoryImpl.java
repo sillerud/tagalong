@@ -7,10 +7,12 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.query.Query.*;
@@ -24,14 +26,18 @@ public class PostRepositoryImpl implements PostRepositoryCustom {
     @Override
     public List<Post> filterPosts(String[] parentIds, String[] tagIds, Pageable pageable) {
         Query query = new Query();
+        ArrayList<Criteria> criterias = new ArrayList<Criteria>();
         if (tagIds != null && tagIds.length > 0) {
-            query.addCriteria(where("tagIds").in((Object[]) tagIds));
+            criterias.add(where("tagIds").in((Object[]) tagIds));
         }
         if (parentIds != null) {
-            query.addCriteria(where("parentId").in((Object[]) parentIds));
+            criterias.add(where("parentId").in((Object[]) parentIds));
         }
         if (pageable != null) {
             query.with(pageable);
+        }
+        if (criterias.size() > 0) {
+            query.addCriteria(new Criteria().orOperator(criterias.stream().toArray(Criteria[]::new)));
         }
         return mongoTemplate.find(query, Post.class);
     }
