@@ -6,6 +6,16 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
     $scope.filteredTags = [];
     $scope.filteredPages = [];
     function mapPost(post) {
+        User.find({userId: post.userId}, function(user) {
+            user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+            if (user.id == $scope.me.id) {
+                post.delete = function() {
+                    Post.remove({postId: post.id}, refresh);
+                };
+            }
+            mapPostColors(user);
+            post.user = user;
+        });
         post.comment = function() {
             Comment.create({parentId: post.id, content: post.comment_body}, refresh);
         };
@@ -20,7 +30,7 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
             post.tags = tags;
         });
         post.upvote = function() {
-            post.$upvote({upvote: !post.upvoted}, refresh);
+            Post.upvote({postId: post.id, upvote: !post.upvoted}, {}, refresh);
         };
         post.comments = Comment.getByPost({postId: post.id}, function(comments) {
             comments.forEach(function(comment) {
@@ -73,16 +83,6 @@ postControllers.controller("FeedCtrl", ['$scope', '$routeParams', 'Post', 'User'
 
         Post.find({tagIds: $scope.filteredTags.join()}, function(posts) {
             posts.forEach(function(post) {
-                User.find({userId: post.userId}, function(user) {
-                    user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
-                    if (user.id == $scope.me.id) {
-                        post.delete = function() {
-                            Post.remove({postId: post.id}, refresh);
-                        };
-                    }
-                    mapPostColors(user);
-                    post.user = user;
-                });
                 mapPost(post);
             });
             $scope.posts = posts;

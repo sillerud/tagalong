@@ -110,7 +110,7 @@
             <div class="col-sm-6">
                 <div class="page-right-column">
                     <div class="owner-menu" ng-if="page.canWrite"><!-- Synes kun for eier av side/profil/event -->
-                        <a class="owner-col-6">Add new post</a>
+                        <a class="owner-col-6" ng-click="openNewPost(true, page.id)">Add new post</a>
                         <a ng-href="#/pages/{{ page.id }}/edit" class="owner-col-6" ng-if="page.canEdit">Edit page</a>
                     </div>
                     <ng-include src="'partials/person_feed.html'">

@@ -16,11 +16,14 @@ eventControllers.controller('ViewEventsCtrl', ['$scope', 'Event', function ($sco
             if (event.attending && event.attending.length > 0) {
                 event.selfAttending = $.inArray($scope.me.id, event.attending) != -1;
                 event.attendingStyle = {
-                    'background-color': event.selfAttending ? 'green' : '#333'
+                    backgroundColor: event.selfAttending ? 'green' : '#333'
+                }
+            } else {
+                event.attendingStyle = {
+                    backgroundColor: '#333'
                 }
             }
             event.attend = function() {
-                console.log({eventId: event.id, attend: !event.selfAttending});
                 Event.attendEvent({eventId: event.id, attend: !event.selfAttending}, {}, $scope.filterUpdated);
             };
         }

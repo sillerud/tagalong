@@ -6,7 +6,7 @@ function redirectLogin() {
     window.location = "login.html";
 }
 
-pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card', function($scope, $routeParams, Page, Card) {
+pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'feedHelper', function($scope, $routeParams, Page, feedHelper) {
     /*
      private String id;
      private String customUrl;
@@ -34,7 +34,7 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
 
     function refreshPage() {
         $scope.shoutOutEditVisible = false;
-        $scope.page = Page.query({ pageId: $routeParams.id }, function(data) {
+        Page.query({ pageId: $routeParams.id }, function(data) {
             $scope.setTitle(data.name);
             description = data.description;
             shortDescription = description.length > 100 ? description.substring(0, 100) : description + "...";
@@ -43,17 +43,19 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
             data.coverPictureUrl = getUploadUrl(data.coverPictureId);
             data.canEdit = canEdit(data.accessLevel);
             data.canWrite = canWrite(data.accessLevel);
+            feedHelper.updatePosts(data.id, $scope);
+            $scope.page = data;
         });
     }
-    
+
     refreshPage();
 
     $scope.hooks.postCreated.push(refreshPage);
-    
+
     $scope.toggleShoutOutEdit = function() {
-        $scope.shoutOutEditVisible = !$scope.shoutOutEditVisible;  
+        $scope.shoutOutEditVisible = !$scope.shoutOutEditVisible;
     };
-    
+
     $scope.updateShoutOut = function() {
         Page.update({pageId: $scope.page.id}, {shoutOut: $scope.page.shoutOutEdited}, refreshPage);
     };
@@ -72,9 +74,8 @@ pageControllers.controller("PageCtrl", ['$scope', '$routeParams', 'Page', 'Card'
         $scope.description = $scope.showMoreText ? shortDescription : description;
         // TODO: redo the animation
         $scope.showMoreText = !$scope.showMoreText;
-    }
-}
-]);
+    };
+}]);
 
 pageControllers.controller('ShowPagesController', ['$scope', 'Page', function($scope, Page) {
     $scope.setTitle("Pages");

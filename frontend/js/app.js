@@ -256,12 +256,17 @@ angular.module('tagalong', [
             $('.add-to-card-wrap').fadeIn();
             $('#darkOverlay').fadeIn();
         }; // END add to card
-        $rootScope.openNewPost = function(doo){
+        $rootScope.openNewPost = function(doo, id){
             $('.new-post-wrap').fadeIn();
             $('#darkOverlay').fadeIn();
             // Sjekker om shortcuts skal kjøre eller ikke
             if( doo == 1) $rootScope.closeShortcuts(1);
             else if( doo != 0) $rootScope.openShortcuts(1);
+            if (id) {
+                $rootScope.newpost.parentId = id;
+            } else {
+                $rootScope.newpost.parentId = $rootScope.me.id;
+            }
         };
         $rootScope.scrollToPopup = function(){
             $('body').animate({scrollTop: 0}, 300);
@@ -275,7 +280,6 @@ angular.module('tagalong', [
         $rootScope.createPost = function() {
             var newpost = {};
             angular.forEach($rootScope.newpost, genericValueMapping, newpost);
-            newpost.parentId = $rootScope.me.id; // TODO: Select this
             Post.create(newpost, function() {
                 $rootScope.hooks.postCreated.forEach(function(updateMethod) {
                     updateMethod();
@@ -432,6 +436,69 @@ angular.module('tagalong', [
                 }, redirectLogin);
             }
         };
+    }])
+    .factory('feedHelper', ['User', 'Post', 'Comment', function(User, Post, Comment) {
+        return {
+            updatePosts: function(id, $scope) {
+                function mapPost(post) {
+                    User.find({userId: post.userId}, function(user) {
+                        user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                        if (user.id == $scope.me.id) {
+                            post.delete = function() {
+                                Post.remove({postId: post.id}, refresh);
+                            };
+                        }
+                        mapPostColors(user);
+                        post.user = user;
+                        if (post.user.id == $scope.me.id) {
+                            post.delete = function() {
+                                Post.remove({postId: post.id}, updatePosts);
+                            };
+                        }
+                        if (post.upvotes) {
+                            post.upvotes.forEach(function(value) {
+                                if (value.userId == $scope.me.id) { // Need to be done in a sane way...
+                                    post.upvoted = "tagged-along";
+                                }
+                            });
+                        }
+                    });
+                    post.tags = $scope.allTags.getByIds(post.tagIds);
+                    post.upvote = function() {
+                        Post.upvote({postId: post.id, upvote: !post.upvoted}, {}, updatePosts);
+                    };
+                    post.comments = Comment.getByPost({postId: post.id}, function(comments) {
+                        comments.forEach(function(comment) {
+                            User.find({userId: comment.userId}, function(user) {
+                                mapPostColors(user);
+                                user.profilePictureUrl = getUploadUrl(user.profilePictureId, "img/user_placeholder.png");
+                                comment.user = user;
+                                if (comment.userId == $scope.me.id) {
+                                    comment.delete = function() {
+                                        Comment.deleteComment({commentId: comment.id}, updatePosts);
+                                    }
+                                }
+                            });
+                        });
+                    });
+                }
+                function updatePosts()  {
+                    $scope.posts = Post.find({parentId: id}, {}, function(data) {
+                        data.forEach(mapPost);
+                    });
+                }
+                if ($scope.user) {
+                    $scope.user.$promise.then(function() {
+                        updatePosts();
+                        if ($scope.user.id == $scope.me.id) {
+                            $scope.hooks.postCreated.push(updatePosts);
+                        }
+                    });
+                } else {
+                    updatePosts();
+                }
+            }
+        }
     }])
     .directive('galeryImage', function() {
         return {
