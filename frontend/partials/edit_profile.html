@@ -58,6 +58,21 @@
                     <h5 class="edit-title-description">Fields marked with * (asterisk) are required</h5>
                 </div>
 
+                <div class="edit-field-group">
+                    <label for="studyFieldId">Field of study *</label>
+                    <select id="studyFieldId" class="edit-field2" ng-options="studyField.description for studyField in studyfields track by studyField.id" ng-model="user.studyField"></select>
+                </div><!-- END field group -->
+
+                <div class="edit-field-group">
+                    <label for="studyStartYearInput">Study start year *</label>
+                    <div class='input-group date' id='studyStartYear'>
+                        <input id="studyStartYearInput" ng-model="user.studyStartYear" type='text' class="edit-field2"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div><!-- END field group -->
+
                 <div class="form-group edit-field-group">
                     <label for="userBorn">Year of birth</label>
                     <div class='input-group date' id='bornDate'>
@@ -84,20 +99,7 @@
                     <input ng-model="user.city" type=text class="edit-field2" placeholder="Type in the city you're living in">
                 </div>
 
-                <div class="edit-field-group">
-                    <label for="studyFieldId">Field of study</label>
-                    <select id="studyFieldId" class="edit-field2" ng-options="studyField.description for studyField in studyfields track by studyField.id" ng-model="user.studyField"></select>
-                </div>
 
-                <div class="edit-field-group">
-                    <label for="studyStartYearInput">Study start year</label>
-                    <div class='input-group date' id='studyStartYear'>
-                        <input id="studyStartYearInput" ng-model="user.studyStartYear" type='text' class="edit-field2"/>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                    </div>
-                </div>
             </div><!--END col-sm-6-->
 
             <div class="col-sm-6">
@@ -107,7 +109,7 @@
                 </div>
                 <div class="edit-field-group">
                     <label>Email:</label>
-                    <input name="email" ng-model="user.email" class="edit-field2" type="text" placeholder="ola@nordmann.no">
+                    <input name="email" ng-model="user.email" class="edit-field2" type="text" placeholder="ola@nordmann.no" disabled style="opacity: 0.7;">
                 </div>
 
             </div><!--END col-sm-6-->
