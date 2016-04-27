@@ -3,6 +3,8 @@
         <div class="center-input"><h1>Edit your profile details</h1></div>
 
         <div class="center-block">
+
+            <center><h4>Click the image below to edit your cover photo</h4></center>
             <div class="edit-profile-profile-pic edit-cover edit-pic">
                 <img class="img-responsive" ng-src="{{ me.profileHeaderPictureUrl }}">
                 <div class="pic-overlay" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
@@ -16,7 +18,9 @@
                         <a class="upload-btn" ng-click="cropDialogState('#header-image-crop', 'hide')">Close</a>
                     </div><!-- END upload-btn-wrap -->
                 </div>
-            </div>
+            </div><!-- END edit cover photo -->
+
+            <center><h4>Click the image below to edit your profile picture</h4></center>
             <div class="edit-profile-profile-pic edit-pic">
                 <img class="img-responsive" ng-src="{{ me.profilePictureUrl }}">
                 <div class="pic-overlay" ng-model="profilePictureSrc" ngf-select="cropDialogState('#profile-picture-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
@@ -30,8 +34,10 @@
                         <a class="upload-btn" ng-click="cropDialogState('#profile-picture-crop', 'hide')">Close</a>
                     </div><!-- END upload-btn-wrap -->
                 </div>
-            </div>
-        </div>
+            </div><!-- END profile picutre -->
+
+        </div><!-- END center block -->
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="group-description">

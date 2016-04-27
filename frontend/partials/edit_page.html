@@ -4,6 +4,8 @@
 
         <div class="row">
             <div class="col-sm-12">
+
+                <center><h4>Click the image below to edit your cover photo</h4></center>
                 <div class="edit-profile-profile-pic edit-cover">
                     <img class="img-responsive" ng-src="{{ coverPictureUrl }}" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
                     <div class="pic-overlay" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
@@ -18,6 +20,7 @@
                         </div><!-- END upload-btn-wrap -->
                     </div>
                 </div>
+                <center><h4>Click the image below to edit your profile picture</h4></center>
                 <div class="edit-profile-profile-pic edit-pic">
                     <img class="img-responsive" ng-src="{{ logoPictureUrl }}">
                     <div class="pic-overlay" ng-model="profilePictureSrc" ngf-select="cropDialogState('#profile-picture-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">

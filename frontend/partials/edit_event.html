@@ -4,6 +4,8 @@
 
         <div class="col-sm-12">
             <div class="row">
+
+                <center><h4>Click the image below to edit your cover photo</h4></center>
                 <div class="edit-profile-profile-pic edit-cover">
                     <img class="img-responsive" ng-src="{{ event.coverImageUrl }}" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
                     <div class="pic-overlay" ng-model="headerImageSrc" ngf-select="cropDialogState('#header-image-crop', 'show')" ngf-drop="openCropDialog()" ngf-pattern="'image/*'">
