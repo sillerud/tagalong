@@ -61,13 +61,26 @@ function updateEvent(originalId, $scope, Event, Upload) {
         return originalId ? true : false;
     };
     $scope.setTitle($scope.isEdit() ? 'Edit event' : 'Create event');
-    var startDatePicker = $('#eventStartDate');
-    startDatePicker.datetimepicker();
-    var endDatePicker = $('#eventEndDate');
-    endDatePicker.datetimepicker();
-    startDatePicker = startDatePicker.data("DateTimePicker");
+    var startDatePickerDOM = $('#eventStartDate');
+    startDatePickerDOM.datetimepicker();
+    var endDatePickerDOM = $('#eventEndDate');
+    endDatePickerDOM.datetimepicker({
+        useCurrent: false
+    });
 
-    endDatePicker = endDatePicker.data("DateTimePicker");
+    var startDatePicker = startDatePickerDOM.data("DateTimePicker");
+    var endDatePicker = endDatePickerDOM.data("DateTimePicker");
+
+    startDatePickerDOM.on('dp.change', function(e) {
+        endDatePicker.minDate(e.date);
+    });
+
+    endDatePickerDOM.on('dp.change', function(e) {
+        if (!startDatePicker.changed) {
+            startDatePicker.date(e.date);
+        }
+        startDatePicker.maxDate(e.date);
+    });
 
     $scope.cropDialogState = function(cropId, state) {
         $(cropId).modal(state);

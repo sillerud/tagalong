@@ -1,5 +1,5 @@
 <div class="container edit-profile-wrap edit-fields" id="editEvent">
-    <ng-form>
+    <form ng-submit="createEvent()">
         <div class="center-input"><h1>{{ title }}</h1></div>
 
         <div class="col-sm-12">
@@ -23,22 +23,22 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="edit-this-title">Title</h3>
+                    <h3 class="edit-this-title">Title*</h3>
 
-                    <input ng-model="event.title" class="edit-field2" placeholder="Title of the event">
-                    <textarea ng-model="event.description" rows="6" class="edit-field3" placeholder="About the event"></textarea>
+                    <input ng-model="event.title" class="edit-field2" placeholder="Title of the event" required>
+                    <textarea ng-model="event.description" rows="6" class="edit-field3" placeholder="About the event" required></textarea>
                 </div>
             </div>
         </div><!-- END col 12 -->
 
         <div class="row">
             <div class="col-sm-6">
-                <h3><i class="fa fa-clock-o edit-event-date-icon"></i>Start date</h3>
+                <h3><i class="fa fa-clock-o edit-event-date-icon"></i>Start date*</h3>
 
                 <div class="form-group">
                     <label for="eventStartDateField" hidden>Event start date</label>
                     <div id="eventStartDate" class='input-group date1'>
-                        <input id="eventStartDateField" type='text' class="edit-field2"/>
+                        <input id="eventStartDateField" type='text' class="edit-field2" required>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -83,8 +83,8 @@
             <input type="button" value="Delete" class="btn-fill btn-small" ng-click="deleteEvent()">
           </div>
 
-        <div class="center-input"><input type="button" ng-click="createEvent()" class="btn-fill btn-fill-save" value="Save changes"></div>
+        <div class="center-input"><input type="submit" class="btn-fill btn-fill-save" value="Save changes"></div>
 
 
-    </ng-form>
+    </form>
 </div><!-- END - container -->
